@@ -1,0 +1,40 @@
+timeline
+    title Enterprise Data Architecture Evolution
+    
+    section BI Era (1990-2015)
+        1990s : Data Warehouses Emerge
+              : Kimball Dimensional Modeling
+              : SQL becomes standard
+        2000s : ETL Tools Mature
+              : BI Platforms (Tableau, Qlik)
+              : OLAP Cubes, Reporting
+        2010s : Cloud Data Warehouses
+              : Self-Service BI
+              : Snowflake, Redshift
+              
+    section ML Era (2015-2023)
+        2015 : Hadoop & Big Data Lakes
+             : Spark distributed processing
+             : Schema-on-read philosophy
+        2018 : Feature Stores introduced
+             : MLOps pipelines
+             : Model registries (MLflow)
+        2020 : Real-time ML inference
+             : Embedding models
+             : Vector similarity search
+        2022 : LLMs go mainstream
+             : ChatGPT released
+             : Prompt engineering
+             
+    section Agentic Era (2023-Present)
+        2023 : RAG architecture patterns
+             : Vector DBs production-ready
+             : Agent frameworks emerge
+        2024 : Multi-agent orchestration
+             : LangGraph, CrewAI, AutoGen
+             : MCP protocol (experimental)
+             : 7-Layer architecture
+        2025+ : Agent-ready standard
+              : ABAC governance
+              : Semantic layers required
+              : Continuous model monitoring

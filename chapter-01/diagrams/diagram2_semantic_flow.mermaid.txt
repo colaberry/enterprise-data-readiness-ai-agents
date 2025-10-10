@@ -1,0 +1,16 @@
+flowchart LR
+    A[User Query:<br/>'My doctor'] --> B[Layer 2:<br/>Semantic Layer]
+    B --> C{Entity<br/>Resolution}
+    C --> D[EHR System:<br/>primary_care_provider_id]
+    C --> E[Credentialing:<br/>physician_npi]
+    C --> F[Scheduling:<br/>provider_schedule_id]
+    D --> G[Golden ID:<br/>provider_npi=1234567890]
+    E --> G
+    F --> G
+    G --> H[Unified Entity:<br/>Dr. Sarah Martinez]
+    H --> I[Agent Context:<br/>Complete provider profile<br/>across all systems]
+    
+    style A fill:#e1f5ff
+    style B fill:#ffe1f0
+    style G fill:#90EE90
+    style I fill:#FFD700

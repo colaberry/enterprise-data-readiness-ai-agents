@@ -1,0 +1,47 @@
+sequenceDiagram
+    participant User
+    participant Router as Router Agent<br/>(Layer 7)
+    participant SchedAgent as Scheduling<br/>Specialist
+    participant InsAgent as Insurance<br/>Specialist
+    participant L6 as Layer 6<br/>Observability
+    participant L5 as Layer 5<br/>ABAC Governance
+    participant L4 as Layer 4<br/>RAG
+    participant L3 as Layer 3<br/>Storage
+    participant L2 as Layer 2<br/>Semantic
+    participant L1 as Layer 1<br/>Real-Time Data
+    
+    User->>Router: "Schedule Dr. Martinez today,<br/>will insurance cover cardiology?"
+    Router->>L6: Log query start (trace_id: x7k2m)
+    Router->>Router: Decompose: 1) Scheduling 2) Insurance
+    
+    par Parallel Execution
+        Router->>SchedAgent: Task 1: Find availability
+        Router->>InsAgent: Task 2: Verify coverage
+        
+        SchedAgent->>L5: Check user permissions
+        InsAgent->>L5: Check user permissions
+        L5-->>SchedAgent: PERMIT (scheduling scope)
+        L5-->>InsAgent: PERMIT (insurance scope)
+        
+        SchedAgent->>L4: RAG query (Dr. Martinez + today)
+        InsAgent->>L4: RAG query (cardiology coverage)
+        
+        L4->>L3: Hybrid search
+        L3->>L2: Entity resolution
+        L2->>L1: Get fresh data
+        L1-->>L2: Schedule: 25s old
+        L1-->>L2: Eligibility: 10s old
+        L2-->>L3: Semantic mappings applied
+        L3-->>L4: Retrieved contexts
+        
+        L4-->>SchedAgent: 3 slots available
+        L4-->>InsAgent: Covered, $90 OOP
+    end
+    
+    SchedAgent-->>Router: Result 1
+    InsAgent-->>Router: Result 2
+    Router->>Router: Synthesize responses
+    Router->>L6: Log success (2.3s, $0.007)
+    Router->>User: "3 openings: 11:30am, 2pm, 4:15pm.<br/>Insurance covers: $90 total."
+    User->>Router: [Books 2pm]
+    Router->>L6: Log positive feedback
