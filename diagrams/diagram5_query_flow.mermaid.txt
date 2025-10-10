@@ -1,3 +1,4 @@
+```mermaid
 sequenceDiagram
     participant User
     participant Router as Router Agent<br/>(Layer 7)
