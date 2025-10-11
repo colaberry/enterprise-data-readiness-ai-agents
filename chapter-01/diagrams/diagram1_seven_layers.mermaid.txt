@@ -1,3 +1,4 @@
+```mermaid
 graph TB
     subgraph "Layer 7: Self-Service Data Products & Multi-Agent Orchestration"
         L7A[Data Product Catalog]

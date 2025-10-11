@@ -136,15 +136,15 @@ This isn't about talent. Sarah's team was skilled and experienced.
 
 ---
 
-## The Architecture That Works: Seven Layers of Agent-Ready Data Infrastructure
+## The Architecture That Works: 7 Layers of Agent-Ready Enterprise Data Infrastructure
 
-Before we dive into how to transform your current infrastructure, let me show you where you need to end up. This is the data architecture that separates successful agent deployments from failed pilots.
+Before we dive into how to transform your current enterprise data infrastructure, let me show you where you need to end up. This is the data architecture that separates successful agent deployments from failed pilots.
 
 Over the past two years, we've studied hundreds of production agent deployments across industries—from healthcare systems using AWS Bedrock, to financial institutions building on Azure OpenAI, to retailers deploying Google Vertex AI agents. We've analyzed documented case studies from AWS customer success stories, reviewed architecture patterns from Microsoft's AI documentation, examined Databricks' lakehouse AI implementations, and synthesized patterns from Anthropic's Claude enterprise deployments and technical blogs from Pinecone, Weaviate, and Neo4j.
 
 The patterns that separate success from failure are remarkably consistent.
 
-At Colaberry, we've synthesized these industry-wide patterns into what we call the **Seven-Layer Agent-Ready Data Architecture**. What you'll see in this book reflects not just our synthesis, but the collective lessons from enterprises who've already made this journey—documented in public case studies, technical documentation, and reference architectures from leading cloud providers and AI infrastructure vendors.
+At Colaberry, we've synthesized these industry-wide patterns into what we call the **7-Layer Agent-Ready Enterprise Data Architecture**. What you'll see in this book reflects not just our synthesis, but the collective lessons from enterprises who've already made this journey—documented in public case studies, technical documentation, and reference architectures from leading cloud providers and AI infrastructure vendors.
 
 **This is what agent-ready looks like:**
 

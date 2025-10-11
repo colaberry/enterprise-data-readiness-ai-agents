@@ -1,3 +1,4 @@
+```mermaid
 flowchart LR
     A[User Query:<br/>'My doctor'] --> B[Layer 2:<br/>Semantic Layer]
     B --> C{Entity<br/>Resolution}

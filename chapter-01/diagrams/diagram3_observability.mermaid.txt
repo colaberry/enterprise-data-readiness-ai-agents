@@ -1,3 +1,4 @@
+```mermaid
 graph TB
     subgraph "Data Layer Metrics"
         DL1[Freshness: <1 min]

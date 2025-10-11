@@ -1,3 +1,4 @@
+```mermaid
 timeline
     title Enterprise Data Architecture Evolution
     

@@ -1,3 +1,4 @@
+```mermaid
 flowchart LR
     subgraph "Before: Manual Process"
         B1[Developer needs data] --> B2[Email data team]
