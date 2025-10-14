@@ -72,26 +72,49 @@ The infrastructure was solid. But three pillars were showing warning signs—sub
 - Pillar 4: Governance & Security - Can agents respect boundaries?
 - Pillar 5: Observability - Can we see when things go wrong?
 
-**The analogy:**
+**The analogy: Architecture is what you build once. Pillars are what you maintain forever.**
 
-Think of building a house:
+Think of Meridian's hospital as a **living organism**:
 
-**Architecture (layers)** = The materials and structure
-- Foundation (concrete, rebar)
-- Frame (wood, steel)
-- Walls, roof, plumbing, electrical
-- You can check off each component: ✅ Foundation complete
+**The seven layers are its organs and systems:**
+- **Layer 1 (Real-Time Fabric)** = Circulatory system—blood (data) must flow continuously, fresh, oxygenated
+- **Layers 2-4 (Semantic, Storage, RAG)** = Digestive and respiratory systems—intake, processing, distribution
+- **Layer 5 (Governance)** = Immune system—protecting against threats, maintaining boundaries
+- **Layer 6 (Observability)** = Nervous system—sensing problems, triggering responses
+- **Layer 7 (Orchestration)** = Coordination systems—brain and endocrine system working in concert
 
-**Principles (pillars)** = The engineering standards
-- Structural integrity (will it withstand earthquakes?)
-- Energy efficiency (will heating costs be reasonable?)
-- Safety (does it meet fire codes?)
-- Accessibility (can people with disabilities use it?)
-- Maintainability (can repairs be made easily?)
+You can verify each organ is present and functioning:
+✅ Heart pumping (real-time data flowing)
+✅ Lungs breathing (data processing active)
+✅ Immune system responding (governance enforced)
 
-You can build a house with all the right materials but violate engineering principles—and it will fail inspection, or worse, fail catastrophically when stressed.
+**The five pillars are its vital signs—measurable indicators of health:**
+- **Accessibility (Pillar 1)** = Heart rate and circulation—how fast can data/oxygen reach cells?
+- **Semantic Richness (Pillar 2)** = Neurological function—does the system understand signals correctly?
+- **Quality & Trust (Pillar 3)** = Blood pressure and composition—is the data healthy, reliable, uncontaminated?
+- **Governance & Security (Pillar 4)** = Immune response—does the system protect against pathogens and maintain boundaries?
+- **Observability (Pillar 5)** = Diagnostic monitoring—can we detect problems before they become critical?
+
+**Here's what Sarah discovered:**
+
+An organism can have all its organs present but still be critically ill if vital signs are unstable. A patient with:
+- Tachycardia (heart rate 180 bpm) = Accessibility problem (too fast, unsustainable)
+- Neurological confusion = Semantic Richness problem (can't interpret signals)
+- Sepsis (infected blood) = Quality & Trust problem (contaminated data)
+- Immunocompromised = Governance problem (can't defend boundaries)
+- No monitoring equipment = Observability problem (flying blind)
+
+Similarly, Meridian had all seven layers built (organs present) but pillar health was declining (vital signs degrading):
+
+- Query latency increasing: 1.8s → 2.4s over 3 months (heart rate climbing)
+- Medical terminology gaps: 15% misunderstanding rate (neurological dysfunction)
+- No proactive monitoring: issues discovered only when users complained (no diagnostic equipment)
+
+The infrastructure existed. The vital signs were unstable. The organism was failing.
 
 Similarly, you can implement all seven layers but violate the five pillars—and your agents will fail under real-world conditions.
+
+**This chapter teaches you to monitor and maintain the five vital signs—the pillars that determine whether your agent infrastructure is healthy or critically ill.**
 
 **Sarah's dashboard told the story:**
 

@@ -1,0 +1,54 @@
+## Diagram 11: Real-World Failure Cascade
+
+**File:** `diagram11_failure_cascade.mermaid`
+
+```mermaid
+graph TD
+    START["<b>User Query</b><br/>'Show me high-risk<br/>diabetes patients'"] --> CHECK{<b>Pillar Health Check</b><br/>Are all pillars >60%?}
+    
+    CHECK -->|"No - Multiple<br/>pillars weak"| WEAK1["<b>Observability: 13%</b><br/>🔴 CRITICAL<br/><i>No monitoring active</i>"]
+    
+    WEAK1 -->|"Stale data<br/>goes undetected"| WEAK2["<b>Accessibility Issue</b><br/>⚠️ Data 8 hours old<br/><i>Overnight ETL, no CDC</i>"]
+    
+    WEAK2 -->|"Stale patient<br/>risk scores"| WEAK3["<b>Quality Issue</b><br/>⚠️ HbA1c values outdated<br/><i>Yesterday's lab results</i>"]
+    
+    WEAK3 -->|"'High-risk'<br/>undefined"| WEAK4["<b>Semantic Issue</b><br/>⚠️ No formal definition<br/><i>Agent guesses threshold</i>"]
+    
+    WEAK4 -->|"No ABAC<br/>enforcement"| WEAK5["<b>Governance Issue</b><br/>⚠️ Static RBAC only<br/><i>Shows all patients</i>"]
+    
+    WEAK5 --> FAIL["<b>💥 AGENT FAILURE</b><br/>❌ Wrong patients identified<br/>❌ HIPAA violation<br/>❌ User trust lost<br/><br/><i>Cost: $50K fine + reputation</i>"]
+    
+    %% Prevention side
+    CHECK -->|"Yes - All pillars<br/>healthy"| PREVENT["<b>With Strong Pillars</b>"]
+    
+    PREVENT --> P1["<b>Observability (90%)</b><br/>✅ Detects stale data in 12min<br/>✅ Alerts before user impact"]
+    
+    PREVENT --> P2["<b>Accessibility (87%)</b><br/>✅ CDC ensures <30s freshness<br/>✅ Real-time lab results"]
+    
+    PREVENT --> P3["<b>Quality (90%)</b><br/>✅ Validates data currency<br/>✅ Blocks stale queries"]
+    
+    PREVENT --> P4["<b>Semantic (80%)</b><br/>✅ 'High-risk' = HbA1c >9.0<br/>✅ Formal definition applied"]
+    
+    PREVENT --> P5["<b>Governance (83%)</b><br/>✅ ABAC enforces row-level<br/>✅ User sees only assigned patients"]
+    
+    P1 & P2 & P3 & P4 & P5 --> SUCCESS["<b>✅ AGENT SUCCESS</b><br/>✓ Correct patients identified<br/>✓ HIPAA compliant<br/>✓ User confidence high<br/><br/><i>Value: Accurate care coordination</i>"]
+    
+    %% Styling
+    style START fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style CHECK fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    
+    style WEAK1 fill:#f44336,stroke:#b71c1c,stroke-width:3px,color:#fff
+    style WEAK2 fill:#ff9800,stroke:#e65100,stroke-width:2px,color:#000
+    style WEAK3 fill:#ff9800,stroke:#e65100,stroke-width:2px,color:#000
+    style WEAK4 fill:#ff9800,stroke:#e65100,stroke-width:2px,color:#000
+    style WEAK5 fill:#ff9800,stroke:#e65100,stroke-width:2px,color:#000
+    style FAIL fill:#b71c1c,stroke:#7f0000,stroke-width:4px,color:#fff
+    
+    style PREVENT fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    style P1 fill:#4caf50,stroke:#1b5e20,stroke-width:2px,color:#fff
+    style P2 fill:#4caf50,stroke:#1b5e20,stroke-width:2px,color:#fff
+    style P3 fill:#4caf50,stroke:#1b5e20,stroke-width:2px,color:#fff
+    style P4 fill:#4caf50,stroke:#1b5e20,stroke-width:2px,color:#fff
+    style P5 fill:#4caf50,stroke:#1b5e20,stroke-width:2px,color:#fff
+    style SUCCESS fill:#2e7d32,stroke:#1b5e20,stroke-width:4px,color:#fff
+```

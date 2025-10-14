@@ -1,0 +1,65 @@
+## Diagram 15: Decision Tree - Which Pillar to Fix First?
+
+**File:** `diagram15_decision_tree.mermaid`
+
+```mermaid
+graph TD
+    START["<b>START: Pillar Assessment</b><br/>Complete self-assessment<br/>for all 5 pillars<br/>(6 questions each)"] --> Q1{<b>Step 1: Critical Check</b><br/>Any pillar score<br/><20% (CRITICAL)?}
+    
+    Q1 -->|"<b>YES</b><br/>One or more<br/>pillars critical"| FIX1["<b>🔴 IMMEDIATE ACTION</b><br/><br/><b>Fix CRITICAL pillar first</b><br/>(score 0-12 points)<br/><br/>Timeline: 1-2 weeks<br/>Status: Emergency mode<br/><br/>⚠️ Do NOT proceed with<br/>agent deployment until fixed"]
+    
+    Q1 -->|"<b>NO</b><br/>All pillars<br/>>20%"| Q2{<b>Step 2: Foundation Check</b><br/>Is Observability<br/><60% (FAIR)?}
+    
+    Q2 -->|"<b>YES</b><br/>Observability<br/>weak"| FIX2["<b>🔵 HIGH PRIORITY</b><br/><br/><b>Start with Observability</b><br/>(Pillar 5)<br/><br/>Timeline: 3-4 weeks<br/>Rationale: Can't improve<br/>what you can't see<br/><br/>✓ Enables all other improvements"]
+    
+    Q2 -->|"<b>NO</b><br/>Observability<br/>>60%"| Q3{<b>Step 3: Compliance Check</b><br/>Is Governance<br/><60% (FAIR)?}
+    
+    Q3 -->|"<b>YES</b><br/>Governance<br/>weak"| FIX3["<b>🟣 HIGH PRIORITY</b><br/><br/><b>Fix Governance next</b><br/>(Pillar 4)<br/><br/>Timeline: 4-6 weeks<br/>Rationale: Compliance is<br/>non-negotiable<br/><br/>⚠️ Legal/regulatory risk"]
+    
+    Q3 -->|"<b>NO</b><br/>Governance<br/>>60%"| Q4{<b>Step 4: Reliability Check</b><br/>Is Quality & Trust<br/><60% (FAIR)?}
+    
+    Q4 -->|"<b>YES</b><br/>Quality weak"| FIX4["<b>🟢 MEDIUM PRIORITY</b><br/><br/><b>Improve Quality & Trust</b><br/>(Pillar 3)<br/><br/>Timeline: 3-4 weeks<br/>Rationale: Bad data =<br/>bad agents<br/><br/>✓ Foundation for accuracy"]
+    
+    Q4 -->|"<b>NO</b><br/>Quality<br/>>60%"| Q5{<b>Step 5: Performance Check</b><br/>Is Accessibility OR<br/>Semantic Richness<br/><60% (FAIR)?}
+    
+    Q5 -->|"<b>YES</b><br/>Performance or<br/>understanding weak"| FIX5["<b>🟡 MEDIUM PRIORITY</b><br/><br/><b>Optimize Performance</b><br/>(Pillars 1 & 2)<br/><br/>Timeline: 4-6 weeks<br/>Focus:<br/>• Accessibility: Speed<br/>• Semantic: Understanding<br/><br/>✓ User experience improvements"]
+    
+    Q5 -->|"<b>NO</b><br/>All pillars<br/>>60%"| MAINTAIN["<b>✅ EXCELLENT STATE</b><br/><br/><b>Maintain & Optimize</b><br/><br/>All pillars >60%<br/>Status: Production ready<br/><br/>Actions:<br/>• Monitor continuously<br/>• Prevent degradation<br/>• Incremental improvements<br/>• Target: All pillars >80%"]
+    
+    FIX1 --> RECHECK1["<b>Re-assess in 2 weeks</b><br/>Verify critical pillar<br/>now >20%"]
+    FIX2 --> RECHECK2["<b>Re-assess in 4 weeks</b><br/>Verify Observability<br/>now >60%"]
+    FIX3 --> RECHECK3["<b>Re-assess in 4 weeks</b><br/>Verify Governance<br/>now >60%"]
+    FIX4 --> RECHECK4["<b>Re-assess in 4 weeks</b><br/>Verify Quality<br/>now >60%"]
+    FIX5 --> RECHECK5["<b>Re-assess in 6 weeks</b><br/>Verify both pillars<br/>now >60%"]
+    
+    RECHECK1 --> START
+    RECHECK2 --> START
+    RECHECK3 --> START
+    RECHECK4 --> START
+    RECHECK5 --> START
+    
+    MAINTAIN --> ONGOING["<b>Ongoing Process</b><br/>Monthly pillar reviews<br/>Quarterly deep audits<br/>Annual strategic planning"]
+    
+    style START fill:#e3f2fd,stroke:#1976d2,stroke-width:3px
+    
+    style Q1 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style Q2 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style Q3 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style Q4 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    style Q5 fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    
+    style FIX1 fill:#f44336,stroke:#b71c1c,stroke-width:3px,color:#fff
+    style FIX2 fill:#0066cc,stroke:#003d99,stroke-width:2px,color:#fff
+    style FIX3 fill:#9c27b0,stroke:#6a1b9a,stroke-width:2px,color:#fff
+    style FIX4 fill:#4caf50,stroke:#2e7d32,stroke-width:2px,color:#fff
+    style FIX5 fill:#ff9800,stroke:#e65100,stroke-width:2px,color:#000
+    
+    style MAINTAIN fill:#2e7d32,stroke:#1b5e20,stroke-width:3px,color:#fff
+    style ONGOING fill:#66bb6a,stroke:#2e7d32,stroke-width:2px,color:#fff
+    
+    style RECHECK1 fill:#ffcdd2,stroke:#e57373,stroke-width:1px
+    style RECHECK2 fill:#bbdefb,stroke:#64b5f6,stroke-width:1px
+    style RECHECK3 fill:#e1bee7,stroke:#ba68c8,stroke-width:1px
+    style RECHECK4 fill:#c8e6c9,stroke:#81c784,stroke-width:1px
+    style RECHECK5 fill:#ffe0b2,stroke:#ffb74d,stroke-width:1px
+```

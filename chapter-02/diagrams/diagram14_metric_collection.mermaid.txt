@@ -1,0 +1,72 @@
+
+## Diagram 14: Metric Collection Architecture
+
+**File:** `diagram14_metric_collection.mermaid`
+
+```mermaid
+graph TB
+    subgraph LAYERS["Seven Layers - Telemetry Emission"]
+        L1["<b>Layer 1: Real-Time Fabric</b><br/>📊 Emits:<br/>• Data freshness timestamps<br/>• Pipeline latency (p50, p95, p99)<br/>• CDC lag time<br/>• Throughput (events/sec)"]
+        
+        L2["<b>Layer 2: Semantic Layer</b><br/>📊 Emits:<br/>• Concept coverage %<br/>• Query understanding accuracy<br/>• Entity resolution success rate<br/>• Semantic drift alerts"]
+        
+        L3["<b>Layer 3: Multi-Modal Storage</b><br/>📊 Emits:<br/>• Query latency per store type<br/>• Storage uptime %<br/>• Index performance<br/>• Disk I/O metrics"]
+        
+        L4["<b>Layer 4: RAG Infrastructure</b><br/>📊 Emits:<br/>• Retrieval quality (NDCG)<br/>• Cache hit rate %<br/>• Embedding generation time<br/>• Context assembly latency"]
+        
+        L5["<b>Layer 5: Governance</b><br/>📊 Emits:<br/>• Policy evaluation latency<br/>• ABAC permit/deny decisions<br/>• Audit log completeness<br/>• Permission violation attempts"]
+        
+        L7["<b>Layer 7: Data Products</b><br/>📊 Emits:<br/>• API usage counts<br/>• Cost per query<br/>• Product-level SLA compliance<br/>• Self-service success rate"]
+    end
+    
+    subgraph L6["Layer 6: Observability (Central Collection Hub)"]
+        COLLECT["<b>Telemetry Collector</b><br/>Aggregates all metrics<br/>from Layers 1-5, 7"]
+        
+        PROCESS["<b>Metric Processing</b><br/>• Time-series storage<br/>• Statistical analysis<br/>• Anomaly detection<br/>• Threshold evaluation"]
+        
+        COLLECT --> PROCESS
+    end
+    
+    L1 -->|"Real-time<br/>telemetry"| COLLECT
+    L2 -->|"Real-time<br/>telemetry"| COLLECT
+    L3 -->|"Real-time<br/>telemetry"| COLLECT
+    L4 -->|"Real-time<br/>telemetry"| COLLECT
+    L5 -->|"Real-time<br/>telemetry"| COLLECT
+    L7 -->|"Real-time<br/>telemetry"| COLLECT
+    
+    subgraph OUTPUTS["Pillar Health Outputs"]
+        DASH["<b>Pillar Dashboard</b><br/>Real-time health scores<br/>for all 5 pillars"]
+        
+        ALERT["<b>Automated Alerts</b><br/>Slack, PagerDuty, Email<br/>when thresholds breached"]
+        
+        FEED["<b>Feedback Loops</b><br/>Insights → Improvements<br/>Continuous optimization"]
+        
+        P1SCORE["<b>Pillar 1: Accessibility</b><br/>Score: 52/60 (87%)"]
+        P2SCORE["<b>Pillar 2: Semantic</b><br/>Score: 48/60 (80%)"]
+        P3SCORE["<b>Pillar 3: Quality</b><br/>Score: 54/60 (90%)"]
+        P4SCORE["<b>Pillar 4: Governance</b><br/>Score: 50/60 (83%)"]
+        P5SCORE["<b>Pillar 5: Observability</b><br/>Score: 54/60 (90%)"]
+    end
+    
+    PROCESS --> DASH
+    PROCESS --> ALERT
+    PROCESS --> FEED
+    
+    DASH --> P1SCORE
+    DASH --> P2SCORE
+    DASH --> P3SCORE
+    DASH --> P4SCORE
+    DASH --> P5SCORE
+    
+    style COLLECT fill:#0066cc,stroke:#003d99,stroke-width:3px,color:#fff
+    style PROCESS fill:#1976d2,stroke:#0d47a1,stroke-width:2px,color:#fff
+    style DASH fill:#4caf50,stroke:#2e7d32,stroke-width:3px,color:#fff
+    style ALERT fill:#ff9800,stroke:#e65100,stroke-width:2px,color:#000
+    style FEED fill:#9c27b0,stroke:#6a1b9a,stroke-width:2px,color:#fff
+    
+    style P1SCORE fill:#4caf50,stroke:#2e7d32,stroke-width:2px,color:#fff
+    style P2SCORE fill:#4caf50,stroke:#2e7d32,stroke-width:2px,color:#fff
+    style P3SCORE fill:#4caf50,stroke:#2e7d32,stroke-width:2px,color:#fff
+    style P4SCORE fill:#4caf50,stroke:#2e7d32,stroke-width:2px,color:#fff
+    style P5SCORE fill:#4caf50,stroke:#2e7d32,stroke-width:2px,color:#fff
+```

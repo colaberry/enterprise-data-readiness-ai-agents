@@ -151,6 +151,12 @@ At Colaberry, we've synthesized these industry-wide patterns into what we call t
 ### The Seven-Layer Stack
 
 **[Diagram 1: Seven-Layer Architecture - See diagram1-seven-layers-v2.mermaid]**
+![Alt text](./diagrams/diagram1_seven_layers_1.png "The 7-Layer Agent-Ready Data Architecture")
+![Alt text](./diagrams/diagram1_seven_layers_2.png "The 7-Layer Agent-Ready Data Architecture")
+![Alt text](./diagrams/diagram1_seven_layers_3.png "The 7-Layer Agent-Ready Data Architecture")
+![Alt text](./diagrams/diagram1_seven_layers_4.png "The 7-Layer Agent-Ready Data Architecture")
+![Alt text](./diagrams/diagram1_seven_layers_5.png "The 7-Layer Agent-Ready Data Architecture")
+![Alt text](./diagrams/diagram1_seven_layers_6.png "The 7-Layer Agent-Ready Data Architecture")
 
 The architecture consists of seven integrated layers, each addressing specific agent requirements:
 
@@ -242,6 +248,9 @@ To ensure Layer 1 delivers on its promise, monitor these key indicators (as deta
 **Why agents need it:** Agents speak English (or Spanish, or Mandarin), not SQL. When a patient says "my doctor," the agent needs to understand this maps to `primary_care_provider_id` in the EHR, which relates to `physician_npi` in the credentialing system, which connects to `provider_schedule_id` in the scheduling database—and that all three represent the same real-world concept.
 
 **[Diagram 2: Semantic Flow - See diagram2-semantic-flow.mermaid]**
+![Alt text](./diagrams/diagram2_semantic_flow_1.png "Semantic Flow: Unified Entity Resolution Process")
+![Alt text](./diagrams/diagram2_semantic_flow_2.png "Semantic Flow: Unified Entity Resolution Process")
+
 
 The semantic mapping flow from natural language phrases to data structures is illustrated in Diagram 2 (Semantic Flow), showing how natural language concepts are resolved to specific data entities across systems.
 
@@ -599,6 +608,8 @@ Security spans all architectural layers: encryption at rest (AES-256) and in tra
 **Real-world validation:** According to Monte Carlo's analysis, data downtime refers to periods when data is partial, erroneous, missing, or otherwise inaccurate—and by applying observability principles to data and ML systems, these issues can be identified, resolved, and even prevented.[7] Organizations implementing data observability report up to 80% reductions in data downtime, directly improving agent reliability.
 
 **[Diagram 3: Observability Dashboard - See diagram3-observability-dashboard.mermaid]**
+![Alt text](./diagrams/diagram3_observability_1.png "Observability Dashboard: Comparision of Metrics Across Layers")
+![Alt text](./diagrams/diagram3_observability_2.png "Observability Dashboard: Comparision of Metrics Across Layers")
 
 The observability architecture with monitoring loops and feedback mechanisms is visualized in Diagram 3 (Observability Dashboard).
 
@@ -755,6 +766,7 @@ Embedding model monitoring revealed semantic drift: medical terminology had evol
 Additionally, complex tasks often require multiple specialized agents working together. A customer service workflow might involve: a routing agent (classifies requests), a retrieval agent (finds relevant knowledge), a reasoning agent (analyzes context), and an action agent (executes solutions). Orchestration frameworks coordinate these specialists more effectively than a single monolithic agent.
 
 **[Diagram 4: Self-Service Comparison - See diagram4-self-service-comparison.mermaid]**
+![Alt text](./diagrams/diagram4_self_service_1.png "Manual vs Self-Service Comparison")
 
 The comparison between traditional data access and self-service data products is illustrated in Diagram 4 (Self-Service Comparison), showing how automation reduces provisioning time from weeks to minutes.
 
@@ -906,6 +918,7 @@ A data product isn't just a dataset—it's a fully supported, production-grade o
 #### Self-Service Discovery Flow
 
 **[Diagram 4: Self-Service Comparison - See diagram4-self-service-comparison.mermaid]**
+![Alt text](./diagrams/diagram4_self_service_2.png "Manual vs Self-Service Comparison")
 
 When a new agent needs appointment data, the developer:
 
@@ -956,6 +969,8 @@ This distributed model scales better than centralized "data team does everything
 The power isn't in individual layers—it's in how they integrate into a cohesive system.
 
 **[Diagram 5: Multi-Agent Query Flow - See diagram5-query-flow-v2.mermaid]**
+![Alt text](./diagrams/diagram5_query_flow_1.png "Query flow: Appointment Scheduling & Insurance Verification Process")
+![Alt text](./diagrams/diagram5_query_flow_2.png "Query flow: Appointment Scheduling & Insurance Verification Process")
 
 For the complete multi-agent query flow showing coordination between specialists and how all seven layers interact, see Diagram 5 (Multi-Agent Query Flow).
 
@@ -1287,6 +1302,8 @@ Every decision is traceable, reproducible, and auditable. Multi-agent systems lo
 ## Comparison: Agent Requirements vs. BI Requirements
 
 **[Diagram 6: BI vs Agent Comparison - See diagram6-bi-vs-agent-v2.mermaid]**
+![Alt text](./diagrams/diagram6_bi_vs_agent_1.png "BI Era vs AI Agent Era")
+![Alt text](./diagrams/diagram6_bi_vs_agent_2.png "BI Era vs AI Agent Era")
 
 The comparison between traditional BI and agent-ready architectures is illustrated in Diagram 6 (BI vs Agent Architecture), showing fundamental differences in requirements and design.
 
@@ -1453,6 +1470,8 @@ The five enterprise archetypes are compared in Table 5 (Enterprise Archetype Com
    - **Gap:** 40-50% missing | **Timeline:** 60-90 days | **Readiness:** 35-45/100
 
 **[Diagram 7: Evolution Timeline - See diagram7-evolution-timeline.mermaid]**
+![Alt text](./diagrams/diagram7_evolution_1.png "Enterprise Data Architecture Evolution: From BI Era to AI Era")
+![Alt text](./diagrams/diagram7_evolution_2.png "Enterprise Data Architecture Evolution: From BI Era to AI Era")
 
 The evolution from BI Era through ML Era to Agentic Era is traced in Diagram 7 (Evolution Timeline), showing how enterprise data architecture has evolved over three decades.
 
@@ -1575,12 +1594,12 @@ Referenced: 57% of organizations not AI-ready
 
 ## Diagrams Reference
 
-- **Diagram 1:** Seven-Layer Architecture (diagram1-seven-layers-v2.mermaid)
+- **Diagram 1:** Seven-Layer Architecture (diagram1-seven-layers.mermaid)
 - **Diagram 2:** Semantic Flow - Phrase to Data (diagram2-semantic-flow.mermaid)
 - **Diagram 3:** Observability Dashboard (diagram3-observability-dashboard.mermaid)
 - **Diagram 4:** Self-Service Before/After (diagram4-self-service-comparison.mermaid)
-- **Diagram 5:** Multi-Agent Query Flow (diagram5-query-flow-v2.mermaid)
-- **Diagram 6:** BI vs Agent Architecture (diagram6-bi-vs-agent-v2.mermaid)
+- **Diagram 5:** Multi-Agent Query Flow (diagram5-query-flow.mermaid)
+- **Diagram 6:** BI vs Agent Architecture (diagram6-bi-vs-agent.mermaid)
 - **Diagram 7:** Evolution Timeline (diagram7-evolution-timeline.mermaid)
 
 ---

@@ -1,0 +1,45 @@
+## Diagram 12: Pillar Improvement Roadmap Template
+
+**File:** `diagram12_improvement_roadmap.mermaid`
+
+```mermaid
+gantt
+    title 90-Day Pillar Improvement Roadmap (Universal Pattern)
+    dateFormat YYYY-MM-DD
+    axisFormat %b %d
+    
+    section Phase 1: Foundation (Days 1-30)
+    Observability Setup (Layer 6)          :active, obs1, 2025-01-01, 14d
+    Basic Monitoring & Alerts              :active, obs2, 2025-01-08, 14d
+    Governance Foundation (Layer 5)        :active, gov1, 2025-01-01, 21d
+    ABAC Policy Design                     :active, gov2, 2025-01-08, 14d
+    Quality Monitoring (Layer 6)           :active, qual1, 2025-01-08, 14d
+    Data Validation Rules                  :active, qual2, 2025-01-15, 14d
+    Quick Wins: Caching & Indexes          :crit, acc1, 2025-01-01, 14d
+    
+    section Phase 2: Core Infrastructure (Days 31-60)
+    Real-Time Fabric (Layer 1)             :active, rt1, 2025-01-22, 21d
+    CDC Implementation                     :active, rt2, 2025-01-29, 14d
+    Semantic Layer (Layer 2)               :active, sem1, 2025-01-22, 21d
+    Business Glossary (85% coverage)       :active, sem2, 2025-01-29, 14d
+    Multi-Modal Storage (Layer 3)          :active, stor1, 2025-02-01, 14d
+    Vector DB & Knowledge Graph            :active, stor2, 2025-02-08, 14d
+    RAG Infrastructure (Layer 4)           :active, rag1, 2025-02-05, 18d
+    Accessibility Optimization             :active, acc2, 2025-01-22, 21d
+    
+    section Phase 3: Production Ready (Days 61-90)
+    ABAC Deployment (Layer 5)              :active, gov3, 2025-02-12, 14d
+    Complete Audit Logging                 :active, gov4, 2025-02-19, 11d
+    Data Products (Layer 7)                :active, prod1, 2025-02-12, 18d
+    Self-Service APIs & Catalog            :active, prod2, 2025-02-19, 11d
+    Observability Expansion                :active, obs3, 2025-02-12, 18d
+    Model Drift Detection                  :active, obs4, 2025-02-19, 11d
+    Feedback Loops & Runbooks              :active, obs5, 2025-02-23, 7d
+    All Pillars: Final Tuning              :crit, tune, 2025-02-26, 14d
+    Production Readiness Gate              :milestone, gate, 2025-03-12, 0d
+    
+    section Milestones
+    Phase 1 Complete (Observability Live)  :milestone, m1, 2025-01-30, 0d
+    Phase 2 Complete (Core Infrastructure) :milestone, m2, 2025-02-20, 0d
+    Phase 3 Complete (Production Ready)    :milestone, m3, 2025-03-31, 0d
+```
