@@ -175,7 +175,7 @@ Each need-capability pair is backed by quantitative research and proven implemen
 ---
 
 ## Agent Need 1 → Infrastructure Capability: Sub-Second Response Architecture
-<!-->
+<!--
 ```mermaid
 ---
 config:
