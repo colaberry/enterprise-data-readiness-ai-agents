@@ -32,7 +32,7 @@ MIT's recommendation was clear: *"Create a strong data foundation. Prioritize lo
 ---
 
 ## The Fundamental Shift: Human Needs to 6 Agent Needs
-
+<!--
 ```mermaid
 graph TB
     subgraph "Human Era (1990-2024)"
@@ -40,7 +40,7 @@ graph TB
         H2[Historical Reports]
         H3[Visual Dashboards]
         H4[Humans Decide & Act]
-        H1 --> H2 --> H3 --> H4
+        H1 - -> H2 - -> H3 - -> H4
     end
     
     subgraph "Agent Era (2024-Present)"
@@ -48,7 +48,7 @@ graph TB
         A2[Real-Time Context]
         A3[Natural Language]
         A4[Agents Act, Humans Oversee]
-        A1 --> A2 --> A3 --> A4
+        A1 - -> A2 - -> A3 - -> A4
     end
     
     H4 -.->|"The Divide"| A1
@@ -56,6 +56,8 @@ graph TB
     style H1 fill:#ffe1e1,stroke:#ff6b6b,stroke-width:3px
     style A1 fill:#e1ffe1,stroke:#51cf66,stroke-width:3px
 ```
+-->
+
 ![Alt text](./diagrams/diagram1_HumanEra_AgentEraShift.png "Human Era → Agent Era Shift")
 
 **Diagram 1: Human Era → Agent Era Shift** - The fundamental change isn't the technology. It's whose needs we optimize for.
