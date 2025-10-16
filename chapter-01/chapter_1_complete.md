@@ -150,14 +150,6 @@ At Colaberry, we've synthesized these industry-wide patterns into what we call t
 
 ### The Seven-Layer Stack
 
-**[Diagram 1: Seven-Layer Architecture - See diagram1-seven-layers-v2.mermaid]**
-![Alt text](./diagrams/diagram1_seven_layers_1.png "The 7-Layer Agent-Ready Data Architecture")
-![Alt text](./diagrams/diagram1_seven_layers_2.png "The 7-Layer Agent-Ready Data Architecture")
-![Alt text](./diagrams/diagram1_seven_layers_3.png "The 7-Layer Agent-Ready Data Architecture")
-![Alt text](./diagrams/diagram1_seven_layers_4.png "The 7-Layer Agent-Ready Data Architecture")
-![Alt text](./diagrams/diagram1_seven_layers_5.png "The 7-Layer Agent-Ready Data Architecture")
-![Alt text](./diagrams/diagram1_seven_layers_6.png "The 7-Layer Agent-Ready Data Architecture")
-
 The architecture consists of seven integrated layers, each addressing specific agent requirements:
 
 - **Layer 7:** Self-Service Data Products & Multi-Agent Orchestration
@@ -169,6 +161,14 @@ The architecture consists of seven integrated layers, each addressing specific a
 - **Layer 1:** Real-Time Data Fabric (CDC, streaming, training pipelines)
 
 Each layer solves specific agent requirements. Let's explore them in detail. The complete seven-layer stack is visualized in Diagram 1 (Seven-Layer Architecture).
+
+**[Diagram 1: Seven-Layer Architecture - See diagram1-seven-layers.mermaid]**
+![Alt text](./diagrams/diagram1_seven_layers_1.png "The 7-Layer Agent-Ready Data Architecture")
+![Alt text](./diagrams/diagram1_seven_layers_2.png "The 7-Layer Agent-Ready Data Architecture")
+![Alt text](./diagrams/diagram1_seven_layers_3.png "The 7-Layer Agent-Ready Data Architecture")
+![Alt text](./diagrams/diagram1_seven_layers_4.png "The 7-Layer Agent-Ready Data Architecture")
+![Alt text](./diagrams/diagram1_seven_layers_5.png "The 7-Layer Agent-Ready Data Architecture")
+![Alt text](./diagrams/diagram1_seven_layers_6.png "The 7-Layer Agent-Ready Data Architecture")
 
 ---
 
@@ -247,12 +247,13 @@ To ensure Layer 1 delivers on its promise, monitor these key indicators (as deta
 
 **Why agents need it:** Agents speak English (or Spanish, or Mandarin), not SQL. When a patient says "my doctor," the agent needs to understand this maps to `primary_care_provider_id` in the EHR, which relates to `physician_npi` in the credentialing system, which connects to `provider_schedule_id` in the scheduling database—and that all three represent the same real-world concept.
 
+
+The semantic mapping flow from natural language phrases to data structures is illustrated in Diagram 2 (Semantic Flow), showing how natural language concepts are resolved to specific data entities across systems.
+
 **[Diagram 2: Semantic Flow - See diagram2-semantic-flow.mermaid]**
 ![Alt text](./diagrams/diagram2_semantic_flow_1.png "Semantic Flow: Unified Entity Resolution Process")
 ![Alt text](./diagrams/diagram2_semantic_flow_2.png "Semantic Flow: Unified Entity Resolution Process")
 
-
-The semantic mapping flow from natural language phrases to data structures is illustrated in Diagram 2 (Semantic Flow), showing how natural language concepts are resolved to specific data entities across systems.
 
 **Real-world validation:** dbt Labs' semantic layer documentation explains how modern semantic layers enable natural language queries by providing consistent metric definitions and business logic that can be consumed by AI applications without requiring knowledge of underlying data structures.[2]
 
@@ -765,10 +766,11 @@ Embedding model monitoring revealed semantic drift: medical terminology had evol
 
 Additionally, complex tasks often require multiple specialized agents working together. A customer service workflow might involve: a routing agent (classifies requests), a retrieval agent (finds relevant knowledge), a reasoning agent (analyzes context), and an action agent (executes solutions). Orchestration frameworks coordinate these specialists more effectively than a single monolithic agent.
 
+The comparison between traditional data access and self-service data products is illustrated in Diagram 4 (Self-Service Comparison), showing how automation reduces provisioning time from weeks to minutes.
+
 **[Diagram 4: Self-Service Comparison - See diagram4-self-service-comparison.mermaid]**
 ![Alt text](./diagrams/diagram4_self_service_1.png "Manual vs Self-Service Comparison")
 
-The comparison between traditional data access and self-service data products is illustrated in Diagram 4 (Self-Service Comparison), showing how automation reduces provisioning time from weeks to minutes.
 
 #### Real-World Multi-Agent Patterns
 
@@ -968,11 +970,12 @@ This distributed model scales better than centralized "data team does everything
 
 The power isn't in individual layers—it's in how they integrate into a cohesive system.
 
-**[Diagram 5: Multi-Agent Query Flow - See diagram5-query-flow-v2.mermaid]**
-![Alt text](./diagrams/diagram5_query_flow_1.png "Query flow: Appointment Scheduling & Insurance Verification Process")
-![Alt text](./diagrams/diagram5_query_flow_2.png "Query flow: Appointment Scheduling & Insurance Verification Process")
 
 For the complete multi-agent query flow showing coordination between specialists and how all seven layers interact, see Diagram 5 (Multi-Agent Query Flow).
+
+**[Diagram 5: Multi-Agent Query Flow - See diagram5-query-flow.mermaid]**
+![Alt text](./diagrams/diagram5_query_flow_2.png "Query flow: Appointment Scheduling & Insurance Verification Process")
+![Alt text](./diagrams/diagram5_query_flow_1.png "Query flow: Appointment Scheduling & Insurance Verification Process")
 
 #### Example: End-to-End Multi-Agent Query Flow
 
