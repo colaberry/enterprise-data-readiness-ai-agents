@@ -118,7 +118,7 @@ Now let's examine each of the 6 agent needs and their corresponding infrastructu
 ## The 6 Agent Needs and Infrastructure Capabilities
 ![Alt text](./diagrams/diagram2_6_agent_needs.png "6 Agent Needs")
 ![Alt text](./diagrams/diagram2_6_agent_needs_infra_capabilitis.png "6 Agent Needs and Infrastructure Capabilities")
-
+**Diagram 2: The 6 Agent Needs → Infrastructure Capabilities Framework**
 ```mermaid
 graph TB
     subgraph "6 Agent Needs (What Agents Must Have)"
@@ -170,8 +170,6 @@ graph TB
     style C3 fill:#e1f5ff
 ```
 
-**Diagram 2: The 6 Agent Needs → Infrastructure Capabilities Framework**
-
 Each need-capability pair is backed by quantitative research and proven implementations. Let's examine them.
 
 ---
@@ -179,7 +177,11 @@ Each need-capability pair is backed by quantitative research and proven implemen
 ## Agent Need 1 → Infrastructure Capability: Sub-Second Response Architecture
 
 ```mermaid
-graph LR
+---
+config:
+  layout: fixed
+---
+flowchart LR
     subgraph "Analytics Era: Batch Processing"
         A1[User Query] --> A2[Wait for Batch]
         A2 --> A3[ETL at 2 AM]
