@@ -56,6 +56,7 @@ graph TB
     style H1 fill:#ffe1e1,stroke:#ff6b6b,stroke-width:3px
     style A1 fill:#e1ffe1,stroke:#51cf66,stroke-width:3px
 ```
+![Alt text](./diagrams/diagram1_HumanEra_AgentEraShift.png "Human Era → Agent Era Shift")
 
 **Diagram 1: Human Era → Agent Era Shift** - The fundamental change isn't the technology. It's whose needs we optimize for.
 
