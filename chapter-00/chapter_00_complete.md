@@ -57,9 +57,7 @@ graph TB
     style A1 fill:#e1ffe1,stroke:#51cf66,stroke-width:3px
 ```
 -->
-
 ![Alt text](./diagrams/diagram1_HumanEra_AgentEraShift.png "Human Era → Agent Era Shift")
-
 **Diagram 1: Human Era → Agent Era Shift** - The fundamental change isn't the technology. It's whose needs we optimize for.
 
 For three decades, enterprise data architecture optimized for **human needs**—building systems that put information in front of people who make decisions.
@@ -118,6 +116,8 @@ Now let's examine each of the 6 agent needs and their corresponding infrastructu
 ---
 
 ## The 6 Agent Needs and Infrastructure Capabilities
+![Alt text](./diagrams/diagram2_6_agent_needs.png "6 Agent Needs")
+![Alt text](./diagrams/diagram2_6_agent_needs_infra_capabilitis.png "6 Agent Needs and Infrastructure Capabilities")
 
 ```mermaid
 graph TB
