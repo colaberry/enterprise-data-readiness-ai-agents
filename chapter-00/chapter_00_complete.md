@@ -175,7 +175,7 @@ Each need-capability pair is backed by quantitative research and proven implemen
 ---
 
 ## Agent Need 1 → Infrastructure Capability: Sub-Second Response Architecture
-
+<!-->
 ```mermaid
 ---
 config:
@@ -183,23 +183,25 @@ config:
 ---
 flowchart LR
     subgraph "Analytics Era: Batch Processing"
-        A1[User Query] --> A2[Wait for Batch]
-        A2 --> A3[ETL at 2 AM]
-        A3 --> A4[Query Warehouse]
-        A4 --> A5[9-13 seconds]
-        A5 --> A6[User Abandons]
+        A1[User Query] - -> A2[Wait for Batch]
+        A2 - -> A3[ETL at 2 AM]
+        A3 - -> A4[Query Warehouse]
+        A4 - -> A5[9-13 seconds]
+        A5 - -> A6[User Abandons]
         style A6 fill:#ff6b6b
     end
     
     subgraph "Agent Era: Real-Time Streaming"
-        B1[User Query] --> B2[Stream Processing]
-        B2 --> B3[Cached Data]
-        B3 --> B4[Parallel Retrieval]
-        B4 --> B5[Under 2 seconds]
-        B5 --> B6[User Engaged]
+        B1[User Query] - -> B2[Stream Processing]
+        B2 - -> B3[Cached Data]
+        B3 - -> B4[Parallel Retrieval]
+        B4 - -> B5[Under 2 seconds]
+        B5 - -> B6[User Engaged]
         style B6 fill:#51cf66
     end
 ```
+-->
+![Alt text](./diagrams/diagram3_Analytics_era_batch_agent_era_real_time.png "Diagram 3: Analytics Era Batch vs. Agent Era Real-Time Response")
 
 **Diagram 3: Analytics Era Batch vs. Agent Era Real-Time Response**
 
