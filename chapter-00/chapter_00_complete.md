@@ -209,7 +209,6 @@ graph TB
 
 ![Alt text](./diagrams/diagram3_Analytics_era_batch_agent_era_real_time.png "Diagram 3: Analytics Era Batch vs. Agent Era Real-Time Response")
 
-
 ```mermaid
 graph TB
     subgraph "Agent Era: Real-Time Streaming"
@@ -299,6 +298,8 @@ With semantic layer enhancements:
 
 **This is the fundamental need: natural language understanding that delivers 85%+ accuracy.**
 
+![Alt text](./diagrams/diagram4_analyticseera_agenticera.png "Analytics Era Manual Translation vs. Agent Era Semantic Understanding")
+
 ```mermaid
 graph TB
     subgraph "Analytics Era: Manual Translation"
@@ -308,7 +309,11 @@ graph TB
         A4 --> A5[2-3 weeks]
         style A5 fill:#ff6b6b
     end
+    A1 -->|60% Accuracy| A5
+```
     
+```mermaid
+graph TB
     subgraph "Agent Era: Semantic Layer"
         B1["'Show diabetes patients'"] --> B2[Semantic Layer]
         B2 --> B3[Entity Resolution]
@@ -317,8 +322,7 @@ graph TB
         style B5 fill:#51cf66
     end
     
-    A1 -.->|60% Accuracy| A5
-    B1 -.->|85%+ Accuracy| B5
+    B1 -->|85%+ Accuracy| B5
 ```
 
 **Diagram 4: Analytics Era Manual Translation vs. Agent Era Semantic Understanding**
