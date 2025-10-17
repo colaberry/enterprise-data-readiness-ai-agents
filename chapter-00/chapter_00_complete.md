@@ -225,7 +225,7 @@ graph TB
 ```
 
 **Diagram 3: Analytics Era Batch vs. Agent Era Real-Time Response**
----
+
 
 ### The Infrastructure Capability: Sub-Second Response Architecture
 
@@ -329,7 +329,6 @@ graph TB
 ```
 
 **Diagram 4: Analytics Era Manual Translation vs. Agent Era Semantic Understanding**
----
 
 ### The Infrastructure Capability: Semantic Understanding
 
@@ -403,6 +402,8 @@ Additional findings:
 
 **This is the fundamental need: complete context assembled from multiple systems in real-time.**
 
+![Alt text](./diagrams/diagram5_manual_agent_data%20assembly.png "Analytics Era Manual Integration vs. Agent Era Cross-Domain Assembly")
+
 ```mermaid
 graph TB
     subgraph "Analytics Era: Manual Integration"
@@ -434,7 +435,7 @@ graph TB
 ```
 
 **Diagram 5: Analytics Era Manual Integration vs. Agent Era Cross-Domain Assembly**
----
+
 
 ### The Infrastructure Capability: Cross-Domain Integration
 
