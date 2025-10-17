@@ -4,7 +4,7 @@
 **Subtitle:** A 90-Day Roadmap from Data Chaos to Agent-Ready Infrastructure  
 **Author:** Ram Katamaraja, CEO of Colaberry Inc.  
 **Publisher:** Colaberry Press  
-**Version:** 3.0.0 (6 Agent Needs → Capabilities Framework)  
+**Version:** 3.1.0 (TCC Compliant - Final)  
 **Publication Date:** October 16, 2025
 
 ---
@@ -22,15 +22,16 @@
 - [The Fundamental Shift: Human Needs to 6 Agent Needs](#the-fundamental-shift-human-needs-to-6-agent-needs)
 - [Understanding the 6 Agent Needs vs. Infrastructure Capabilities](#understanding-the-6-agent-needs-vs-infrastructure-capabilities)
 - [The 6 Agent Needs and Infrastructure Capabilities](#the-6-agent-needs-and-infrastructure-capabilities)
-  - [Agent Need 1: Instant Answers](#agent-need-1--infrastructure-capability-sub-second-response-architecture)
-  - [Agent Need 2: Natural Conversation](#agent-need-2--infrastructure-capability-semantic-understanding)
-  - [Agent Need 3: Complete Context](#agent-need-3--infrastructure-capability-cross-domain-integration)
-  - [Agent Need 4: Personalized Access](#agent-need-4--infrastructure-capability-dynamic-authorization)
-  - [Agent Need 5: Always Improving](#agent-need-5--infrastructure-capability-continuous-learning)
-  - [Agent Need 6: Trustworthy Decisions](#agent-need-6--infrastructure-capability-auditability--explainability)
+  - [Agent Need 1: Instant Answers](#agent-need-1--sub-second-response-architecture)
+  - [Agent Need 2: Natural Conversation](#agent-need-2--semantic-understanding)
+  - [Agent Need 3: Complete Context](#agent-need-3--cross-domain-integration)
+  - [Agent Need 4: Personalized Access](#agent-need-4--dynamic-authorization)
+  - [Agent Need 5: Always Improving](#agent-need-5--continuous-learning)
+  - [Agent Need 6: Trustworthy Decisions](#agent-need-6--auditability--explainability)
 - [Bringing It Together](#bringing-it-together-the-6-agent-needs--capabilities--architecture)
 - [Summary: The Path Forward](#summary-the-path-forward)
 - [References and Citations](#references-and-citations)
+
 ---
 
 ## The $40 Billion Problem
@@ -56,33 +57,8 @@ MIT's recommendation was clear: *"Create a strong data foundation. Prioritize lo
 ---
 
 ## The Fundamental Shift: Human Needs to 6 Agent Needs
-<!--
-```mermaid
-graph TB
-    subgraph "Human Era (1990-2024)"
-        H1[Human Needs]
-        H2[Historical Reports]
-        H3[Visual Dashboards]
-        H4[Humans Decide & Act]
-        H1 - -> H2 - -> H3 - -> H4
-    end
-    
-    subgraph "Agent Era (2024-Present)"
-        A1[6 Agent Needs]
-        A2[Real-Time Context]
-        A3[Natural Language]
-        A4[Agents Act, Humans Oversee]
-        A1 - -> A2 - -> A3 - -> A4
-    end
-    
-    H4 -.->|"The Divide"| A1
-    
-    style H1 fill:#ffe1e1,stroke:#ff6b6b,stroke-width:3px
-    style A1 fill:#e1ffe1,stroke:#51cf66,stroke-width:3px
-```
--->
 
-![Alt text](./diagrams/diagram1_HumanEra_AgentEraShift.png "Human Era → Agent Era Shift")
+![Diagram 1: Human Era → Agent Era Shift](./diagrams/diagram1_HumanEra_AgentEraShift.png)
 
 **Diagram 1: Human Era → Agent Era Shift** - The fundamental change isn't the technology. It's whose needs we optimize for.
 
@@ -94,7 +70,7 @@ For three decades, enterprise data architecture optimized for **human needs**—
 - Time to think before acting
 - Control over every decision
 
-We built brilliant infrastructure for these needs across multiple technology eras: the Analytics Era brought data warehouses, ETL pipelines, and OLAP cubes in the 1990s-2000s; the Big Data Era introduced Hadoop clusters, data lakes, and distributed processing with Spark in the 2010s; the ML Era added feature stores, model training pipelines, and real-time predictions in the late 2010s-early 2020s; and the Data Mesh Era pioneered domain ownership, data products, and federated governance in the 2020s. Sarah Chen's Meridian Health Systems had invested in all of these progressions over fifteen years—pristine SQL Server warehouse from the Analytics Era, Azure data lake from the Big Data Era, Databricks for ML workloads, strong governance throughout, and awards for data excellence at each stage.
+We built brilliant infrastructure for these needs across multiple technology eras: the BI Era brought data warehouses, ETL pipelines, and OLAP cubes in the 1990s-2000s; the Big Data Era introduced Hadoop clusters, data lakes, and distributed processing with Spark in the 2010s; the ML Era added feature stores, model training pipelines, and real-time predictions in the late 2010s-early 2020s; and the Data Mesh Era pioneered domain ownership, data products, and federated governance in the 2020s. Sarah Chen's Meridian Health Systems had invested in all of these progressions over fifteen years—pristine SQL Server warehouse from the BI Era, Azure data lake from the Big Data Era, Databricks for ML workloads, strong governance throughout, and awards for data excellence at each stage.
 
 **Then came agents.**
 
@@ -141,71 +117,33 @@ Now let's examine each of the 6 agent needs and their corresponding infrastructu
 
 ---
 
+### 📖 Key Terms
+
+**Agent Need** - A fundamental requirement that autonomous AI agents impose on data infrastructure (outcome-focused)
+
+**Infrastructure Capability** - The technical mechanism that delivers an agent need (implementation-focused)
+
+**Analytics Era** - The period (1990-2024) when data infrastructure optimized for human decision-making across BI, Big Data, ML, and Data Mesh eras
+
+**Agent Era** - The current period (2024+) when data infrastructure must support autonomous agent decision-making
+
+**Meridian Health Systems** - Case study organization (10K employees, healthcare) used throughout the book to illustrate transformation concepts
+
+---
+
 ## The 6 Agent Needs and Infrastructure Capabilities
 
-![Alt text](./diagrams/diagram2_6_agent_needs.png "6 Agent Needs")
-![Alt text](./diagrams/diagram2_6_agent_needs_infra_capabilitis.png "6 Agent Needs and Infrastructure Capabilities")
+![Diagram 2: The 6 Agent Needs → Infrastructure Capabilities Framework](./diagrams/diagram2_6_agent_needs_infra_capabilitis.png)
 
 **Diagram 2: The 6 Agent Needs → Infrastructure Capabilities Framework**
-```mermaid
-graph TB
-    subgraph "6 Agent Needs (What Agents Must Have)"
-        N1[Need 1:<br/>Instant Answers]
-        N2[Need 2:<br/>Natural Conversation]
-        N3[Need 3:<br/>Complete Context]
-        N4[Need 4:<br/>Personalized Access]
-        N5[Need 5:<br/>Always Improving]
-        N6[Need 6:<br/>Trustworthy Decisions]
-    end
-    
-    subgraph "Infrastructure Capabilities (What Must Be Built)"
-        C1[Capability:<br/>Sub-Second Response<br/>Architecture]
-        C2[Capability:<br/>Semantic<br/>Understanding]
-        C3[Capability:<br/>Cross-Domain<br/>Integration]
-        C4[Capability:<br/>Dynamic<br/>Authorization]
-        C5[Capability:<br/>Continuous<br/>Learning]
-        C6[Capability:<br/>Auditability &<br/>Explainability]
-    end
-    
-    subgraph "Supporting Evidence"
-        E1[53% abandon at 3s<br/>Google Research]
-        E2[60% → 85% with semantic<br/>Databricks/Spider]
-        E3[$3.1T annual silo cost<br/>IDC Research]
-        E4[NIST recommends ABAC<br/>SP 800-162]
-        E5[35% degradation/6mo<br/>LLMOps Research]
-        E6[Legal mandate<br/>HIPAA/GDPR]
-    end
-    
-    N1 --> C1
-    N2 --> C2
-    N3 --> C3
-    N4 --> C4
-    N5 --> C5
-    N6 --> C6
-    
-    C1 --> E1
-    C2 --> E2
-    C3 --> E3
-    C4 --> E4
-    C5 --> E5
-    C6 --> E6
-    
-    style N1 fill:#ffe1e1
-    style N2 fill:#ffe1e1
-    style N3 fill:#ffe1e1
-    style C1 fill:#e1f5ff
-    style C2 fill:#e1f5ff
-    style C3 fill:#e1f5ff
-```
 
 Each need-capability pair is backed by quantitative research and proven implementations. Let's examine them.
 
 ---
 
-## Agent Need 1 → Infrastructure Capability: Sub-Second Response Architecture
+## Agent Need 1 → Sub-Second Response Architecture
 
-
-### Agent Need 1: Instant Answers
+### The Need: Instant Answers
 
 When a patient asks Meridian's scheduling agent "Can I see Dr. Martinez today?", they expect an answer in seconds—not minutes, not hours. They've been trained by ChatGPT, Alexa, and Siri to expect conversational speed.
 
@@ -222,36 +160,13 @@ For healthcare, abandonment isn't just frustration—it's patients not getting c
 
 **This is the fundamental need: instant answers that keep users engaged.**
 
-```mermaid
-graph TB
-    subgraph "Analytics Era: Batch Processing"
-        A1[User Query] --> A2[Wait for Batch]
-        A2 --> A3[ETL at 2 AM]
-        A3 --> A4[Query Warehouse]
-        A4 --> A5[9-13 seconds]
-        A5 --> A6[User Abandons]
-        style A6 fill:#ff6b6b
-    end
-```
-
-![Alt text](./diagrams/diagram3_Analytics_era_batch_agent_era_real_time.png "Diagram 3: Analytics Era Batch vs. Agent Era Real-Time Response")
-
-```mermaid
-graph TB
-    subgraph "Agent Era: Real-Time Streaming"
-        B1[User Query] --> B2[Stream Processing]
-        B2 --> B3[Cached Data]
-        B3 --> B4[Parallel Retrieval]
-        B4 --> B5[Under 2 seconds]
-        B5 --> B6[User Engaged]
-        style B6 fill:#51cf66
-    end
-```
+![Diagram 3: Analytics Era Batch vs. Agent Era Real-Time Response](./diagrams/diagram3_Analytics_era_batch_agent_era_real_time.png)
 
 **Diagram 3: Analytics Era Batch vs. Agent Era Real-Time Response**
 
+---
 
-### The Infrastructure Capability: Sub-Second Response Architecture
+### The Capability: Sub-Second Response Architecture
 
 Delivering instant answers requires **sub-second response architecture**—an infrastructure capability that human-era systems weren't designed to provide. This capability comprises four technical components working together: real-time data streams with Change Data Capture maintaining <30 second freshness, storage optimized per query type (vector databases achieving <50ms semantic search, knowledge graphs handling relationship queries in <200ms, RDBMS delivering transactional lookups in <20ms), semantic caching with >60% hit rates reducing latency from seconds to milliseconds, and parallel processing enabling multi-agent orchestration where specialist agents work simultaneously rather than sequentially.
 
@@ -259,7 +174,7 @@ The target performance is <2 seconds for single agent interactions and <3 second
 
 ---
 
-### Why Human Era Infrastructure Falls Short
+### Why Analytics Era Falls Short
 
 **Meridian's specific gaps:**
 
@@ -290,11 +205,9 @@ Chapter 1 details how the seven architectural layers work together to deliver su
 
 ---
 
-## Agent Need 2 → Infrastructure Capability: Semantic Understanding
+## Agent Need 2 → Semantic Understanding
 
-
-
-### Agent Need 2: Natural Conversation
+### The Need: Natural Conversation
 
 Users don't speak SQL. They ask questions in natural language:
 
@@ -325,36 +238,13 @@ With semantic layer enhancements:
 
 **This is the fundamental need: natural language understanding that delivers 85%+ accuracy.**
 
-![Alt text](./diagrams/diagram4_analyticseera_agenticera.png "Analytics Era Manual Translation vs. Agent Era Semantic Understanding")
-
-```mermaid
-graph TB
-    subgraph "Analytics Era: Manual Translation"
-        A1["'Show diabetes patients'"] --> A2[Developer Needed]
-        A2 --> A3[Learn Schema]
-        A3 --> A4[Write SQL]
-        A4 --> A5[2-3 weeks]
-        style A5 fill:#ff6b6b
-    end
-    A1 -->|60% Accuracy| A5
-```
-    
-```mermaid
-graph TB
-    subgraph "Agent Era: Semantic Layer"
-        B1["'Show diabetes patients'"] --> B2[Semantic Layer]
-        B2 --> B3[Entity Resolution]
-        B3 --> B4[Auto-Generated Query]
-        B4 --> B5[Milliseconds]
-        style B5 fill:#51cf66
-    end
-    
-    B1 -->|85%+ Accuracy| B5
-```
+![Diagram 4: Analytics Era Manual Translation vs. Agent Era Semantic Understanding](./diagrams/diagram4_analyticseera_agenticera.png)
 
 **Diagram 4: Analytics Era Manual Translation vs. Agent Era Semantic Understanding**
 
-### The Infrastructure Capability: Semantic Understanding
+---
+
+### The Capability: Semantic Understanding
 
 Delivering natural conversation requires **semantic understanding**—an infrastructure capability that translates between human language and data structures. This capability comprises business glossaries with natural language mappings (where "customer" maps to specific tables, fields, and relationships, and "high-risk patient" links to formal definitions using diagnosis codes, HbA1c thresholds, and readmission history), entity resolution across systems (where "Dr. Martinez" resolves to a canonical provider_npi linking the EHR's primary_care_provider_id, the credentialing system's physician_npi, and the scheduling database's provider_schedule_id), metric definitions with embedded business logic (where "revenue" includes specific GL codes, currency conversions, and fiscal calendar rules, all versioned to track evolution over time), and ontologies defining relationships through hierarchies, taxonomies, and semantic connections like "reports to" or "prescribed by."
 
@@ -362,7 +252,7 @@ The target accuracy is 85%+ query understanding with a semantic layer implementa
 
 ---
 
-### Why Human Era Infrastructure Falls Short
+### Why Analytics Era Falls Short
 
 **Meridian's specific gaps:**
 
@@ -397,11 +287,9 @@ Chapter 1 shows how the semantic layer (Layer 2) provides business glossaries an
 
 ---
 
-## Agent Need 3 → Infrastructure Capability: Cross-Domain Integration
+## Agent Need 3 → Cross-Domain Integration
 
-
-
-### Agent Need 3: Complete Context
+### The Need: Complete Context
 
 Real questions don't respect system boundaries.
 
@@ -426,42 +314,13 @@ Additional findings:
 
 **This is the fundamental need: complete context assembled from multiple systems in real-time.**
 
-![Alt text](./diagrams/diagram5_manual_agent_data%20assembly.png "Analytics Era Manual Integration vs. Agent Era Cross-Domain Assembly")
-
-```mermaid
-graph TB
-    subgraph "Analytics Era: Manual Integration"
-        A1[EHR] --> A2[6-8 weeks]
-        A3[Claims] --> A2
-        A4[Portal] --> A2
-        A5[Care Mgmt] --> A2
-        A2 --> A6[One Question Answered]
-        style A2 fill:#ff6b6b
-    end
-
-    A6 -.->|Cost: $3.1T annually| A2
-```
-    
-```mermaid
-graph TB
-    subgraph "Agent Era: Real-Time Assembly"
-        B1[EHR] --> B2[Real-Time Fabric]
-        B3[Claims] --> B2
-        B4[Portal] --> B2
-        B5[Care Mgmt] --> B2
-        B2 --> B6[Entity Resolution]
-        B6 --> B7[Parallel Retrieval]
-        B7 --> B8[Under 2 seconds]
-        style B8 fill:#51cf66
-    end
-    
-    B8 -.->|Any Question, Anytime| B2
-```
+![Diagram 5: Analytics Era Manual Integration vs. Agent Era Cross-Domain Assembly](./diagrams/diagram5_manual_agent_data%20assembly.png)
 
 **Diagram 5: Analytics Era Manual Integration vs. Agent Era Cross-Domain Assembly**
 
+---
 
-### The Infrastructure Capability: Cross-Domain Integration
+### The Capability: Cross-Domain Integration
 
 Delivering complete context requires **cross-domain integration**—an infrastructure capability that unifies data from disparate sources without manual integration projects. This capability comprises real-time streaming through Change Data Capture from all operational systems creating a unified data fabric, entity resolution that connects identities using canonical IDs to prevent fragmentation (where patient canonical IDs link EHR, claims, portal, and care management records, and provider NPIs resolve across credentialing, scheduling, and billing systems), multi-modal storage optimized for diverse query patterns (vector databases for semantic search across unstructured provider notes, knowledge graphs for relationship queries, RDBMS for fast transactional lookups, and data warehouses for historical aggregations), and intelligent retrieval that assembles context in parallel through RAG infrastructure, reranks results by relevance and recency, and respects token limits by prioritizing the most relevant information.
 
@@ -469,7 +328,7 @@ The target is assembling relevant data from 5+ systems in under 2 seconds.
 
 ---
 
-### Why Human Era Infrastructure Falls Short
+### Why Analytics Era Falls Short
 
 **Meridian's specific gaps:**
 
@@ -499,9 +358,9 @@ Chapter 1 details how multiple layers collaborate to enable cross-domain integra
 
 ---
 
-## Agent Need 4 → Infrastructure Capability: Dynamic Authorization
+## Agent Need 4 → Dynamic Authorization
 
-### Agent Need 4: Personalized Access
+### The Need: Personalized Access
 
 Same agent. Different users. Different data access. Enforced in real-time.
 
@@ -528,39 +387,13 @@ The National Institute of Standards and Technology explains: *"Trying to impleme
 
 **This is the fundamental need: personalized access enforced dynamically per-query.**
 
-![Alt text](./diagrams/diagram6_staticRBAC_dynamicABAC.png "Analytics Era Static RBAC vs. Agent Era Dynamic ABAC")
-
-```mermaid
-graph TB
-    subgraph "Analytics Era: Static RBAC"
-        A1[Agent Service Account] --> A2[Broad Permissions]
-        A2 --> A3{User Type?}
-        A3 --> A4[Hard-Coded Logic]
-        A4 --> A5[100s of Roles Needed]
-        style A5 fill:#ff6b6b
-    end
-
-    A5 -.->|RBAC: 1024 roles for 10 attributes| A2
-```
-    
-```mermaid
-graph TB
-    subgraph "Agent Era: Dynamic ABAC"
-        B1[User Query] --> B2[Policy Engine]
-        B2 --> B3{Evaluate Attributes}
-        B3 --> B4[User + Data + Context]
-        B4 --> B5[Dynamic Decision]
-        B5 --> B6[Under 10ms]
-        style B6 fill:#51cf66
-    end
-    
-    B6 -.->|ABAC: 64 policies for same coverage| B2
-```
+![Diagram 6: Analytics Era Static RBAC vs. Agent Era Dynamic ABAC](./diagrams/diagram6_staticRBAC_dynamicABAC.png)
 
 **Diagram 6: Analytics Era Static RBAC vs. Agent Era Dynamic ABAC**
 
+---
 
-### The Infrastructure Capability: Dynamic Authorization
+### The Capability: Dynamic Authorization
 
 Delivering personalized access requires **dynamic authorization**—an infrastructure capability that evaluates access policies at query time rather than at user login time. This capability comprises an Attribute-Based Access Control (ABAC) policy engine that evaluates subject attributes (role, clearance, department, employment status), object attributes (data classification, owner, sensitivity level), and environment attributes (time of day, location, device type) to make real-time access decisions in under 10ms. It includes purpose-of-use logging where every query records the business justification for data access, and immutable audit trails with complete logs of who accessed what, when, and why, stored in tamper-evident write-once storage with 6-year retention to satisfy HIPAA requirements.
 
@@ -568,7 +401,7 @@ The target is sub-10ms policy evaluation with 100% audit coverage.
 
 ---
 
-### Why Human Era Infrastructure Falls Short
+### Why Analytics Era Falls Short
 
 **Meridian's specific gaps:**
 
@@ -604,9 +437,9 @@ Chapter 1 shows how Layer 5 provides the ABAC policy engine for real-time access
 
 ---
 
-## Agent Need 5 → Infrastructure Capability: Continuous Learning
+## Agent Need 5 → Continuous Learning
 
-### Agent Need 5: Always Improving
+### The Need: Always Improving
 
 Machine learning models don't age gracefully. They degrade silently—often without anyone noticing until users start complaining.
 
@@ -645,38 +478,13 @@ Their agent's retrieval quality:
 
 **This is the fundamental need: continuous learning that detects degradation and triggers improvement.**
 
-![Alt text](./diagrams/diagram7_reviews_monitoring.png "Analytics Era Quarterly Reviews vs. Agent Era Continuous Learning")
-```mermaid
-graph TB
-    subgraph "Analytics Era: Quarterly Reviews"
-        A1[Model Deployed] --> A2[3-6 months pass]
-        A2 --> A3[Performance Degrades 35%]
-        A3 --> A4[User Complaints]
-        A4 --> A5[Manual Investigation]
-        A5 --> A6[5-6 weeks to fix]
-        style A6 fill:#ff6b6b
-    end
-    
-    A3 -.->|91% of models degrade| A4
-```
-
-```mermaid
-graph TB
-    subgraph "Agent Era: Real-Time Monitoring"
-        B1[Model Deployed] --> B2[Continuous Monitoring]
-        B2 --> B3[Drift Detected]
-        B3 --> B4[Auto-Alert: 15 min]
-        B4 --> B5[Retraining Triggered]
-        B5 --> B6[Fixed in 5 days]
-        style B6 fill:#51cf66
-    end
-    
-    B3 -.->|Before users notice| B4
-```
+![Diagram 7: Analytics Era Quarterly Reviews vs. Agent Era Continuous Learning](./diagrams/diagram7_reviews_monitoring.png)
 
 **Diagram 7: Analytics Era Quarterly Reviews vs. Agent Era Continuous Learning**
 
-### The Infrastructure Capability: Continuous Learning
+---
+
+### The Capability: Continuous Learning
 
 Delivering always-improving agents requires **continuous learning**—an infrastructure capability that monitors performance, detects drift, and enables rapid improvement. This capability comprises real-time data quality monitoring tracking freshness (how old is each data source, with targets under 1 minute for critical systems), completeness (field population rates targeting 99%+), accuracy (value validation), and volume anomalies (unexpected spikes or drops), model performance tracking measuring retrieval quality (NDCG@5, Recall@10, Precision@3), response accuracy against golden datasets, hallucination rates (responses not grounded in retrieved data, targeting under 3%), and user satisfaction through explicit and implicit feedback. It includes drift detection using statistical tests like KL divergence and population stability index to identify semantic drift in embedding distributions and concept drift in data relationships, with alert thresholds triggering immediate investigation when NDCG drops below 0.80. Automated feedback loops connect agent failures to data quality issues, low-confidence queries to semantic layer gaps, and model degradation to retraining triggers. Finally, versioned training datasets with time-travel capability, validation snapshots, A/B testing frameworks, and rollback capability ensure safe model updates.
 
@@ -684,7 +492,7 @@ The target is detecting 35% model degradation before users notice and enabling r
 
 ---
 
-### Why Human Era Infrastructure Falls Short
+### Why Analytics Era Falls Short
 
 **Meridian's specific gaps:**
 
@@ -730,9 +538,9 @@ Chapter 1 details how Layer 6 provides real-time monitoring with automated drift
 
 ---
 
-## Agent Need 6 → Infrastructure Capability: Auditability & Explainability
+## Agent Need 6 → Auditability & Explainability
 
-### Agent Need 6: Trustworthy Decisions
+### The Need: Trustworthy Decisions
 
 "How did the agent decide that?" must have a clear, auditable answer.
 
@@ -769,37 +577,13 @@ Salesforce survey of 6,000 knowledge workers found:
 
 **This is the fundamental need: trustworthy decisions with complete auditability and explainability.**
 
-![Alt text](./diagrams/diagram8_audits_traceability.png "Analytics Era Quarterly Audits vs. Agent Era Complete Traceability")
-
-```mermaid
-graph TB
-    subgraph "Analytics Era: Quarterly Audits"
-        A1[Human Decision] --> A2[Basic Logs]
-        A2 --> A3[Service Account Only]
-        A3 --> A4[Manual Investigation]
-        A4 --> A5[Hours to Debug]
-        style A5 fill:#ff6b6b
-    end
-
-    A5 -.->|Can't prove HIPAA compliance| A2    
-```
-
-```mermaid
-graph TB
-    subgraph "Agent Era: Complete Traceability"
-        B1[Agent Decision] --> B2[Global Trace ID]
-        B2 --> B3[User + Purpose + Sources]
-        B3 --> B4[Immutable Audit Log]
-        B4 --> B5[Minutes to Debug]
-        style B5 fill:#51cf66
-    end
-    
-    B5 -.->|3-5x faster incident response| B2
-```
+![Diagram 8: Analytics Era Quarterly Audits vs. Agent Era Complete Traceability](./diagrams/diagram8_audits_traceability.png)
 
 **Diagram 8: Analytics Era Quarterly Audits vs. Agent Era Complete Traceability**
 
-### The Infrastructure Capability: Auditability & Explainability
+---
+
+### The Capability: Auditability & Explainability
 
 Delivering trustworthy decisions requires **auditability and explainability**—an infrastructure capability that makes every agent decision traceable, reproducible, and understandable. This capability comprises complete audit logging for every query capturing user identity, resource accessed, purpose of use with business justification, ABAC policy applied, decision result (PERMIT/DENY), data returned including record counts and masked fields, agent metadata showing which agents and model versions were involved, performance metrics like latency and cost, timestamp in UTC, and a trace ID providing a unique identifier linking the entire request chain. Immutable tamper-evident storage uses write-once mechanisms like AWS S3 Object Lock or Azure Immutable Blob Storage, cryptographic hash chains where each log includes the hash of the previous entry, digital signatures for verification, and Merkle tree audit trails enabling batch verification. Source attribution provides citations showing which documents were retrieved, confidence scores per source, "view sources" affordances in agent responses, and low-confidence disclosure where agents explicitly state uncertainty. Data lineage tracking records where data originated, what transformations were applied, quality scores, and ownership information. Finally, global trace IDs propagate across all seven architectural layers, linking user requests through data retrieval, policy evaluation, and response generation to support complete reconstruction of agent decision-making and enable root cause analysis in minutes rather than hours.
 
@@ -807,7 +591,7 @@ The target is 100% audit coverage with 3-5x faster incident response while maint
 
 ---
 
-### Why Human Era Infrastructure Falls Short
+### Why Analytics Era Falls Short
 
 **Meridian's specific gaps:**
 
@@ -922,8 +706,6 @@ How do we implement it? (Chapters 6-8: 90-Day Roadmap)
 
 ---
 
-
-
 ## Summary: The Path Forward
 
 **What You Learned:**
@@ -964,13 +746,8 @@ How do we implement it? (Chapters 6-8: 90-Day Roadmap)
 
 ## What's Next
 
-**📐 From 6 Needs to 7 Layers**
-
-You might notice: 6 agent needs, but Chapter 1 presents 7 architectural layers. Here's why:
-
-- **Some layers serve multiple needs:** Layer 1 (Real-Time Fabric) supports both Need 1 (Instant Answers) and Need 5 (Continuous Learning)
-- **Some needs require multiple layers:** Need 3 (Complete Context) spans Layers 1, 2, 3, 4, and 7
-- **The layers are infrastructure building blocks** that combine to deliver the 6 capabilities
+**Chapter 1: The 7-Layer Agent-Ready Architecture**  
+Shows exactly how the seven architectural layers deliver the six infrastructure capabilities, with detailed component diagrams and integration patterns.
 
 **Chapters 2-5: Strategic Planning**  
 - Chapter 2: The Five Pillars of Agent-Ready Data
@@ -983,58 +760,85 @@ You might notice: 6 agent needs, but Chapter 1 presents 7 architectural layers. 
 - Chapter 7: Phase 2 - Days 31-60 (Scale Infrastructure)
 - Chapter 8: Phase 3 - Days 61-90 (Production Ready)
 
+**Chapters 9-12: Deep Technical Implementation**
+- Chapter 9: Governance & Compliance
+- Chapter 10: RAG Architecture Best Practices
+- Chapter 11: Multi-Agent Orchestration Patterns
+- Chapter 12: Security & Threat Modeling
+
+**Chapters 13-16: Industry-Specific Guides**
+- Chapter 13: Healthcare Implementation Guide
+- Chapter 14: Financial Services Implementation Guide
+- Chapter 15: Retail & E-Commerce Implementation Guide
+- Chapter 16: Manufacturing & Supply Chain Implementation Guide
+
 ---
 
 ## References and Citations
 
 [1] Challapally, A., Pease, C., Raskar, R., & Chari, P. (2025). "The GenAI Divide: State of AI in Business 2025." MIT NANDA initiative report analyzing 300+ enterprise AI initiatives.  
-https://www.artificialintelligence-news.com/wp-content/uploads/2025/08/ai_report_2025.pdf
+https://www.artificialintelligence-news.com/wp-content/uploads/2025/08/ai_report_2025.pdf  
+**Accessed:** October 16, 2025
 
 [2] Google DoubleClick (2016). "The Need for Mobile Speed: How Mobile Latency Impacts Publisher Revenue." *Marketing Dive*, August 2016.  
-https://www.marketingdive.com/news/google-53-of-mobile-users-abandon-sites-that-take-over-3-seconds-to-load/426070/
+https://www.marketingdive.com/news/google-53-of-mobile-users-abandon-sites-that-take-over-3-seconds-to-load/426070/  
+**Accessed:** October 16, 2025
 
 [3] Databricks (2024). "Improving Text2SQL Performance with Ease on Databricks." *Databricks Blog*, 2024. Based on Spider benchmark dataset (Yale University, 2018).  
 https://www.databricks.com/blog/improving-text2sql-performance-ease-databricks  
-Spider Benchmark: https://yale-lily.github.io/spider
+Spider Benchmark: https://yale-lily.github.io/spider  
+**Accessed:** October 16, 2025
 
 [4] IDC Market Research, reported in Data Dynamics Inc. (2024). "Unlock Data Transformation: Disentangle from the Shackles of Data Silos." Multiple industry surveys on data silo impact.  
-https://www.datadynamicsinc.com/blog-disentangle-from-the-shackles-of-data-silos
+https://www.datadynamicsinc.com/blog-disentangle-from-the-shackles-of-data-silos  
+**Accessed:** October 16, 2025
 
 [5] National Institute of Standards and Technology (NIST). Special Publication 800-162: "Guide to Attribute Based Access Control (ABAC) Definition and Considerations." U.S. Department of Commerce, 2014.  
-https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-162.pdf
+https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-162.pdf  
+**Accessed:** October 16, 2025
 
 [6] U.S. Department of Health & Human Services. Health Insurance Portability and Accountability Act (HIPAA) Security Rule. 45 CFR § 164.312(b) - Audit Controls; 45 CFR § 164.316(b)(2)(i) - Retention Requirements.  
-https://www.law.cornell.edu/cfr/text/45/164.312
+https://www.law.cornell.edu/cfr/text/45/164.312  
+**Accessed:** October 16, 2025
 
 [7] Multiple sources on ML model drift: Rohan Paul (2025). "ML Interview Q Series: Handling LLM Model Drift in Production." Based on MIT/Harvard research by Bayram, Firas & Ahmed (2022): "Examining Temporal Performance Degradation in Machine Learning Models."  
-https://www.rohan-paul.com/p/ml-interview-q-series-handling-llm
+https://www.rohan-paul.com/p/ml-interview-q-series-handling-llm  
+**Accessed:** October 16, 2025
 
 [8] U.S. Department of Health & Human Services. Health Insurance Portability and Accountability Act (HIPAA) Security Rule. 45 CFR § 164.312(b) - Audit Controls; 45 CFR § 164.316(b)(2)(i) - Retention Requirements.  
-https://www.law.cornell.edu/cfr/text/45/164.312
+https://www.law.cornell.edu/cfr/text/45/164.312  
+**Accessed:** October 16, 2025
 
 [9] European Union. General Data Protection Regulation (GDPR). Article 22 - Automated individual decision-making, including profiling. Regulation (EU) 2016/679.  
-https://gdpr-info.eu/art-22-gdpr/
+https://gdpr-info.eu/art-22-gdpr/  
+**Accessed:** October 16, 2025
 
 [10] Salesforce (2024). "Your Data, Your AI: What Nearly 6,000 Workers Want Leaders to Know." Global survey of knowledge workers on AI trust and data.  
-https://www.salesforce.com/news/stories/trusted-ai-data-statistics/
+https://www.salesforce.com/news/stories/trusted-ai-data-statistics/  
+**Accessed:** October 16, 2025
 
 [11] Multiple sources on distributed tracing benefits: HyperTest (2024). "How Trace IDs enhance observability in distributed systems." Technical blog post. Includes Uber Engineering case study on trace ID implementation impact.  
-https://www.hypertest.co/software-development/trace-ids
+https://www.hypertest.co/software-development/trace-ids  
+**Accessed:** October 16, 2025
 
 ---
 
 ## Chapter 0 Statistics
 
-- **Word Count:** ~10,200 words
+- **Word Count:** ~10,500 words
 - **Reading Time:** ~35 minutes
 - **Diagrams:** 8 (2 overview + 6 need-specific)
 - **Tables:** 1 (comprehensive framework)
 - **Citations:** 11 (all verified October 2025)
 - **Key Concepts Introduced:** 6 agent needs, infrastructure capabilities, Analytics Era vs. Agent Era
-- **Version:** 3.0.0 (6 Agent Needs → Capabilities Framework)
+- **Version:** 3.1.0 (TCC Compliant - Final)
 
 ---
 
 **Author:** Ram Katamaraja, CEO of Colaberry Inc.  
 **Copyright:** © 2025 Colaberry Inc.  
 **All citations verified:** October 16, 2025
+
+---
+
+**Chapter 0 Complete - TCC Compliant Final Version**
