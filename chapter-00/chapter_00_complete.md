@@ -376,33 +376,7 @@ Chapter 1 shows how the semantic layer (Layer 2) provides business glossaries an
 
 ## Agent Need 3 → Infrastructure Capability: Cross-Domain Integration
 
-```mermaid
-graph TB
-    subgraph "Analytics Era: Manual Integration"
-        A1[EHR] --> A2[6-8 weeks]
-        A3[Claims] --> A2
-        A4[Portal] --> A2
-        A5[Care Mgmt] --> A2
-        A2 --> A6[One Question Answered]
-        style A2 fill:#ff6b6b
-    end
-    
-    subgraph "Agent Era: Real-Time Assembly"
-        B1[EHR] --> B2[Real-Time Fabric]
-        B3[Claims] --> B2
-        B4[Portal] --> B2
-        B5[Care Mgmt] --> B2
-        B2 --> B6[Entity Resolution]
-        B6 --> B7[Parallel Retrieval]
-        B7 --> B8[Under 2 seconds]
-        style B8 fill:#51cf66
-    end
-    
-    A6 -.->|Cost: $3.1T annually| A2
-    B8 -.->|Any Question, Anytime| B2
-```
 
-**Diagram 5: Analytics Era Manual Integration vs. Agent Era Cross-Domain Assembly**
 
 ### Agent Need 3: Complete Context
 
@@ -429,6 +403,37 @@ Additional findings:
 
 **This is the fundamental need: complete context assembled from multiple systems in real-time.**
 
+```mermaid
+graph TB
+    subgraph "Analytics Era: Manual Integration"
+        A1[EHR] --> A2[6-8 weeks]
+        A3[Claims] --> A2
+        A4[Portal] --> A2
+        A5[Care Mgmt] --> A2
+        A2 --> A6[One Question Answered]
+        style A2 fill:#ff6b6b
+    end
+
+    A6 -.->|Cost: $3.1T annually| A2
+```
+    
+```mermaid
+graph TB
+    subgraph "Agent Era: Real-Time Assembly"
+        B1[EHR] --> B2[Real-Time Fabric]
+        B3[Claims] --> B2
+        B4[Portal] --> B2
+        B5[Care Mgmt] --> B2
+        B2 --> B6[Entity Resolution]
+        B6 --> B7[Parallel Retrieval]
+        B7 --> B8[Under 2 seconds]
+        style B8 fill:#51cf66
+    end
+    
+    B8 -.->|Any Question, Anytime| B2
+```
+
+**Diagram 5: Analytics Era Manual Integration vs. Agent Era Cross-Domain Assembly**
 ---
 
 ### The Infrastructure Capability: Cross-Domain Integration
@@ -471,31 +476,6 @@ Chapter 1 details how multiple layers collaborate to enable cross-domain integra
 
 ## Agent Need 4 → Infrastructure Capability: Dynamic Authorization
 
-```mermaid
-graph TB
-    subgraph "Analytics Era: Static RBAC"
-        A1[Agent Service Account] --> A2[Broad Permissions]
-        A2 --> A3{User Type?}
-        A3 --> A4[Hard-Coded Logic]
-        A4 --> A5[100s of Roles Needed]
-        style A5 fill:#ff6b6b
-    end
-    
-    subgraph "Agent Era: Dynamic ABAC"
-        B1[User Query] --> B2[Policy Engine]
-        B2 --> B3{Evaluate Attributes}
-        B3 --> B4[User + Data + Context]
-        B4 --> B5[Dynamic Decision]
-        B5 --> B6[Under 10ms]
-        style B6 fill:#51cf66
-    end
-    
-    A5 -.->|RBAC: 1024 roles for 10 attributes| A2
-    B6 -.->|ABAC: 64 policies for same coverage| B2
-```
-
-**Diagram 6: Analytics Era Static RBAC vs. Agent Era Dynamic ABAC**
-
 ### Agent Need 4: Personalized Access
 
 Same agent. Different users. Different data access. Enforced in real-time.
@@ -523,6 +503,31 @@ The National Institute of Standards and Technology explains: *"Trying to impleme
 
 **This is the fundamental need: personalized access enforced dynamically per-query.**
 
+
+```mermaid
+graph TB
+    subgraph "Analytics Era: Static RBAC"
+        A1[Agent Service Account] --> A2[Broad Permissions]
+        A2 --> A3{User Type?}
+        A3 --> A4[Hard-Coded Logic]
+        A4 --> A5[100s of Roles Needed]
+        style A5 fill:#ff6b6b
+    end
+    
+    subgraph "Agent Era: Dynamic ABAC"
+        B1[User Query] --> B2[Policy Engine]
+        B2 --> B3{Evaluate Attributes}
+        B3 --> B4[User + Data + Context]
+        B4 --> B5[Dynamic Decision]
+        B5 --> B6[Under 10ms]
+        style B6 fill:#51cf66
+    end
+    
+    A5 -.->|RBAC: 1024 roles for 10 attributes| A2
+    B6 -.->|ABAC: 64 policies for same coverage| B2
+```
+
+**Diagram 6: Analytics Era Static RBAC vs. Agent Era Dynamic ABAC**
 ---
 
 ### The Infrastructure Capability: Dynamic Authorization
@@ -571,32 +576,6 @@ Chapter 1 shows how Layer 5 provides the ABAC policy engine for real-time access
 
 ## Agent Need 5 → Infrastructure Capability: Continuous Learning
 
-```mermaid
-graph TB
-    subgraph "Analytics Era: Quarterly Reviews"
-        A1[Model Deployed] --> A2[3-6 months pass]
-        A2 --> A3[Performance Degrades 35%]
-        A3 --> A4[User Complaints]
-        A4 --> A5[Manual Investigation]
-        A5 --> A6[5-6 weeks to fix]
-        style A6 fill:#ff6b6b
-    end
-    
-    subgraph "Agent Era: Real-Time Monitoring"
-        B1[Model Deployed] --> B2[Continuous Monitoring]
-        B2 --> B3[Drift Detected]
-        B3 --> B4[Auto-Alert: 15 min]
-        B4 --> B5[Retraining Triggered]
-        B5 --> B6[Fixed in 5 days]
-        style B6 fill:#51cf66
-    end
-    
-    A3 -.->|91% of models degrade| A4
-    B3 -.->|Before users notice| B4
-```
-
-**Diagram 7: Analytics Era Quarterly Reviews vs. Agent Era Continuous Learning**
-
 ### Agent Need 5: Always Improving
 
 Machine learning models don't age gracefully. They degrade silently—often without anyone noticing until users start complaining.
@@ -636,6 +615,32 @@ Their agent's retrieval quality:
 
 **This is the fundamental need: continuous learning that detects degradation and triggers improvement.**
 
+
+```mermaid
+graph TB
+    subgraph "Analytics Era: Quarterly Reviews"
+        A1[Model Deployed] --> A2[3-6 months pass]
+        A2 --> A3[Performance Degrades 35%]
+        A3 --> A4[User Complaints]
+        A4 --> A5[Manual Investigation]
+        A5 --> A6[5-6 weeks to fix]
+        style A6 fill:#ff6b6b
+    end
+    
+    subgraph "Agent Era: Real-Time Monitoring"
+        B1[Model Deployed] --> B2[Continuous Monitoring]
+        B2 --> B3[Drift Detected]
+        B3 --> B4[Auto-Alert: 15 min]
+        B4 --> B5[Retraining Triggered]
+        B5 --> B6[Fixed in 5 days]
+        style B6 fill:#51cf66
+    end
+    
+    A3 -.->|91% of models degrade| A4
+    B3 -.->|Before users notice| B4
+```
+
+**Diagram 7: Analytics Era Quarterly Reviews vs. Agent Era Continuous Learning**
 ---
 
 ### The Infrastructure Capability: Continuous Learning
@@ -694,30 +699,6 @@ Chapter 1 details how Layer 6 provides real-time monitoring with automated drift
 
 ## Agent Need 6 → Infrastructure Capability: Auditability & Explainability
 
-```mermaid
-graph TB
-    subgraph "Analytics Era: Quarterly Audits"
-        A1[Agent Decision] --> A2[Basic Logs]
-        A2 --> A3[Service Account Only]
-        A3 --> A4[Manual Investigation]
-        A4 --> A5[Hours to Debug]
-        style A5 fill:#ff6b6b
-    end
-    
-    subgraph "Agent Era: Complete Traceability"
-        B1[Agent Decision] --> B2[Global Trace ID]
-        B2 --> B3[User + Purpose + Sources]
-        B3 --> B4[Immutable Audit Log]
-        B4 --> B5[Minutes to Debug]
-        style B5 fill:#51cf66
-    end
-    
-    A5 -.->|Can't prove HIPAA compliance| A2
-    B5 -.->|3-5x faster incident response| B2
-```
-
-**Diagram 8: Analytics Era Quarterly Audits vs. Agent Era Complete Traceability**
-
 ### Agent Need 6: Trustworthy Decisions
 
 "How did the agent decide that?" must have a clear, auditable answer.
@@ -755,6 +736,30 @@ Salesforce survey of 6,000 knowledge workers found:
 
 **This is the fundamental need: trustworthy decisions with complete auditability and explainability.**
 
+
+```mermaid
+graph TB
+    subgraph "Analytics Era: Quarterly Audits"
+        A1[Agent Decision] --> A2[Basic Logs]
+        A2 --> A3[Service Account Only]
+        A3 --> A4[Manual Investigation]
+        A4 --> A5[Hours to Debug]
+        style A5 fill:#ff6b6b
+    end
+    
+    subgraph "Agent Era: Complete Traceability"
+        B1[Agent Decision] --> B2[Global Trace ID]
+        B2 --> B3[User + Purpose + Sources]
+        B3 --> B4[Immutable Audit Log]
+        B4 --> B5[Minutes to Debug]
+        style B5 fill:#51cf66
+    end
+    
+    A5 -.->|Can't prove HIPAA compliance| A2
+    B5 -.->|3-5x faster incident response| B2
+```
+
+**Diagram 8: Analytics Era Quarterly Audits vs. Agent Era Complete Traceability**
 ---
 
 ### The Infrastructure Capability: Auditability & Explainability
