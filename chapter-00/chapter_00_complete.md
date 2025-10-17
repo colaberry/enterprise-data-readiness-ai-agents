@@ -621,7 +621,7 @@ Their agent's retrieval quality:
 
 **This is the fundamental need: continuous learning that detects degradation and triggers improvement.**
 
-
+![Alt text](./diagrams/diagram7_reviews_monitoring.png "Analytics Era Quarterly Reviews vs. Agent Era Continuous Learning")
 ```mermaid
 graph TB
     subgraph "Analytics Era: Quarterly Reviews"
@@ -633,6 +633,11 @@ graph TB
         style A6 fill:#ff6b6b
     end
     
+    A3 -.->|91% of models degrade| A4
+```
+
+```mermaid
+graph TB
     subgraph "Agent Era: Real-Time Monitoring"
         B1[Model Deployed] --> B2[Continuous Monitoring]
         B2 --> B3[Drift Detected]
@@ -642,12 +647,10 @@ graph TB
         style B6 fill:#51cf66
     end
     
-    A3 -.->|91% of models degrade| A4
     B3 -.->|Before users notice| B4
 ```
 
 **Diagram 7: Analytics Era Quarterly Reviews vs. Agent Era Continuous Learning**
----
 
 ### The Infrastructure Capability: Continuous Learning
 
