@@ -57,9 +57,8 @@ graph TB
     style A1 fill:#e1ffe1,stroke:#51cf66,stroke-width:3px
 ```
 -->
-<div style="text-align: center;">
+
 ![Alt text](./diagrams/diagram1_HumanEra_AgentEraShift.png "Human Era → Agent Era Shift")
-</div>
 
 **Diagram 1: Human Era → Agent Era Shift** - The fundamental change isn't the technology. It's whose needs we optimize for.
 
@@ -119,10 +118,10 @@ Now let's examine each of the 6 agent needs and their corresponding infrastructu
 ---
 
 ## The 6 Agent Needs and Infrastructure Capabilities
-<div style="text-align: center;">
+
 ![Alt text](./diagrams/diagram2_6_agent_needs.png "6 Agent Needs")
 ![Alt text](./diagrams/diagram2_6_agent_needs_infra_capabilitis.png "6 Agent Needs and Infrastructure Capabilities")
-</div>
+
 **Diagram 2: The 6 Agent Needs → Infrastructure Capabilities Framework**
 ```mermaid
 graph TB
@@ -210,9 +209,9 @@ graph TB
         style A6 fill:#ff6b6b
     end
 ```
-<div style="text-align: center;">
+
 ![Alt text](./diagrams/diagram3_Analytics_era_batch_agent_era_real_time.png "Diagram 3: Analytics Era Batch vs. Agent Era Real-Time Response")
-</div>
+
 ```mermaid
 graph TB
     subgraph "Agent Era: Real-Time Streaming"
@@ -301,9 +300,9 @@ With semantic layer enhancements:
 - Full semantic understanding: **85-87% accuracy**[3]
 
 **This is the fundamental need: natural language understanding that delivers 85%+ accuracy.**
-<div style="text-align: center;">
+
 ![Alt text](./diagrams/diagram4_analyticseera_agenticera.png "Analytics Era Manual Translation vs. Agent Era Semantic Understanding")
-</div>
+
 ```mermaid
 graph TB
     subgraph "Analytics Era: Manual Translation"
