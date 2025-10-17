@@ -745,17 +745,23 @@ Salesforce survey of 6,000 knowledge workers found:
 
 **This is the fundamental need: trustworthy decisions with complete auditability and explainability.**
 
+![Alt text](./diagrams/diagram8_audits_traceability.png "Analytics Era Quarterly Audits vs. Agent Era Complete Traceability")
 
 ```mermaid
 graph TB
     subgraph "Analytics Era: Quarterly Audits"
-        A1[Agent Decision] --> A2[Basic Logs]
+        A1[Human Decision] --> A2[Basic Logs]
         A2 --> A3[Service Account Only]
         A3 --> A4[Manual Investigation]
         A4 --> A5[Hours to Debug]
         style A5 fill:#ff6b6b
     end
-    
+
+    A5 -.->|Can't prove HIPAA compliance| A2    
+```
+
+```mermaid
+graph TB
     subgraph "Agent Era: Complete Traceability"
         B1[Agent Decision] --> B2[Global Trace ID]
         B2 --> B3[User + Purpose + Sources]
@@ -764,12 +770,10 @@ graph TB
         style B5 fill:#51cf66
     end
     
-    A5 -.->|Can't prove HIPAA compliance| A2
     B5 -.->|3-5x faster incident response| B2
 ```
 
 **Diagram 8: Analytics Era Quarterly Audits vs. Agent Era Complete Traceability**
----
 
 ### The Infrastructure Capability: Auditability & Explainability
 
