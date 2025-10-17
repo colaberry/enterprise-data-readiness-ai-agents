@@ -504,6 +504,7 @@ The National Institute of Standards and Technology explains: *"Trying to impleme
 
 **This is the fundamental need: personalized access enforced dynamically per-query.**
 
+![Alt text](./diagrams/diagram6_staticRBAC_dynamicABAC.png "Analytics Era Static RBAC vs. Agent Era Dynamic ABAC")
 
 ```mermaid
 graph TB
@@ -514,7 +515,12 @@ graph TB
         A4 --> A5[100s of Roles Needed]
         style A5 fill:#ff6b6b
     end
+
+    A5 -.->|RBAC: 1024 roles for 10 attributes| A2
+```
     
+```mermaid
+graph TB
     subgraph "Agent Era: Dynamic ABAC"
         B1[User Query] --> B2[Policy Engine]
         B2 --> B3{Evaluate Attributes}
@@ -524,12 +530,11 @@ graph TB
         style B6 fill:#51cf66
     end
     
-    A5 -.->|RBAC: 1024 roles for 10 attributes| A2
     B6 -.->|ABAC: 64 policies for same coverage| B2
 ```
 
 **Diagram 6: Analytics Era Static RBAC vs. Agent Era Dynamic ABAC**
----
+
 
 ### The Infrastructure Capability: Dynamic Authorization
 
