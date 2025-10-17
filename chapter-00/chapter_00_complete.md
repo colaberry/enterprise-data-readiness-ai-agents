@@ -58,6 +58,7 @@ graph TB
 ```
 -->
 ![Alt text](./diagrams/diagram1_HumanEra_AgentEraShift.png "Human Era → Agent Era Shift")
+
 **Diagram 1: Human Era → Agent Era Shift** - The fundamental change isn't the technology. It's whose needs we optimize for.
 
 For three decades, enterprise data architecture optimized for **human needs**—building systems that put information in front of people who make decisions.
@@ -198,10 +199,6 @@ For healthcare, abandonment isn't just frustration—it's patients not getting c
 
 
 ```mermaid
----
-config:
-  layout: fixed
----
 flowchart LR
     subgraph "Analytics Era: Batch Processing"
         A1[User Query] - -> A2[Wait for Batch]
@@ -211,7 +208,9 @@ flowchart LR
         A5 - -> A6[User Abandons]
         style A6 fill:#ff6b6b
     end
-    
+```
+
+```mermaid
 flowchart LR    
     subgraph "Agent Era: Real-Time Streaming"
         B1[User Query] - -> B2[Stream Processing]
