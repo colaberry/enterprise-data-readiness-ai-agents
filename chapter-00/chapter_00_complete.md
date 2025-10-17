@@ -840,12 +840,12 @@ Chapter 1 shows how Layer 5 implements audit logging with purpose-of-use trackin
 
 | Agent Need | Why It Matters | Infrastructure Capability Required | Target Metric | Supporting Evidence |
 |------------|----------------|------------------------------------|---------------|---------------------|
-| **Need 1: Instant Answers** | 53% abandon at 3s[10] | Sub-Second Response Architecture | <2s single agent<br/><3s multi-agent | Google Research |
-| **Need 2: Natural Conversation** | 40% baseline failure rate unacceptable[11] | Semantic Understanding | 85%+ accuracy | Databricks/Spider |
-| **Need 3: Complete Context** | Real questions span 5+ systems; silos cost $3.1T[15] | Cross-Domain Integration | Assemble from 5+ in <2s | IDC Research |
-| **Need 4: Personalized Access** | HIPAA/GDPR mandate; RBAC causes role explosion[17] | Dynamic Authorization (ABAC) | <10ms evaluation | NIST Guidance |
-| **Need 5: Always Improving** | 35% model degradation over 6 months[14] | Continuous Learning | Detect drift early, retrain rapidly | LLMOps Research |
-| **Need 6: Trustworthy Decisions** | Legal mandate + user trust requirement[12][13][16] | Auditability & Explainability | 100% audit coverage, 3-5x faster debugging | HIPAA/GDPR/Uber |
+| **Need 1: Instant Answers** | 53% abandon at 3s[2] | Sub-Second Response Architecture | <2s single agent<br/><3s multi-agent | Google Research |
+| **Need 2: Natural Conversation** | 40% baseline failure rate unacceptable[3] | Semantic Understanding | 85%+ accuracy | Databricks/Spider |
+| **Need 3: Complete Context** | Real questions span 5+ systems; silos cost $3.1T[4] | Cross-Domain Integration | Assemble from 5+ in <2s | IDC Research |
+| **Need 4: Personalized Access** | HIPAA/GDPR mandate; RBAC causes role explosion[5] | Dynamic Authorization (ABAC) | <10ms evaluation | NIST Guidance |
+| **Need 5: Always Improving** | 35% model degradation over 6 months[7] | Continuous Learning | Detect drift early, retrain rapidly | LLMOps Research |
+| **Need 6: Trustworthy Decisions** | Legal mandate + user trust requirement[8][9][10] | Auditability & Explainability | 100% audit coverage, 3-5x faster debugging | HIPAA/GDPR/Uber |
 
 ---
 
