@@ -32,31 +32,29 @@ MIT's recommendation was clear: *"Create a strong data foundation. Prioritize lo
 ---
 
 ## The Fundamental Shift: Human Needs to 6 Agent Needs
-<!--
 ```mermaid
-graph TB
+graph LR
     subgraph "Human Era (1990-2024)"
         H1[Human Needs]
         H2[Historical Reports]
         H3[Visual Dashboards]
         H4[Humans Decide & Act]
-        H1 - -> H2 - -> H3 - -> H4
+        H1 --> H2 --> H3 --> H4
     end
     
+graph LR
     subgraph "Agent Era (2024-Present)"
         A1[6 Agent Needs]
         A2[Real-Time Context]
         A3[Natural Language]
         A4[Agents Act, Humans Oversee]
-        A1 - -> A2 - -> A3 - -> A4
+        A1 --> A2 --> A3 --> A4
     end
-    
-    H4 -.->|"The Divide"| A1
-    
+        
     style H1 fill:#ffe1e1,stroke:#ff6b6b,stroke-width:3px
     style A1 fill:#e1ffe1,stroke:#51cf66,stroke-width:3px
 ```
--->
+
 ![Alt text](./diagrams/diagram1_HumanEra_AgentEraShift.png "Human Era → Agent Era Shift")
 **Diagram 1: Human Era → Agent Era Shift** - The fundamental change isn't the technology. It's whose needs we optimize for.
 
@@ -201,9 +199,6 @@ flowchart LR
     end
 ```
 -->
-![Alt text](./diagrams/diagram3_Analytics_era_batch_agent_era_real_time.png "Diagram 3: Analytics Era Batch vs. Agent Era Real-Time Response")
-
-**Diagram 3: Analytics Era Batch vs. Agent Era Real-Time Response**
 
 ### Agent Need 1: Instant Answers
 
@@ -222,6 +217,9 @@ For healthcare, abandonment isn't just frustration—it's patients not getting c
 
 **This is the fundamental need: instant answers that keep users engaged.**
 
+![Alt text](./diagrams/diagram3_Analytics_era_batch_agent_era_real_time.png "Diagram 3: Analytics Era Batch vs. Agent Era Real-Time Response")
+
+**Diagram 3: Analytics Era Batch vs. Agent Era Real-Time Response**
 ---
 
 ### The Infrastructure Capability: Sub-Second Response Architecture
@@ -265,29 +263,7 @@ Chapter 1 details how the seven architectural layers work together to deliver su
 
 ## Agent Need 2 → Infrastructure Capability: Semantic Understanding
 
-```mermaid
-graph TB
-    subgraph "Analytics Era: Manual Translation"
-        A1["'Show diabetes patients'"] --> A2[Developer Needed]
-        A2 --> A3[Learn Schema]
-        A3 --> A4[Write SQL]
-        A4 --> A5[2-3 weeks]
-        style A5 fill:#ff6b6b
-    end
-    
-    subgraph "Agent Era: Semantic Layer"
-        B1["'Show diabetes patients'"] --> B2[Semantic Layer]
-        B2 --> B3[Entity Resolution]
-        B3 --> B4[Auto-Generated Query]
-        B4 --> B5[Milliseconds]
-        style B5 fill:#51cf66
-    end
-    
-    A1 -.->|60% Accuracy| A5
-    B1 -.->|85%+ Accuracy| B5
-```
 
-**Diagram 4: Analytics Era Manual Translation vs. Agent Era Semantic Understanding**
 
 ### Agent Need 2: Natural Conversation
 
@@ -320,6 +296,29 @@ With semantic layer enhancements:
 
 **This is the fundamental need: natural language understanding that delivers 85%+ accuracy.**
 
+```mermaid
+graph TB
+    subgraph "Analytics Era: Manual Translation"
+        A1["'Show diabetes patients'"] --> A2[Developer Needed]
+        A2 --> A3[Learn Schema]
+        A3 --> A4[Write SQL]
+        A4 --> A5[2-3 weeks]
+        style A5 fill:#ff6b6b
+    end
+    
+    subgraph "Agent Era: Semantic Layer"
+        B1["'Show diabetes patients'"] --> B2[Semantic Layer]
+        B2 --> B3[Entity Resolution]
+        B3 --> B4[Auto-Generated Query]
+        B4 --> B5[Milliseconds]
+        style B5 fill:#51cf66
+    end
+    
+    A1 -.->|60% Accuracy| A5
+    B1 -.->|85%+ Accuracy| B5
+```
+
+**Diagram 4: Analytics Era Manual Translation vs. Agent Era Semantic Understanding**
 ---
 
 ### The Infrastructure Capability: Semantic Understanding
