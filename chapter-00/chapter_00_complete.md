@@ -268,7 +268,7 @@ A care coordinator asks: *"Show me patients needing diabetes follow-up this quar
 
 ```mermaid
 graph TB
-    subgraph "Analytics Era: Manual Translation"
+    subgraph "Analytics: Manual Translation"
         A1[Natural<br/>Language Query] --> A2[Developer<br/>Translates to SQL]
         A2 --> A3[Cryptic Table<br/>FCT_PTNT_ENCT]
         A3 --> A4[2-3 days<br/>40-60% accuracy]
@@ -278,7 +278,7 @@ graph TB
 ```
 ```mermaid
 graph TB    
-    subgraph "Agent Era: Semantic Understanding"
+    subgraph "Agent: Semantic Understanding"
         B1[Natural<br/>Language Query] --> B2[Semantic Layer<br/>Auto-translates]
         B2 --> B3[Business Terms<br/>Patient Encounters]
         B3 --> B4[Instant response<br/>75-85%+ accuracy]
