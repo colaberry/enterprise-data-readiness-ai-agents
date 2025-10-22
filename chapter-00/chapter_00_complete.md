@@ -139,7 +139,6 @@ graph TB
     style N5 fill:#004400
     style N6 fill:#004400
 ```
-
 **Diagram 1: The INPACT™ Framework - Agent Needs → Infrastructure Capabilities**
 
 ---
@@ -194,7 +193,6 @@ When a patient asks "Can I see Dr. Martinez today?", they expect conversational 
 - Generic database (no query-pattern optimization)
 
 The cancellation that happened 30 seconds ago? Invisible. The agent books a slot that's already gone. Patient calls back, frustrated. Trust evaporates.
-
 ```mermaid
 flowchart TB
     subgraph "Analytics Era: Batch Processing"
@@ -204,7 +202,6 @@ flowchart TB
     end
     style A4 fill:#990000
 ```
-
 ```mermaid    
 flowchart TB
     subgraph "Agent Era: Real-Time Streaming"
@@ -214,7 +211,6 @@ flowchart TB
     end    
     style B4 fill:#004400
 ```
-
 **Diagram 2: I - Instant | Analytics Era Batch vs. Agent Era Real-Time**
 
 **The infrastructure capability: Sub-Second Response Architecture**
@@ -271,23 +267,25 @@ A care coordinator asks: *"Show me patients needing diabetes follow-up this quar
 - Baseline: Spider (60-70% academic) vs. enterprise + semantic layer (75-85%+ target)
 
 ```mermaid
-graph LR
+graph TB
     subgraph "Analytics Era: Manual Translation"
         A1[Natural<br/>Language Query] --> A2[Developer<br/>Translates to SQL]
         A2 --> A3[Cryptic Table<br/>FCT_PTNT_ENCT]
         A3 --> A4[2-3 days<br/>40-60% accuracy]
     end
-    
+
+    style A4 fill:#990000
+```
+```mermaid
+graph TB    
     subgraph "Agent Era: Semantic Understanding"
         B1[Natural<br/>Language Query] --> B2[Semantic Layer<br/>Auto-translates]
         B2 --> B3[Business Terms<br/>Patient Encounters]
         B3 --> B4[Instant response<br/>75-85%+ accuracy]
     end
     
-    style A4 fill:#990000
     style B4 fill:#004400
 ```
-
 **Diagram 3: N - Natural | Analytics Era Manual Translation vs. Agent Era Semantic**
 
 **The infrastructure capability: Semantic Understanding**
