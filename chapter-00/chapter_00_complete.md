@@ -268,7 +268,7 @@ A care coordinator asks: *"Show me patients needing diabetes follow-up this quar
 
 ```mermaid
 graph TB
-    subgraph "Analytics: Manual Translation"
+    subgraph "Analytics Era: Manual Translation"
         A1[Natural<br/>Language Query] --> A2[Developer<br/>Translates to SQL]
         A2 --> A3[Cryptic Table<br/>FCT_PTNT_ENCT]
         A3 --> A4[2-3 days<br/>40-60% accuracy]
@@ -278,7 +278,7 @@ graph TB
 ```
 ```mermaid
 graph TB    
-    subgraph "Agent: Semantic Understanding"
+    subgraph "Agent Era: Semantic Understanding"
         B1[Natural<br/>Language Query] --> B2[Semantic Layer<br/>Auto-translates]
         B2 --> B3[Business Terms<br/>Patient Encounters]
         B3 --> B4[Instant response<br/>75-85%+ accuracy]
@@ -341,8 +341,13 @@ graph TB
         A2 --> A3[Permission Set<br/>READ all tables]
         A3 --> A4[Access Decision<br/>2 weeks to provision]
         A4 --> A5[Result:<br/>Over-privileged]
+
+    style A5 fill:#990000
     end
+```
     
+```mermaid
+graph TB
     subgraph "Agent Era: Dynamic ABAC"
         B1[User: Sarah] --> B2[Attributes:<br/>role, dept, time]
         B2 --> B3[Data Attributes:<br/>PHI, sensitivity]
@@ -353,7 +358,6 @@ graph TB
     style A5 fill:#990000
     style B5 fill:#004400
 ```
-
 **Diagram 4: P - Permitted | Analytics Era Static RBAC vs. Agent Era Dynamic ABAC**
 
 **The infrastructure capability: Dynamic Authorization (ABAC)**
@@ -405,15 +409,20 @@ Root cause: Embedding model couldn't recognize new medical terminology. The agen
 As NexaStack's 2025 analysis emphasizes, organizations must shift from reactive monitoring to anticipatory systems that detect, mitigate, and adapt to drift in real-time through continuous monitoring and adaptive governance.[13b]
 
 ```mermaid
-graph LR
+graph TB
     subgraph "Analytics Era: Quarterly Reviews"
         A1[Deploy Model] --> A2[Wait 3 months]
         A2 --> A3[Users complain]
         A3 --> A4[Manual review<br/>2 weeks]
         A4 --> A5[Retrain<br/>4 weeks]
         A5 --> A6[Total: 3+ months<br/>to fix]
+
+    style A6 fill:#990000
     end
+```
     
+```mermaid
+graph TB
     subgraph "Agent Era: Continuous Adaptive Learning"
         B1[Deploy Model] --> B2[Real-time<br/>monitoring]
         B2 --> B3[Detect drift<br/>days]
@@ -422,7 +431,6 @@ graph LR
         B5 --> B6[Total: days<br/>to fix]
     end
     
-    style A6 fill:#990000
     style B6 fill:#004400
 ```
 
@@ -571,14 +579,18 @@ graph TB
         A2 --> A3[Quarterly<br/>audit review]
         A3 --> A4[Result:<br/>Can't reconstruct<br/>decisions]
     end
+
+    style A4 fill:#990000
+```
     
+```mermaid
+graph TB
     subgraph "Agent Era: Complete Traceability"
         B1[Query executed] --> B2[Complete logging<br/>Who, What, When, Why<br/>Trace ID, Policy, Result]
         B2 --> B3[Real-time<br/>observability]
         B3 --> B4[Result:<br/>Every decision<br/>fully traceable]
     end
     
-    style A4 fill:#990000
     style B4 fill:#004400
 ```
 
