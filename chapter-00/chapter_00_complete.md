@@ -132,12 +132,12 @@ graph TB
     N5 --> C5
     N6 --> C6
     
-    style N1 fill:#990000
-    style N2 fill:#990000
-    style N3 fill:#990000
-    style N4 fill:#990000
-    style N5 fill:#990000
-    style N6 fill:#990000
+    style N1 fill:#004400
+    style N2 fill:#004400
+    style N3 fill:#004400
+    style N4 fill:#004400
+    style N5 fill:#004400
+    style N6 fill:#004400
 ```
 
 **Diagram 1: The INPACT™ Framework - Agent Needs → Infrastructure Capabilities**
@@ -204,8 +204,9 @@ flowchart TB
     end
     style A4 fill:#990000
 ```
+
 ```mermaid    
-flowchart LTB
+flowchart TB
     subgraph "Agent Era: Real-Time Streaming"
         B1[CDC<br/>Continuous] --> B2[Streaming<br/>Platform]
         B2 --> B3[Agent Query<br/><2 seconds]
