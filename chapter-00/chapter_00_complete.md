@@ -132,12 +132,12 @@ graph TB
     N5 --> C5
     N6 --> C6
     
-    style N1 fill:#ffe1e1
-    style N2 fill:#ffe1e1
-    style N3 fill:#ffe1e1
-    style N4 fill:#ffe1e1
-    style N5 fill:#ffe1e1
-    style N6 fill:#ffe1e1
+    style N1 fill:#990000
+    style N2 fill:#990000
+    style N3 fill:#990000
+    style N4 fill:#990000
+    style N5 fill:#990000
+    style N6 fill:#990000
 ```
 
 **Diagram 1: The INPACT™ Framework - Agent Needs → Infrastructure Capabilities**
@@ -179,7 +179,7 @@ graph TB
 5. Supply ordering (inventory management)
 6. Clinical triage (initial assessment)
 
-*Figures synthesized from: MIT NANDA study on GenAI ROI patterns, Gartner healthcare IT transformation benchmarks, McKinsey enterprise AI economics analysis, and Colaberry advisory experience with healthcare data projects.*
+*Figures synthesized from: MIT NANDA study on GenAI ROI patterns, Gartner healthcare IT transformation benchmarks, McKinsey enterprise AI economics analysis, and Colaberry advisory experience with enteprise AI projects.*
 
 ---
 
@@ -196,21 +196,22 @@ When a patient asks "Can I see Dr. Martinez today?", they expect conversational 
 The cancellation that happened 30 seconds ago? Invisible. The agent books a slot that's already gone. Patient calls back, frustrated. Trust evaporates.
 
 ```mermaid
-graph LR
+flowchart TB
     subgraph "Analytics Era: Batch Processing"
         A1[Overnight<br/>ETL Job] --> A2[Data<br/>Warehouse]
         A2 --> A3[BI Query<br/>8-13 seconds]
         A3 --> A4[Stale Data<br/>8-24 hours old]
     end
-    
+    style A4 fill:#990000
+```
+```mermaid    
+flowchart LTB
     subgraph "Agent Era: Real-Time Streaming"
         B1[CDC<br/>Continuous] --> B2[Streaming<br/>Platform]
         B2 --> B3[Agent Query<br/><2 seconds]
         B3 --> B4[Fresh Data<br/><30 seconds old]
-    end
-    
-    style A4 fill:#ffcccc
-    style B4 fill:#ccffcc
+    end    
+    style B4 fill:#004400
 ```
 
 **Diagram 2: I - Instant | Analytics Era Batch vs. Agent Era Real-Time**
@@ -282,8 +283,8 @@ graph LR
         B3 --> B4[Instant response<br/>75-85%+ accuracy]
     end
     
-    style A4 fill:#ffcccc
-    style B4 fill:#ccffcc
+    style A4 fill:#990000
+    style B4 fill:#004400
 ```
 
 **Diagram 3: N - Natural | Analytics Era Manual Translation vs. Agent Era Semantic**
@@ -350,8 +351,8 @@ graph TB
         B4 --> B5[Result:<br/>Right-sized access]
     end
     
-    style A5 fill:#ffcccc
-    style B5 fill:#ccffcc
+    style A5 fill:#990000
+    style B5 fill:#004400
 ```
 
 **Diagram 4: P - Permitted | Analytics Era Static RBAC vs. Agent Era Dynamic ABAC**
@@ -422,8 +423,8 @@ graph LR
         B5 --> B6[Total: days<br/>to fix]
     end
     
-    style A6 fill:#ffcccc
-    style B6 fill:#ccffcc
+    style A6 fill:#990000
+    style B6 fill:#004400
 ```
 
 **Diagram 5: A - Adaptive | Analytics Era Quarterly Reviews vs. Agent Era Continuous Learning**
@@ -499,8 +500,8 @@ graph TB
         B5 --> B6[Complete, fresh<br/>contextual answer]
     end
     
-    style A6 fill:#ffcccc
-    style B6 fill:#ccffcc
+    style A6 fill:#990000
+    style B6 fill:#004400
 ```
 
 **Diagram 6: C - Contextual | Analytics Era Manual Integration vs. Agent Era Real-Time Assembly**
@@ -578,8 +579,8 @@ graph TB
         B3 --> B4[Result:<br/>Every decision<br/>fully traceable]
     end
     
-    style A4 fill:#ffcccc
-    style B4 fill:#ccffcc
+    style A4 fill:#990000
+    style B4 fill:#004400
 ```
 
 **Diagram 7: T - Trusted | Analytics Era Quarterly Audits vs. Agent Era Complete Traceability**
