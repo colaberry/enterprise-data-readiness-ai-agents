@@ -105,42 +105,11 @@ Same principle. Different needs. Same outcome: transformation.
 
 ## The INPACT™ Framework: 6 Agent Needs
 
-```mermaid
-graph TB
-    subgraph "INPACT™: 6 Agent Needs"
-        N1[I: Instant<br/>Sub-Second Responses]
-        N2[N: Natural<br/>Language Understanding]
-        N3[P: Permitted<br/>Dynamic Authorization]
-        N4[A: Adaptive<br/>Continuous Learning]
-        N5[C: Contextual<br/>Complete Cross-System Data]
-        N6[T: Trusted<br/>Transparency & Audit]
-    end
-    
-    subgraph "Infrastructure Capabilities"
-        C1[Sub-Second<br/>Response Architecture]
-        C2[Semantic<br/>Understanding]
-        C3[Dynamic<br/>Authorization ABAC]
-        C4[Continuous<br/>Learning Systems]
-        C5[Cross-Domain<br/>Integration]
-        C6[Auditability &<br/>Explainability]
-    end
-    
-    N1 --> C1
-    N2 --> C2
-    N3 --> C3
-    N4 --> C4
-    N5 --> C5
-    N6 --> C6
-    
-    style N1 fill:#004400
-    style N2 fill:#004400
-    style N3 fill:#004400
-    style N4 fill:#004400
-    style N5 fill:#004400
-    style N6 fill:#004400
-```
-**Diagram 1: The INPACT™ Framework - Agent Needs → Infrastructure Capabilities**
 
+
+**[Diagram 1: The INPACT™ Framework - 6 Agent Needs → Infrastructure Capabilities]**
+
+![Diagram 1: INPACT Framework](diagrams/diagram_0_1_a_inpact_framework.png)
 ---
 
 📊 **ECHO HEALTH SYSTEMS: Illustrative Transformation**
@@ -150,7 +119,7 @@ graph TB
 **Starting Point (Day 0):**
 - Readiness Score: 28/100 (BI-First archetype)
 - Infrastructure: SQL Server warehouse, overnight ETL, no streaming
-- Challenge: CEO asked for scheduling agent by Q3
+- Challenge: CEO requested AI agent deployment on aggressive timeline
 
 **Typical Investment (90 days):**
 - Total: $750K-$1.5M (median $1.125M)
