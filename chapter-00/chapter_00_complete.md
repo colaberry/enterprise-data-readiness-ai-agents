@@ -57,7 +57,7 @@ MIT's recommendation was clear: *"Create a strong data foundation. Prioritize lo
 
 ## The Fundamental Shift: Human Needs to Agent Needs
 
-![Alt text](./diagrams/diagram1_HumanEra_AgentEraShift.png "Human Era → Agent Era Shift")
+![Alt text](./diagrams/diagram_0_1_a_HumanEra_AgentEraShift.png "Human Era → Agent Era Shift")
 
 **Diagram 1: Human Era → Agent Era Shift** - The fundamental change isn't the technology. It's whose needs we optimize for.
 
@@ -96,6 +96,8 @@ Trust isn't optional. It's the line separating the 5% who succeed from the 95% w
 **That's INPACT™: the framework for building agents users trust.**
 
 The acronym is **INPACT™** (sounds like "impact"), and every letter represents an essential need:
+
+![Alt text](./diagrams/diagram_0_2_a_6_agent_needs.png "6 Agent Needs")
 
 - **I** – Instant (sub-second responses)
 - **N** – Natural (language understanding)
