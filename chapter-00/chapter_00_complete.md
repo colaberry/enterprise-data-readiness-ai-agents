@@ -144,9 +144,9 @@ Now let's examine each of the 6 agent needs in the INPACT™ framework.
 
 ## The 6 Agent Needs: INPACT™
 
+**Diagram 2: The INPACT™ Framework—6 Agent Needs → Infrastructure Capabilities**
 ![Alt text](./diagrams/diagram_0_2_a_inpact_framework.png "6 Agent Needs and Infrastructure Capabilities")
 
-**Diagram 2: The INPACT™ Framework—6 Agent Needs → Infrastructure Capabilities**
 
 Each need-capability pair is backed by quantitative research and proven implementations. Let's examine them.
 
@@ -166,7 +166,7 @@ The speed imperative is clear: 90% of customers expect instant responses when re
 
 Every second of latency costs trust. When a patient calls to schedule an appointment, the agent queries last night's data dump. The cancellation that happened 30 seconds ago? Invisible. The agent books a slot that's already gone. The patient calls back, frustrated. Trust evaporates.
 
-![Alt text](./diagrams/diagram3_Analytics_era_batch_agent_era_real_time.png "Diagram 3: Analytics Era Batch vs. Agent Era Real-Time Response")
+![Alt text](./diagrams/diagram_0_3_a_AnalyticsEraBatchvsAgentEra.png "Diagram 3: Analytics Era Batch vs. Agent Era Real-Time Response")
 
 **Diagram 3: Analytics Era Batch vs. Agent Era Real-Time Response**
 
@@ -233,7 +233,7 @@ When Dr. Cedao tried to build Echo's scheduling agent, she discovered a fundamen
 
 **A 40% failure rate is unacceptable** for healthcare, finance, or any domain where incorrect answers cause real harm.
 
-![Alt text](./diagrams/diagram4_analyticseera_agenticera.png "Analytics Era Manual Translation vs. Agent Era Semantic Understanding")
+![Alt text](./diagrams/diagram_0_4_a_ManualTranslationvsSemanticUnderstanding.png "Analytics Era Manual Translation vs. Agent Era Semantic Understanding")
 
 **Diagram 4: Analytics Era Manual Translation vs. Agent Era Semantic Understanding**
 

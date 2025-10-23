@@ -1,0 +1,38 @@
+flowchart TB
+    subgraph Analytics["<b>Analytics Era: Batch Processing</b>"]
+        direction LR
+        A1["<b>Overnight<br/>ETL Job</b>"] --> A2["<b>Data<br/>Warehouse</b>"]
+        A2 --> A3["<b>BI Query<br/>8-13 seconds</b>"]
+        A3 --> A4["<b>Stale Data<br/>8-24 hours old</b>"]
+    end
+    
+    Analytics -.->|<b>Evolution</b>| Agent
+    
+    subgraph Agent["<b>Agent Era: Real-Time Streaming</b>"]
+        direction LR
+        B1["<b>CDC<br/>Continuous</b>"] --> B2["<b>Streaming<br/>Platform</b>"]
+        B2 --> B3["<b>Agent Query<br/><2 seconds</b>"]
+        B3 --> B4["<b>Fresh Data<br/><30 seconds old</b>"]
+    end
+    
+    Agent ~~~ CR["<b>© 2025 Colaberry Inc.</b>"]
+    
+    classDef subgraphTitle fill:#f9f9f9,stroke:#333333,stroke-width:2px,color:#000000
+    classDef oldEra fill:#ffebee,stroke:#c62828,color:#b71c1c
+    classDef newEra fill:#e0f2f1,stroke:#00897b,color:#004d40
+    classDef problem fill:#990000,color:#ffffff
+    classDef solution fill:#00695c,color:#ffffff
+    
+    style A1 fill:#ffebee,stroke:#c62828,color:#b71c1c
+    style A2 fill:#ffebee,stroke:#c62828,color:#b71c1c
+    style A3 fill:#ffebee,stroke:#c62828,color:#b71c1c
+    style A4 fill:#990000,color:#ffffff
+    
+    style B1 fill:#e0f2f1,stroke:#00897b,color:#004d40
+    style B2 fill:#e0f2f1,stroke:#00897b,color:#004d40
+    style B3 fill:#e0f2f1,stroke:#00897b,color:#004d40
+    style B4 fill:#00695c,color:#ffffff
+    
+    style Analytics fill:#fff5f5,stroke:#c62828,stroke-width:2px
+    style Agent fill:#f0fff0,stroke:#00897b,stroke-width:2px
+    style CR fill:none,stroke:none,color:#999999
