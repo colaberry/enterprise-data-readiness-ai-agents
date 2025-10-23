@@ -145,8 +145,6 @@ Now let's examine each of the 6 agent needs in the INPACT™ framework.
 
 ## The 6 Agent Needs: INPACT™
 
-![Alt text](./diagrams/diagram2_6_agent_needs.png "6 Agent Needs")
-![Alt text](./diagrams/diagram2_6_agent_needs_infra_capabilitis.png "6 Agent Needs and Infrastructure Capabilities")
 
 **Diagram 2: The INPACT™ Framework—6 Agent Needs → Infrastructure Capabilities**
 
