@@ -166,9 +166,8 @@ The speed imperative is clear: 90% of customers expect instant responses when re
 
 Every second of latency costs trust. When a patient calls to schedule an appointment, the agent queries last night's data dump. The cancellation that happened 30 seconds ago? Invisible. The agent books a slot that's already gone. The patient calls back, frustrated. Trust evaporates.
 
-![Alt text](./diagrams/diagram_0_3_a_AnalyticsEraBatchvsAgentEra.png "Diagram 3: Analytics Era Batch vs. Agent Era Real-Time Response")
-
 **Diagram 3: Analytics Era Batch vs. Agent Era Real-Time Response**
+![Alt text](./diagrams/diagram_0_3_a_I_InstantAnalyticsEraBatchvsAgentEra.png "Diagram 3: Analytics Era Batch vs. Agent Era Real-Time Response")
 
 ### The Infrastructure Capability: Sub-Second Response Architecture
 
@@ -233,9 +232,9 @@ When Dr. Cedao tried to build Echo's scheduling agent, she discovered a fundamen
 
 **A 40% failure rate is unacceptable** for healthcare, finance, or any domain where incorrect answers cause real harm.
 
-![Alt text](./diagrams/diagram_0_4_a_ManualTranslationvsSemanticUnderstanding.png "Analytics Era Manual Translation vs. Agent Era Semantic Understanding")
+**Diagram 4: Analytics Era Manual Translation vs. Agent Era Semantic Understanding**![Alt text](./diagrams/diagram_0_4_a_N_Natural_ManualTranslationvsSemanticUnderstanding.png "Analytics Era Manual Translation vs. Agent Era Semantic Understanding")
 
-**Diagram 4: Analytics Era Manual Translation vs. Agent Era Semantic Understanding**
+
 
 ### The Infrastructure Capability: Semantic Understanding
 
@@ -289,9 +288,8 @@ The same agent serves different users with different permissions. Traditional ro
 
 When Dr. Cedao's team built their first agent, they gave it a service account with broad database permissions. This created an immediate compliance crisis: the agent could access any patient's PHI regardless of who was asking, violating HIPAA's minimum necessary standard. When they tried to restrict permissions, the agent couldn't function—it needed different access rights for different queries from different users.
 
-![Alt text](./diagrams/diagram6_analytics_era_agentic_era.png "Analytics Era Static RBAC vs. Agent Era Dynamic ABAC")
-
-**Diagram 6: Analytics Era Static RBAC vs. Agent Era Dynamic ABAC**
+**Diagram 5: Analytics Era Static RBAC vs. Agent Era Dynamic ABAC**
+![Alt text](./diagrams/diagram_0_6_a_PeriodicReviewsvs.ContinuousLearning.png "Analytics Era Static RBAC vs. Agent Era Dynamic ABAC")
 
 ### The Infrastructure Capability: Dynamic Authorization
 
@@ -357,9 +355,8 @@ When Dr. Cedao deployed Echo's first scheduling agent, she initially viewed it a
 
 Research shows that 91% of ML models degrade over time without continuous monitoring and retraining.[12] For agent systems, this degradation manifests as semantic drift (domain terminology evolves), retrieval quality decline (embedding models become stale), and data quality issues (source systems change without notification).
 
-![Alt text](./diagrams/diagram7_analytics_era_vs_agent_era.png "Analytics Era Periodic Reviews vs. Agent Era Continuous Learning")
-
-**Diagram 7: Analytics Era Periodic Reviews vs. Agent Era Continuous Learning**
+**Diagram 6: Analytics Era Periodic Reviews vs. Agent Era Continuous Learning**
+![Alt text](./diagrams/diagram_0_6_a_A_Adaptive_PeriodicReviewsvs.ContinuousLearning.png "Analytics Era Periodic Reviews vs. Agent Era Continuous Learning")
 
 ### The Infrastructure Capability: Continuous Learning
 
@@ -430,9 +427,8 @@ When Dr. Cedao's team built their first agent, they quickly hit this wall. The a
 
 Each new data source adds integration complexity that grows exponentially, not linearly. Traditional point-to-point integrations create a maintenance nightmare where N data sources require N(N-1)/2 integration points.
 
-![Alt text](./diagrams/diagram5_analyticser_agenticera.png "Analytics Era Siloed Data vs. Agent Era Unified Context")
-
-**Diagram 5: Analytics Era Siloed Data vs. Agent Era Unified Context**
+**Diagram 7: Analytics Era Siloed Data vs. Agent Era Unified Context**
+![Alt text](./diagrams/diagram_0_7_a_C_contextual_SiloedDatavsUnifiedContext.png "Analytics Era Siloed Data vs. Agent Era Unified Context")
 
 ### The Infrastructure Capability: Cross-Domain Integration
 
@@ -510,9 +506,9 @@ This log entry was worthless for compliance. It didn't show which human user tri
 
 Research confirms that transparency and design are the mediators of trust in AI systems.[2] When users can't see how agents make decisions, distrust spreads to both the AI and the company behind it.[3]
 
-![Alt text](./diagrams/diagram8_analytics_era_vs_agent_era.png "Analytics Era Manual Audits vs. Agent Era Automated Traceability")
-
 **Diagram 8: Analytics Era Manual Audits vs. Agent Era Automated Traceability**
+![Alt text](./diagrams/diagram_0_8_a_T_trusted_ManualAuditsvsAutomatedTraceability.png"Analytics Era Manual Audits vs. Agent Era Automated Traceability")
+
 
 ### The Infrastructure Capability: Auditability & Explainability
 

@@ -1,0 +1,42 @@
+flowchart TB
+    subgraph Analytics["<b>Analytics Era: Static RBAC</b>"]
+        direction LR
+        A1["<b>User: Sarah</b>"] --> A2["<b>Role:<br/>Data Analyst</b>"]
+        A2 --> A3["<b>Permission Set<br/>READ all tables</b>"]
+        A3 --> A4["<b>Access Decision<br/>2 weeks to provision</b>"]
+        A4 --> A5["<b>Result:<br/>Over-privileged</b>"]
+    end
+    
+    Analytics -.->|<b>Evolution</b>| Agent
+    
+    subgraph Agent["<b>Agent Era: Dynamic ABAC</b>"]
+        direction LR
+        B1["<b>User: Sarah</b>"] --> B2["<b>Attributes:<br/>role, dept, time</b>"]
+        B2 --> B3["<b>Data Attributes:<br/>PHI, sensitivity</b>"]
+        B3 --> B4["<b>Policy Evaluation<br/><10ms real-time</b>"]
+        B4 --> B5["<b>Result:<br/>Right-sized access</b>"]
+    end
+    
+    Agent ~~~ CR["<b>© 2025 Colaberry Inc.</b>"]
+    
+    classDef subgraphTitle fill:#f9f9f9,stroke:#333333,stroke-width:2px,color:#000000
+    classDef oldEra fill:#ffebee,stroke:#c62828,color:#b71c1c
+    classDef newEra fill:#e0f2f1,stroke:#00897b,color:#004d40
+    classDef problem fill:#990000,color:#ffffff
+    classDef solution fill:#00695c,color:#ffffff
+    
+    style A1 fill:#ffebee,stroke:#c62828,color:#b71c1c
+    style A2 fill:#ffebee,stroke:#c62828,color:#b71c1c
+    style A3 fill:#ffebee,stroke:#c62828,color:#b71c1c
+    style A4 fill:#ffebee,stroke:#c62828,color:#b71c1c
+    style A5 fill:#990000,color:#ffffff
+    
+    style B1 fill:#e0f2f1,stroke:#00897b,color:#004d40
+    style B2 fill:#e0f2f1,stroke:#00897b,color:#004d40
+    style B3 fill:#e0f2f1,stroke:#00897b,color:#004d40
+    style B4 fill:#e0f2f1,stroke:#00897b,color:#004d40
+    style B5 fill:#00695c,color:#ffffff
+    
+    style Analytics fill:#fff5f5,stroke:#c62828,stroke-width:2px
+    style Agent fill:#f0fff0,stroke:#00897b,stroke-width:2px
+    style CR fill:none,stroke:none,color:#999999

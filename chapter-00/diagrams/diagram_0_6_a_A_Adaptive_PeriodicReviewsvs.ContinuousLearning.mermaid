@@ -1,0 +1,46 @@
+flowchart TB
+    subgraph Analytics["<b>Analytics Era: Quarterly Reviews</b>"]
+        direction LR
+        A1["<b>Deploy Model</b>"] --> A2["<b>Wait 3 months</b>"]
+        A2 --> A3["<b>Users complain</b>"]
+        A3 --> A4["<b>Manual review<br/>2 weeks</b>"]
+        A4 --> A5["<b>Retrain<br/>4 weeks</b>"]
+        A5 --> A6["<b>Total: 3+ months<br/>to fix</b>"]
+    end
+    
+    Analytics -.->|<b>Evolution</b>| Agent
+    
+    subgraph Agent["<b>Agent Era: Continuous Adaptive Learning</b>"]
+        direction LR
+        B1["<b>Deploy Model</b>"] --> B2["<b>Real-time<br/>monitoring</b>"]
+        B2 --> B3["<b>Detect drift<br/>days</b>"]
+        B3 --> B4["<b>Auto-trigger<br/>retraining</b>"]
+        B4 --> B5["<b>A/B test<br/>deploy</b>"]
+        B5 --> B6["<b>Total: days<br/>to fix</b>"]
+    end
+    
+    Agent ~~~ CR["<b>© 2025 Colaberry Inc.</b>"]
+    
+    classDef subgraphTitle fill:#f9f9f9,stroke:#333333,stroke-width:2px,color:#000000
+    classDef oldEra fill:#ffebee,stroke:#c62828,color:#b71c1c
+    classDef newEra fill:#e0f2f1,stroke:#00897b,color:#004d40
+    classDef problem fill:#990000,color:#ffffff
+    classDef solution fill:#00695c,color:#ffffff
+    
+    style A1 fill:#ffebee,stroke:#c62828,color:#b71c1c
+    style A2 fill:#ffebee,stroke:#c62828,color:#b71c1c
+    style A3 fill:#ffebee,stroke:#c62828,color:#b71c1c
+    style A4 fill:#ffebee,stroke:#c62828,color:#b71c1c
+    style A5 fill:#ffebee,stroke:#c62828,color:#b71c1c
+    style A6 fill:#990000,color:#ffffff
+    
+    style B1 fill:#e0f2f1,stroke:#00897b,color:#004d40
+    style B2 fill:#e0f2f1,stroke:#00897b,color:#004d40
+    style B3 fill:#e0f2f1,stroke:#00897b,color:#004d40
+    style B4 fill:#e0f2f1,stroke:#00897b,color:#004d40
+    style B5 fill:#e0f2f1,stroke:#00897b,color:#004d40
+    style B6 fill:#00695c,color:#ffffff
+    
+    style Analytics fill:#fff5f5,stroke:#c62828,stroke-width:2px
+    style Agent fill:#f0fff0,stroke:#00897b,stroke-width:2px
+    style CR fill:none,stroke:none,color:#999999

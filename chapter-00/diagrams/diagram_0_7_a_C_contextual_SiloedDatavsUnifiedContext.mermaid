@@ -1,0 +1,38 @@
+flowchart TB
+    subgraph Analytics["<b>Analytics Era: Manual Integration</b>"]
+        direction LR
+        A_Sources["<b>3 Systems:<br/>EHR, Claims, Portal</b>"] -.->|<b>6-8 weeks each</b>| A4["<b>Data<br/>Warehouse</b>"]
+        A4 --> A5["<b>Query takes<br/>8-13 seconds</b>"]
+        A5 --> A6["<b>Often incomplete<br/>or stale</b>"]
+    end
+    
+    Analytics -.->|<b>Evolution</b>| Agent
+    
+    subgraph Agent["<b>Agent Era: Real-Time Context Assembly</b>"]
+        direction LR
+        B_Sources["<b>3 Systems:<br/>EHR, Claims, Portal</b>"] -->|<b>CDC instant</b>| B4["<b>Real-Time<br/>Fabric</b>"]
+        B4 --> B5["<b>RAG assembles<br/><2 seconds</b>"]
+        B5 --> B6["<b>Complete, fresh<br/>contextual answer</b>"]
+    end
+    
+    Agent ~~~ CR["<b>© 2025 Colaberry Inc.</b>"]
+    
+    classDef subgraphTitle fill:#f9f9f9,stroke:#333333,stroke-width:2px,color:#000000
+    classDef oldEra fill:#ffebee,stroke:#c62828,color:#b71c1c
+    classDef newEra fill:#e0f2f1,stroke:#00897b,color:#004d40
+    classDef problem fill:#990000,color:#ffffff
+    classDef solution fill:#00695c,color:#ffffff
+    
+    style A_Sources fill:#ffebee,stroke:#c62828,color:#b71c1c
+    style A4 fill:#ffebee,stroke:#c62828,color:#b71c1c
+    style A5 fill:#ffebee,stroke:#c62828,color:#b71c1c
+    style A6 fill:#990000,color:#ffffff
+    
+    style B_Sources fill:#e0f2f1,stroke:#00897b,color:#004d40
+    style B4 fill:#e0f2f1,stroke:#00897b,color:#004d40
+    style B5 fill:#e0f2f1,stroke:#00897b,color:#004d40
+    style B6 fill:#00695c,color:#ffffff
+    
+    style Analytics fill:#fff5f5,stroke:#c62828,stroke-width:2px
+    style Agent fill:#f0fff0,stroke:#00897b,stroke-width:2px
+    style CR fill:none,stroke:none,color:#999999
