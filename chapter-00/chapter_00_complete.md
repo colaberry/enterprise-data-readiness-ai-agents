@@ -97,8 +97,6 @@ Trust isn't optional. It's the line separating the 5% who succeed from the 95% w
 
 The acronym is **INPACT™** (sounds like "impact"), and every letter represents an essential need:
 
-![Alt text](./diagrams/diagram_0_2_a_6_agent_needs.png "6 Agent Needs")
-
 - **I** – Instant (sub-second responses)
 - **N** – Natural (language understanding)
 - **P** – Permitted (dynamic authorization)
@@ -107,6 +105,7 @@ The acronym is **INPACT™** (sounds like "impact"), and every letter represents
 - **T** – Trusted (transparency through audit trails)
 
 **Mnemonic:** "Agents must be Instant, Natural, Permitted, Adaptive, Contextual, and Trusted—addressing each need systematically to earn trust consistently."
+![Alt text](./diagrams/diagram_0_2_a_6_agent_needs.png "6 Agent Needs")
 
 All six needs are required. Analysis suggests that addressing all six needs systematically is associated with higher success rates in building agents users trust. Organizations that miss even one face significantly higher risk of joining the 95% who fail.
 
@@ -145,6 +144,7 @@ Now let's examine each of the 6 agent needs in the INPACT™ framework.
 
 ## The 6 Agent Needs: INPACT™
 
+![Alt text](./diagrams/diagram_0_2_a_inpact_framework.png "6 Agent Needs and Infrastructure Capabilities")
 
 **Diagram 2: The INPACT™ Framework—6 Agent Needs → Infrastructure Capabilities**
 
