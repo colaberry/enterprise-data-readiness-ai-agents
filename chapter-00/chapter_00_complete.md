@@ -57,9 +57,9 @@ MIT's recommendation was clear: *"Create a strong data foundation. Prioritize lo
 
 ## The Fundamental Shift: Human Needs to Agent Needs
 
+**Diagram 1: Human Era → Agent Era Shift** - The fundamental change isn't the technology. It's whose needs we optimize for.
 ![Alt text](./diagrams/diagram_0_1_a_HumanEra_AgentEraShift.png "Human Era → Agent Era Shift")
 
-**Diagram 1: Human Era → Agent Era Shift** - The fundamental change isn't the technology. It's whose needs we optimize for.
 
 For three decades, enterprise data architecture optimized for **human needs**—building systems that put information in front of people who make decisions. Humans needed historical context to analyze trends, visual dashboards to spot patterns, time to think before acting, and control over every decision.
 
@@ -289,7 +289,7 @@ The same agent serves different users with different permissions. Traditional ro
 When Dr. Cedao's team built their first agent, they gave it a service account with broad database permissions. This created an immediate compliance crisis: the agent could access any patient's PHI regardless of who was asking, violating HIPAA's minimum necessary standard. When they tried to restrict permissions, the agent couldn't function—it needed different access rights for different queries from different users.
 
 **Diagram 5: Analytics Era Static RBAC vs. Agent Era Dynamic ABAC**
-![Alt text](./diagrams/diagram_0_6_a_PeriodicReviewsvs.ContinuousLearning.png "Analytics Era Static RBAC vs. Agent Era Dynamic ABAC")
+![Alt text](./diagrams/diagram_0_5_a_P_Permitted_RBACvsDynamicABAC.png "Analytics Era Static RBAC vs. Agent Era Dynamic ABAC")
 
 ### The Infrastructure Capability: Dynamic Authorization
 
