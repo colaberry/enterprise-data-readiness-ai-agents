@@ -65,7 +65,7 @@ For three decades, enterprise data architecture optimized for **human needs**—
 
 We built brilliant infrastructure for these needs across multiple technology eras: the Analytics Era brought data warehouses, ETL pipelines, and OLAP cubes in the 1990s-2000s; the Big Data Era introduced Hadoop clusters, data lakes, and distributed processing with Spark in the 2010s; the ML Era added feature stores, model training pipelines, and real-time predictions in the late 2010s-early 2020s; and the Data Mesh Era pioneered domain ownership, data products, and federated governance in the 2020s.
 
-Dr. Sarah Cedao's Echo Health Systems in Boston had invested in all of these progressions over fifteen years—a pristine SQL Server warehouse from the Analytics Era, Azure data lake from the Big Data Era, Databricks for ML workloads, strong governance throughout, and awards for data excellence at each stage.
+Sarah Cedao's Echo Health Systems in Boston had invested in all of these progressions over fifteen years—a pristine SQL Server warehouse from the Analytics Era, Azure data lake from the Big Data Era, Databricks for ML workloads, strong governance throughout, and awards for data excellence at each stage.
 
 **Then came agents.**
 
@@ -613,7 +613,7 @@ We've examined six fundamental agent needs in the INPACT™ framework and the in
 
 ### The Echo Health Story
 
-Dr. Sarah Cedao's Echo Health Systems in Boston started exactly where you might be today: pristine SQL Server warehouse, Azure data lake, Databricks for ML workloads, strong governance, awards for data excellence. Fifteen years of progressive investment in Analytics Era infrastructure.
+Sarah Cedao's Echo Health Systems in Boston started exactly where you might be today: pristine SQL Server warehouse, Azure data lake, Databricks for ML workloads, strong governance, awards for data excellence. Fifteen years of progressive investment in Analytics Era infrastructure.
 
 But when her CEO asked "Can we deploy an agent for patient scheduling by Q3?", that infrastructure couldn't deliver on a single INPACT™ need. Overnight ETL created 8-24 hour data staleness. Cryptic table names prevented natural language understanding. Siloed systems blocked cross-domain context. Static RBAC violated HIPAA. No feedback loops meant slow improvement. Incomplete audit logs failed compliance.
 

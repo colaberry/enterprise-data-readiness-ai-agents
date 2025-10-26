@@ -11,11 +11,11 @@ Version 1.1.0 | October 21, 2025 | Ram Katamaraja, CEO Colaberry Inc.
 
 1. **Evidence-based:** Major claims need citations <18 months old
 2. **URLs:** Every product gets official URL on first mention
-3. **Healthcare-only:** All examples use Meridian Health Systems
+3. **Healthcare-only:** All examples use Echo Health Systems
 4. **No internal jargon:** Never use "VERT", "TCC", "Four-T" in reader content
 5. **Standard terms:** Use exact terminology from glossary
 6. **Healthcare context:** Patient (not customer), encounter (not transaction)
-7. **Meridian consistency:** Use exact figures from canonical reference
+7. **Echo consistency:** Use exact figures from canonical reference
 8. **Chapter flow:** Every chapter connects to previous and bridges to next
 9. **Cite visuals:** Reference all tables/diagrams with exact titles
 10. **Current tech:** Indicate maturity status (production-ready/maturing/experimental)
@@ -106,7 +106,7 @@ Use instead: "independent ethics review" or omit entirely
 ## Section 3: Examples & Case Studies
 
 ### TCC-020: Healthcare Context Only
-ALL examples must use Meridian Health Systems. No retail, banking, or mixed industry examples.
+ALL examples must use Echo Health Systems. No retail, banking, or mixed industry examples.
 
 ❌ **WRONG:**
 ```
@@ -119,7 +119,7 @@ ALL examples must use Meridian Health Systems. No retail, banking, or mixed indu
 the semantic layer translates to diagnosis codes E11.*, HbA1c > 7.0..."
 ```
 
-### TCC-021: Meridian Canonical Reference
+### TCC-021: Echo Canonical Reference
 Use EXACT figures. Never round or approximate.
 
 **Investment:** $1.23M (not ~$1.2M, not "about $1.2M")
@@ -132,7 +132,7 @@ Use EXACT figures. Never round or approximate.
 **End readiness:** 85/100
 **SLOs:** Data freshness 25 seconds, NDCG 0.94, API availability 99.92%
 
-Before writing Meridian example: Check these figures. Copy exactly. Never vary.
+Before writing Echo example: Check these figures. Copy exactly. Never vary.
 
 ---
 
@@ -279,7 +279,7 @@ Let's [action verb] [topic]...
 
 ### TCC-062: No Contradictions
 - Same terminology across all chapters
-- Same Meridian figures across all chapters
+- Same Echo figures across all chapters
 - Same framework names (established in Ch 0/1)
 - No conflicting statistics
 
@@ -331,10 +331,10 @@ Run this before EVERY chapter submission:
 **Critical (Must Pass):**
 - [ ] All major claims have citations <18 months old
 - [ ] Every product has URL on first mention
-- [ ] All examples use healthcare (Meridian)
+- [ ] All examples use healthcare (Echo)
 - [ ] No VERT/TCC/internal jargon in reader content
 - [ ] Terminology matches TCC glossary exactly
-- [ ] Meridian figures match canonical reference (see TCC-021)
+- [ ] Echo figures match canonical reference (see TCC-021)
 - [ ] Chapter connects to previous and bridges to next
 - [ ] All tables/diagrams numbered, titled, referenced in text
 
@@ -390,7 +390,7 @@ In [current], we [accomplished]. [Next] builds on this by [what's next].
 3. Examples healthcare only? (TCC-020)
 4. No VERT/TCC terms? (TCC-011)
 5. Terminology matches glossary? (TCC-010)
-6. Meridian figures exact? (TCC-021)
+6. Echo figures exact? (TCC-021)
 7. Chapter connects to previous? (TCC-060)
 8. Bridges to next? (TCC-061)
 
@@ -411,7 +411,7 @@ If ANY fail: Fix before delivery. Note corrections made.
 - URLs for products (TCC-030)
 - Citation currency (TCC-001)
 - Healthcare-only examples (TCC-020)
-- Meridian canonical consistency (TCC-021)
+- Echo canonical consistency (TCC-021)
 - No internal jargon (TCC-011)
 - Standard terminology (TCC-010)
 - Chapter integration (TCC-060, TCC-061)
@@ -438,7 +438,7 @@ If ANY fail: Fix before delivery. Note corrections made.
 - TCC-011: Forbidden Terms
 - TCC-012: Healthcare Terminology
 - TCC-020: Healthcare Context Only
-- TCC-021: Meridian Canonical Reference
+- TCC-021: Echo Canonical Reference
 - TCC-030: URLs Required
 - TCC-031: Multiple Options
 - TCC-032: URL Testing
