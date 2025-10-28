@@ -228,7 +228,7 @@ When Dr. Cedao tried to build Echo's scheduling agent, she discovered a fundamen
 
 **Research quantifies the accuracy problem:**
 
-**Baseline Performance:** Text-to-SQL accuracy on academic benchmarks like Spider shows 60-70% accuracy.[8] But enterprise schemas with hundreds of cryptically-named tables dramatically increase difficulty—many organizations see 40-60% accuracy in early testing without optimization.
+**Baseline Performance:** Current research on the BIRD benchmark (Big Bench for Large-scale Database-grounded Text-to-SQL) shows that even advanced models like GPT-4 achieve 73% execution accuracy on complex, real-world database schemas.[8] Enterprise environments with hundreds of cryptically-named tables and domain-specific terminology see significantly lower performanceâ€"many organizations report 40-60% accuracy in early agent testing without semantic optimization.
 
 **Target SLO with Semantic Optimization:** With semantic layer implementation, accuracy improves to 75-85%+.[9] However, most enterprises haven't invested in that infrastructure.
 
@@ -629,28 +629,22 @@ Chapter 1 shows you exactly how.
 
 **Chapter 1: The 7-Layer Agent-Ready Data Architecture** - The complete technical framework that delivers all six INPACT™ capabilities
 
-**Chapters 2-5: Strategic Foundation**
-- Chapter 2: The Five Pillars (expanded fundamentals)
-- Chapter 3: Acceleration Playbook (fast-start strategies)  
-- Chapter 4: Gap Assessment (where are you today?)
-- Chapter 5: Building the Business Case (quantified ROI)
+**Chapters 2-3: Strategic Foundation & Implementation**
+- Chapter 2: The Five GOALS (operational excellence targets)
+- Chapter 3: The 90-Day Acceleration Playbook (complete implementation roadmap including gap assessment and business case)
 
-**Chapters 6-8: 90-Day Implementation Roadmap**
-- Chapter 6: Phase 1 - Quick Wins (Days 1-30)
-- Chapter 7: Phase 2 - Scale Infrastructure (Days 31-60)
-- Chapter 8: Phase 3 - Production Ready (Days 61-90)
+**Chapters 4-7: Technical Deep-Dives & Advanced Patterns**
+- Chapter 4: Deep Technical Implementation Patterns (layer-by-layer details, code examples, troubleshooting)
+- Chapter 5: Advanced RAG Architecture (query understanding, hybrid search, optimization)
+- Chapter 6: Governance & Compliance Deep-Dive (HIPAA, GDPR, SOC 2, ABAC patterns)
+- Chapter 7: Multi-Agent Orchestration (coordination patterns, state management, scale)
 
-**Chapters 9-12: Operational Excellence**
-- Chapter 9: Governance & Compliance
-- Chapter 10: RAG Architecture Best Practices
-- Chapter 11: Multi-Agent Orchestration Patterns
-- Chapter 12: Security & Threat Modeling
+**Chapters 8-11: Industry-Specific Implementation Guides**
+- Chapter 8: Healthcare Implementation (Echo Health Systems detailed case study)
+- Chapter 9: Financial Services (compliance-heavy environments)
+- Chapter 10: Retail & E-Commerce (high-volume, customer-facing agents)
+- Chapter 11: Manufacturing & Supply Chain (operational data, IoT integration)
 
-**Chapters 13-16: Industry-Specific Guides**
-- Chapter 13: Healthcare Implementation
-- Chapter 14: Financial Services Implementation
-- Chapter 15: Retail & E-Commerce Implementation
-- Chapter 16: Manufacturing & Supply Chain Implementation
 
 **Turn the page. Let's build INPACT™-ready data infrastructure together.**
 
@@ -670,7 +664,7 @@ Chapter 1 shows you exactly how.
 
 [7b] Intercom (2024). "Customer Service Trends Report 2024." 61% of consumers prefer faster AI replies over waiting for human representatives. https://downloads.ctfassets.net/xny2w179f4ki/3FxNFG5dIUBgphM6xqLgPy/ecfaca62ff0550e4d345b31addbff762/Intercom_Customer_Service_Trends_Report_2024.pdf
 
-[8] Spider Benchmark. Yu, T., et al. (2018). "Spider: A Large-Scale Human-Labeled Dataset for Complex and Cross-Domain Semantic Parsing and Text-to-SQL Task." Yale University. https://yale-lily.github.io/spider
+[8] [8] Li, J., Hui, B., Qu, G., et al. (2024). "Can LLM Already Serve as a Database Interface? A Big Bench for Large-Scale Database Grounded Text-to-SQL (BIRD)." Proceedings of the 37th International Conference on Neural Information Processing Systems (NeurIPS 2023). https://bird-bench.github.io/
 
 [9] Databricks (2024). "Improving Text2SQL Performance with Ease on Databricks." https://www.databricks.com/blog/improving-text2sql-performance-ease-databricks
 

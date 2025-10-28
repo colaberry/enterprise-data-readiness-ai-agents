@@ -3,7 +3,7 @@
 **Book:** Enterprise Data Readiness for AI Agents  
 **Author:** Ram Katamaraja, CEO of Colaberry Inc.  
 **Publisher:** Colaberry Press  
-**Version:** 3.4.0 | October 2025
+**Version:** 3.4.2 | October 2025
 
 ---
 
@@ -124,6 +124,18 @@ The patterns that separate success from failure are remarkably consistent.
 
 At Colaberry, we've synthesized these industry-wide patterns into the **7-Layer Agent-Ready Enterprise Data Architecture**. What you'll see in this book reflects not just our synthesis, but the collective lessons from enterprises who've already made this journey—documented in public case studies, technical documentation, and reference architectures from leading cloud providers and AI infrastructure vendors.
 
+### The Seven-Layer Stack
+
+The architecture consists of seven integrated layers, each addressing specific agent requirements:
+
+- **Layer 7:** Self-Service Data Products & Multi-Agent Orchestration
+- **Layer 6:** Observability & Feedback (MLOps + LLM Monitoring)  
+- **Layer 5:** Agent-Aware Governance (ABAC, audit logging)
+- **Layer 4:** Intelligent Retrieval (RAG) + Embedding Models
+- **Layer 3:** Universal Semantic Layer (Business glossary, ontologies, entity resolution)
+- **Layer 2:** Real-Time Data Fabric (CDC, streaming, training pipelines)
+- **Layer 1:** Multi-Modal Storage (Vector DB, Knowledge Graphs, Model Registry)
+
 ### The INPACT™ Connection: From Agent Needs to Architecture Layers
 
 The seven-layer architecture delivers the six INPACT™ needs from Chapter 0 through specific infrastructure capabilities. Here's how they map:
@@ -143,20 +155,6 @@ The seven-layer architecture delivers the six INPACT™ needs from Chapter 0 thr
 
 Let's examine each layer in detail, understanding how it contributes to delivering the INPACT™ needs.
 
-**This is what agent-ready looks like:**
-
-### The Seven-Layer Stack
-
-The architecture consists of seven integrated layers, each addressing specific agent requirements:
-
-- **Layer 7:** Self-Service Data Products & Multi-Agent Orchestration
-- **Layer 6:** Observability & Feedback (MLOps + LLM Monitoring)  
-- **Layer 5:** Agent-Aware Governance (ABAC, audit logging)
-- **Layer 4:** Intelligent Retrieval (RAG) + Embedding Models
-- **Layer 3:** Universal Semantic Layer (Business glossary, ontologies, entity resolution)
-- **Layer 2:** Real-Time Data Fabric (CDC, streaming, training pipelines)
-- **Layer 1:** Multi-Modal Storage (Vector DB, Knowledge Graphs, Model Registry)
-
 Each layer solves specific agent requirements. Let's explore them in detail. The complete seven-layer stack is visualized in Diagram 1 (Seven-Layer Architecture).
 
 **[Diagram 1: Seven-Layer Architecture - See diagram1-seven-layers.mermaid]**
@@ -174,13 +172,13 @@ Each layer solves specific agent requirements. Let's explore them in detail. The
 **What it is:** Multiple specialized databases, each optimized for different query patterns and data types—working together as a unified system, with dedicated storage for ML artifacts.
 
 **Components:**
-- **Vector databases** (Pinecone, Weaviate, Qdrant, pgvector): For semantic search over documents, clinical notes, and unstructured content
-- **Knowledge graphs** (Neo4j, Amazon Neptune, Azure Cosmos DB): For relationship queries and entity connections
-- **Document stores** (Elasticsearch, MongoDB): For full-text search and semi-structured data
-- **Traditional RDBMS** (PostgreSQL, SQL Server): For transactional queries and structured data
-- **Data warehouse** (Snowflake, Databricks, BigQuery): For analytical queries and aggregations (evolved role)
-- **Model registry** (MLflow, Weights & Biases, Neptune): For versioning embedding models, LLMs, and agent artifacts
-- **Memory stores** (Mem0, Zep, LangMem): For persistent cross-session user memory and preferences
+- **Vector databases** ([Pinecone](https://www.pinecone.io), [Weaviate](https://weaviate.io), [Qdrant](https://qdrant.tech), [pgvector](https://github.com/pgvector/pgvector)): For semantic search over documents, clinical notes, and unstructured content
+- **Knowledge graphs** ([Neo4j](https://neo4j.com), [Amazon Neptune](https://aws.amazon.com/neptune/), [Azure Cosmos DB](https://azure.microsoft.com/en-us/products/cosmos-db)): For relationship queries and entity connections
+- **Document stores** ([Elasticsearch](https://www.elastic.co/elasticsearch), [MongoDB](https://www.mongodb.com)): For full-text search and semi-structured data
+- **Traditional RDBMS** ([PostgreSQL](https://www.postgresql.org), [SQL Server](https://www.microsoft.com/en-us/sql-server)): For transactional queries and structured data
+- **Data warehouse** ([Snowflake](https://www.snowflake.com), [Databricks](https://www.databricks.com), [BigQuery](https://cloud.google.com/bigquery)): For analytical queries and aggregations (evolved role)
+- **Model registry** ([MLflow](https://mlflow.org), [Weights & Biases](https://wandb.ai), [Neptune](https://neptune.ai)): For versioning embedding models, LLMs, and agent artifacts
+- **Memory stores** ([Mem0](https://mem0.ai), [Zep](https://www.getzep.com), [LangMem](https://github.com/langchain-ai/langmem)): For persistent cross-session user memory and preferences
 
 **Why agents need it:** Different questions require fundamentally different storage patterns. "What did Dr. Martinez write in the progress note about diabetes management?" requires vector semantic search. "Who are all the physicians who report to Dr. Martinez, and what are their specialties?" requires graph traversal. "What's the patient's current medication list?" requires fast transactional lookup from normalized tables. "What were average wait times by department last month?" benefits from warehouse aggregations. "Which version of the embedding model generated these results?" requires model registry lookup.
 
@@ -253,14 +251,14 @@ Supporting contributions to:
 
 **Key technologies:**
 - **For inference data:**
-  - Change Data Capture (Debezium, AWS DMS, Azure Data Factory)
-  - Event streaming (Apache Kafka, Azure Event Hubs, AWS Kinesis)
-  - Stream processing (Apache Flink, Spark Streaming, Databricks Delta Live Tables)
+  - Change Data Capture ([Debezium](https://debezium.io), [AWS DMS](https://aws.amazon.com/dms/), [Azure Data Factory](https://azure.microsoft.com/en-us/products/data-factory))
+  - Event streaming ([Apache Kafka](https://kafka.apache.org), [Azure Event Hubs](https://azure.microsoft.com/en-us/products/event-hubs), [AWS Kinesis](https://aws.amazon.com/kinesis/))
+  - Stream processing ([Apache Flink](https://flink.apache.org), [Spark Streaming](https://spark.apache.org/streaming/), [Databricks Delta Live Tables](https://www.databricks.com/product/delta-live-tables))
   
 - **For training data:**
-  - Feature stores (Tecton, Feast, Databricks Feature Store)
-  - Training dataset versioning (DVC, Pachyderm, Delta Lake time travel)
-  - Data validation pipelines (Great Expectations, TensorFlow Data Validation)
+  - Feature stores ([Tecton](https://www.tecton.ai), [Feast](https://feast.dev), [Databricks Feature Store](https://www.databricks.com/product/feature-store))
+  - Training dataset versioning ([DVC](https://dvc.org), [Pachyderm](https://www.pachyderm.com), Delta Lake time travel)
+  - Data validation pipelines ([Great Expectations](https://greatexpectations.io), [TensorFlow Data Validation](https://www.tensorflow.org/tfx/guide/tfdv))
   - Batch and streaming feature engineering
 
 **Why agents need it:** When a patient asks "Can I get an appointment today?", the agent needs to know about the cancellation that happened 30 seconds ago, not the schedule as of 2 AM last night. Additionally, the embedding models and LLMs that power the agent need fresh training data to maintain accuracy and adapt to changing patterns.
@@ -327,9 +325,9 @@ To ensure Layer 1 delivers on its promise, monitor these key indicators (as deta
 - Cross-system concept unification ("customer" means the same thing everywhere)
 
 **Key technologies:**
-- Semantic modeling platforms (dbt Semantic Layer, Cube, AtScale)
-- Ontology management (Stardog, TopBraid, Protégé)
-- Metadata management (Atlan, Collibra, Alation)
+- Semantic modeling platforms ([dbt Semantic Layer](https://www.getdbt.com/product/semantic-layer), [Cube](https://cube.dev), [AtScale](https://www.atscale.com))
+- Ontology management ([Stardog](https://www.stardog.com), [TopBraid](https://www.topquadrant.com/products/topbraid-enterprise-data-governance/), [Protégé](https://protege.stanford.edu))
+- Metadata management ([Atlan](https://atlan.com), [Collibra](https://www.collibra.com), [Alation](https://www.alation.com))
 - LLM-powered natural language understanding layers
 
 **Why agents need it:** Agents speak English (or Spanish, or Mandarin), not SQL. When a patient says "my doctor," the agent needs to understand this maps to `primary_care_provider_id` in the EHR, which relates to `physician_npi` in the credentialing system, which connects to `provider_schedule_id` in the scheduling database—and that all three represent the same real-world concept.
@@ -469,12 +467,12 @@ To keep Layer 2 healthy and agent-aligned:
 **Components:**
 - **Query understanding and intent recognition**
 - **Embedding model management:**
-  - Text embedding models (OpenAI text-embedding-3, Cohere embed-v3, sentence-transformers)
-  - Multimodal embedding models (CLIP, ImageBind) for images/documents
+  - Text embedding models ([OpenAI text-embedding-3](https://platform.openai.com/docs/guides/embeddings), [Cohere embed-v3](https://docs.cohere.com/docs/embeddings), [sentence-transformers](https://www.sbert.net))
+  - Multimodal embedding models ([CLIP](https://github.com/openai/CLIP), [ImageBind](https://github.com/facebookresearch/ImageBind)) for images/documents
   - Model versioning and A/B testing
   - Embedding dimension optimization
 - **Hybrid search** (vector similarity + keyword matching + metadata filters)
-- **Result reranking** for relevance and recency (Cohere Rerank, cross-encoders)
+- **Result reranking** for relevance and recency ([Cohere Rerank](https://docs.cohere.com/docs/reranking), cross-encoders)
 - **Memory-augmented context assembly**: Retrieves user preferences and conversation history alongside domain data
 - **Context assembly and summarization**
 
@@ -489,7 +487,7 @@ When primary retrieval fails, the system cascades through: semantic search → k
 
 (Implementation details and code examples in Chapter 10: RAG Architecture Best Practices)
 
-- **Semantic caching** for performance (Redis, Momento)
+- **Semantic caching** for performance ([Redis](https://redis.io), [Momento](https://www.gomomento.com))
 - **Retrieval monitoring and optimization**
 - **Fallback strategies** for low-confidence queries
 
@@ -594,11 +592,11 @@ For detailed embedding model selection criteria including accuracy, cost, and la
 
 | Model | Provider | Dimensions | Best For | Cost | Latency |
 |-------|----------|------------|----------|------|---------|
-| text-embedding-3-large | OpenAI | 3072 | High accuracy, general | $0.13/1M tokens | Fast |
-| text-embedding-3-small | OpenAI | 1536 | Cost-sensitive, speed | $0.02/1M tokens | Very fast |
-| embed-v3 | Cohere | 1024 | Semantic search, RAG | $0.10/1M tokens | Fast |
-| e5-large-v2 | Microsoft | 1024 | Open source, self-host | Free | Medium |
-| all-MiniLM-L6-v2 | Sentence-Transformers | 384 | Speed, low resource | Free | Very fast |
+| text-embedding-3-large | [OpenAI](https://platform.openai.com/docs/guides/embeddings) | 3072 | High accuracy, general | $0.13/1M tokens | Fast |
+| text-embedding-3-small | [OpenAI](https://platform.openai.com/docs/guides/embeddings) | 1536 | Cost-sensitive, speed | $0.02/1M tokens | Very fast |
+| embed-v3 | [Cohere](https://cohere.com/embeddings) | 1024 | Semantic search, RAG | $0.10/1M tokens | Fast |
+| e5-large-v2 | [Microsoft](https://huggingface.co/intfloat/e5-large-v2) | 1024 | Open source, self-host | Free | Medium |
+| all-MiniLM-L6-v2 | [Sentence-Transformers](https://www.sbert.net) | 384 | Speed, low resource | Free | Very fast |
 
 **Selection Criteria:**
 - **Prioritize accuracy**: text-embedding-3-large, embed-v3
@@ -646,7 +644,7 @@ Supporting contributions to:
 **What it replaces:** Static role-based access control (RBAC) and manual compliance processes designed for human-driven queries
 
 **Key technologies:**
-- Attribute-Based Access Control (ABAC) systems (Open Policy Agent, Amazon Verified Permissions, Azure Policy)
+- Attribute-Based Access Control (ABAC) systems ([Open Policy Agent](https://www.openpolicyagent.org), [Amazon Verified Permissions](https://aws.amazon.com/verified-permissions/), [Azure Policy](https://azure.microsoft.com/en-us/products/azure-policy))
 - Dynamic data masking engines
 - Real-time audit logging platforms
 - Compliance automation frameworks (for GDPR, HIPAA, SOC2, etc.)
@@ -757,9 +755,9 @@ Supporting contributions to:
 - **Feedback loops** from agent performance to data quality improvements and model retraining
 
 **Key technologies:**
-- ML observability platforms (Evidently AI, Arize, Fiddler, WhyLabs)
-- LLM monitoring (LangSmith, Weights & Biases, Phoenix)
-- Data observability tools (Monte Carlo, Datafold, Great Expectations)
+- ML observability platforms ([Evidently AI](https://www.evidentlyai.com), [Arize](https://arize.com), [Fiddler](https://www.fiddler.ai), [WhyLabs](https://whylabs.ai))
+- LLM monitoring ([LangSmith](https://www.langchain.com/langsmith), [Weights & Biases](https://wandb.ai), [Phoenix](https://phoenix.arize.com))
+- Data observability tools ([Monte Carlo](https://www.montecarlodata.com), [Datafold](https://www.datafold.com), [Great Expectations](https://greatexpectations.io))
 - Custom telemetry pipelines
 - Anomaly detection systems
 
@@ -952,15 +950,15 @@ Supporting contributions to:
 
 **Key technologies:**
 - **Data products:**
-  - Data catalog platforms (Atlan, Collibra, Alation, DataHub)
-  - API gateways with documentation (Kong, Apigee, AWS API Gateway)
+  - Data catalog platforms ([Atlan](https://atlan.com), [Collibra](https://www.collibra.com), [Alation](https://www.alation.com), [DataHub](https://datahubproject.io))
+  - API gateways with documentation ([Kong](https://konghq.com), [Apigee](https://cloud.google.com/apigee), [AWS API Gateway](https://aws.amazon.com/api-gateway/))
   - Data mesh infrastructure platforms
-  - Service meshes for data (Dapr, Istio)
+  - Service meshes for data ([Dapr](https://dapr.io), [Istio](https://istio.io))
 
 - **Multi-agent orchestration:**
-  - **LangGraph** (LangChain): State-based agent workflows with cyclic graphs
-  - **CrewAI**: Role-based multi-agent systems with hierarchical coordination
-  - **AutoGen** (Microsoft): Conversational agents with code execution capabilities
+  - **[LangGraph](https://langchain-ai.github.io/langgraph/)** (LangChain): State-based agent workflows with cyclic graphs
+  - **[CrewAI](https://www.crewai.com)**: Role-based multi-agent systems with hierarchical coordination
+  - **[AutoGen](https://microsoft.github.io/autogen/)** (Microsoft): Conversational agents with code execution capabilities
 
 **Why agents need it:** Agents are autonomous—they need to discover and access data without human intervention. Traditional "email the data team for access" workflows don't work at agent speed. Data products provide self-service APIs with clear contracts, quality guarantees, and automated provisioning.
 
@@ -1014,7 +1012,7 @@ Beyond retrieving data, agents take actions by calling external tools and APIs. 
 When Echo's scheduling agent books an appointment, it orchestrates multiple tool calls:
 1. Retrieves available slots (RAG query to Layer 4)
 2. Calls Epic's scheduling API (external tool) to reserve the slot
-3. Sends confirmation email (SendGrid API integration)
+3. Sends confirmation email ([SendGrid](https://sendgrid.com) API integration)
 4. Updates patient portal (database write operation)
 
 Modern agent frameworks provide standardized tool interfaces: [LangChain Tools](https://python.langchain.com/docs/modules/tools/) (production-ready, extensive library), [Anthropic Tool Use](https://docs.anthropic.com/claude/docs/tool-use) (native Claude integration), [OpenAI Function Calling](https://platform.openai.com/docs/guides/function-calling) (GPT-4 native support), and Model Context Protocol (MCP) (rapidly maturing standard for context sharing—see security considerations below).[10][11][12] Layer 7 orchestrates when and how agents invoke tools, applying Layer 5 governance to each external call. (Detailed tool integration patterns in Chapter 11.)
@@ -1732,7 +1730,7 @@ The evolution from BI Era through ML Era to Agentic Era is traced in Diagram 7 (
 **You are BI-First if:**
 - Primary data infrastructure is a data warehouse
 - Data updates via overnight ETL jobs
-- Users access data through BI tools (Tableau, Power BI)
+- Users access data through BI tools ([Tableau](https://www.tableau.com), [Power BI](https://www.microsoft.com/en-us/power-platform/products/power-bi))
 - SQL is primary skill
 - Strong governance and compliance
 
@@ -1817,32 +1815,28 @@ Sarah Cedao's transformation from 9-13 second responses to 1.8 seconds, from 40-
 
 **The chapters ahead provide that roadmap:**
 
-### Chapters 2-5: Strategic Foundation (Days 1-14)
-- **Chapter 2: The Five Pillars** - Deep dive into the foundational principles underlying the 7 layers
-- **Chapter 3: Acceleration Playbook** - Fast-start strategies for immediate wins and quick ROI
-- **Chapter 4: Gap Assessment** - Evaluate where you are today against the 7-layer model
-- **Chapter 5: Building the Business Case** - Quantified ROI models for securing funding and executive buy-in
+### Chapters 2-3: Strategic Foundation & Complete Implementation Roadmap
+- **Chapter 2: The Five GOALS** - Operational excellence targets that ensure your architecture continuously delivers (Governance, Observability, Accessibility, Language, Soundness)
+- **Chapter 3: The 90-Day Acceleration Playbook** - Complete week-by-week implementation roadmap from assessment to production, including archetype-specific strategies, tool selection, team structure, and ROI analysis
 
-### Chapters 6-8: The 90-Day Implementation Roadmap (Days 15-90)
-- **Chapter 6: Phase 1 - Quick Wins (Days 1-30)** - Implement Layers 1-3 foundations and achieve first agent pilot
-- **Chapter 7: Phase 2 - Scale Infrastructure (Days 31-60)** - Deploy Layers 4-5 for production-grade RAG and governance
-- **Chapter 8: Phase 3 - Production Ready (Days 61-90)** - Complete Layers 6-7 for observability and multi-agent orchestration
 
-### Chapters 9-12: Operational Excellence (Post-Launch)
-- **Chapter 9: Governance & Compliance** - Deep dive into HIPAA, GDPR, SOC 2 implementation patterns
-- **Chapter 10: RAG Architecture Best Practices** - Advanced Layer 4 patterns for optimal retrieval
-- **Chapter 11: Multi-Agent Orchestration** - Layer 7 advanced patterns for complex workflows
-- **Chapter 12: Security & Threat Modeling** - Comprehensive security framework across all layers
+### Chapters 4-7: Technical Deep-Dives & Advanced Patterns
+- **Chapter 4: Deep Technical Implementation Patterns** - Layer-by-layer implementation details with code examples, IaC templates, troubleshooting guides, and performance optimization techniques
+- **Chapter 5: Advanced RAG Architecture** - Query understanding, hybrid search strategies, reranking techniques, context assembly patterns, and retrieval optimization
+- **Chapter 6: Governance & Compliance Deep-Dive** - HIPAA, GDPR, SOC 2 implementation patterns, ABAC policy examples, audit logging, and security frameworks
+- **Chapter 7: Multi-Agent Orchestration** - Coordination patterns, state management, error handling, workflow orchestration, and scale considerations
 
-### Chapters 13-16: Industry-Specific Implementation Guides
-- **Chapter 13: Healthcare Implementation** - Echo Health Systems detailed case study
-- **Chapter 14: Financial Services** - Compliance-heavy environment patterns
-- **Chapter 15: Retail & E-Commerce** - High-volume, customer-facing agent patterns
-- **Chapter 16: Manufacturing & Supply Chain** - Operational data and IoT integration patterns
 
-**Echo Health Systems went from frustrated pilot to production deployment in 90 days by following this roadmap.** Each chapter provides the specific plays, architecture patterns, and decision frameworks you need for each phase.
+### Chapters 8-11: Industry-Specific Implementation Guides
+- **Chapter 8: Healthcare Implementation** - Echo Health Systems complete case study with HIPAA compliance patterns, clinical data handling, and patient experience optimization
+- **Chapter 9: Financial Services Implementation** - Compliance-heavy environment patterns for banking, insurance, and investment management
+- **Chapter 10: Retail & E-Commerce Implementation** - High-volume, customer-facing agent patterns for personalization, inventory, and customer service
+- **Chapter 11: Manufacturing & Supply Chain Implementation** - Operational data integration, IoT sensor data, predictive maintenance, and supply chain optimization
 
-Turn the page. Let's assess where you are today and plan your 90-day journey.
+
+**Echo Health Systems went from frustrated pilot to production deployment in 90 days by following this roadmap.** The next chapters provide the operational framework (GOALS) and complete implementation playbook to execute your transformation.
+
+Turn the page. Chapter 2 introduces the Five GOALS that ensure your architecture continuously delivers. Chapter 3 provides your complete 90-day execution roadmap.
 
 ---
 
