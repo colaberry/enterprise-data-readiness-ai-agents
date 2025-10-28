@@ -1,0 +1,158 @@
+```mermaid
+graph TB
+    subgraph "<b>Layer 7: Self-Service Data Products & Multi-Agent Orchestration</b>"
+        L7A[<b>Data Product Catalog</b><br/><i>Primary Function</i>]
+        L7B[<b>Multi-Agent Frameworks</b><br/><b>LangGraph, CrewAI, AutoGen</b><br/><i>Intelligence</i>]
+        L7C[<b>API Gateway & Documentation</b><br/><i>Integration</i>]
+        L7D[<b>Domain Ownership Model</b><br/><i>Data Handling</i>]
+        L7E[<b>SLA Management</b><br/><i>Quality Assurance</i>]
+        L7F[<b>Usage Metrics & Analytics</b><br/><i>Supporting Tech</i>]
+    end
+    
+    subgraph "<b>Layer 6: Observability & Feedback</b>"
+        L6A[<b>Data Quality Monitoring</b><br/><i>Primary Function</i>]
+        L6B[<b>Agent Performance Telemetry</b><br/><i>Intelligence</i>]
+        L6C[<b>Model Drift Detection</b><br/><i>Integration</i>]
+        L6D[<b>Cost & Usage Tracking</b><br/><i>Data Handling</i>]
+        L6E[<b>Feedback Loops</b><br/><i>Quality Assurance</i>]
+        L6F[<b>Trace Propagation</b><br/><i>Supporting Tech</i>]
+    end
+    
+    subgraph "<b>Layer 5: Agent-Aware Governance</b>"
+        L5A[<b>ABAC Policy Engine</b><br/><i>Primary Function</i>]
+        L5B[<b>Dynamic Data Masking</b><br/><i>Intelligence</i>]
+        L5C[<b>Real-time Audit Logging</b><br/><i>Integration</i>]
+        L5D[<b>Compliance Automation</b><br/><i>Data Handling</i>]
+        L5E[<b>Policy Version Control</b><br/><i>Quality Assurance</i>]
+        L5F[<b>Privacy Controls</b><br/><i>Supporting Tech</i>]
+    end
+    
+    subgraph "<b>Layer 4: Intelligent Retrieval RAG</b>"
+        L4A[<b>Query Understanding</b><br/><i>Primary Function</i>]
+        L4B[<b>Embedding Models</b><br/><i>Intelligence</i>]
+        L4C[<b>Hybrid Search</b><br/><i>Integration</i>]
+        L4D[<b>Result Reranking</b><br/><i>Data Handling</i>]
+        L4E[<b>Context Assembly</b><br/><i>Quality Assurance</i>]
+        L4F[<b>Semantic Caching</b><br/><i>Supporting Tech</i>]
+    end
+        
+    subgraph "<b>Layer 3: Universal Semantic Layer</b>"
+        L3A[<b>Business Glossary</b><br/><i>Primary Function</i>]
+        L3B[<b>Ontologies & Taxonomies</b><br/><i>Intelligence</i>]
+        L3C[<b>Metric Definitions</b><br/><i>Integration</i>]
+        L3D[<b>Entity Resolution</b><br/><i>Data Handling</i>]
+        L3E[<b>Natural Language Mappings</b><br/><i>Quality Assurance</i>]
+        L3F[<b>Lineage Tracking</b><br/><i>Supporting Tech</i>]
+    end
+    
+    subgraph "<b>Layer 2: Real-Time Data Fabric</b>"
+        L2A[<b>Change Data Capture</b><br/><i>Primary Function</i>]
+        L2B[<b>Event Streaming</b><br/><i>Intelligence</i>]
+        L2C[<b>Stream Processing</b><br/><i>Integration</i>]
+        L2D[<b>Feature Stores</b><br/><i>Data Handling</i>]
+        L2E[<b>Training Pipelines</b><br/><i>Quality Assurance</i>]
+        L2F[<b>Data Quality Validation</b><br/><i>Supporting Tech</i>]
+    end
+    
+     subgraph "<b>Layer 1: Multi-Modal Storage</b>"
+        L1A[<b>Vector Database</b><br/><i>Primary Function</i>]
+        L1B[<b>Knowledge Graph</b><br/><i>Intelligence</i>]
+        L1C[<b>Document Store</b><br/><i>Integration</i>]
+        L1D[<b>RDBMS</b><br/><i>Data Handling</i>]
+        L1E[<b>Data Warehouse</b><br/><i>Quality Assurance</i>]
+        L1F[<b>Model Registry</b><br/><i>Supporting Tech</i>]
+    end
+   
+    %% Data flow connections
+    L7A --> L6A
+    L7B --> L6B
+    L7C --> L6C
+    L7D --> L6D
+    L7E --> L6E
+    L7F --> L6F
+    
+    L6A --> L5A
+    L6B --> L5B
+    L6C --> L5C
+    L6D --> L5D
+    L6E --> L5E
+    L6F --> L5F
+    
+    L5A --> L4A
+    L5B --> L4B
+    L5C --> L4C
+    L5D --> L4D
+    L5E --> L4E
+    L5F --> L4F
+    
+    L4A --> L3A
+    L4B --> L3B
+    L4C --> L3C
+    L4D --> L3D
+    L4E --> L3E
+    L4F --> L3F
+    
+    L3A --> L2A
+    L3B --> L2B
+    L3C --> L2C
+    L3D --> L2D
+    L3E --> L2E
+    L3F --> L2F
+    
+    L2A --> L1A
+    L2B --> L1B
+    L2C --> L1C
+    L2D --> L1D
+    L2E --> L1E
+    L2F --> L1F
+    
+    %% Color coding by layer
+    style L7A fill:#e1f5ff
+    style L7B fill:#e1f5ff
+    style L7C fill:#e1f5ff
+    style L7D fill:#e1f5ff
+    style L7E fill:#e1f5ff
+    style L7F fill:#e1f5ff
+    
+    style L6A fill:#fff4e1
+    style L6B fill:#fff4e1
+    style L6C fill:#fff4e1
+    style L6D fill:#fff4e1
+    style L6E fill:#fff4e1
+    style L6F fill:#fff4e1
+    
+    style L5A fill:#ffe1e1
+    style L5B fill:#ffe1e1
+    style L5C fill:#ffe1e1
+    style L5D fill:#ffe1e1
+    style L5E fill:#ffe1e1
+    style L5F fill:#ffe1e1
+    
+    style L4A fill:#f0e1ff
+    style L4B fill:#f0e1ff
+    style L4C fill:#f0e1ff
+    style L4D fill:#f0e1ff
+    style L4E fill:#f0e1ff
+    style L4F fill:#f0e1ff
+    
+    style L3A fill:#e1ffe1
+    style L3B fill:#e1ffe1
+    style L3C fill:#e1ffe1
+    style L3D fill:#e1ffe1
+    style L3E fill:#e1ffe1
+    style L3F fill:#e1ffe1
+    
+    style L2A fill:#ffe1f0
+    style L2B fill:#ffe1f0
+    style L2C fill:#ffe1f0
+    style L2D fill:#ffe1f0
+    style L2E fill:#ffe1f0
+    style L2F fill:#ffe1f0
+    
+    style L1A fill:#ffffe1
+    style L1B fill:#ffffe1
+    style L1C fill:#ffffe1
+    style L1D fill:#ffffe1
+    style L1E fill:#ffffe1
+    style L1F fill:#ffffe1
+```

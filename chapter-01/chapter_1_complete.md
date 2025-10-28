@@ -158,7 +158,7 @@ Let's examine each layer in detail, understanding how it contributes to deliveri
 Each layer solves specific agent requirements. Let's explore them in detail. The complete seven-layer stack is visualized in Diagram 1 (Seven-Layer Architecture).
 
 **[Diagram 1: Seven-Layer Architecture - See diagram1-seven-layers.mermaid]**
-![Alt text](./diagrams/diagram1_seven_layers_1.png "The 7-Layer Agent-Ready Data Architecture - Layer 7: Self-Service Data Products and Multi-Agent Orchestration showing domain ownership, API catalog, and orchestration frameworks")
+![Alt text](./diagrams/diagram1_1_a_seven_layers.png "The 7-Layer Agent-Ready Data Architecture - Layer 7: Self-Service Data Products and Multi-Agent Orchestration showing domain ownership, API catalog, and orchestration frameworks")
 ![Alt text](./diagrams/diagram1_seven_layers_2.png "The 7-Layer Agent-Ready Data Architecture - Layer 6: Observability and Feedback showing MLOps monitoring, data quality tracking, and continuous improvement loops")
 ![Alt text](./diagrams/diagram1_seven_layers_3.png "The 7-Layer Agent-Ready Data Architecture - Layer 5: Agent-Aware Governance showing ABAC policies, audit logging, and compliance automation")
 ![Alt text](./diagrams/diagram1_seven_layers_4.png "The 7-Layer Agent-Ready Data Architecture - Layer 4: Intelligent Retrieval showing RAG infrastructure, embedding models, and semantic caching")
