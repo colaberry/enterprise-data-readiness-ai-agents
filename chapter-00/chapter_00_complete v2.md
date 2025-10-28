@@ -4,11 +4,9 @@
 **Subtitle:** A 90-Day Roadmap from Data Chaos to Agent-Ready Infrastructure  
 **Author:** Ram Katamaraja, CEO of Colaberry Inc.  
 **Publisher:** Colaberry Press  
-**Version:** 3.2.0 (INPACT™ Framework Edition)  
-**Publication Date:** October 26, 2025
-**Version History:**
-- **v3.2.0** (October 26, 2025): Reordered architecture layers based on architectural first principles. Layer 1 is now Multi-Modal Storage (foundation), Layer 2 is now Real-Time Data Fabric (streaming), Layer 3 remains Universal Semantic Layer. All references updated throughout chapter.
-- **v3.1.0** (October 23, 2025): Initial INPACT™ Framework Edition with complete six agent needs framework.
+**Version:** 3.1.0 (INPACT™ Framework Edition)  
+**Publication Date:** October 23, 2025
+
 ---
 
 **Reading Time:** ~35 minutes  
@@ -208,7 +206,7 @@ Your enterprise data systems were built for patience. Overnight batch jobs. Quer
 
 ### The Bridge to Architecture
 
-Chapter 1 details how the seven architectural layers work together to deliver sub-second response capability, with Layer 2 eliminating data staleness through continuous streaming, Layer 4 implementing semantic caching and optimized retrieval, Layer 1 providing query-optimized databases, and Layer 7 enabling parallel multi-agent processing. Together, these layers achieved Echo's transformation from 9-13 second responses to 1.8 seconds average.
+Chapter 1 details how the seven architectural layers work together to deliver sub-second response capability, with Layer 1 eliminating data staleness through continuous streaming, Layer 4 implementing semantic caching and optimized retrieval, Layer 3 providing query-optimized databases, and Layer 7 enabling parallel multi-agent processing. Together, these layers achieved Echo's transformation from 9-13 second responses to 1.8 seconds average.
 
 ---
 
@@ -268,7 +266,7 @@ Your data warehouse has 487 tables with names like FCT_PTNT_ENCT and DIM_PRVDR_S
 
 ### The Bridge to Architecture
 
-Chapter 1 shows how the semantic layer (Layer 3) provides business glossaries and entity resolution, how the RAG infrastructure (Layer 4) uses embedding models to encode semantic meaning beyond keywords, and how vector databases (Layer 1) enable concept similarity queries. These components working together allow agents to understand "patients needing diabetes follow-up" and translate it accurately to database queries without developer intervention.
+Chapter 1 shows how the semantic layer (Layer 2) provides business glossaries and entity resolution, how the RAG infrastructure (Layer 4) uses embedding models to encode semantic meaning beyond keywords, and how vector databases (Layer 3) enable concept similarity queries. These components working together allow agents to understand "patients needing diabetes follow-up" and translate it accurately to database queries without developer intervention.
 
 ---
 
@@ -484,7 +482,7 @@ The query couldn't even execute properly because patient portal engagement score
 
 ### The Bridge to Architecture
 
-Chapter 1 details how Layer 2's real-time data fabric streams changes continuously from all sources, how Layer 3's semantic layer provides unified entity resolution across domains, how Layer 1's multi-modal storage optimizes for different query patterns, and how Layer 4's RAG infrastructure intelligently retrieves and assembles context. These layers working together enable agents to assemble complete context from multiple systems in under 2 seconds.
+Chapter 1 details how Layer 1's real-time data fabric streams changes continuously from all sources, how Layer 2's semantic layer provides unified entity resolution across domains, how Layer 3's multi-modal storage optimizes for different query patterns, and how Layer 4's RAG infrastructure intelligently retrieves and assembles context. These layers working together enable agents to assemble complete context from multiple systems in under 2 seconds.
 
 ---
 
@@ -559,7 +557,7 @@ The results were technically complete but operationally worthless. Every entry s
 
 ### The Bridge to Architecture
 
-Chapter 1 details how Layer 5 implements comprehensive audit logging with business context, capturing not just database operations but the user's natural language question, the agent's answer, which data was accessed, what policies were applied, and why. It shows how trace IDs connect every query through all seven layers, enabling root cause analysis and compliance reporting. It explains how Layer 4's RAG infrastructure provides citation mechanisms linking responses to source documents with confidence scores, and how Layer 3's semantic layer maintains data lineage showing where information originated and when it was last updated.
+Chapter 1 details how Layer 5 implements comprehensive audit logging with business context, capturing not just database operations but the user's natural language question, the agent's answer, which data was accessed, what policies were applied, and why. It shows how trace IDs connect every query through all seven layers, enabling root cause analysis and compliance reporting. It explains how Layer 4's RAG infrastructure provides citation mechanisms linking responses to source documents with confidence scores, and how Layer 2's semantic layer maintains data lineage showing where information originated and when it was last updated.
 
 ---
 
@@ -569,12 +567,12 @@ We've examined six fundamental agent needs in the INPACT™ framework and the in
 
 | INPACT™ Need | Infrastructure Capability | Primary Architecture Layers |
 |--------------|--------------------------|----------------------------|
-| **I - Instant** | Sub-Second Response Architecture | Layer 2 (Real-Time Fabric)<br>Layer 1 (Query-Optimized Storage)<br>Layer 4 (Semantic Caching)<br>Layer 7 (Parallel Multi-Agent) |
-| **N - Natural** | Semantic Understanding | Layer 3 (Semantic Layer)<br>Layer 4 (Embedding Models)<br>Layer 1 (Vector Databases) |
+| **I - Instant** | Sub-Second Response Architecture | Layer 1 (Real-Time Fabric)<br>Layer 3 (Query-Optimized Storage)<br>Layer 4 (Semantic Caching)<br>Layer 7 (Parallel Multi-Agent) |
+| **N - Natural** | Semantic Understanding | Layer 2 (Semantic Layer)<br>Layer 4 (Embedding Models)<br>Layer 3 (Vector Databases) |
 | **P - Permitted** | Dynamic Authorization | Layer 5 (ABAC Governance)<br>Layer 6 (Audit Logging) |
-| **A - Adaptive** | Continuous Learning | Layer 6 (Observability & Feedback)<br>Layer 2 (Fresh Training Data)<br>Layer 4 (Retrieval Quality Metrics) |
-| **C - Contextual** | Cross-Domain Integration | Layer 2 (Real-Time Fabric)<br>Layer 3 (Entity Resolution)<br>Layer 1 (Multi-Modal Storage)<br>Layer 4 (RAG Infrastructure) |
-| **T - Trusted** | Auditability & Explainability | Layer 5 (Comprehensive Audit Logs)<br>Layer 6 (Trace IDs & Lineage)<br>Layer 4 (Citation & Confidence)<br>Layer 3 (Data Provenance) |
+| **A - Adaptive** | Continuous Learning | Layer 6 (Observability & Feedback)<br>Layer 1 (Fresh Training Data)<br>Layer 4 (Retrieval Quality Metrics) |
+| **C - Contextual** | Cross-Domain Integration | Layer 1 (Real-Time Fabric)<br>Layer 2 (Entity Resolution)<br>Layer 3 (Multi-Modal Storage)<br>Layer 4 (RAG Infrastructure) |
+| **T - Trusted** | Auditability & Explainability | Layer 5 (Comprehensive Audit Logs)<br>Layer 6 (Trace IDs & Lineage)<br>Layer 4 (Citation & Confidence)<br>Layer 2 (Data Provenance) |
 
 **The pattern is clear:** No single layer solves any need. All six needs require multiple layers working together as an integrated system.
 
@@ -582,9 +580,9 @@ We've examined six fundamental agent needs in the INPACT™ framework and the in
 
 **Agent-ready data infrastructure requires fundamental architectural transformation across all seven layers:**
 
-1. **Layer 1: Multi-Modal Storage** - Query-optimized databases, replacing one-size-fits-all warehouses
-2. **Layer 2: Real-Time Data Fabric** - Streaming data with sub-30-second freshness, replacing batch ETL
-3. **Layer 3: Universal Semantic Layer** - Business glossaries and entity resolution, replacing cryptic schemas
+1. **Layer 1: Real-Time Data Fabric** - Streaming data with sub-30-second freshness, replacing batch ETL
+2. **Layer 2: Universal Semantic Layer** - Business glossaries and entity resolution, replacing cryptic schemas
+3. **Layer 3: Multi-Modal Storage** - Query-optimized databases, replacing one-size-fits-all warehouses
 4. **Layer 4: Intelligent Retrieval (RAG)** - Semantic search and caching, replacing generic SQL
 5. **Layer 5: Agent-Aware Governance** - ABAC and audit logging, replacing static RBAC
 6. **Layer 6: Observability & Feedback** - Continuous monitoring and improvement, replacing quarterly reviews
@@ -695,4 +693,4 @@ Chapter 1 shows you exactly how.
 **Author:** Ram Katamaraja, CEO of Colaberry Inc.  
 **Publisher:** Colaberry Press  
 **Copyright:** © 2025 Colaberry Inc.  
-**Version:** 3.2.0 (INPACT™ Framework Edition)
+**Version:** 3.1.0 (INPACT™ Framework Edition)
