@@ -138,58 +138,9 @@ Karpathy identifies three distinct eras requiring different infrastructure:
 The enterprise challenge: attempting to run Software 3.0 agents on Software 1.0 infrastructure is like running cloud-native microservices on mainframe batch processing. The architectural assumptions don't align.
 
 **Diagram 0: The Software 3.0 Paradigm Shift**
+![Alt text](./diagrams/diagram0_1_a_software1to3Evolution.png "Karpathy's framework shows why Software 3.0 requires fundamentally new infrastructure, not just upgraded Software 1.0 systems. Each paradigm demands different architectural foundations.")
 
-```mermaid
-graph TB
-    subgraph sw1["SOFTWARE 1.0<br/>1950s-2010s<br/>EXPLICIT LOGIC"]
-        direction TB
-        
-        prog1["Programming Model<br/>━━━━━━━━━━<br/>Humans write instructions<br/>in C++, Java, Python"]
-        
-        infra1["Enterprise Infrastructure<br/>━━━━━━━━━━<br/>• Data warehouses<br/>• Batch ETL pipelines<br/>• BI dashboards<br/>• Rigid schemas<br/>• Predefined queries"]
-        
-        char1["Characteristics<br/>━━━━━━━━━━<br/>✓ Deterministic<br/>✓ Explicit rules<br/>✓ Schema-on-write<br/>✓ Overnight batch"]
-        
-        prog1 --> infra1
-        infra1 --> char1
-    end
-    
-    subgraph sw2["SOFTWARE 2.0<br/>2010s-2023<br/>NEURAL NETWORKS"]
-        direction TB
-        
-        prog2["Programming Model<br/>━━━━━━━━━━<br/>Curate datasets<br/>Train models<br/>Learned weights"]
-        
-        infra2["Infrastructure Additions<br/>━━━━━━━━━━<br/>• 1.0 foundation preserved<br/>• ML microservices<br/>• Model registries<br/>• MLOps platforms<br/>• Point solutions"]
-        
-        char2["Characteristics<br/>━━━━━━━━━━<br/>✓ Pattern recognition<br/>✓ Task-specific<br/>✓ Supervised learning<br/>✓ Inference endpoints"]
-        
-        prog2 --> infra2
-        infra2 --> char2
-    end
-    
-    subgraph sw3["SOFTWARE 3.0<br/>2023-Present<br/>NATURAL LANGUAGE"]
-        direction TB
-        
-        prog3["Programming Model<br/>━━━━━━━━━━<br/>English prompts<br/>In-context learning<br/>General reasoning"]
-        
-        infra3["NEW Infrastructure Required<br/>━━━━━━━━━━<br/>• Vector databases<br/>• Real-time data fabric<br/>• Semantic layers<br/>• Dynamic ABAC<br/>• Reasoning observability<br/>• Feedback loops"]
-        
-        char3["Characteristics<br/>━━━━━━━━━━<br/>✓ Probabilistic<br/>✓ General-purpose<br/>✓ Natural language<br/>✓ Context-aware"]
-        
-        prog3 --> infra3
-        infra3 --> char3
-    end
-    
-    sw1 -.->|"Added ML<br/>as point solutions"| sw2
-    sw2 -.->|"PARADIGM SHIFT<br/>Cannot just upgrade"| sw3
-    
-    style sw1 fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    style sw2 fill:#fff3e0,stroke:#f57c00,stroke-width:2px
-    style sw3 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px
-    style infra3 fill:#c5e1a5,stroke:#558b2f,stroke-width:2px
-```
-
-**Figure 8:** *Karpathy's framework shows why Software 3.0 requires fundamentally new infrastructure, not just upgraded Software 1.0 systems. Each paradigm demands different architectural foundations.[15]*
+**Figure 0:** *Karpathy's framework shows why Software 3.0 requires fundamentally new infrastructure, not just upgraded Software 1.0 systems. Each paradigm demands different architectural foundations.[15]*
 
 **Alt text for accessibility:** "Three-column diagram comparing Software 1.0, 2.0, and 3.0 paradigms. Software 1.0 shows explicit logic programming with data warehouses and batch processing. Software 2.0 adds neural networks and ML microservices to the 1.0 foundation. Software 3.0 requires entirely new infrastructure including vector databases, real-time data fabric, semantic layers, and reasoning observability. An arrow shows paradigm shift from 2.0 to 3.0 labeled 'Cannot just upgrade.'"
 
@@ -246,8 +197,9 @@ graph TB
     style transform fill:#a5d6a7,stroke:#388e3c,stroke-width:2px
     style delivers fill:#81c784,stroke:#2e7d32,stroke-width:2px
 ```
+![Alt text](./diagrams/diagram0_1_b_architectureEvolution.png "Most enterprises attempt to deploy Software 3.0 agents on Software 1.0 infrastructure—creating the architectural mismatch that drives the 95% pilot failure rate.")
 
-**Figure 8b:** *Most enterprises attempt to deploy Software 3.0 agents on Software 1.0 infrastructure—creating the architectural mismatch that drives the 95% pilot failure rate.*
+**Figure 0b:** *Most enterprises attempt to deploy Software 3.0 agents on Software 1.0 infrastructure—creating the architectural mismatch that drives the 95% pilot failure rate.*
 
 **Alt text for accessibility:** "Diagram showing the infrastructure mismatch problem. Left side shows 60% of enterprises with Software 1.0 infrastructure (data warehouses, batch ETL, static RBAC). Right side shows agents requiring Software 3.0 capabilities (sub-second retrieval, real-time access, dynamic permissions). Center shows the gap cannot be bridged with middleware, resulting in 95% pilot failure rate. Bottom shows solution: Agent-Ready 7-Layer Architecture delivering real-time capabilities and production reliability."
 
@@ -316,12 +268,8 @@ Each layer solves specific agent requirements. Let's explore them in detail. The
 
 **[Diagram 1: Seven-Layer Architecture - See diagram1_1_a_seven_layers.mermaid]**
 ![Alt text](./diagrams/diagram1_1_a_seven_layers.png "The 7-Layer Agent-Ready Data Architecture - Layer 7: Self-Service Data Products and Multi-Agent Orchestration showing domain ownership, API catalog, and orchestration frameworks")
-![Alt text](./diagrams/diagram1_seven_layers_2.png "The 7-Layer Agent-Ready Data Architecture - Layer 6: Observability and Feedback showing MLOps monitoring, data quality tracking, and continuous improvement loops")
-![Alt text](./diagrams/diagram1_seven_layers_3.png "The 7-Layer Agent-Ready Data Architecture - Layer 5: Agent-Aware Governance showing ABAC policies, audit logging, and compliance automation")
-![Alt text](./diagrams/diagram1_seven_layers_4.png "The 7-Layer Agent-Ready Data Architecture - Layer 4: Intelligent Retrieval showing RAG infrastructure, embedding models, and semantic caching")
-![Alt text](./diagrams/diagram1_seven_layers_5.png "The 7-Layer Agent-Ready Data Architecture - Layer 3: Universal Semantic Layer showing business glossary, entity resolution, and metric definitions")
-![Alt text](./diagrams/diagram1_seven_layers_6.png "The 7-Layer Agent-Ready Data Architecture - Layers 2 and 1: Real-Time Data Fabric with CDC streaming and Multi-Modal Storage with vector databases, knowledge graphs, and model registry")
-
+![Alt text](./diagrams/diagram1_1_b_seven_layers.png "The 7-Layer Agent-Ready Data Architecture - Layer 5: Agent-Aware Governance showing ABAC policies, audit logging, and compliance automation")
+![Alt text](./diagrams/diagram1_1_c_seven_layers.png "The 7-Layer Agent-Ready Data Architecture - Layer 5: Agent-Aware Governance showing ABAC policies, audit logging, and compliance automation")
 ---
 
 ### Layer 1: Multi-Modal Storage Architecture (Including Model Registry)
