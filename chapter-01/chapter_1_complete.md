@@ -33,6 +33,7 @@ Sarah's journey from 9-13 second responses to 1.8 seconds, from 40-60% accuracy 
 ## 📖 Table of Contents
 
 ### Part I: The Architecture Overview
+- [Why Traditional Infrastructure Fails: The Software 3.0 Paradigm Shift](#why-traditional-infrastructure-fails-the-software-30-paradigm-shift)
 - [The 7-Layer Architecture Framework](#the-architecture-that-works-7-layers-of-agent-ready-enterprise-data-infrastructure)
 - [How INPACT™ Maps to Layers](#the-inpact-connection-from-agent-needs-to-architecture-layers)
 
@@ -75,10 +76,11 @@ Focus on business context and ROI—technical details optional.
 
 **Must Read:**
 - From Problem to Solution (page 1)
-- The Architecture Overview (pages 2-3)
-- What It Costs and What It Returns (pages 23-25)
-- The Gap Assessment (pages 25-27)
-- Chapter 1 Summary (pages 27-29)
+- Why Traditional Infrastructure Fails (pages 2-4)
+- The Architecture Overview (pages 5-7)
+- What It Costs and What It Returns (pages 26-28)
+- The Gap Assessment (pages 28-30)
+- Chapter 1 Summary (pages 30-32)
 
 **Optional but Valuable:**
 - Layer overviews (read "What it is" and "Why agents need it" for each layer)
@@ -104,15 +106,170 @@ Understanding "why this matters" without deep technical dive.
 
 **Must Read:**
 - From Problem to Solution (page 1)
-- The Architecture overview (pages 2-3)
+- Why Traditional Infrastructure Fails (pages 2-4)
+- The Architecture overview (pages 5-7)
 - "Why agents need it" subsections for each layer
-- Comparison: BI vs Agent Requirements (pages 19-21)
-- What It Costs and What It Returns (pages 23-25)
-- Chapter 1 Summary (pages 27-29)
+- Comparison: BI vs Agent Requirements (pages 22-24)
+- What It Costs and What It Returns (pages 26-28)
+- Chapter 1 Summary (pages 30-32)
 
 **Can Skim:**
 - Technical implementation details within each layer
 - Code examples and technical specifications
+
+---
+
+## Why Traditional Infrastructure Fails: The Software 3.0 Paradigm Shift
+
+When enterprises deploy AI agents on existing infrastructure and watch them fail, the instinct is to blame the models, the data quality, or the implementation team. But the failure runs deeper. Andrej Karpathy—former Director of AI at Tesla, co-founder of OpenAI—explains why in his June 2025 keynote at Y Combinator AI Startup School.[15] His thesis: "Software is changing quite fundamentally again. LLMs are a new kind of computer, and you program them in English."
+
+This paradigm shift explains why the 95% pilot failure rate MIT documented isn't about insufficient technology—it's about fundamental architectural mismatch.
+
+### The Three Paradigms of Software Development
+
+Karpathy identifies three distinct eras requiring different infrastructure:
+
+**Software 1.0 (1950s-2010s):** Explicit logic in C++, Java, and Python. Enterprise data infrastructure—data warehouses, ETL pipelines, BI dashboards—was built in this era with rigid schemas, predefined queries, and deterministic outputs.
+
+**Software 2.0 (2010s-2023):** Neural networks where "code" became learned weights. Enterprises adopted this selectively: computer vision for quality control, recommendation engines for personalization, fraud detection for security. These remained point solutions within larger Software 1.0 architectures.
+
+**Software 3.0 (2023-present):** Large Language Models programmable in natural language. Unlike narrow task-specific models, LLMs are general-purpose reasoning engines. As Karpathy emphasizes, "Software 3.0 is eating Software 1.0/2.0"—meaning a huge amount of existing software will be rewritten.[15]
+
+The enterprise challenge: attempting to run Software 3.0 agents on Software 1.0 infrastructure is like running cloud-native microservices on mainframe batch processing. The architectural assumptions don't align.
+
+**Diagram 0: The Software 3.0 Paradigm Shift**
+
+```mermaid
+graph TB
+    subgraph sw1["SOFTWARE 1.0<br/>1950s-2010s<br/>EXPLICIT LOGIC"]
+        direction TB
+        
+        prog1["Programming Model<br/>━━━━━━━━━━<br/>Humans write instructions<br/>in C++, Java, Python"]
+        
+        infra1["Enterprise Infrastructure<br/>━━━━━━━━━━<br/>• Data warehouses<br/>• Batch ETL pipelines<br/>• BI dashboards<br/>• Rigid schemas<br/>• Predefined queries"]
+        
+        char1["Characteristics<br/>━━━━━━━━━━<br/>✓ Deterministic<br/>✓ Explicit rules<br/>✓ Schema-on-write<br/>✓ Overnight batch"]
+        
+        prog1 --> infra1
+        infra1 --> char1
+    end
+    
+    subgraph sw2["SOFTWARE 2.0<br/>2010s-2023<br/>NEURAL NETWORKS"]
+        direction TB
+        
+        prog2["Programming Model<br/>━━━━━━━━━━<br/>Curate datasets<br/>Train models<br/>Learned weights"]
+        
+        infra2["Infrastructure Additions<br/>━━━━━━━━━━<br/>• 1.0 foundation preserved<br/>• ML microservices<br/>• Model registries<br/>• MLOps platforms<br/>• Point solutions"]
+        
+        char2["Characteristics<br/>━━━━━━━━━━<br/>✓ Pattern recognition<br/>✓ Task-specific<br/>✓ Supervised learning<br/>✓ Inference endpoints"]
+        
+        prog2 --> infra2
+        infra2 --> char2
+    end
+    
+    subgraph sw3["SOFTWARE 3.0<br/>2023-Present<br/>NATURAL LANGUAGE"]
+        direction TB
+        
+        prog3["Programming Model<br/>━━━━━━━━━━<br/>English prompts<br/>In-context learning<br/>General reasoning"]
+        
+        infra3["NEW Infrastructure Required<br/>━━━━━━━━━━<br/>• Vector databases<br/>• Real-time data fabric<br/>• Semantic layers<br/>• Dynamic ABAC<br/>• Reasoning observability<br/>• Feedback loops"]
+        
+        char3["Characteristics<br/>━━━━━━━━━━<br/>✓ Probabilistic<br/>✓ General-purpose<br/>✓ Natural language<br/>✓ Context-aware"]
+        
+        prog3 --> infra3
+        infra3 --> char3
+    end
+    
+    sw1 -.->|"Added ML<br/>as point solutions"| sw2
+    sw2 -.->|"PARADIGM SHIFT<br/>Cannot just upgrade"| sw3
+    
+    style sw1 fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style sw2 fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style sw3 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px
+    style infra3 fill:#c5e1a5,stroke:#558b2f,stroke-width:2px
+```
+
+**Figure 8:** *Karpathy's framework shows why Software 3.0 requires fundamentally new infrastructure, not just upgraded Software 1.0 systems. Each paradigm demands different architectural foundations.[15]*
+
+**Alt text for accessibility:** "Three-column diagram comparing Software 1.0, 2.0, and 3.0 paradigms. Software 1.0 shows explicit logic programming with data warehouses and batch processing. Software 2.0 adds neural networks and ML microservices to the 1.0 foundation. Software 3.0 requires entirely new infrastructure including vector databases, real-time data fabric, semantic layers, and reasoning observability. An arrow shows paradigm shift from 2.0 to 3.0 labeled 'Cannot just upgrade.'"
+
+### The Paradigm Mismatch: Why Upgrades Fail
+
+When enterprises attempt agent deployments on BI-era infrastructure, critical mismatches emerge:
+
+**Data access patterns diverge.** Agents need sub-second semantic search. Traditional systems provide overnight batch ETL and rigid schemas.
+
+**Permission models clash.** Agents require dynamic, context-aware authorization. Traditional RBAC grants static role-based access.
+
+**Failure modes differ.** Traditional systems fail with exceptions and stack traces. Agents fail probabilistically—retrieving irrelevant context or generating plausible but incorrect responses. Infrastructure must support reasoning chain observability, not just query logs.
+
+**Learning cycles transform.** Software 1.0 required code changes. Software 2.0 required model retraining. Software 3.0 enables in-context learning through interaction. But capturing that learning requires feedback loops and validation mechanisms that BI-era infrastructure never contemplated.
+
+**Diagram 0b: The Infrastructure Paradigm Mismatch**
+
+```mermaid
+graph TB
+    subgraph challenge["⚠️  THE INFRASTRUCTURE PARADIGM MISMATCH"]
+        direction TB
+        
+        current["60% OF ENTERPRISES<br/><br/>Built on Software 1.0 Infrastructure<br/>━━━━━━━━━━━━━━━━━━━━<br/>✓ Data warehouses<br/>✓ Batch ETL (8-24 hour lag)<br/>✓ BI dashboards<br/>✓ Static RBAC<br/>✓ Schema-on-write"]
+        
+        attempting["ATTEMPTING TO DEPLOY<br/><br/>Software 3.0 Agents<br/>━━━━━━━━━━━━━━━━━━━━<br/>Require:<br/>• Sub-second semantic retrieval<br/>• Real-time data access<br/>• Dynamic contextual permissions<br/>• Reasoning chain observability<br/>• In-context learning loops"]
+        
+        gap["ARCHITECTURAL MISMATCH<br/>━━━━━━━━━━━━━━━━━━━━<br/>Cannot bridge with middleware<br/>Cannot patch with API layers<br/>Cannot solve with better prompts"]
+        
+        result["OUTCOME<br/>━━━━━━━━━━━━━━━━━━━━<br/>❌ 95% pilot failure rate<br/>❌ 9-13 second response times<br/>❌ 40-60% accuracy<br/>❌ Compliance violations<br/>❌ Cannot reach production"]
+        
+        current --> gap
+        attempting --> gap
+        gap --> result
+    end
+    
+    subgraph solution["✅  THE SOLUTION"]
+        direction TB
+        
+        transform["Agent-Ready Architecture<br/>━━━━━━━━━━━━━━━━━━━━<br/>7-Layer Infrastructure Stack"]
+        
+        delivers["DELIVERS SOFTWARE 3.0 CAPABILITIES<br/>━━━━━━━━━━━━━━━━━━━━<br/>✓ Real-time data fabric<br/>✓ Semantic understanding<br/>✓ Dynamic ABAC governance<br/>✓ Sub-second retrieval (1.8s)<br/>✓ 85%+ accuracy<br/>✓ Production-ready reliability"]
+        
+        transform --> delivers
+    end
+    
+    result -.->|Requires<br/>Paradigm Transformation| transform
+    
+    style challenge fill:#ffebee,stroke:#c62828,stroke-width:3px
+    style current fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style attempting fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
+    style gap fill:#ff6666,stroke:#b71c1c,stroke-width:3px,color:#fff
+    style result fill:#ef5350,stroke:#c62828,stroke-width:2px,color:#fff
+    style solution fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
+    style transform fill:#a5d6a7,stroke:#388e3c,stroke-width:2px
+    style delivers fill:#81c784,stroke:#2e7d32,stroke-width:2px
+```
+
+**Figure 8b:** *Most enterprises attempt to deploy Software 3.0 agents on Software 1.0 infrastructure—creating the architectural mismatch that drives the 95% pilot failure rate.*
+
+**Alt text for accessibility:** "Diagram showing the infrastructure mismatch problem. Left side shows 60% of enterprises with Software 1.0 infrastructure (data warehouses, batch ETL, static RBAC). Right side shows agents requiring Software 3.0 capabilities (sub-second retrieval, real-time access, dynamic permissions). Center shows the gap cannot be bridged with middleware, resulting in 95% pilot failure rate. Bottom shows solution: Agent-Ready 7-Layer Architecture delivering real-time capabilities and production reliability."
+
+### The Iron Man Suit Model: Design Philosophy for Agents
+
+Karpathy introduces the "Iron Man Suit" model: human augmentation with partial autonomy and fast generate-verify cycles, not autonomous robots. This philosophy directly implements the INPACT™ framework—**Instant** responses enable practical human verification, **Natural** language lets domain experts review outputs without translation—a care coordinator reviews "Schedule Dr. Martinez for diabetes follow-up" not "UPDATE appointments SET provider_id=847, dx_code='E11.9'", **Permitted** infrastructure enforces bounded autonomy, **Adaptive** systems learn from human corrections, **Contextual** access provides relevant information without overwhelming detail, and **Trusted** observability makes reasoning visible and auditable.
+
+The infrastructure implications are clear. Agents must retrieve context instantly (sub-second latency), present results in human-verifiable formats, operate within authorization boundaries, and escalate edge cases automatically. When these capabilities combine, you get augmentation systems that extend human capability while maintaining human judgment—not autonomous systems attempting to replace it.
+
+Karpathy's call to action: "There is a new category of consumer of digital information—AGENTS. Build for them."[15] For enterprises, this means semantic data layers agents can query naturally, dynamic permission systems enforcing contextual access, reasoning chain observability enabling validation, and feedback loops enabling continuous improvement.
+
+### The Architecture That Implements This Vision
+
+The 7-layer architecture framework in the next section translates Karpathy's "build for agents" vision into enterprise implementation. It transforms Software 1.0 foundations into Software 3.0 capabilities while respecting governance requirements, compliance constraints, and operational realities.
+
+This isn't about replacing data warehouses or abandoning BI dashboards. It's about adding the semantic understanding, dynamic access, real-time retrieval, and observable reasoning layers that agents require—while preserving the data quality, governance controls, and audit trails that enterprises demand.
+
+---
+
+**Bridge to Architecture:**
+
+Karpathy explains why traditional stacks fail agents; the next section shows the 7-layer architecture that delivers the missing capabilities.
 
 ---
 
@@ -157,7 +314,7 @@ Let's examine each layer in detail, understanding how it contributes to deliveri
 
 Each layer solves specific agent requirements. Let's explore them in detail. The complete seven-layer stack is visualized in Diagram 1 (Seven-Layer Architecture).
 
-**[Diagram 1: Seven-Layer Architecture - See diagram1-seven-layers.mermaid]**
+**[Diagram 1: Seven-Layer Architecture - See diagram1_1_a_seven_layers.mermaid]**
 ![Alt text](./diagrams/diagram1_1_a_seven_layers.png "The 7-Layer Agent-Ready Data Architecture - Layer 7: Self-Service Data Products and Multi-Agent Orchestration showing domain ownership, API catalog, and orchestration frameworks")
 ![Alt text](./diagrams/diagram1_seven_layers_2.png "The 7-Layer Agent-Ready Data Architecture - Layer 6: Observability and Feedback showing MLOps monitoring, data quality tracking, and continuous improvement loops")
 ![Alt text](./diagrams/diagram1_seven_layers_3.png "The 7-Layer Agent-Ready Data Architecture - Layer 5: Agent-Aware Governance showing ABAC policies, audit logging, and compliance automation")
@@ -1897,10 +2054,18 @@ https://github.com/NVIDIA/NeMo-Guardrails
 [14] Guardrails AI (2025). "Guardrails AI Documentation."  
 https://www.guardrailsai.com
 
+[15] Karpathy, A. (2025, June 18). "Software Is Changing (Again)." 
+Keynote at Y Combinator AI Startup School. 
+https://www.youtube.com/watch?v=LCEmiRjPEtQ
+
+[16] Karpathy, A. (2025). "Software Is Changing (Again) - Presentation Slides." 
+https://docs.google.com/presentation/d/1sZqMAoIJDxz79cbC5ap5v9jknYH4Aa9cFFaWL8Rids4/edit
 ---
 
 ## Diagrams Reference
 
+- **Diagram 0:** Software 3.0 Paradigm Shift (diagram8-software-paradigm-shift.mermaid)
+  - **Diagram 0b:** Infrastructure Paradigm Mismatch (diagram8-software-paradigm-shift.mermaid)
 - **Diagram 1:** Seven-Layer Architecture (diagram1-seven-layers.mermaid)
 - **Diagram 2:** Semantic Flow - Phrase to Data (diagram2-semantic-flow.mermaid)
 - **Diagram 3:** Observability Dashboard (diagram3-observability-dashboard.mermaid)
@@ -1908,7 +2073,6 @@ https://www.guardrailsai.com
 - **Diagram 5:** Multi-Agent Query Flow (diagram5-query-flow.mermaid)
 - **Diagram 6:** BI vs Agent Architecture (diagram6-bi-vs-agent.mermaid)
 - **Diagram 7:** Evolution Timeline (diagram7-evolution-timeline.mermaid)
-
 ---
 
 ## Tables Reference
