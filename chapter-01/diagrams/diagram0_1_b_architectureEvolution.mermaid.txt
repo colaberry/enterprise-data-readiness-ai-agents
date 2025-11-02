@@ -1,5 +1,6 @@
 ```mermaid
-graph LR
+
+graph TB
     %% Use markdown in titles for bold subgraph headers
     subgraph challenge["`**⚠️  THE INFRASTRUCTURE PARADIGM MISMATCH**`"]
         direction TB

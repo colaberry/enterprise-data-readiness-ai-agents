@@ -158,45 +158,6 @@ When enterprises attempt agent deployments on BI-era infrastructure, critical mi
 
 **Diagram 0b: The Infrastructure Paradigm Mismatch**
 
-```mermaid
-graph TB
-    subgraph challenge["⚠️  THE INFRASTRUCTURE PARADIGM MISMATCH"]
-        direction TB
-        
-        current["60% OF ENTERPRISES<br/><br/>Built on Software 1.0 Infrastructure<br/>━━━━━━━━━━━━━━━━━━━━<br/>✓ Data warehouses<br/>✓ Batch ETL (8-24 hour lag)<br/>✓ BI dashboards<br/>✓ Static RBAC<br/>✓ Schema-on-write"]
-        
-        attempting["ATTEMPTING TO DEPLOY<br/><br/>Software 3.0 Agents<br/>━━━━━━━━━━━━━━━━━━━━<br/>Require:<br/>• Sub-second semantic retrieval<br/>• Real-time data access<br/>• Dynamic contextual permissions<br/>• Reasoning chain observability<br/>• In-context learning loops"]
-        
-        gap["ARCHITECTURAL MISMATCH<br/>━━━━━━━━━━━━━━━━━━━━<br/>Cannot bridge with middleware<br/>Cannot patch with API layers<br/>Cannot solve with better prompts"]
-        
-        result["OUTCOME<br/>━━━━━━━━━━━━━━━━━━━━<br/>❌ 95% pilot failure rate<br/>❌ 9-13 second response times<br/>❌ 40-60% accuracy<br/>❌ Compliance violations<br/>❌ Cannot reach production"]
-        
-        current --> gap
-        attempting --> gap
-        gap --> result
-    end
-    
-    subgraph solution["✅  THE SOLUTION"]
-        direction TB
-        
-        transform["Agent-Ready Architecture<br/>━━━━━━━━━━━━━━━━━━━━<br/>7-Layer Infrastructure Stack"]
-        
-        delivers["DELIVERS SOFTWARE 3.0 CAPABILITIES<br/>━━━━━━━━━━━━━━━━━━━━<br/>✓ Real-time data fabric<br/>✓ Semantic understanding<br/>✓ Dynamic ABAC governance<br/>✓ Sub-second retrieval (1.8s)<br/>✓ 85%+ accuracy<br/>✓ Production-ready reliability"]
-        
-        transform --> delivers
-    end
-    
-    result -.->|Requires<br/>Paradigm Transformation| transform
-    
-    style challenge fill:#ffebee,stroke:#c62828,stroke-width:3px
-    style current fill:#fff3e0,stroke:#f57c00,stroke-width:2px
-    style attempting fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
-    style gap fill:#ff6666,stroke:#b71c1c,stroke-width:3px,color:#fff
-    style result fill:#ef5350,stroke:#c62828,stroke-width:2px,color:#fff
-    style solution fill:#c8e6c9,stroke:#2e7d32,stroke-width:3px
-    style transform fill:#a5d6a7,stroke:#388e3c,stroke-width:2px
-    style delivers fill:#81c784,stroke:#2e7d32,stroke-width:2px
-```
 ![Alt text](./diagrams/diagram0_1_b_architectureEvolution.png "Most enterprises attempt to deploy Software 3.0 agents on Software 1.0 infrastructure—creating the architectural mismatch that drives the 95% pilot failure rate.")
 
 **Figure 0b:** *Most enterprises attempt to deploy Software 3.0 agents on Software 1.0 infrastructure—creating the architectural mismatch that drives the 95% pilot failure rate.*
