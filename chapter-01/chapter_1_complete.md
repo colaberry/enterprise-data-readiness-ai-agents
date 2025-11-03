@@ -9,9 +9,9 @@
 
 ## From Problem to Solution: Building on Chapter 0
 
-In Chapter 0, you met Sarah Cedao, Chief Data Officer at Echo Health Systems in Boston. Despite fifteen years of progressive data infrastructure—SQL Server warehouse, Azure data lake, Databricks, strong governance, multiple modernization initiatives—her sophisticated systems couldn't support a basic patient scheduling agent.
+In Chapter 0, you met Sarah Cedao, Chief Data Officer at Echo Health Systems in Boston. Despite fifteen years of progressive data infrastructure, SQL Server warehouse, Azure data lake, Databricks, strong governance, multiple modernization initiatives, her sophisticated systems couldn't support a basic patient scheduling agent.
 
-You learned why through the **INPACT™ Framework**—six fundamental agent needs that separate the 5% who succeed from the 95% who fail. Echo's Analytics Era infrastructure failed on all six:
+You learned why through the **INPACT™ Framework** - six fundamental agent needs that separate the 5% who succeed from the 95% who fail. Echo's Analytics Era infrastructure failed on all six:
 
 | INPACT™ Need | Echo's Gap | Consequence |
 |--------------|------------|-------------|
@@ -26,7 +26,7 @@ You learned why through the **INPACT™ Framework**—six fundamental agent need
 
 Sarah's journey from 9-13 second responses to 1.8 seconds, from 40-60% accuracy to 85%+, from compliance failure to HIPAA exemplar required transforming all seven layers. This chapter shows you exactly how.
 
-> **Note for readers:** This chapter builds directly on Chapter 0's INPACT™ Framework. If you skipped Chapter 0, read it first—the six agent needs are the foundation for understanding why this architecture exists. Sequential reading recommended.
+> **Note for readers:** This chapter builds directly on Chapter 0's INPACT™ Framework. If you skipped Chapter 0, read it first - the six agent needs are the foundation for understanding why this architecture exists. Sequential reading recommended.
 
 ---
 
@@ -72,7 +72,7 @@ Sarah's journey from 9-13 second responses to 1.8 seconds, from 40-60% accuracy 
 **Choose your path based on your role:**
 
 ### 🎯 Executive Path (15 minutes)
-Focus on business context and ROI—technical details optional.
+Focus on business context and ROI technical details optional.
 
 **Must Read:**
 - From Problem to Solution (page 1)
@@ -89,7 +89,7 @@ Focus on business context and ROI—technical details optional.
 ---
 
 ### 🏗️ Technical Deep Dive (50-60 minutes)
-For architects and implementers—all content essential.
+For architects and implementers all content essential.
 
 **Read sequentially:** All sections cover architectural decisions you'll need to implement.
 
@@ -121,19 +121,19 @@ Understanding "why this matters" without deep technical dive.
 
 ## Why Traditional Infrastructure Fails: The Software 3.0 Paradigm Shift
 
-When enterprises deploy AI agents on existing infrastructure and watch them fail, the instinct is to blame the models, the data quality, or the implementation team. But the failure runs deeper. Andrej Karpathy—former Director of AI at Tesla, co-founder of OpenAI—explains why in his June 2025 keynote at Y Combinator AI Startup School.[15] His thesis: "Software is changing quite fundamentally again. LLMs are a new kind of computer, and you program them in English."
+When enterprises deploy AI agents on existing infrastructure and watch them fail, the instinct is to blame the models, the data quality, or the implementation team. But the failure runs deeper. Andrej Karpathy, former Director of AI at Tesla, co-founder of OpenAI explains why in his June 2025 keynote at Y Combinator AI Startup School.[15] His thesis: "Software is changing quite fundamentally again. LLMs are a new kind of computer, and you program them in English."
 
-This paradigm shift explains why the 95% pilot failure rate MIT documented isn't about insufficient technology—it's about fundamental architectural mismatch.
+This paradigm shift explains why the 95% pilot failure rate MIT documented isn't about insufficient technology, it's about fundamental architectural mismatch.
 
 ### The Three Paradigms of Software Development
 
 Karpathy identifies three distinct eras requiring different infrastructure:
 
-**Software 1.0 (1950s-2010s):** Explicit logic in C++, Java, and Python. Enterprise data infrastructure—data warehouses, ETL pipelines, BI dashboards—was built in this era with rigid schemas, predefined queries, and deterministic outputs.
+**Software 1.0 (1950s-2010s):** Explicit logic in C++, Java, and Python. Enterprise data infrastructure - data warehouses, ETL pipelines, BI dashboards was built in this era with rigid schemas, predefined queries, and deterministic outputs.
 
 **Software 2.0 (2010s-2023):** Neural networks where "code" became learned weights. Enterprises adopted this selectively: computer vision for quality control, recommendation engines for personalization, fraud detection for security. These remained point solutions within larger Software 1.0 architectures.
 
-**Software 3.0 (2023-present):** Large Language Models programmable in natural language. Unlike narrow task-specific models, LLMs are general-purpose reasoning engines. As Karpathy emphasizes, "Software 3.0 is eating Software 1.0/2.0"—meaning a huge amount of existing software will be rewritten.[15]
+**Software 3.0 (2023-present):** Large Language Models programmable in natural language. Unlike narrow task-specific models, LLMs are general-purpose reasoning engines. As Karpathy emphasizes, "Software 3.0 is eating Software 1.0/2.0" - meaning a huge amount of existing software will be rewritten.[15]
 
 The enterprise challenge: attempting to run Software 3.0 agents on Software 1.0 infrastructure is like running cloud-native microservices on mainframe batch processing. The architectural assumptions don't align.
 
@@ -152,31 +152,31 @@ When enterprises attempt agent deployments on BI-era infrastructure, critical mi
 
 **Permission models clash.** Agents require dynamic, context-aware authorization. Traditional RBAC grants static role-based access.
 
-**Failure modes differ.** Traditional systems fail with exceptions and stack traces. Agents fail probabilistically—retrieving irrelevant context or generating plausible but incorrect responses. Infrastructure must support reasoning chain observability, not just query logs.
+**Failure modes differ.** Traditional systems fail with exceptions and stack traces. Agents fail probabilistically retrieving irrelevant context or generating plausible but incorrect responses. Infrastructure must support reasoning chain observability, not just query logs.
 
 **Learning cycles transform.** Software 1.0 required code changes. Software 2.0 required model retraining. Software 3.0 enables in-context learning through interaction. But capturing that learning requires feedback loops and validation mechanisms that BI-era infrastructure never contemplated.
 
 **Diagram 0b: The Infrastructure Paradigm Mismatch**
 
-![Alt text](./diagrams/diagram0_1_b_architectureEvolution.png "Most enterprises attempt to deploy Software 3.0 agents on Software 1.0 infrastructure—creating the architectural mismatch that drives the 95% pilot failure rate.")
+![Alt text](./diagrams/diagram0_1_b_architectureEvolution.png "Most enterprises attempt to deploy Software 3.0 agents on Software 1.0 infrastructure creating the architectural mismatch that drives the 95% pilot failure rate.")
 
-**Figure 0b:** *Most enterprises attempt to deploy Software 3.0 agents on Software 1.0 infrastructure—creating the architectural mismatch that drives the 95% pilot failure rate.*
+**Figure 0b:** *Most enterprises attempt to deploy Software 3.0 agents on Software 1.0 infrastructure creating the architectural mismatch that drives the 95% pilot failure rate.*
 
 **Alt text for accessibility:** "Diagram showing the infrastructure mismatch problem. Left side shows 60% of enterprises with Software 1.0 infrastructure (data warehouses, batch ETL, static RBAC). Right side shows agents requiring Software 3.0 capabilities (sub-second retrieval, real-time access, dynamic permissions). Center shows the gap cannot be bridged with middleware, resulting in 95% pilot failure rate. Bottom shows solution: Agent-Ready 7-Layer Architecture delivering real-time capabilities and production reliability."
 
 ### The Iron Man Suit Model: Design Philosophy for Agents
 
-Karpathy introduces the "Iron Man Suit" model: human augmentation with partial autonomy and fast generate-verify cycles, not autonomous robots. This philosophy directly implements the INPACT™ framework—**Instant** responses enable practical human verification, **Natural** language lets domain experts review outputs without translation—a care coordinator reviews "Schedule Dr. Martinez for diabetes follow-up" not "UPDATE appointments SET provider_id=847, dx_code='E11.9'", **Permitted** infrastructure enforces bounded autonomy, **Adaptive** systems learn from human corrections, **Contextual** access provides relevant information without overwhelming detail, and **Trusted** observability makes reasoning visible and auditable.
+Karpathy introduces the "Iron Man Suit" model: human augmentation with partial autonomy and fast generate-verify cycles, not autonomous robots. This philosophy directly implements the INPACT™ framework **Instant** responses enable practical human verification, **Natural** language lets domain experts review outputs without translation, a care coordinator reviews "Schedule Dr. Martinez for diabetes follow-up" not "UPDATE appointments SET provider_id=847, dx_code='E11.9'", **Permitted** infrastructure enforces bounded autonomy, **Adaptive** systems learn from human corrections, **Contextual** access provides relevant information without overwhelming detail, and **Trusted** observability makes reasoning visible and auditable.
 
-The infrastructure implications are clear. Agents must retrieve context instantly (sub-second latency), present results in human-verifiable formats, operate within authorization boundaries, and escalate edge cases automatically. When these capabilities combine, you get augmentation systems that extend human capability while maintaining human judgment—not autonomous systems attempting to replace it.
+The infrastructure implications are clear. Agents must retrieve context instantly (sub-second latency), present results in human-verifiable formats, operate within authorization boundaries, and escalate edge cases automatically. When these capabilities combine, you get augmentation systems that extend human capability while maintaining human judgment, not autonomous systems attempting to replace it.
 
-Karpathy's call to action: "There is a new category of consumer of digital information—AGENTS. Build for them."[15] For enterprises, this means semantic data layers agents can query naturally, dynamic permission systems enforcing contextual access, reasoning chain observability enabling validation, and feedback loops enabling continuous improvement.
+Karpathy's call to action: "There is a new category of consumer of digital information AGENTS. Build for them."[15] For enterprises, this means semantic data layers agents can query naturally, dynamic permission systems enforcing contextual access, reasoning chain observability enabling validation, and feedback loops enabling continuous improvement.
 
 ### The Architecture That Implements This Vision
 
 The 7-layer architecture framework in the next section translates Karpathy's "build for agents" vision into enterprise implementation. It transforms Software 1.0 foundations into Software 3.0 capabilities while respecting governance requirements, compliance constraints, and operational realities.
 
-This isn't about replacing data warehouses or abandoning BI dashboards. It's about adding the semantic understanding, dynamic access, real-time retrieval, and observable reasoning layers that agents require—while preserving the data quality, governance controls, and audit trails that enterprises demand.
+This isn't about replacing data warehouses or abandoning BI dashboards. It's about adding the semantic understanding, dynamic access, real-time retrieval, and observable reasoning layers that agents require, while preserving the data quality, governance controls, and audit trails that enterprises demand.
 
 ---
 
@@ -188,11 +188,11 @@ Karpathy explains why traditional stacks fail agents; the next section shows the
 
 ## The Architecture That Works: 7 Layers of Agent-Ready Enterprise Data Infrastructure
 
-Over the past two years, we've studied hundreds of production agent deployments across industries—from healthcare systems using AWS Bedrock, to financial institutions building on Azure OpenAI, to retailers deploying Google Vertex AI agents. We've analyzed documented case studies from AWS customer success stories, reviewed architecture patterns from Microsoft's AI documentation, examined Databricks' lakehouse AI implementations, and synthesized patterns from Anthropic's Claude enterprise deployments and technical blogs from Pinecone, Weaviate, and Neo4j.
+Over the past two years, we've studied hundreds of production agent deployments across industries, from healthcare systems using AWS Bedrock, to financial institutions building on Azure OpenAI, to retailers deploying Google Vertex AI agents. We've analyzed documented case studies from AWS customer success stories, reviewed architecture patterns from Microsoft's AI documentation, examined Databricks' lakehouse AI implementations, and synthesized patterns from Anthropic's Claude enterprise deployments and technical blogs from Pinecone, Weaviate, and Neo4j.
 
 The patterns that separate success from failure are remarkably consistent.
 
-At Colaberry, we've synthesized these industry-wide patterns into the **7-Layer Agent-Ready Enterprise Data Architecture**. What you'll see in this book reflects not just our synthesis, but the collective lessons from enterprises who've already made this journey—documented in public case studies, technical documentation, and reference architectures from leading cloud providers and AI infrastructure vendors.
+At Colaberry, we've synthesized these industry-wide patterns into the **7-Layer Agent-Ready Enterprise Data Architecture**. What you'll see in this book reflects not just our synthesis, but the collective lessons from enterprises who've already made this journey documented in public case studies, technical documentation, and reference architectures from leading cloud providers and AI infrastructure vendors.
 
 ### The Seven-Layer Stack
 
@@ -221,34 +221,61 @@ The seven-layer architecture delivers the six INPACT™ needs from Chapter 0 thr
 | **C - Contextual** | Real-time cross-domain data | Layer 2, 3, 1, 4 | Cross-Domain Integration |
 | **T - Trusted** | Complete audit trails | Layer 5, 6, 4, 3 | Auditability & Explainability |
 
-**The pattern is clear:** Every INPACT™ need requires multiple layers working together. No single layer solves any need alone. This is why bolt-on approaches fail—you can't just add a vector database and call it "agent-ready."
+**The pattern is clear:** Every INPACT™ need requires multiple layers working together. No single layer solves any need alone. This is why bolt-on approaches fail, you can't just add a vector database and call it "agent-ready."
 
 Let's examine each layer in detail, understanding how it contributes to delivering the INPACT™ needs.
 
 Each layer solves specific agent requirements. Let's explore them in detail. The complete seven-layer stack is visualized in Diagram 1 (Seven-Layer Architecture).
 
 **[Diagram 1: Seven-Layer Architecture - See diagram1_1_a_seven_layers.mermaid]**
-![Alt text](./diagrams/diagram1_1_a_seven_layers.png "The 7-Layer Agent-Ready Data Architecture - Layer 7: Self-Service Data Products and Multi-Agent Orchestration showing domain ownership, API catalog, and orchestration frameworks")
 ![Alt text](./diagrams/diagram1_1_b_seven_layers.png "The 7-Layer Agent-Ready Data Architecture - Layer 5: Agent-Aware Governance showing ABAC policies, audit logging, and compliance automation")
+![Alt text](./diagrams/diagram1_1_a_seven_layers.png "The 7-Layer Agent-Ready Data Architecture - Layer 7: Self-Service Data Products and Multi-Agent Orchestration showing domain ownership, API catalog, and orchestration frameworks")
 ![Alt text](./diagrams/diagram1_1_c_seven_layers.png "The 7-Layer Agent-Ready Data Architecture - Layer 5: Agent-Aware Governance showing ABAC policies, audit logging, and compliance automation")
 ---
 
 ### Layer 1: Multi-Modal Storage Architecture (Including Model Registry)
 
-**What it is:** Multiple specialized databases, each optimized for different query patterns and data types—working together as a unified system, with dedicated storage for ML artifacts.
+**What it is:** Multiple specialized databases, each optimized for different query patterns and data types working together as a unified system, with dedicated storage for ML artifacts.
 
 **Components:**
-- **Vector databases** ([Pinecone](https://www.pinecone.io), [Weaviate](https://weaviate.io), [Qdrant](https://qdrant.tech), [pgvector](https://github.com/pgvector/pgvector)): For semantic search over documents, clinical notes, and unstructured content
-- **Knowledge graphs** ([Neo4j](https://neo4j.com), [Amazon Neptune](https://aws.amazon.com/neptune/), [Azure Cosmos DB](https://azure.microsoft.com/en-us/products/cosmos-db)): For relationship queries and entity connections
-- **Document stores** ([Elasticsearch](https://www.elastic.co/elasticsearch), [MongoDB](https://www.mongodb.com)): For full-text search and semi-structured data
-- **Traditional RDBMS** ([PostgreSQL](https://www.postgresql.org), [SQL Server](https://www.microsoft.com/en-us/sql-server)): For transactional queries and structured data
-- **Data warehouse** ([Snowflake](https://www.snowflake.com), [Databricks](https://www.databricks.com), [BigQuery](https://cloud.google.com/bigquery)): For analytical queries and aggregations (evolved role)
-- **Model registry** ([MLflow](https://mlflow.org), [Weights & Biases](https://wandb.ai), [Neptune](https://neptune.ai)): For versioning embedding models, LLMs, and agent artifacts
-- **Memory stores** ([Mem0](https://mem0.ai), [Zep](https://www.getzep.com), [LangMem](https://github.com/langchain-ai/langmem)): For persistent cross-session user memory and preferences
+- **Vector databases** for semantic search:
+  - [Pinecone](https://www.pinecone.io) - Managed vector database
+  - [Weaviate](https://weaviate.io) - Open-source with hybrid search
+  - [Qdrant](https://qdrant.tech) - High-performance vector search
+  - [pgvector](https://github.com/pgvector/pgvector) - PostgreSQL extension
+  
+- **Knowledge graphs** for relationship queries:
+  - [Neo4j](https://neo4j.com) - Leading graph database
+  - [Amazon Neptune](https://aws.amazon.com/neptune/) - Managed graph DB
+  - [Azure Cosmos DB](https://azure.microsoft.com/en-us/products/cosmos-db) - Multi-model with graph
+  
+- **Document stores** for full-text search:
+  - [Elasticsearch](https://www.elastic.co) - Search and analytics
+  - [MongoDB](https://www.mongodb.com) - Document NoSQL database
+  
+- **Traditional RDBMS** for transactional queries:
+  - [PostgreSQL](https://www.postgresql.org) - Open-source relational database
+  - [SQL Server](https://www.microsoft.com/en-us/sql-server) - Enterprise RDBMS
+  
+- **Data warehouses** for analytical queries:
+  - [Snowflake](https://www.snowflake.com) - Cloud data warehouse
+  - [Databricks](https://www.databricks.com) - Lakehouse platform
+  - [BigQuery](https://cloud.google.com/bigquery) - Google's data warehouse
+  
+- **Model registry** for ML artifact versioning:
+  - [MLflow](https://mlflow.org) - Open-source ML lifecycle
+  - [Weights & Biases](https://wandb.ai) - Experiment tracking
+  - [Neptune.ai](https://neptune.ai) - Metadata store
+  
+- **Memory stores** for cross-session agent memory:
+  - [Mem0](https://mem0.ai) - Agent memory platform
+  - [Zep](https://www.getzep.com) - Long-term memory for LLM apps
+  - [LangMem](https://github.com/langchain-ai/langmem) - LangChain memory
+
 
 **Why agents need it:** Different questions require fundamentally different storage patterns. "What did Dr. Martinez write in the progress note about diabetes management?" requires vector semantic search. "Who are all the physicians who report to Dr. Martinez, and what are their specialties?" requires graph traversal. "What's the patient's current medication list?" requires fast transactional lookup from normalized tables. "What were average wait times by department last month?" benefits from warehouse aggregations. "Which version of the embedding model generated these results?" requires model registry lookup.
 
-**Real-world validation:** AWS's Well-Architected Framework for Machine Learning recommends multi-modal storage architectures for AI workloads, explaining that different AI use cases require different storage optimizations—vector databases for similarity search, graph databases for relationship queries, traditional databases for structured transactional data, and model registries for ML artifact versioning.[3]
+**Real-world validation:** AWS's Well-Architected Framework for Machine Learning recommends multi-modal storage architectures for AI workloads, explaining that different AI use cases require different storage optimizations: vector databases for similarity search, graph databases for relationship queries, traditional databases for structured transactional data, and model registries for ML artifact versioning.[3]
 
 **Storage Pattern Selection:**
 
@@ -285,7 +312,7 @@ Agents need persistent memory to provide continuity across conversations. Layer 
 
 Memory storage uses vector databases for semantic memory (similar past conversations) and key-value stores for fast fact lookup. Specialized memory platforms like [Mem0](https://mem0.ai), [Zep](https://www.getzep.com), or [LangMem](https://github.com/langchain-ai/langmem) provide purpose-built infrastructure for long-term agent memory with automatic memory updates, decay policies, and privacy controls. (Memory retrieval and quality monitoring covered in Layers 4 and 6; detailed implementation in Chapter 10.)
 
-**Echo's gap:** Everything lived in SQL Server. Clinical notes were stored as `VARCHAR(MAX)` text fields in tables. Organizational hierarchies required recursive common table expressions that took 8 seconds to execute. No semantic search capability existed—finding relevant clinical notes meant full-text search on keywords, missing conceptually similar content. The "one database for everything" approach that worked adequately for BI reports created massive latency and poor results for agents. They had no model registry, so when their embedding model accuracy degraded, they couldn't determine which version was in production or roll back to a previous version. No encryption strategy for sensitive embeddings—PHI patterns potentially exposed in vector representations.
+**Echo's gap:** Everything lived in SQL Server. Clinical notes were stored as `VARCHAR(MAX)` text fields in tables. Organizational hierarchies required recursive common table expressions that took 8 seconds to execute. No semantic search capability existed, finding relevant clinical notes meant full-text search on keywords, missing conceptually similar content. The "one database for everything" approach that worked adequately for BI reports created massive latency and poor results for agents. They had no model registry, so when their embedding model accuracy degraded, they couldn't determine which version was in production or roll back to a previous version. No encryption strategy for sensitive embeddings, PHI patterns potentially exposed in vector representations.
 
 **Technology Selection Guidance:**
 
@@ -296,8 +323,8 @@ Select technologies based on current stable releases at implementation time rath
 **📊 INPACT™ Contribution:**
 
 This layer primarily addresses:
-- **I - Instant**: Query-optimized storage delivers sub-50ms vector search, sub-200ms graph traversal, and sub-20ms transactional lookups—critical for 2-second total response time SLOs.
-- **N - Natural**: Vector databases enable semantic similarity search, finding conceptually similar content even when keywords don't match—essential for natural language understanding.
+- **I - Instant**: Query-optimized storage delivers sub-50ms vector search, sub-200ms graph traversal, and sub-20ms transactional lookups critical for 2-second total response time SLOs.
+- **N - Natural**: Vector databases enable semantic similarity search, finding conceptually similar content even when keywords don't match - essential for natural language understanding.
 - **C - Contextual**: Multi-modal storage allows assembling context from different data types (structured tables, clinical notes, organizational relationships, user memory) without forcing everything into one schema.
 
 Supporting contributions to:
@@ -315,17 +342,39 @@ Supporting contributions to:
 
 **What it replaces:** Nightly batch ETL jobs that made yesterday's data available this morning
 
-**Key technologies:**
-- **For inference data:**
-  - Change Data Capture ([Debezium](https://debezium.io), [AWS DMS](https://aws.amazon.com/dms/), [Azure Data Factory](https://azure.microsoft.com/en-us/products/data-factory))
-  - Event streaming ([Apache Kafka](https://kafka.apache.org), [Azure Event Hubs](https://azure.microsoft.com/en-us/products/event-hubs), [AWS Kinesis](https://aws.amazon.com/kinesis/))
-  - Stream processing ([Apache Flink](https://flink.apache.org), [Spark Streaming](https://spark.apache.org/streaming/), [Databricks Delta Live Tables](https://www.databricks.com/product/delta-live-tables))
-  
-- **For training data:**
-  - Feature stores ([Tecton](https://www.tecton.ai), [Feast](https://feast.dev), [Databricks Feature Store](https://www.databricks.com/product/feature-store))
-  - Training dataset versioning ([DVC](https://dvc.org), [Pachyderm](https://www.pachyderm.com), Delta Lake time travel)
-  - Data validation pipelines ([Great Expectations](https://greatexpectations.io), [TensorFlow Data Validation](https://www.tensorflow.org/tfx/guide/tfdv))
-  - Batch and streaming feature engineering
+**Key Technologies:**
+
+**Change Data Capture (CDC):**
+- [Debezium](https://debezium.io) - Open-source CDC platform
+- [AWS Database Migration Service](https://aws.amazon.com/dms/) - Managed CDC
+- [Azure Data Factory](https://azure.microsoft.com/en-us/products/data-factory) - Cloud ETL and CDC
+
+**Event streaming platforms:**
+- [Apache Kafka](https://kafka.apache.org) - Distributed event streaming
+- [Azure Event Hubs](https://azure.microsoft.com/en-us/products/event-hubs) - Kafka-compatible service
+- [AWS Kinesis](https://aws.amazon.com/kinesis/) - Real-time data streaming
+- [Redpanda](https://redpanda.com) - Kafka-compatible, simpler operations
+
+**Stream processing:**
+- [Apache Flink](https://flink.apache.org) - Stateful stream processing
+- [Spark Streaming](https://spark.apache.org/streaming/) - Micro-batch processing
+- [Databricks Delta Live Tables](https://docs.databricks.com/en/delta-live-tables/) - Declarative ETL
+
+**Feature stores for training data:**
+- [Tecton](https://www.tecton.ai) - Enterprise feature platform
+- [Feast](https://feast.dev) - Open-source feature store
+- [Databricks Feature Store](https://docs.databricks.com/en/machine-learning/feature-store/) - Integrated with Unity Catalog
+- [Hopsworks](https://www.hopsworks.ai) - Open-source feature platform
+
+**Training dataset versioning:**
+- [DVC](https://dvc.org) - Data version control
+- [Pachyderm](https://www.pachyderm.com) - Data lineage platform
+- [Delta Lake](https://delta.io) - Time travel for datasets
+
+**Data validation:**
+- [Great Expectations](https://greatexpectations.io) - Data quality testing
+- [TensorFlow Data Validation](https://www.tensorflow.org/tfx/guide/tfdv) - TFX validation
+- [Soda](https://www.soda.io) - Data quality monitoring
 
 **Why agents need it:** When a patient asks "Can I get an appointment today?", the agent needs to know about the cancellation that happened 30 seconds ago, not the schedule as of 2 AM last night. Additionally, the embedding models and LLMs that power the agent need fresh training data to maintain accuracy and adapt to changing patterns.
 
@@ -345,7 +394,7 @@ Operational DB → CDC → Kafka → Feature store → Training dataset → Mode
 
 **Privacy and Data Minimization:**
 
-Streaming pipelines must include **field-level PII masking** and data minimization rules. Only stream fields necessary for agent operations—not entire records. For example, streaming appointment data should include `provider_id`, `slot_time`, `availability_status` but mask `patient_SSN`, `billing_details` unless explicitly required and authorized.
+Streaming pipelines must include **field-level PII masking** and data minimization rules. Only stream fields necessary for agent operations - not entire records. For example, streaming appointment data should include `provider_id`, `slot_time`, `availability_status` but mask `patient_SSN`, `billing_details` unless explicitly required and authorized.
 
 ---
 
@@ -373,7 +422,7 @@ To ensure Layer 1 delivers on its promise, monitor these key indicators (as deta
 | **Pipeline Uptime** | 99.9% | < 99.5% (incident) |
 | **Cost per TB** | $50-$150/month | > $200 (optimization needed) |
 
-**Echo's gap:** Their SQL Server warehouse updated every 24 hours via overnight ETL. Appointment data, provider schedules, and insurance verifications were all stale by morning. Their Databricks setup processed data in batches every 4 hours. For BI dashboards reviewing last quarter's metrics, this was perfectly adequate. For an agent trying to schedule today's appointment, it was a show-stopper. They also had no systematic way to version training data for their embedding models, making it impossible to reproduce model behavior or debug accuracy issues. Finally, no data minimization—entire patient records were replicated, creating unnecessary privacy exposure.
+**Echo's gap:** Their SQL Server warehouse updated every 24 hours via overnight ETL. Appointment data, provider schedules, and insurance verifications were all stale by morning. Their Databricks setup processed data in batches every 4 hours. For BI dashboards reviewing last quarter's metrics, this was perfectly adequate. For an agent trying to schedule today's appointment, it was a show-stopper. They also had no systematic way to version training data for their embedding models, making it impossible to reproduce model behavior or debug accuracy issues. Finally, no data minimization, entire patient records were replicated, creating unnecessary privacy exposure.
 
 [1] Databricks Delta Live Tables documentation (https://docs.databricks.com/en/delta-live-tables/index.html)
 
@@ -390,20 +439,47 @@ To ensure Layer 1 delivers on its promise, monitor these key indicators (as deta
 - Natural language mappings to data entities
 - Cross-system concept unification ("customer" means the same thing everywhere)
 
-**Key technologies:**
-- Semantic modeling platforms ([dbt Semantic Layer](https://www.getdbt.com/product/semantic-layer), [Cube](https://cube.dev), [AtScale](https://www.atscale.com))
-- Ontology management ([Stardog](https://www.stardog.com), [TopBraid](https://www.topquadrant.com/products/topbraid-enterprise-data-governance/), [Protégé](https://protege.stanford.edu))
-- Metadata management ([Atlan](https://atlan.com), [Collibra](https://www.collibra.com), [Alation](https://www.alation.com))
-- LLM-powered natural language understanding layers
+**Key Technologies:**
 
-**Why agents need it:** Agents speak English (or Spanish, or Mandarin), not SQL. When a patient says "my doctor," the agent needs to understand this maps to `primary_care_provider_id` in the EHR, which relates to `physician_npi` in the credentialing system, which connects to `provider_schedule_id` in the scheduling database—and that all three represent the same real-world concept.
+**Semantic modeling platforms:**
+- [dbt Semantic Layer](https://docs.getdbt.com/docs/build/semantic-models) - Metrics framework
+- [Cube](https://cube.dev) - Semantic layer with caching
+- [AtScale](https://www.atscale.com) - Enterprise semantic layer
+- [LookML](https://cloud.google.com/looker/docs/what-is-lookml) - Looker's semantic modeling
+
+**Natural language to SQL:**
+- [Vanna.AI](https://vanna.ai) - RAG-based text-to-SQL
+- [Databricks AI/BI Genie](https://www.databricks.com/product/ai-bi) - Natural language interface
+- [ThoughtSpot](https://www.thoughtspot.com) - Search analytics
+- [Microsoft Copilot for Power BI](https://powerbi.microsoft.com/en-us/copilot/) - Natural language BI
+
+**Ontology management:**
+- [Stardog](https://www.stardog.com) - Knowledge graph platform
+- [TopBraid](https://www.topquadrant.com/products/topbraid-enterprise-data-governance/) - Ontology governance
+- [Protégé](https://protege.stanford.edu) - Open-source ontology editor
+- [GraphDB](https://www.ontotext.com/products/graphdb/) - RDF semantic database
+
+**Metadata management:**
+- [Atlan](https://atlan.com) - Active metadata platform
+- [Collibra](https://www.collibra.com) - Data governance and catalog
+- [Alation](https://www.alation.com) - Data catalog with intelligence
+- [DataHub](https://datahubproject.io) - Open-source metadata platform
+- [OpenMetadata](https://open-metadata.org) - Open standard for metadata
+
+**Entity resolution:**
+- [Zingg](https://www.zingg.ai) - Open-source entity resolution
+- [Senzing](https://senzing.com) - Real-time entity resolution API
+- [Tamr](https://www.tamr.com) - ML-powered data mastering
+
+
+**Why agents need it:** Agents speak English (or Spanish, or Mandarin), not SQL. When a patient says "my doctor," the agent needs to understand this maps to `primary_care_provider_id` in the EHR, which relates to `physician_npi` in the credentialing system, which connects to `provider_schedule_id` in the scheduling database and that all three represent the same real-world concept.
 
 
 The semantic mapping flow from natural language phrases to data structures is illustrated in Diagram 2 (Semantic Flow), showing how natural language concepts are resolved to specific data entities across systems.
 
 **[Diagram 2: Semantic Flow - See diagram2-semantic-flow.mermaid]**
 ![Alt text](./diagrams/diagram2_semantic_flow_1.png "Semantic Flow: Unified Entity Resolution Process")
-![Alt text](./diagrams/diagram2_semantic_flow_2.png "Semantic Flow: Unified Entity Resolution Process")
+<!--![Alt text](./diagrams/diagram2_semantic_flow_2.png "Semantic Flow: Unified Entity Resolution Process")-->
 
 
 **Real-world validation:** dbt Labs' semantic layer documentation explains how modern semantic layers enable natural language queries by providing consistent metric definitions and business logic that can be consumed by AI applications without requiring knowledge of underlying data structures.[2]
@@ -417,7 +493,7 @@ This layer primarily addresses:
 - **C - Contextual**: Unifies entity resolution across systems (patient_id in EHR = member_id in claims = user_id in portal), enabling complete cross-domain context without manual ID mapping.
 
 Supporting contributions to:
-- **T - Trusted**: Business glossary provides authoritative definitions showing what each metric means, how it's calculated, and when it was last changed—essential for explainable agent decisions.
+- **T - Trusted**: Business glossary provides authoritative definitions showing what each metric means, how it's calculated, and when it was last changed, essential for explainable agent decisions.
 
 ---
 
@@ -502,9 +578,9 @@ To keep Layer 2 healthy and agent-aligned:
 - P1 definition regression: 24-hour resolution
 - Policy breach: immediate rollback + root cause analysis
 
-**Echo's gap:** Their data warehouse had 487 tables with cryptic names like `FCT_PTNT_ENCT` and `DIM_PRVDR_SPCLT`. Documentation existed in SharePoint documents that were 18 months out of date. The data lake had even less structure—just files with names like `epic_extract_20240315.parquet`. No system connected natural language concepts to these technical artifacts. Every agent query required custom translation logic written by developers who understood both the business domain and the arcane schema. No entity resolution—"Dr. Martinez" in one system wasn't linked to the same provider in another. No metric versioning—when definitions changed, agents broke silently. No bias awareness—terms like "high-risk" were deployed without ethical review.
+**Echo's gap:** Their data warehouse had 487 tables with cryptic names like `FCT_PTNT_ENCT` and `DIM_PRVDR_SPCLT`. Documentation existed in SharePoint documents that were 18 months out of date. The data lake had even less structure, just files with names like `epic_extract_20240315.parquet`. No system connected natural language concepts to these technical artifacts. Every agent query required custom translation logic written by developers who understood both the business domain and the arcane schema. No entity resolution "Dr. Martinez" in one system wasn't linked to the same provider in another. No metric versioning when definitions changed, agents broke silently. No bias awareness terms like "high-risk" were deployed without ethical review.
 
-> **Connecting to Chapter 0:** This addresses the "N - Natural" need we discussed in Chapter 0, where cryptic table names like `FCT_PTNT_ENCT` prevented natural language understanding. The semantic layer translates "diabetes follow-up patients" to the right tables, joins, and business logic automatically—improving accuracy from 40-60% baseline to 75-85%+ with semantic optimization.
+> **Connecting to Chapter 0:** This addresses the "N - Natural" need we discussed in Chapter 0, where cryptic table names like `FCT_PTNT_ENCT` prevented natural language understanding. The semantic layer translates "diabetes follow-up patients" to the right tables, joins, and business logic automatically improving accuracy from 40-60% baseline to 75-85%+ with semantic optimization.
 
 [2] dbt Semantic Layer documentation (https://docs.getdbt.com/docs/build/semantic-models)
 
@@ -518,7 +594,7 @@ To keep Layer 2 healthy and agent-aligned:
 
 ✅ **Layer 2 (Real-Time Data Fabric):** Streaming data with sub-30-second freshness replacing overnight batch ETL. CDC, Kafka, feature stores ensuring agents always work with current data.
 
-✅ **Layer 3 (Universal Semantic Layer):** Business glossaries and entity resolution replacing cryptic schemas. Natural language maps to data structures automatically—"diabetes follow-up patients" becomes accurate queries without developer intervention.
+✅ **Layer 3 (Universal Semantic Layer):** Business glossaries and entity resolution replacing cryptic schemas. Natural language maps to data structures automatically, "diabetes follow-up patients" becomes accurate queries without developer intervention.
 
 **Key insight so far:** These foundation layers solve data staleness, semantic ambiguity, and cross-system identity problems. Without them, agents can't understand questions or access fresh, unified data.
 
@@ -533,12 +609,12 @@ To keep Layer 2 healthy and agent-aligned:
 **Components:**
 - **Query understanding and intent recognition**
 - **Embedding model management:**
-  - Text embedding models ([OpenAI text-embedding-3](https://platform.openai.com/docs/guides/embeddings), [Cohere embed-v3](https://docs.cohere.com/docs/embeddings), [sentence-transformers](https://www.sbert.net))
-  - Multimodal embedding models ([CLIP](https://github.com/openai/CLIP), [ImageBind](https://github.com/facebookresearch/ImageBind)) for images/documents
+  - Text embedding models 
+  - Multimodal embedding models 
   - Model versioning and A/B testing
   - Embedding dimension optimization
 - **Hybrid search** (vector similarity + keyword matching + metadata filters)
-- **Result reranking** for relevance and recency ([Cohere Rerank](https://docs.cohere.com/docs/reranking), cross-encoders)
+- **Result reranking** for relevance and recency 
 - **Memory-augmented context assembly**: Retrieves user preferences and conversation history alongside domain data
 - **Context assembly and summarization**
 
@@ -551,13 +627,46 @@ The RAG layer implements confidence thresholds to handle uncertainty gracefully:
 
 When primary retrieval fails, the system cascades through: semantic search → keyword search → fuzzy matching → human escalation. This prevents hallucinations by acknowledging uncertainty rather than fabricating answers.
 
-(Implementation details and code examples in Chapter 10: RAG Architecture Best Practices)
-
-- **Semantic caching** for performance ([Redis](https://redis.io), [Momento](https://www.gomomento.com))
+- **Semantic caching** for performance 
 - **Retrieval monitoring and optimization**
 - **Fallback strategies** for low-confidence queries
 
-**Why agents need it:** An agent can't just dump 1,000 patient records into a language model's context window. It needs to intelligently retrieve the 3-5 most relevant pieces of information, assemble them with proper context, and do this in under 200 milliseconds—while staying within token limits and ensuring accuracy. The quality of retrieval depends heavily on the embedding model used to convert text into vectors.
+**Key Technologies:**
+
+**Embedding models:**
+- [OpenAI Embeddings](https://platform.openai.com/docs/guides/embeddings) - text-embedding-3-small/large
+- [Cohere Embed](https://docs.cohere.com/docs/embeddings) - embed-v3 with compression
+- [Sentence Transformers](https://www.sbert.net) - Open-source models
+- [Jina AI](https://jina.ai/embeddings/) - 8K context embeddings
+- [Voyage AI](https://www.voyageai.com) - Domain-specific embeddings
+
+**Multimodal embeddings:**
+- [CLIP (OpenAI)](https://github.com/openai/CLIP) - Image + text
+- [ImageBind (Meta)](https://github.com/facebookresearch/ImageBind) - 6-modality embeddings
+
+**Reranking:**
+- [Cohere Rerank](https://docs.cohere.com/docs/rerank) - Semantic reranking API
+- [Jina Reranker](https://jina.ai/reranker/) - Open reranking models
+- [Cross-encoders](https://www.sbert.net/examples/applications/cross-encoder/README.html) - sentence-transformers
+
+**RAG frameworks:**
+- [LlamaIndex](https://www.llamaindex.ai) - Data framework for LLMs
+- [LangChain](https://www.langchain.com) - Building LLM applications
+- [Haystack](https://haystack.deepset.ai) - NLP framework by deepset
+- [Canopy](https://github.com/pinecone-io/canopy) - RAG framework by Pinecone
+
+**Semantic caching:**
+- [Redis](https://redis.io) - In-memory cache
+- [Momento](https://www.gomomento.com) - Serverless cache
+- [GPTCache](https://github.com/zilliztech/GPTCache) - Semantic caching for LLMs
+
+**RAG evaluation frameworks:**
+- [RAGAS](https://docs.ragas.io) - RAG evaluation (faithfulness, relevance)
+- [DeepEval](https://docs.confident-ai.com) - LLM evaluation
+- [TruLens](https://www.trulens.org) - Evaluation and tracking
+- [Langfuse](https://langfuse.com) - LLM engineering platform
+
+**Why agents need it:** An agent can't just dump 1,000 patient records into a language model's context window. It needs to intelligently retrieve the 3-5 most relevant pieces of information, assemble them with proper context, and do this in under 200 milliseconds, while staying within token limits and ensuring accuracy. The quality of retrieval depends heavily on the embedding model used to convert text into vectors.
 
 **This is the breakthrough technology** that makes modern agents possible. RAG (Retrieval-Augmented Generation) solves the hallucination problem by grounding agent responses in your actual data rather than relying solely on the language model's training.
 
@@ -675,14 +784,14 @@ For detailed embedding model selection criteria including accuracy, cost, and la
 Tie semantic cache invalidation to Layer 2 CDC events for impacted entities. When appointment data changes, invalidate cached queries about that provider's schedule. Prewarm cache via background prefetch of top 100 queries.
 
 **Prompt Caching for Cost Reduction:**
-Beyond semantic caching, modern LLMs support prompt-level caching. System prompts, few-shot examples, and large context documents can be cached between requests, reducing costs 50-90% for repeated prompt components. [Claude prompt caching](https://docs.anthropic.com/claude/docs/prompt-caching) and [OpenAI prompt caching](https://platform.openai.com/docs/guides/prompt-caching) cache prompt prefixes that remain constant across queries.[11][12] For Echo's agents, caching system instructions (agent persona, behavioral rules), RAG context preambles (data schema descriptions), and few-shot examples (sample Q&A pairs) results in 75% cost reduction for production workload (caching 8K tokens of system prompt across 100K+ daily queries).
+Beyond semantic caching, modern LLMs support prompt-level caching. System prompts, few-shot examples, and large context documents can be cached between requests, reducing costs 50-90% for repeated prompt components. [Claude prompt caching](https://www.anthropic.com/news/prompt-caching) and [OpenAI prompt caching](https://platform.openai.com/docs/guides/prompt-caching) cache prompt prefixes that remain constant across queries.[11][12] For Echo's agents, caching system instructions (agent persona, behavioral rules), RAG context preambles (data schema descriptions), and few-shot examples (sample Q&A pairs) results in 75% cost reduction for production workload (caching 8K tokens of system prompt across 100K+ daily queries).
 
 **Cost Guardrails:**
 Set a per-query spend cap (e.g., $0.02); auto-degrade to smaller reranker/embedding when nearing budget to maintain service while controlling costs.
 
 > **Deep Dive:** For comprehensive RAG implementation patterns including advanced chunking strategies, reranking algorithms, and production optimization techniques, see Chapter 10: RAG Architecture Best Practices. For embedding model fine-tuning and domain adaptation, see Chapter 10 Section 3.
 
-**Echo's gap:** They had no retrieval infrastructure whatsoever. Their initial agent prototype simply queried SQL Server directly with natural language converted to SQL by GPT-4—which worked only 40% of the time and often timed out. No embedding models (couldn't do semantic search). No caching (every query hit the database). No ranking (results came back in insertion order). No optimization (queries were generated naively). No fallback strategy when retrieval failed. Agent responses were slow (3-8 seconds when they worked), frequently wrong, and often incomplete. No confidence disclosure—users couldn't tell when answers were uncertain. No chunking strategy—entire documents dumped into context, causing truncation. No cost controls—LLM API bills spiked unpredictably.
+**Echo's gap:** They had no retrieval infrastructure whatsoever. Their initial agent prototype simply queried SQL Server directly with natural language converted to SQL by GPT-4 which worked only 40% of the time and often timed out. No embedding models (couldn't do semantic search). No caching (every query hit the database). No ranking (results came back in insertion order). No optimization (queries were generated naively). No fallback strategy when retrieval failed. Agent responses were slow (3-8 seconds when they worked), frequently wrong, and often incomplete. No confidence disclosure - users couldn't tell when answers were uncertain. No chunking strategy - entire documents dumped into context, causing truncation. No cost controls - LLM API bills spiked unpredictably.
 
 ---
 
@@ -709,13 +818,44 @@ Supporting contributions to:
 
 **What it replaces:** Static role-based access control (RBAC) and manual compliance processes designed for human-driven queries
 
-**Key technologies:**
-- Attribute-Based Access Control (ABAC) systems ([Open Policy Agent](https://www.openpolicyagent.org), [Amazon Verified Permissions](https://aws.amazon.com/verified-permissions/), [Azure Policy](https://azure.microsoft.com/en-us/products/azure-policy))
-- Dynamic data masking engines
-- Real-time audit logging platforms
-- Compliance automation frameworks (for GDPR, HIPAA, SOC2, etc.)
+**Key Technologies:**
 
-**Why agents need it:** When an agent handles hundreds of queries per minute from different users with different access privileges, traditional RBAC breaks down. An agent can't have a single set of permissions—it must dynamically enforce the requesting user's permissions in real-time. According to NIST's Special Publication 800-162, ABAC enables authorization decisions based on evaluating attributes of the subject (user), object (data), requested operations, and environment conditions against policies. This flexibility is essential for agent systems where access requirements change with every query.[5]
+**ABAC policy engines:**
+- [Open Policy Agent (OPA)](https://www.openpolicyagent.org) - Cloud-native policy engine
+- [AWS Cedar](https://www.cedarpolicy.com) - Authorization policy language
+- [Permit.io](https://www.permit.io) - Authorization-as-a-service
+- [Cerbos](https://cerbos.dev) - Authorization layer for applications
+- [Oso](https://www.osohq.com) - Authorization with policy-as-code
+- [Styra DAS](https://www.styra.com) - Enterprise OPA management
+
+**Audit logging platforms:**
+- [Datadog](https://www.datadoghq.com) - Full-stack observability
+- [Splunk](https://www.splunk.com) - Enterprise log management
+- [Elastic Stack (ELK)](https://www.elastic.co/elastic-stack/) - Elasticsearch + Logstash + Kibana
+- [Grafana Loki](https://grafana.com/oss/loki/) - Log aggregation
+- [AWS CloudWatch](https://aws.amazon.com/cloudwatch/) - AWS logging
+- [Azure Monitor](https://azure.microsoft.com/en-us/products/monitor) - Azure logging
+
+**Secrets management:**
+- [HashiCorp Vault](https://www.vaultproject.io) - Secrets and encryption
+- [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/) - Managed secrets
+- [Azure Key Vault](https://azure.microsoft.com/en-us/products/key-vault) - Keys and secrets
+- [Google Secret Manager](https://cloud.google.com/security/products/secret-manager) - GCP secrets
+
+**PII detection and redaction:**
+- [Microsoft Presidio](https://microsoft.github.io/presidio/) - Open-source PII detection
+- [AWS Macie](https://aws.amazon.com/macie/) - ML-powered data discovery
+- [Google DLP API](https://cloud.google.com/dlp) - Data loss prevention
+- [Gretel.ai](https://gretel.ai) - Synthetic data and PII masking
+
+**Input/output guardrails:**
+- [NeMo Guardrails](https://github.com/NVIDIA/NeMo-Guardrails) - NVIDIA programmable rails
+- [Guardrails AI](https://www.guardrailsai.com) - Validation framework
+- [LLM Guard](https://llm-guard.com) - Security toolkit
+- [Lakera Guard](https://www.lakera.ai) - Prompt injection prevention
+- [LangKit](https://github.com/whylabs/langkit) - LLM security monitoring (WhyLabs)
+
+**Why agents need it:** When an agent handles hundreds of queries per minute from different users with different access privileges, traditional RBAC breaks down. An agent can't have a single set of permissions, it must dynamically enforce the requesting user's permissions in real-time. According to NIST's Special Publication 800-162, ABAC enables authorization decisions based on evaluating attributes of the subject (user), object (data), requested operations, and environment conditions against policies. This flexibility is essential for agent systems where access requirements change with every query.[5]
 
 > **Implementation Guide:** For step-by-step ABAC policy design, HIPAA-compliant audit log schemas, and compliance automation patterns, see Chapter 9: Governance & Compliance.
 
@@ -731,7 +871,7 @@ Supporting contributions to:
 3. **Apply policy**: "Patients can view ONLY their own PHI during business hours from authenticated devices"
 4. **Dynamically mask** sensitive fields (provider notes not visible to patients)
 5. **Log the access** for HIPAA audit trail with `trace_id`, `user_id`, `purpose_of_use`
-6. **Return filtered results**—all in <200ms
+6. **Return filtered results** all in <200ms
 
 **Attribute Categories:**
 
@@ -770,11 +910,11 @@ Layer 5 implements runtime safety checks preventing harmful agent behavior:
 - **Intent classification**: Flag requests outside agent's authorized scope (e.g., medical diagnosis, financial advice)
 
 **Output guardrails** (ensure safe responses):
-- **PII redaction**: Automatically mask SSN, credit cards, addresses—even if LLM generates them inadvertently
+- **PII redaction**: Automatically mask SSN, credit cards, addresses even if LLM generates them inadvertently
 - **Content filtering**: Block harmful, biased, or inappropriate outputs before reaching users
 - **Behavioral constraints**: Prevent medical diagnosis, financial advice, or legal counsel without proper disclaimers
 
-Technologies include [NeMo Guardrails](https://github.com/NVIDIA/NeMo-Guardrails) (NVIDIA), [Guardrails AI](https://www.guardrailsai.com), and [LLM Guard](https://llm-guard.com).[13][14] These systems apply rule-based and ML-based checks at inference time, rejecting or modifying unsafe inputs/outputs before reaching users. Echo's agents use guardrails to enforce HIPAA-compliant responses, preventing accidental PHI disclosure and ensuring all clinical information includes appropriate medical disclaimers.
+Technologies include [NeMo Guardrails](https://github.com/NVIDIA/NeMo-Guardrails) (NVIDIA), [Guardrails AI](https://www.guardrailsai.com), and [LLM Guard](https://github.com/protectai/llm-guard).[13][14] These systems apply rule-based and ML-based checks at inference time, rejecting or modifying unsafe inputs/outputs before reaching users. Echo's agents use guardrails to enforce HIPAA-compliant responses, preventing accidental PHI disclosure and ensuring all clinical information includes appropriate medical disclaimers.
 
 #### Administrative Workflow
 
@@ -783,22 +923,22 @@ Technologies include [NeMo Guardrails](https://github.com/NVIDIA/NeMo-Guardrails
 - **Annual**: VERT Ethics Audit sign-off (external review)
 - **Incident response**: Policy breach resolution ≤ 24 hours
 
-**Echo's gap:** Their existing access control was role-based and enforced at the database level. When the agent queried on behalf of different users, it used a single "application service account" with broad permissions. There was no way to dynamically enforce individual user permissions without rewriting every query. Audit logs showed which agent made queries, but not which human user triggered them. HIPAA compliance was a showstopper. No purpose-of-use logging—couldn't prove data access was justified. No policy caching—every query hit the policy engine, adding 50-100ms latency. No fail-safe mode—when policy engine went down, agent failed completely rather than degrading gracefully.
+**Echo's gap:** Their existing access control was role-based and enforced at the database level. When the agent queried on behalf of different users, it used a single "application service account" with broad permissions. There was no way to dynamically enforce individual user permissions without rewriting every query. Audit logs showed which agent made queries, but not which human user triggered them. HIPAA compliance was a showstopper. No purpose-of-use logging - couldn't prove data access was justified. No policy caching - every query hit the policy engine, adding 50-100ms latency. No fail-safe mode - when policy engine went down, agent failed completely rather than degrading gracefully.
 
 ---
 
 **📊 INPACT™ Contribution:**
 
 This layer primarily addresses:
-- **P - Permitted**: Dynamic ABAC evaluates permissions in real-time based on user attributes (role, clearance), data attributes (sensitivity, classification), actions (read, summarize, export), and environmental context (time, location, device)—all in under 10ms per query.
-- **T - Trusted**: Comprehensive audit logging captures who accessed what data, when, why, and what was returned—satisfying HIPAA's audit requirements and GDPR's right to explanation with complete traceability.
+- **P - Permitted**: Dynamic ABAC evaluates permissions in real-time based on user attributes (role, clearance), data attributes (sensitivity, classification), actions (read, summarize, export), and environmental context (time, location, device) all in under 10ms per query.
+- **T - Trusted**: Comprehensive audit logging captures who accessed what data, when, why, and what was returned satisfying HIPAA's audit requirements and GDPR's right to explanation with complete traceability.
 
 Supporting contributions to:
 - **I - Instant**: Policy caching and optimized ABAC engines evaluate permissions in <10ms without breaking agent response time SLOs.
 
 ---
 
-> **Connecting to Chapter 0:** This solves the "P - Permitted" problem where Sarah Cedao's agent used a single service account, violating HIPAA compliance. Dynamic ABAC evaluates permissions per-user, per-query, in real-time—enabling the agent to enforce "minimum necessary" data access based on who's asking, what they're requesting, when, where, and why.
+> **Connecting to Chapter 0:** This solves the "P - Permitted" problem where Sarah Cedao's agent used a single service account, violating HIPAA compliance. Dynamic ABAC evaluates permissions per-user, per-query, in real-time enabling the agent to enforce "minimum necessary" data access based on who's asking, what they're requesting, when, where, and why.
 
 [5] NIST Special Publication 800-162: Guide to Attribute Based Access Control (ABAC) Definition and Considerations (https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-162.pdf)
 
@@ -806,7 +946,7 @@ Supporting contributions to:
 
 ### Layer 6: Observability & Feedback (MLOps + LLM Monitoring)
 
-**What it is:** Systems that monitor data health, agent performance, quality metrics, model drift, and costs—then feed insights back into data improvements and model retraining.
+**What it is:** Systems that monitor data health, agent performance, quality metrics, model drift, and costs, then feed insights back into data improvements and model retraining.
 
 **What it includes:**
 - **Data quality monitoring** (freshness, completeness, accuracy)
@@ -820,16 +960,53 @@ Supporting contributions to:
 - **Cost and usage tracking** (per-query LLM costs, infrastructure)
 - **Feedback loops** from agent performance to data quality improvements and model retraining
 
-**Key technologies:**
-- ML observability platforms ([Evidently AI](https://www.evidentlyai.com), [Arize](https://arize.com), [Fiddler](https://www.fiddler.ai), [WhyLabs](https://whylabs.ai))
-- LLM monitoring ([LangSmith](https://www.langchain.com/langsmith), [Weights & Biases](https://wandb.ai), [Phoenix](https://phoenix.arize.com))
-- Data observability tools ([Monte Carlo](https://www.montecarlodata.com), [Datafold](https://www.datafold.com), [Great Expectations](https://greatexpectations.io))
-- Custom telemetry pipelines
-- Anomaly detection systems
+**Key Technologies:**
+
+**Infrastructure observability:**
+- [Datadog](https://www.datadoghq.com) - Full-stack observability with APM
+- [New Relic](https://newrelic.com) - Application performance monitoring
+- [Grafana Stack](https://grafana.com) - Grafana + Prometheus + Loki + Tempo
+- [Prometheus](https://prometheus.io) - Monitoring and alerting
+- [Elastic APM](https://www.elastic.co/observability/application-performance-monitoring) - Performance monitoring
+- [Honeycomb](https://www.honeycomb.io) - Observability for distributed systems
+
+**LLM-specific observability:**
+- [LangSmith](https://www.langchain.com/langsmith) - LangChain tracing and evaluation
+- [Arize AI](https://arize.com) - ML observability with LLM monitoring
+- [WhyLabs](https://whylabs.ai) - LLM monitoring and guardrails
+- [TruLens](https://www.trulens.org) - LLM evaluation and tracking
+- [Phoenix (Arize)](https://phoenix.arize.com) - Open-source LLM observability
+- [Helicone](https://www.helicone.ai) - LLM observability for OpenAI/Anthropic
+- [Braintrust](https://www.braintrustdata.com) - Evals and observability
+- [Weights & Biases Prompts](https://wandb.ai/site/prompts) - LLM monitoring
+
+**MLOps platforms:**
+- [MLflow](https://mlflow.org) - ML lifecycle management
+- [Weights & Biases](https://wandb.ai) - Experiment tracking
+- [Neptune.ai](https://neptune.ai) - ML metadata store
+- [Comet](https://www.comet.com) - ML experiment platform
+- [Verta](https://www.verta.ai) - MLOps for deployment
+
+**RAG evaluation:**
+- [RAGAS](https://docs.ragas.io) - RAG-specific metrics
+- [DeepEval](https://docs.confident-ai.com) - LLM evaluation framework
+- [Langfuse](https://langfuse.com) - LLM engineering platform
+- [UpTrain](https://uptrain.ai) - LLM evaluation and observability
+
+**Cost monitoring:**
+- [Helicone](https://www.helicone.ai) - LLM cost and usage tracking
+- [OpenMeter](https://openmeter.io) - Usage-based billing
+- [LangSmith](https://www.langchain.com/langsmith) - Cost tracking per trace
+
+**Distributed tracing:**
+- [Jaeger](https://www.jaegertracing.io) - Open-source tracing
+- [Zipkin](https://zipkin.io) - Distributed tracing system
+- [AWS X-Ray](https://aws.amazon.com/xray/) - AWS distributed tracing
+- [OpenTelemetry](https://opentelemetry.io) - Observability framework
 
 **Why agents need it:** Unlike BI dashboards viewed periodically, agents run continuously and their failures are immediately visible to users. You need real-time visibility into both data health and agent behavior to maintain trust. ML observability provides the ability to understand how well complex ML systems are working based on their external outputs, enabling teams to catch issues early and maintain model reliability.[6] For agent systems, this extends beyond model performance to include data pipeline health, retrieval quality, response accuracy, and detecting when embedding models or LLMs need retraining.
 
-**Real-world validation:** According to Monte Carlo's analysis, data downtime refers to periods when data is partial, erroneous, missing, or otherwise inaccurate—and by applying observability principles to data and ML systems, these issues can be identified, resolved, and even prevented.[7] Organizations implementing data observability report up to 80% reductions in data downtime, directly improving agent reliability.
+**Real-world validation:** According to Monte Carlo's analysis, data downtime refers to periods when data is partial, erroneous, missing, or otherwise inaccurate and by applying observability principles to data and ML systems, these issues can be identified, resolved, and even prevented.[7] Organizations implementing data observability report up to 80% reductions in data downtime, directly improving agent reliability.
 
 **[Diagram 3: Observability Dashboard - See diagram3-observability-dashboard.mermaid]**
 ![Observability metrics comparison across architectural layers](./diagrams/diagram3_observability_1.png "Observability dashboard showing key metrics tracked across all seven layers: data freshness, query latency, retrieval quality, ABAC evaluation time, model drift scores, and cost per query")
@@ -939,7 +1116,7 @@ Embedding model monitoring revealed semantic drift: medical terminology had evol
 **Example 3: Memory Quality Fix**
 
 User feedback indicated the agent was recalling outdated preferences: "Patient still prefers morning appointments" when the patient had recently requested afternoon slots. Memory monitoring detected:
-1. Memory staleness—preference update wasn't persisted to Layer 1
+1. Memory stalenes preference update wasn't persisted to Layer 1
 2. **Root cause**: Memory write failed silently (no error handling)
 3. **Fix**: Added memory write verification and retry logic
 4. **Result**: Memory update success rate improved from 89% to 99.7%
@@ -957,14 +1134,14 @@ User feedback indicated the agent was recalling outdated preferences: "Patient s
 | **Hallucination spike** | Rate > 5% | Pause new deployments, roll back LLM | Immediate (P1 incident) |
 | **Pipeline failure** | Jobs fail >3× | Retry with backoff, alert data eng | If data loss risk |
 
-**Echo's gap:** They had basic application monitoring (server uptime, response times) but zero visibility into data health, model performance, or agent-specific metrics. When the agent gave wrong answers, they had no way to trace the problem back to data quality issues or model drift. No feedback loops existed—data and model problems were discovered only when users complained. No trace IDs—couldn't debug failures across layers. No evaluation framework—didn't know if retrieval quality was 50% or 95%. No PII controls in logs—risk of exposing sensitive data. No runbooks—every incident required manual diagnosis. Teams spent 60% of time firefighting instead of improving the system.
+**Echo's gap:** They had basic application monitoring (server uptime, response times) but zero visibility into data health, model performance, or agent-specific metrics. When the agent gave wrong answers, they had no way to trace the problem back to data quality issues or model drift. No feedback loops existed- data and model problems were discovered only when users complained. No trace IDs - couldn't debug failures across layers. No evaluation framework - didn't know if retrieval quality was 50% or 95%. No PII controls in logs - risk of exposing sensitive data. No runbooks - every incident required manual diagnosis. Teams spent 60% of time firefighting instead of improving the system.
 
 ---
 
 **📊 INPACT™ Contribution:**
 
 This layer primarily addresses:
-- **A - Adaptive**: Continuous learning loops detect data quality issues, model drift, and retrieval problems automatically—triggering fixes within hours instead of waiting for quarterly reviews. Accuracy improves from baseline to 85%+ within 90 days through systematic feedback.
+- **A - Adaptive**: Continuous learning loops detect data quality issues, model drift, and retrieval problems automatically triggering fixes within hours instead of waiting for quarterly reviews. Accuracy improves from baseline to 85%+ within 90 days through systematic feedback.
 - **T - Trusted**: Trace IDs connect every query through all seven layers, enabling complete explainability of agent decisions. When asked "Why did the agent say X?", teams can trace back to exact data sources, retrieval decisions, and model confidence scores.
 
 Supporting contributions to:
@@ -996,7 +1173,7 @@ Supporting contributions to:
 
 ### Layer 7: Self-Service Data Products & Multi-Agent Orchestration
 
-**What it is:** Domain-oriented data products with clear ownership, SLAs, and APIs designed for agent consumption—enabling self-service discovery and use. Additionally, orchestration frameworks that coordinate multiple specialized agents working together on complex tasks.
+**What it is:** Domain-oriented data products with clear ownership, SLAs, and APIs designed for agent consumption enabling self-service discovery and use. Additionally, orchestration frameworks that coordinate multiple specialized agents working together on complex tasks.
 
 **What it includes:**
 - **Data product infrastructure:**
@@ -1014,26 +1191,52 @@ Supporting contributions to:
   - Shared context management
   - Failure recovery and fallback strategies
 
-**Key technologies:**
-- **Data products:**
-  - Data catalog platforms ([Atlan](https://atlan.com), [Collibra](https://www.collibra.com), [Alation](https://www.alation.com), [DataHub](https://datahubproject.io))
-  - API gateways with documentation ([Kong](https://konghq.com), [Apigee](https://cloud.google.com/apigee), [AWS API Gateway](https://aws.amazon.com/api-gateway/))
-  - Data mesh infrastructure platforms
-  - Service meshes for data ([Dapr](https://dapr.io), [Istio](https://istio.io))
+**Key Technologies:**
 
-- **Multi-agent orchestration:**
-  - **[LangGraph](https://langchain-ai.github.io/langgraph/)** (LangChain): State-based agent workflows with cyclic graphs
-  - **[CrewAI](https://www.crewai.com)**: Role-based multi-agent systems with hierarchical coordination
-  - **[AutoGen](https://microsoft.github.io/autogen/)** (Microsoft): Conversational agents with code execution capabilities
+**Multi-agent orchestration:**
+- [CrewAI](https://www.crewai.io) - Role-playing AI agent framework
+- [AutoGen](https://microsoft.github.io/autogen/) - Multi-agent conversations (Microsoft)
+- [LangGraph](https://langchain-ai.github.io/langgraph/) - Stateful multi-agent apps
+- [MetaGPT](https://github.com/geekan/MetaGPT) - Multi-agent collaboration
+- [AgentVerse](https://github.com/OpenBMB/AgentVerse) - Multi-agent platform
+- [SuperAGI](https://superagi.com) - Autonomous AI agents
 
-**Why agents need it:** Agents are autonomous—they need to discover and access data without human intervention. Traditional "email the data team for access" workflows don't work at agent speed. Data products provide self-service APIs with clear contracts, quality guarantees, and automated provisioning.
+**Workflow orchestration:**
+- [Temporal](https://temporal.io) - Durable execution platform
+- [Prefect](https://www.prefect.io) - Modern workflow orchestration
+- [Apache Airflow](https://airflow.apache.org) - Workflow scheduling
+- [Dagster](https://dagster.io) - Data orchestration
+- [Flyte](https://flyte.org) - Kubernetes-native workflows
+
+**Agent-to-agent communication:**
+- [Model Context Protocol (MCP)](https://modelcontextprotocol.io) - Standardized context sharing
+- [LangServe](https://python.langchain.com/docs/langserve) - Deploy LangChain as APIs
+- [FastAPI](https://fastapi.tiangolo.com) - High-performance API framework
+- [gRPC](https://grpc.io) - RPC framework for agent calls
+
+**API gateways:**
+- [Kong](https://konghq.com) - Cloud-native API gateway
+- [Apigee](https://cloud.google.com/apigee) - API management (Google)
+- [AWS API Gateway](https://aws.amazon.com/api-gateway/) - Managed API service
+- [Azure API Management](https://azure.microsoft.com/en-us/products/api-management) - Hybrid API management
+- [Tyk](https://tyk.io) - Open-source API gateway
+
+**Data catalog for self-service:**
+- [DataHub](https://datahubproject.io) - Metadata platform (LinkedIn)
+- [Amundsen](https://www.amundsen.io) - Data discovery (Lyft)
+- [Apache Atlas](https://atlas.apache.org) - Metadata framework
+- [Atlan](https://atlan.com) - Modern data catalog
+- [Metaphor](https://metaphor.io) - Data catalog for discovery
+
+
+**Why agents need it:** Agents are autonomous, they need to discover and access data without human intervention. Traditional "email the data team for access" workflows don't work at agent speed. Data products provide self-service APIs with clear contracts, quality guarantees, and automated provisioning.
 
 Additionally, complex tasks often require multiple specialized agents working together. A customer service workflow might involve: a routing agent (classifies requests), a retrieval agent (finds relevant knowledge), a reasoning agent (analyzes context), and an action agent (executes solutions). Orchestration frameworks coordinate these specialists more effectively than a single monolithic agent.
 
 The comparison between traditional data access and self-service data products is illustrated in Diagram 4 (Self-Service Comparison), showing how automation reduces provisioning time from weeks to minutes.
 
 **[Diagram 4: Self-Service Comparison - See diagram4-self-service-comparison.mermaid]**
-![Manual data access workflow](./diagrams/diagram4_self_service_1.png "Manual data access process showing 2-3 week timeline: email data team, wait for approval, receive credentials, figure out schema, requiring 12 people and multiple meetings")
+![Manual data access workflow](./diagrams/diagram4_1_a_self_service.png "Manual data access process showing 2-3 week timeline: email data team, wait for approval, receive credentials, figure out schema, requiring 12 people and multiple meetings")
 
 
 #### Real-World Multi-Agent Patterns
@@ -1068,7 +1271,7 @@ For detailed framework comparison across production-ready options, see Table 7 (
 
 #### Agent Tool Use & External Integrations
 
-Beyond retrieving data, agents take actions by calling external tools and APIs. This distinguishes agents from chatbots—agents don't just answer questions, they execute tasks.
+Beyond retrieving data, agents take actions by calling external tools and APIs. This distinguishes agents from chatbots. Agents don't just answer questions, they execute tasks.
 
 **Tool categories:**
 - **Data tools**: Query databases, search knowledge bases (covered in Layer 4 RAG)
@@ -1081,7 +1284,7 @@ When Echo's scheduling agent books an appointment, it orchestrates multiple tool
 3. Sends confirmation email ([SendGrid](https://sendgrid.com) API integration)
 4. Updates patient portal (database write operation)
 
-Modern agent frameworks provide standardized tool interfaces: [LangChain Tools](https://python.langchain.com/docs/modules/tools/) (production-ready, extensive library), [Anthropic Tool Use](https://docs.anthropic.com/claude/docs/tool-use) (native Claude integration), [OpenAI Function Calling](https://platform.openai.com/docs/guides/function-calling) (GPT-4 native support), and Model Context Protocol (MCP) (rapidly maturing standard for context sharing—see security considerations below).[10][11][12] Layer 7 orchestrates when and how agents invoke tools, applying Layer 5 governance to each external call. (Detailed tool integration patterns in Chapter 11.)
+Modern agent frameworks provide standardized tool interfaces: [LangChain Tools](https://python.langchain.com/docs/modules/tools/) (production-ready, extensive library), [Anthropic Tool Use](https://docs.anthropic.com/claude/docs/tool-use) (native Claude integration), [OpenAI Function Calling](https://platform.openai.com/docs/guides/function-calling) (GPT-4 native support), and Model Context Protocol (MCP) (rapidly maturing standard for context sharing, see security considerations below).[10][11][12] Layer 7 orchestrates when and how agents invoke tools, applying Layer 5 governance to each external call. (Detailed tool integration patterns in Chapter 11.)
 
 #### Multi-Step Planning & Task Decomposition
 
@@ -1172,7 +1375,7 @@ Each failure type triggers automated runbooks stored in Layer 7's operational pl
 
 #### Data Products for Agents
 
-A data product isn't just a dataset—it's a fully supported, production-grade offering:
+A data product isn't just a dataset - it's a fully supported, production-grade offering:
 
 **Example: Echo's "Patient Appointments" Data Product**
 
@@ -1211,10 +1414,10 @@ A data product isn't just a dataset—it's a fully supported, production-grade o
 - SLA: Response within 4 hours for incidents
 
 #### Self-Service Discovery Flow
-
+<!--
 **[Diagram 4: Self-Service Comparison - See diagram4-self-service-comparison.mermaid]**
 ![Self-service data access workflow](./diagrams/diagram4_self_service_2.png "Self-service data access process showing under 1 hour timeline: search catalog, review SLAs, automated approval, integrate using provided examples, requiring zero meetings")
-
+-->
 When a new agent needs appointment data, the developer:
 
 1. **Searches the data catalog**: "patient appointments"
@@ -1239,7 +1442,7 @@ When a new agent needs appointment data, the developer:
 
 #### Domain Ownership
 
-Layer 7 implements federated responsibility. The scheduling team owns appointment data—not a central data team. They:
+Layer 7 implements federated responsibility. The scheduling team owns appointment data, not a central data team. They:
 - Maintain data quality
 - Operate the data pipelines
 - Meet SLA commitments
@@ -1255,7 +1458,7 @@ Central data platform teams provide:
 
 This distributed model scales better than centralized "data team does everything" approaches.
 
-**Echo's gap:** Data access was entirely ad-hoc. Developers emailed the data team requesting database credentials. No catalog existed—knowledge lived in people's heads and scattered Confluence pages. No SLAs. No clear ownership. The agent project required data from 8 different systems, and provisioning access took 3 weeks and involved 12 people. When they attempted to build multiple specialized agents, they had no framework for coordination—agents couldn't share context or delegate tasks, requiring manual integration work for each interaction pattern. Layer 7 was completely missing. No transparency metadata—couldn't trace data origin or quality. No cost attribution—didn't know which team's agents were driving infrastructure costs. No failure recovery—agent crashes caused complete workflow failures.
+**Echo's gap:** Data access was entirely ad-hoc. Developers emailed the data team requesting database credentials. No catalog existed - knowledge lived in people's heads and scattered Confluence pages. No SLAs. No clear ownership. The agent project required data from 8 different systems, and provisioning access took 3 weeks and involved 12 people. When they attempted to build multiple specialized agents, they had no framework for coordination - agents couldn't share context or delegate tasks, requiring manual integration work for each interaction pattern. Layer 7 was completely missing. No transparency metadata - couldn't trace data origin or quality. No cost attribution - didn't know which team's agents were driving infrastructure costs. No failure recovery - agent crashes caused complete workflow failures.
 
 ---
 
@@ -1263,10 +1466,10 @@ This distributed model scales better than centralized "data team does everything
 
 This layer primarily addresses:
 - **I - Instant**: Self-service data products eliminate the 3-week provisioning delays that plagued Echo. Multi-agent parallel processing enables complex workflows to complete in 2-3 seconds instead of sequential execution taking 10+ seconds.
-- **C - Contextual**: Multi-agent orchestration allows specialist agents to collaborate seamlessly—insurance agent verifies coverage while scheduling agent checks availability simultaneously, assembling complete context faster than any single agent could.
+- **C - Contextual**: Multi-agent orchestration allows specialist agents to collaborate seamlessly. Insurance agent verifies coverage while scheduling agent checks availability simultaneously, assembling complete context faster than any single agent could.
 
 Supporting contributions to:
-- **P - Permitted**: Transparency metadata records data lineage, access logs, and usage patterns—enabling compliance audits and security reviews without manual investigation.
+- **P - Permitted**: Transparency metadata records data lineage, access logs, and usage patterns enabling compliance audits and security reviews without manual investigation.
 - **A - Adaptive**: Data product SLAs and quality metrics enable continuous improvement, with automated alerts when freshness, accuracy, or availability degrades.
 
 ---
@@ -1275,14 +1478,14 @@ Supporting contributions to:
 
 ### The Seven Layers Working Together
 
-The power isn't in individual layers—it's in how they integrate into a cohesive system.
+The power isn't in individual layers, it's in how they integrate into a cohesive system.
 
 
 For the complete multi-agent query flow showing coordination between specialists and how all seven layers interact, see Diagram 5 (Multi-Agent Query Flow).
 
 **[Diagram 5: Multi-Agent Query Flow - See diagram5-query-flow.mermaid]**
 ![Alt text](./diagrams/diagram5_query_flow_2.png "Query flow: Appointment Scheduling & Insurance Verification Process")
-![Alt text](./diagrams/diagram5_query_flow_1.png "Query flow: Appointment Scheduling & Insurance Verification Process")
+![Alt text](./diagrams/diagram5_1_a_query_flow.png "Query flow: Appointment Scheduling & Insurance Verification Process")
 
 #### Example: End-to-End Multi-Agent Query Flow
 
@@ -1308,7 +1511,7 @@ This complex query requires multiple specialists working together:
 **Layer 5 (Governance):** Checks permissions for EACH agent  
 → User authorized for scheduling data (via scheduling agent)  
 → User authorized for insurance data (via insurance agent)  
-→ Dynamic masking applied per agent: scheduling agent sees appointment data, insurance agent sees coverage data—neither sees data outside their scope  
+→ Dynamic masking applied per agent: scheduling agent sees appointment data, insurance agent sees coverage data, neither sees data outside their scope  
 → Audit log: records both agents' data access on behalf of user with `trace_id` and `purpose_of_use`
 
 **Layer 4 (RAG):** Each specialist agent processes its query independently  
@@ -1344,7 +1547,7 @@ This complex query requires multiple specialists working together:
 
 **Insurance specialist:** "Your PPO plan covers cardiology consultations at 80% after $50 copay. Dr. Martinez is in-network. Estimated out-of-pocket: $50 copay + 20% of $200 = $90."
 
-**Orchestrator synthesis:** "Dr. Martinez has 3 openings today: 11:30am, 2:00pm, and 4:15pm. Your insurance covers this visit—you'll pay a $50 copay plus approximately $40 coinsurance (total ~$90). Would you like to book one of these times?"
+**Orchestrator synthesis:** "Dr. Martinez has 3 openings today: 11:30am, 2:00pm, and 4:15pm. Your insurance covers this visit, you'll pay a $50 copay plus approximately $40 coinsurance (total ~$90). Would you like to book one of these times?"
 
 **Layer 6 (Observability):** Records multi-agent success  
 → Orchestration latency: 2.3 seconds (within 3-second target for complex queries)  
@@ -1358,7 +1561,7 @@ This complex query requires multiple specialists working together:
 **Total time:** 2.3 seconds  
 **Data freshness:** <30 seconds  
 **Compliance:** HIPAA maintained throughout, both agents audited separately  
-**User experience:** Natural, fast, accurate—and smarter than a single agent could achieve
+**User experience:** Natural, fast, accurate and smarter than a single agent could achieve
 
 #### Why Multi-Agent Orchestration Mattered
 
@@ -1382,12 +1585,12 @@ This complex query requires multiple specialists working together:
 #### Why Each Layer Mattered
 
 - **Without Layer 2:** Schedule would be 8 hours stale (overnight batch), missing the 11:30am cancellation; insurance eligibility wouldn't be verified in real-time
-- **Without Layer 3:** Agents couldn't map "Dr. Martinez" or "cardiology consultation" to database identifiers—would need exact codes; no entity resolution across systems
-- **Without Layer 1:** No semantic search for policy documents—agent responses would be robotic, missing coverage nuances; no model registry to track which embedding model generated provider vectors
+- **Without Layer 3:** Agents couldn't map "Dr. Martinez" or "cardiology consultation" to database identifiers would need exact codes; no entity resolution across systems
+- **Without Layer 1:** No semantic search for policy documents, agent responses would be robotic, missing coverage nuances; no model registry to track which embedding model generated provider vectors
 - **Without Layer 4:** Slow retrieval (8+ seconds when they worked), irrelevant results, no reranking, no caching benefits, no embedding models for semantic search, no confidence disclosure
-- **Without Layer 5:** Security breach—patient could see other patients' appointments or coverage details, HIPAA violation; no way to enforce different permissions per agent; no audit trail with purpose-of-use
+- **Without Layer 5:** Security breach, patient could see other patients' appointments or coverage details, HIPAA violation; no way to enforce different permissions per agent; no audit trail with purpose-of-use
 - **Without Layer 6:** No visibility when quality degrades, model drift undetected, issues discovered only through complaints; no way to measure orchestration efficiency; no trace IDs for debugging
-- **Without Layer 7:** No orchestration framework—manual integration of agents; 3-week delay provisioning access to each new data source; no SLAs; undefined ownership; single monolithic agent instead of coordinated specialists; no self-service
+- **Without Layer 7:** No orchestration framework, manual integration of agents; 3-week delay provisioning access to each new data source; no SLAs; undefined ownership; single monolithic agent instead of coordinated specialists; no self-service
 
 **All seven layers are necessary. None are optional.**
 
@@ -1441,7 +1644,7 @@ The seven-layer architecture didn't emerge from theory. It evolved from producti
 
 User: "Show me patients who need diabetes follow-up this quarter"
 
-**Without Layer 2:** Agent fails—doesn't know what "diabetes follow-up" means, which tables have patient data, how to calculate "this quarter," or what qualifies as "needing follow-up."
+**Without Layer 2:** Agent fails, doesn't know what "diabetes follow-up" means, which tables have patient data, how to calculate "this quarter," or what qualifies as "needing follow-up."
 
 **With Layer 2:** 
 - "diabetes follow-up" → metric definition: "Patients with diagnosis E11.* AND HbA1c > 7.0 AND last_visit > 90 days"
@@ -1514,7 +1717,7 @@ ELSE
    DENY
 ```
 
-This policy is evaluated in <10ms for every query. The agent dynamically enforces the user's actual permissions. In multi-agent systems, each specialist agent operates with permissions scoped to its domain—scheduling agent cannot access billing data, insurance agent cannot access clinical notes.
+This policy is evaluated in <10ms for every query. The agent dynamically enforces the user's actual permissions. In multi-agent systems, each specialist agent operates with permissions scoped to its domain scheduling agent cannot access billing data, insurance agent cannot access clinical notes.
 
 ---
 
@@ -1561,7 +1764,7 @@ Without Layer 6, both failures would be invisible or require manual investigatio
 
 ### Requirement 6: Trustability & Auditability
 
-**Why:** "How did the agent decide that?" must have a clear, auditable answer. For regulated industries (healthcare, finance), this isn't optional—it's legal requirement.
+**Why:** "How did the agent decide that?" must have a clear, auditable answer. For regulated industries (healthcare, finance), this isn't optional, it's legal requirement.
 
 **What breaks:**
 - Black box agent responses with no explanation
@@ -1869,7 +2072,7 @@ Chapters 6-8 provide detailed 90-day implementation roadmaps for each phase: Qui
 
 **Key Takeaway:**
 
-Agent-ready data infrastructure is achievable in 90 days. The cost of achieving readiness is far less than the cost of remaining unprepared. Every enterprise archetype can reach agent-readiness—the path differs, but the destination is the same.
+Agent-ready data infrastructure is achievable in 90 days. The cost of achieving readiness is far less than the cost of remaining unprepared. Every enterprise archetype can reach agent-readiness, the path differs, but the destination is the same.
 
 ---
 
@@ -1877,7 +2080,7 @@ Agent-ready data infrastructure is achievable in 90 days. The cost of achieving 
 
 You've now seen the complete 7-layer architecture that delivers all six INPACT™ capabilities. But understanding the destination isn't the same as knowing the journey.
 
-Sarah Cedao's transformation from 9-13 second responses to 1.8 seconds, from 40-60% accuracy to 85%+, from compliance failure to HIPAA exemplar—this didn't happen overnight. It required a systematic 90-day roadmap.
+Sarah Cedao's transformation from 9-13 second responses to 1.8 seconds, from 40-60% accuracy to 85%+, from compliance failure to HIPAA exemplar, this didn't happen overnight. It required a systematic 90-day roadmap.
 
 **The chapters ahead provide that roadmap:**
 
@@ -1969,6 +2172,7 @@ https://www.youtube.com/watch?v=LCEmiRjPEtQ
 
 [16] Karpathy, A. (2025). "Software Is Changing (Again) - Presentation Slides." 
 https://docs.google.com/presentation/d/1sZqMAoIJDxz79cbC5ap5v9jknYH4Aa9cFFaWL8Rids4/edit
+
 ---
 
 ## Diagrams Reference

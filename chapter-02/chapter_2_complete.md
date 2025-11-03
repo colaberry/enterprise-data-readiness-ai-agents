@@ -36,9 +36,9 @@
 
 ## From Architecture to Operations
 
-**Chapters 0 and 1 showed you what to build.** The INPACT™ needs agents must satisfy. The seven-layer architecture that delivers those capabilities.
+**Chapters 0 and 1 showed you what to build.** Chapter 0 defined the INPACT™ needs agents must satisfy. Chapter 1 introduced Karpathy's Software 3.0 paradigm showing why agents require fundamentally different infrastructure than BI Systems and mapped those requireemnts to a seven-layer architecture that delivers those capabilities.
 
-**This chapter shows you what to maintain.** The five operational targets that ensure your architecture continuously delivers on those promises.
+**This chapter shows you what to maintain.** The five operational targets that ensure your architecture continuously delivers on those promises. The GOALS framework provides operational descipline for Software 3.0 agent infrastructure.
 
 Sarah Cedao's Echo Health Systems built the seven-layer architecture in 90 days and celebrated.
 

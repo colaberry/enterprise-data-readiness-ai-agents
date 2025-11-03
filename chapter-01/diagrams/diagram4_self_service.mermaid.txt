@@ -1,6 +1,7 @@
 ```mermaid
-flowchart LR
-    subgraph "Before: Manual Process"
+flowchart TB
+    subgraph before["Before: Manual Process"]
+        direction LR
         B1[Developer needs data] --> B2[Email data team]
         B2 --> B3[Wait 2 days]
         B3 --> B4[Get credentials]
@@ -9,8 +10,9 @@ flowchart LR
         B6 --> B7[Finally integrate]
         B7 --> B8[Total: 2-3 weeks<br/>12 people involved]
     end
-    
-    subgraph "After: Self-Service"
+
+    subgraph after["After: Self-Service"]
+        direction LR
         A1[Developer needs data] --> A2[Search catalog]
         A2 --> A3[2 minutes]
         A3 --> A4[Request access]
@@ -19,6 +21,9 @@ flowchart LR
         A6 --> A7[Integrate in 30 min]
         A7 --> A8[Total: <1 hour<br/>Zero meetings]
     end
-    
+
+    %% Space out the subgraphs for vertical stacking clarity
+    before --> after
+
     style B8 fill:#FF6B6B
     style A8 fill:#90EE90

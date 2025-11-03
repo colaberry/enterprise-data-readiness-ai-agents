@@ -1,4 +1,5 @@
 ```mermaid
+
 sequenceDiagram
     participant User
     participant Router as Router Agent<br/>(Layer 7)
@@ -7,9 +8,9 @@ sequenceDiagram
     participant L6 as Layer 6<br/>Observability
     participant L5 as Layer 5<br/>ABAC Governance
     participant L4 as Layer 4<br/>RAG
-    participant L3 as Layer 3<br/>Storage
-    participant L2 as Layer 2<br/>Semantic
-    participant L1 as Layer 1<br/>Real-Time Data
+    participant L3 as Layer 3<br/>Semantic
+    participant L2 as Layer 2<br/>Real-Time Data
+    participant L1 as Layer 1<br/>Storage
     
     User->>Router: "Schedule Dr. Martinez today,<br/>will insurance cover cardiology?"
     Router->>L6: Log query start (trace_id: x7k2m)
@@ -27,13 +28,13 @@ sequenceDiagram
         SchedAgent->>L4: RAG query (Dr. Martinez + today)
         InsAgent->>L4: RAG query (cardiology coverage)
         
-        L4->>L3: Hybrid search
-        L3->>L2: Entity resolution
-        L2->>L1: Get fresh data
-        L1-->>L2: Schedule: 25s old
-        L1-->>L2: Eligibility: 10s old
-        L2-->>L3: Semantic mappings applied
-        L3-->>L4: Retrieved contexts
+        L4->>L1: Hybrid search
+        L1->>L3: Entity resolution
+        L3->>L2: Get fresh data
+        L2-->>L3: Schedule: 25s old
+        L2-->>L3: Eligibility: 10s old
+        L3-->>L1: Semantic mappings applied
+        L1-->>L4: Retrieved contexts
         
         L4-->>SchedAgent: 3 slots available
         L4-->>InsAgent: Covered, $90 OOP
