@@ -509,8 +509,7 @@ This log entry was worthless for compliance. It didn't show which human user tri
 Research confirms that transparency and design are the mediators of trust in AI systems.[2] When users can't see how agents make decisions, distrust spreads to both the AI and the company behind it.[3]
 
 **Diagram 8: Analytics Era Manual Audits vs. Agent Era Automated Traceability**
-![Alt text](./diagrams/diagram_0_8_a_T_trusted_ManualAuditsvsAutomatedTraceability.png"Analytics Era Manual Audits vs. Agent Era Automated Traceability")
-
+![Alt text](./diagrams/diagram_0_8_a_T_trusted_ManualAuditsvsAutomatedTraceability.png "Analytics Era Manual Audits vs. Agent Era Automated Traceability")
 
 ### The Infrastructure Capability: Auditability & Explainability
 

@@ -36,9 +36,9 @@
 
 ## From Architecture to Operations
 
-**Chapters 0 and 1 showed you what to build.** Chapter 0 defined the INPACT™ needs agents must satisfy. Chapter 1 introduced Karpathy's Software 3.0 paradigm showing why agents require fundamentally different infrastructure than BI Systems and mapped those requireemnts to a seven-layer architecture that delivers those capabilities.
+**Chapters 0 and 1 showed you what to build.** Chapter 0 defined the INPACT™ needs agents must satisfy. Chapter 1 introduced Karpathy's Software 3.0 paradigm showing why agents require fundamentally different infrastructure than BI Systems and mapped those requirements to a seven-layer architecture that delivers those capabilities.
 
-**This chapter shows you what to maintain.** The five operational targets that ensure your architecture continuously delivers on those promises. The GOALS framework provides operational descipline for Software 3.0 agent infrastructure.
+**This chapter shows you what to maintain.** The five operational targets that ensure your architecture continuously delivers on those promises. The GOALS framework provides operational discipline for Software 3.0 agent infrastructure.
 
 Sarah Cedao's Echo Health Systems built the seven-layer architecture in 90 days and celebrated.
 
@@ -82,13 +82,19 @@ Infrastructure status: all systems green.
 
 But GOALS health told a different story:
 
-- Governance: 82/100 (ABAC policies needing tuning)
-- Observability: 88/100 (strong)
-- **Accessibility: 78/100** (cache hit rates dropping, latency creeping up)
-- **Language: 65/100** (gaps in medical terminology)
-- Soundness: 91/100 (excellent data quality)
+**Table 1: Echo's GOALS Health Dashboard (Month 3 After Launch)**
 
-Three GOALS showing subtle degradations that users hadn't noticed yet, but would soon.
+| GOAL | Score | Status | Key Issue | Trend |
+|------|-------|--------|-----------|-------|
+| **Governance** | 82/100 | 🟡 Good | ABAC policies need tuning | → |
+| **Observability** | 88/100 | 🟢 Excellent | Strong monitoring coverage | ↑ |
+| **Accessibility** | 78/100 | 🟡 Good | Cache hit rates dropping | ↓ |
+| **Language** | 65/100 | 🔴 Needs Work | Gaps in medical terminology | ↓ |
+| **Soundness** | 91/100 | 🟢 Excellent | High data quality | → |
+
+**Overall GOALS Health:** 80.8/100 (Good but degrading)
+
+Three GOALS showing subtle degradations that users hadn't noticed yet, but would soon. Infrastructure status showed all systems green, but operational health was quietly declining.
 
 This is the difference between architecture and operational targets.
 
@@ -188,6 +194,68 @@ The six INPACT™ needs from Chapter 0 flow through the seven architectural laye
 Think of it as: INPACT™ = destination. Seven layers = vehicle. GOALS = maintenance schedule.
 
 Just as you can have a perfect skeleton but fail if your cardiovascular system is weak, you can have perfect architecture but fail if your GOALS health deteriorates. The five GOALS are deeply interdependent—like vital organs in a body, each supporting the others.
+
+**Diagram 2: GOALS Interdependencies - How One GOAL Supports Another**
+```mermaid
+graph LR
+    G[Governance<br/>Security & Compliance]
+    O[Observability<br/>Monitoring & Feedback]
+    A[Accessibility<br/>Speed & Freshness]
+    L[Language<br/>Semantic Understanding]
+    S[Soundness<br/>Data Quality]
+    
+    G -->|Audit trails enable| O
+    O -->|Detects policy violations| G
+    
+    O -->|Monitors performance| A
+    A -->|Real-time metrics feed| O
+    
+    O -->|Tracks semantic drift| L
+    L -->|Improves query accuracy| O
+    
+    O -->|Detects data issues| S
+    S -->|Reliable data enables| O
+    
+    A -->|Fast retrieval supports| L
+    L -->|Optimized queries improve| A
+    
+    L -->|Semantic validation checks| S
+    S -->|Quality data improves| L
+    
+    S -->|Clean data enables| A
+    A -->|Fresh data maintains| S
+    
+    G -->|Access policies protect| S
+    S -->|Audit logs depend on| G
+    
+    style G fill:#e1f5ff
+    style O fill:#fff4e1
+    style A fill:#e8f5e1
+    style L fill:#f5e1ff
+    style S fill:#ffe1e1
+```
+
+### Why GOALS Are Interdependent
+
+No GOAL operates in isolation. Each strengthens the others, creating a virtuous cycle of continuous improvement.
+
+**Governance ↔ Observability:** Audit trails enable observability to track who accessed what. Observability detects policy violations that governance must address.
+
+**Observability ↔ Accessibility:** Monitoring tracks response times and freshness. Real-time metrics feed back into observability systems.
+
+**Observability ↔ Language:** Drift detection identifies when semantic mappings diverge. Improved language understanding increases query accuracy metrics.
+
+**Observability ↔ Soundness:** Data quality monitoring detects issues. Reliable data enables effective observability.
+
+**Accessibility ↔ Language:** Fast retrieval enables natural conversations. Semantic optimization reduces query latency.
+
+**Language ↔ Soundness:** Semantic validation catches data inconsistencies. Quality data improves entity resolution.
+
+**Soundness ↔ Accessibility:** Clean data enables faster queries. Fresh data maintains quality.
+
+**Governance ↔ Soundness:** Access policies protect data integrity. Audit completeness depends on sound data.
+
+This interconnection means you can't optimize one GOAL in isolation. Improving Language might require investments in Soundness. Enhancing Accessibility might surface Governance gaps. Maintaining all five requires holistic thinking.
 
 ---
 
@@ -903,6 +971,65 @@ They maintain GOALS health dashboards showing both individual scores and interde
 
 This dashboard shows Language as the current cascade risk. The declining trend signals potential future impacts on other GOALS if not addressed.
 
+**Diagram 3: Cascade Failure Example - How Language Drift Impacts All GOALS**
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant Agent as AI Agent
+    participant L as Language Layer
+    participant S as Soundness Layer
+    participant A as Accessibility Layer
+    participant O as Observability Layer
+    participant G as Governance Layer
+    
+    Note over L: Medical code "CPT-2025"<br/>added, not in semantic layer
+    
+    U->>Agent: "Schedule my diabetes follow-up"
+    Agent->>L: Translate query
+    L->>L: ❌ Misinterprets "diabetes"<br/>Maps to old code
+    Note over L: Language GOAL degrades<br/>Score: 89→65
+    
+    L->>S: Request data with wrong code
+    S->>S: ❌ Returns incomplete records<br/>(missing recent visits)
+    Note over S: Soundness GOAL degrades<br/>Score: 93→78
+    
+    S->>A: Retrieves partial data
+    A->>A: ❌ Multiple fallback queries<br/>Response time: 1.8s → 4.2s
+    Note over A: Accessibility GOAL degrades<br/>Score: 88→72
+    
+    A->>O: Slow query triggers alert
+    O->>O: ❌ Can't identify root cause<br/>Trace doesn't show semantic error
+    Note over O: Observability GOAL degrades<br/>Score: 88→74
+    
+    Agent->>U: Wrong answer (4.2s delay)
+    U->>U: ❌ Loses trust
+    
+    Note over G: Meanwhile...<br/>Audit log shows access to wrong records
+    G->>G: ❌ Compliance team flags<br/>unnecessary data access
+    Note over G: Governance GOAL degrades<br/>Score: 94→81
+    
+    Note over U,G: One semantic drift (Language)<br/>cascaded to all 5 GOALS<br/>within 48 hours
+```
+
+### Anatomy of a Cascade Failure
+
+This diagram illustrates what happened to Echo in Month 8 when a new medical billing code (CPT-2025) was introduced but not added to their semantic layer.
+
+**Day 1 - Language Drift:** The semantic layer didn't recognize "CPT-2025" and mapped diabetes-related queries to outdated codes. Language GOAL score dropped from 89 to 65.
+
+**Day 1-2 - Soundness Impact:** Queries using wrong codes retrieved incomplete patient records. Data completeness metrics degraded. Soundness score dropped from 93 to 78.
+
+**Day 2 - Accessibility Degradation:** The agent compensated by making multiple fallback queries, increasing response times from 1.8s to 4.2s. Accessibility score dropped from 88 to 72.
+
+**Day 2-3 - Observability Blindspot:** Monitoring systems detected slow queries but couldn't identify the semantic mapping error as the root cause. Observability score dropped from 88 to 74 due to ineffective diagnosis.
+
+**Day 3 - Governance Violation:** Audit logs showed the agent accessed records it shouldn't have (due to wrong code mapping). Compliance flagged potential HIPAA violations. Governance score dropped from 94 to 81.
+
+**Result:** A single semantic layer gap cascaded across all five GOALS within 72 hours, degrading overall GOALS health from 90/100 to 74/100.
+
+**Resolution:** Once the semantic mapping was corrected and the CPT-2025 code properly added, all five GOALS recovered within 24 hours. But the cascade demonstrated why continuous monitoring across all GOALS matters—problems rarely stay isolated.
+
+This is why Echo reviews GOALS health weekly. Catching the language drift on Day 1 would have prevented the four-day cascade that eroded user trust.
 ---
 
 ## Connecting GOALS Back to INPACT™ and Architecture
@@ -961,6 +1088,89 @@ And maintain the five GOALS (continuous operational discipline).
 Skip any of these and you'll eventually fail.
 
 ---
+**Diagram 4: Echo's GOALS Maturity Journey - Stage Progression**
+```mermaid
+graph LR
+    subgraph "Stage 1: Basic (Months 1-3)"
+        G1[Governance: 62]
+        O1[Observability: 52]
+        A1[Accessibility: 28]
+        L1[Language: 58]
+        S1[Soundness: 67]
+    end
+    
+    subgraph "Stage 2: Enhanced (Months 4-9)"
+        G2[Governance: 82]
+        O2[Observability: 75]
+        A2[Accessibility: 65]
+        L2[Language: 73]
+        S2[Soundness: 79]
+    end
+    
+    subgraph "Stage 3: Advanced (Months 10-15)"
+        G3[Governance: 94]
+        O3[Observability: 88]
+        A3[Accessibility: 88]
+        L3[Language: 89]
+        S3[Soundness: 93]
+    end
+    
+    G1 -->|ABAC implementation| G2
+    G2 -->|Automated response| G3
+    
+    O1 -->|Trace IDs + drift detection| O2
+    O2 -->|Closed-loop feedback| O3
+    
+    A1 -->|CDC + basic caching| A2
+    A2 -->|Query optimization + semantic caching| A3
+    
+    L1 -->|Enhanced glossary| L2
+    L2 -->|Continuous learning| L3
+    
+    S1 -->|Continuous monitoring| S2
+    S2 -->|Predictive quality + auto-response| S3
+    
+    style G1 fill:#ffe1e1
+    style O1 fill:#ffe1e1
+    style A1 fill:#ffe1e1
+    style L1 fill:#ffe1e1
+    style S1 fill:#ffe1e1
+    
+    style G2 fill:#fff4e1
+    style O2 fill:#fff4e1
+    style A2 fill:#fff4e1
+    style L2 fill:#fff4e1
+    style S2 fill:#fff4e1
+    
+    style G3 fill:#e8f5e1
+    style O3 fill:#e8f5e1
+    style A3 fill:#e8f5e1
+    style L3 fill:#e8f5e1
+    style S3 fill:#e8f5e1
+```
+
+### The 15-Month Journey to Production Excellence
+
+Echo's transformation wasn't instantaneous. Each GOAL progressed through three distinct maturity stages over 15 months:
+
+**Stage 1 (Months 1-3): Basic Implementation**
+- **Average Score:** 53/100 (Critical gaps)
+- **Focus:** Getting infrastructure operational
+- **Result:** Agents worked but users frustrated
+
+**Stage 2 (Months 4-9): Enhanced Capabilities**
+- **Average Score:** 75/100 (Good foundation)
+- **Focus:** Addressing obvious pain points
+- **Result:** Agents reliable for simple use cases
+
+**Stage 3 (Months 10-15): Advanced Operations**
+- **Average Score:** 90/100 (Production excellence)
+- **Focus:** Continuous improvement and automation
+- **Result:** Agents trusted for critical workflows
+
+**Key Insight:** You can't skip stages. Each builds on the previous. Attempting Stage 3 capabilities without Stage 2 foundations leads to failure.
+
+**Your Timeline:** Expect 12-18 months from first agent deployment to production-grade GOALS health across all five dimensions. Organizations that try to shortcut this timeline consistently fail.
 
 ## What's Next: From GOALS to Practice
 
