@@ -137,13 +137,13 @@ Both are essential, but they require fundamentally different mindsets.
 ```mermaid
 graph TB
     INPACT["Chapter 0: INPACT™
-    Six User Needs
+    Six Agent Needs
     I • N • P • A • C • T
     Instant, Natural, Permitted,
     Adaptive, Contextual, Trusted"]
     
-    ARCH["Chapter 1: Seven-Layer Architecture
-    Technical Implementation
+    ARCH["Chapter 1: Seven-Layer
+    Agent-Ready Enterprise Data Architecture
     Layers 1-7: Storage → Fabric → Semantic
     → Intelligence → Governance → Observability → Orchestration"]
     
@@ -153,7 +153,7 @@ graph TB
     Governance, Observability, Accessibility,
     Language, Soundness"]
     
-    INPACT -->|User needs drive| ARCH
+    INPACT -->|Agent needs fulfilled by| ARCH
     ARCH -->|Architecture enables| GOALS
     GOALS -->|Operations sustain| INPACT
     
@@ -475,56 +475,56 @@ This enabled root cause analysis impossible with infrastructure metrics alone.
 ```mermaid
 sequenceDiagram
     participant U as User
-    participant A as Agent (Layer 7)
-    participant S as Semantic (Layer 3)
-    participant I as Intelligence (Layer 4)
-    participant D as Data Fabric (Layer 2)
-    participant DB as Storage (Layer 1)
-    participant O as Observability (Layer 6)
+    participant L7 as Layer 7<br/>Agent
+    participant L6 as Layer 6<br/>Observability
+    participant L4 as Layer 4<br/>Intelligence
+    participant L3 as Layer 3<br/>Semantic
+    participant L2 as Layer 2<br/>Data Fabric
+    participant L1 as Layer 1<br/>Storage
     
     rect rgb(224, 242, 241)
-        Note over U,O: Trace ID: abc-123-def | Timestamp: 2025-10-27 14:32:15
+        Note over U,L1: Trace ID: abc-123-def | Timestamp: 2025-10-27 14:32:15
     end
     
-    U->>A: Show Dr. Martinez's availability tomorrow
-    activate A
-    A->>O: Log: Query received (trace: abc-123-def, user: patient_12345)
+    U->>L7: Show Dr. Martinez's availability tomorrow
+    activate L7
+    L7->>L6: 📊 Log: Query received (trace: abc-123-def, user: patient_12345)
     
-    A->>S: Translate: Dr. Martinez + availability + tomorrow
-    activate S
-    S->>O: Log: Semantic translation started (trace: abc-123-def)
-    S->>S: Entity resolution: Dr. Martinez → provider_id=789
-    S->>O: Log: Translation complete 0.3s (trace: abc-123-def)
-    S-->>A: Translated: provider_id=789, date=2025-10-28
-    deactivate S
+    L7->>L3: Translate: Dr. Martinez + availability + tomorrow
+    activate L3
+    L3->>L6: 📊 Log: Semantic translation started (trace: abc-123-def)
+    L3->>L3: Entity resolution:<br/>Dr. Martinez → provider_id=789
+    L3->>L6: 📊 Log: Translation complete 0.3s (trace: abc-123-def)
+    L3-->>L7: Translated: provider_id=789, date=2025-10-28
+    deactivate L3
     
-    A->>I: Retrieve: provider_schedule context
-    activate I
-    I->>O: Log: Intelligence retrieval started (trace: abc-123-def)
-    I->>D: Query: provider_schedule WHERE id=789 AND date=2025-10-28
-    activate D
-    D->>O: Log: Real-time stream query (trace: abc-123-def)
-    D->>DB: Execute: SELECT * FROM provider_schedule...
-    activate DB
-    DB->>O: ⚠️ Log: Query execution 2.3s - SLOW (trace: abc-123-def)
-    Note over DB: Missing index on provider_id column!
-    DB-->>D: Result: 3 available time slots
-    deactivate DB
-    D-->>I: Stream: 3 slots
-    deactivate D
-    I->>O: Log: Context retrieved 2.5s total (trace: abc-123-def)
-    I-->>A: Context: [8:00am, 10:00am, 2:00pm]
-    deactivate I
+    L7->>L4: Retrieve: provider_schedule context
+    activate L4
+    L4->>L6: 📊 Log: Intelligence retrieval started (trace: abc-123-def)
+    L4->>L2: Query: provider_schedule WHERE id=789 AND date=2025-10-28
+    activate L2
+    L2->>L6: 📊 Log: Real-time stream query (trace: abc-123-def)
+    L2->>L1: Execute: SELECT * FROM provider_schedule...
+    activate L1
+    L1->>L6: ⚠️ Log: Query execution 2.3s - SLOW (trace: abc-123-def)
+    Note over L1: Missing index on<br/>provider_id column!
+    L1-->>L2: Result: 3 available time slots
+    deactivate L1
+    L2-->>L4: Stream: 3 slots
+    deactivate L2
+    L4->>L6: 📊 Log: Context retrieved 2.5s total (trace: abc-123-def)
+    L4-->>L7: Context: [8:00am, 10:00am, 2:00pm]
+    deactivate L4
     
-    A->>O: Log: Response generated 2.9s total (trace: abc-123-def)
-    A->>U: Dr. Martinez has 3 openings tomorrow: 8:00am, 10:00am, 2:00pm
-    deactivate A
+    L7->>L6: 📊 Log: Response generated 2.9s total (trace: abc-123-def)
+    L7->>U: Dr. Martinez has 3 openings tomorrow: 8:00am, 10:00am, 2:00pm
+    deactivate L7
     
     rect rgb(255, 235, 238)
-        Note over O: Root Cause Analysis (trace: abc-123-def): Bottleneck Layer 1 DB query 2.3s - Missing index on provider_id - Auto-create ticket DBA-2847
+        Note over L6: Root Cause Analysis (trace: abc-123-def):<br/>Bottleneck at Layer 1 - DB query 2.3s<br/>Missing index on provider_id<br/>Auto-create ticket DBA-2847
     end
     
-    O->>O: Auto-alert: Performance degradation - Create incident ticket - Assign to Database team
+    L6->>L6: Auto-alert: Performance degradation<br/>Create incident ticket<br/>Assign to Database team
 ```
 
 **The Power of Trace-Based Diagnosis**
@@ -684,50 +684,56 @@ Redesigned Intelligence Layer using RAG frameworks like [LangChain](https://www.
 
 Semantic caching with [Redis](https://redis.io) or [Momento](https://www.gomomento.com) achieving 60%+ hit rates. Common queries returned from cache in 300ms instead of querying data sources. [18]
 
-**Diagram 5: Multi-Level Caching Strategy for Sub-2s Performance**
+**Diagram 5: Multi-Level Caching Strategy for Sub-2seconds Performance**
 ```mermaid
 graph TD
     Q["User Query:
     Show Dr. Martinez availability tomorrow"]
     
-    Q --> L1{"Level 1:
+    Q --> L1{"Caching Level 1:
     Semantic Cache
-    Redis/Momento"}
+    Redis/Momento
+    (Runs in Layer 2: Data Fabric)"}
     
     L1 -->|✅ Cache Hit - 65% of queries| C1["Semantic Match Found
     ⚡ Return in 300ms
     Cost: $0.001/query"]
     
-    L1 -->|❌ Cache Miss - 35% of queries| L2{"Level 2:
+    L1 -->|❌ Cache Miss - 35% of queries| L2{"Caching Level 2:
     Vector Database
-    Pinecone/Weaviate"}
+    Pinecone/Weaviate
+    (Layer 1: Storage)"}
     
     L2 -->|✅ Cache Hit - 25% of queries| C2["Embedding Lookup
     ⚡ Return in 800ms
     Cost: $0.008/query"]
     
-    L2 -->|❌ Cache Miss - 10% of queries| L3{"Level 3:
+    L2 -->|❌ Cache Miss - 10% of queries| L3{"Caching Level 3:
     Knowledge Graph
-    Neo4j/Neptune"}
+    Neo4j/Neptune
+    (Layer 1: Storage)"}
     
     L3 -->|✅ Cache Hit - 7% of queries| C3["Graph Traversal
     Provider→Schedule
     ⚡ Return in 1.2s
     Cost: $0.015/query"]
     
-    L3 -->|❌ Cache Miss - 3% of queries| L4["Full Query Pipeline:
-    Intelligence + Data Fabric + DB
+    L3 -->|❌ Cache Miss - 3% of queries| L4["Caching Level 4: Cold Path
+    Full Query Pipeline
+    Layers 4→2→1:
+    Intelligence + Data Fabric + Storage
     ⏱️ 2.8-4.2s response
     Cost: $0.12/query"]
     
     C1 --> R["Response to User:
-    Sub-2s ✅"]
+    Sub-2seconds ✅"]
     C2 --> R
     C3 --> R
     L4 --> SLOW["Response to User:
     2.8-4.2s ⚠️"]
     
-    L4 --> U["Update All Cache Levels
+    L4 --> U["Update All Caching Levels
+    (Populate Levels 1-3)
     For Next Similar Query"]
     
     U -.->|Cache warming| L1
@@ -748,32 +754,38 @@ graph TD
 
 **Understanding the Caching Hierarchy**
 
-**Level 1: Semantic Cache (65% hit rate)**
+*Note: "Caching Levels" refer to performance tiers (L1=fastest, L4=slowest), while "Architectural Layers" refer to the seven-layer infrastructure (Layer 1=Storage, Layer 2=Data Fabric, etc.). Caching levels are implemented across multiple architectural layers.*
+
+**Caching Level 1: Semantic Cache (65% hit rate)**
+- **Architectural Layer:** Layer 2 (Data Fabric)
 - **Technology:** Redis or Momento with semantic key generation
 - **Speed:** 300ms average
 - **How it works:** Queries with same *intent* share cache keys, even if worded differently
 - **Example:** "Dr. Martinez availability tomorrow" and "Show Dr. M's schedule for 10/28" both map to the same semantic key
 - **Cost:** $0.001 per query (40x cheaper than cold path)
 
-**Level 2: Vector Database (25% additional hit rate)**
+**Caching Level 2: Vector Database (25% additional hit rate)**
+- **Architectural Layer:** Layer 1 (Storage)
 - **Technology:** Pinecone, Weaviate, or Qdrant
 - **Speed:** 800ms average
 - **How it works:** Embedding-based similarity search finds "close enough" results
 - **Example:** Query about "Dr. Martinez" retrieves cached results for "Dr. Maria Martinez" even if exact name differs
 - **Cost:** $0.008 per query (15x cheaper than cold path)
 
-**Level 3: Knowledge Graph (7% additional hit rate)**
+**Caching Level 3: Knowledge Graph (7% additional hit rate)**
+- **Architectural Layer:** Layer 1 (Storage)
 - **Technology:** Neo4j, Amazon Neptune, or Azure Cosmos DB
 - **Speed:** 1.2s average
 - **How it works:** Relationship traversal (Provider → Department → Schedule) uses graph caching
 - **Example:** Query navigates Provider→Specialty→Availability without re-computing relationships
 - **Cost:** $0.015 per query (8x cheaper than cold path)
 
-**Level 4: Cold Path (3% of queries)**
-- **When:** Novel queries with no cached data at any level
+**Caching Level 4: Cold Path (3% of queries)**
+- **Architectural Layers:** Layers 4→2→1 (Intelligence → Data Fabric → Storage)
+- **When:** Novel queries with no cached data at any caching level
 - **Speed:** 2.8-4.2s (full Intelligence + DB + processing)
-- **How it works:** Complete pipeline execution
-- **Cache warming:** Results populate all three cache levels for future queries
+- **How it works:** Complete pipeline execution through multiple architectural layers
+- **Cache warming:** Results populate all three caching levels for future queries
 - **Cost:** $0.12 per query (full processing cost)
 
 **Echo's Caching Impact:**
