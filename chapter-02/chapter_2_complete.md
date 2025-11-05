@@ -242,38 +242,49 @@ You need attribute-based access control policies that evaluate dozens of factors
 
 **Diagram 3: RBAC vs ABAC Authorization Flow**
 ```mermaid
-graph TB
-    subgraph "<b>Traditional RBAC - Fails for Agents</b>"
-        R1["<b>User Request:</b><br/><b>'Show my lab results'</b>"]
-        R2["<b>Check Role:</b><br/><b>User = 'Patient'</b>"]
-        R3["<b>Role Permissions:</b><br/><b>READ patients.lab_results</b>"]
-        R4["<b>❌ Problem: Too Broad</b><br/><b>Agent retrieves ALL patients' data</b><br/><b>Violates 'minimum necessary' standard</b>"]
+graph LR
+    subgraph OLD["<b>Analytics Era: Role-Based Access Control (RBAC)</b>"]
+        R1["<b>User Request</b>"]
+        R2["<b>Check Role</b>"]
+        R3["<b>Role = Patient</b>"]
+        R4["<b>Grant Broad Access</b>"]
+        R5["<b>❌ Total: Violates</b><br/><b>minimum necessary</b>"]
         
         R1 --> R2
         R2 --> R3
         R3 --> R4
+        R4 --> R5
     end
     
-    subgraph "<b>Dynamic ABAC - Agent-Ready</b>"
-        A1["<b>User Request:</b><br/><b>'Show my lab results'</b>"]
-        A2["<b>Context Evaluation:</b><br/><b>👤 Who • 📋 What • 📅 When • 📱 Where • 🎯 Why</b>"]
-        A3["<b>Dynamic Policy Engine:</b><br/><b>Multi-attribute validation</b><br/><b>Row-level filtering</b>"]
-        A4["<b>✅ Secure Result:</b><br/><b>Only patient 12345's labs</b><br/><b>Sub-10ms evaluation</b>"]
+    OLD -.->|<b>Evolution</b>| NEW
+    
+    subgraph NEW["<b>Agent Era: Attribute-Based Access Control (ABAC)</b>"]
+        A1["<b>User Request</b>"]
+        A2["<b>Context Eval</b><br/><b>👤📋📅📱🎯</b>"]
+        A3["<b>Dynamic Policy</b>"]
+        A4["<b>Filter Rows</b>"]
+        A5["<b>✅ Total: Sub-10ms</b><br/><b>secure access</b>"]
         
         A1 --> A2
         A2 --> A3
         A3 --> A4
+        A4 --> A5
     end
     
     style R1 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style R2 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style R3 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
-    style R4 fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
+    style R4 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style R5 fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
     
     style A1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style A2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style A3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style A4 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style A4 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style A5 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    
+    style OLD fill:#fff5f5,stroke:#c62828,stroke-width:2px
+    style NEW fill:#f0fff0,stroke:#00897b,stroke-width:2px
 ```
 
 **The Five W's of ABAC Authorization**
