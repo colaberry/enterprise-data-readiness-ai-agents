@@ -126,80 +126,19 @@ Both are essential, but they require fundamentally different mindsets.
 
 ```mermaid
 graph TB
-    subgraph "<b>Chapter 0: INPACT™ Needs</b>"
-        I["<b>I - Instant</b>"]
-        N["<b>N - Natural</b>"]
-        P["<b>P - Permitted</b>"]
-        A["<b>A - Adaptive</b>"]
-        C["<b>C - Contextual</b>"]
-        T["<b>T - Trusted</b>"]
-    end
+    INPACT["<b>Chapter 0: INPACT™</b><br/><b>Six User Needs</b><br/><b>I • N • P • A • C • T</b><br/><b>Instant, Natural, Permitted,</b><br/><b>Adaptive, Contextual, Trusted</b>"]
     
-    subgraph "<b>Chapter 1: 7-Layer Architecture</b>"
-        L1["<b>Layer 1: Multi-Modal Storage</b>"]
-        L2["<b>Layer 2: Real-Time Data Fabric</b>"]
-        L3["<b>Layer 3: Universal Semantic Layer</b>"]
-        L4["<b>Layer 4: RAG Infrastructure</b>"]
-        L5["<b>Layer 5: Agent-Aware Governance</b>"]
-        L6["<b>Layer 6: Observability & Feedback</b>"]
-        L7["<b>Layer 7: Data Products & Orchestration</b>"]
-    end
+    ARCH["<b>Chapter 1: Seven-Layer Architecture</b><br/><b>Technical Implementation</b><br/><b>Layers 1-7: Storage → Fabric → Semantic</b><br/><b>→ RAG → Governance → Observability → Orchestration</b>"]
     
-    subgraph "<b>Chapter 2: Five GOALS</b>"
-        G["<b>G - Governance</b><br/><b>Security & Compliance</b>"]
-        O["<b>O - Observability</b><br/><b>Monitoring & Feedback</b>"]
-        AA["<b>A - Accessibility</b><br/><b>Speed & Freshness</b>"]
-        LL["<b>L - Language</b><br/><b>Semantic Understanding</b>"]
-        S["<b>S - Soundness</b><br/><b>Data Quality & Reliability</b>"]
-    end
+    GOALS["<b>Chapter 2: Five GOALS</b><br/><b>Operational Discipline</b><br/><b>G • O • A • L • S</b><br/><b>Governance, Observability, Accessibility,</b><br/><b>Language, Soundness</b>"]
     
-    I --> L2
-    I --> L1
-    I --> L4
-    I --> AA
+    INPACT -->|<b>User needs drive</b>| ARCH
+    ARCH -->|<b>Architecture enables</b>| GOALS
+    GOALS -->|<b>Operations sustain</b>| INPACT
     
-    N --> L3
-    N --> L4
-    N --> LL
-    
-    P --> L5
-    P --> G
-    
-    A --> L6
-    A --> O
-    A --> S
-    
-    C --> L1
-    C --> L2
-    C --> L3
-    C --> AA
-    C --> LL
-    
-    T --> L5
-    T --> L6
-    T --> G
-    T --> O
-    
-    style I fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:2px
-    style N fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:2px
-    style P fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:2px
-    style A fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:2px
-    style C fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:2px
-    style T fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:2px
-    
-    style L1 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
-    style L2 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
-    style L3 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
-    style L4 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
-    style L5 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
-    style L6 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
-    style L7 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
-    
-    style G fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style O fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style AA fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style LL fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style S fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style INPACT fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style ARCH fill:#f9f9f9,stroke:#666666,stroke-width:3px,color:#000000
+    style GOALS fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
 ```
 
 ### How Everything Connects
@@ -212,42 +151,26 @@ Just as you can have a perfect skeleton but fail if your cardiovascular system i
 
 **Diagram 2: GOALS Interdependencies - How One GOAL Supports Another**
 ```mermaid
-graph LR
-    G["<b>Governance</b><br/><b>Security & Compliance</b>"]
-    O["<b>Observability</b><br/><b>Monitoring & Feedback</b>"]
-    A["<b>Accessibility</b><br/><b>Speed & Freshness</b>"]
-    L["<b>Language</b><br/><b>Semantic Understanding</b>"]
-    S["<b>Soundness</b><br/><b>Data Quality</b>"]
+graph TB
+    G["<b>G - Governance</b><br/><b>Security & Compliance</b>"]
+    O["<b>O - Observability</b><br/><b>Monitoring & Feedback</b>"]
+    A["<b>A - Accessibility</b><br/><b>Speed & Freshness</b>"]
+    L["<b>L - Language</b><br/><b>Semantic Understanding</b>"]
+    S["<b>S - Soundness</b><br/><b>Data Quality</b>"]
     
-    G -->|<b>Audit trails enable</b>| O
-    O -->|<b>Detects policy violations</b>| G
+    G <-->|<b>Audit trails ↔ Policy violations</b>| O
+    O <-->|<b>Performance metrics ↔ Monitoring</b>| A
+    A <-->|<b>Fast retrieval ↔ Query optimization</b>| L
+    L <-->|<b>Semantic validation ↔ Quality data</b>| S
     
-    O -->|<b>Monitors performance</b>| A
-    A -->|<b>Real-time metrics feed</b>| O
+    S -.->|<b>Foundation: Enables all GOALS</b>| G
+    O -.->|<b>Diagnostic: Detects issues in all GOALS</b>| L
     
-    O -->|<b>Tracks semantic drift</b>| L
-    L -->|<b>Improves query accuracy</b>| O
-    
-    O -->|<b>Detects data issues</b>| S
-    S -->|<b>Reliable data enables</b>| O
-    
-    A -->|<b>Fast retrieval supports</b>| L
-    L -->|<b>Optimized queries improve</b>| A
-    
-    L -->|<b>Semantic validation checks</b>| S
-    S -->|<b>Quality data improves</b>| L
-    
-    S -->|<b>Clean data enables</b>| A
-    A -->|<b>Fresh data maintains</b>| S
-    
-    G -->|<b>Access policies protect</b>| S
-    S -->|<b>Audit logs depend on</b>| G
-    
-    style G fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style O fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style A fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style L fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style S fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style G fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
+    style O fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
+    style A fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
+    style L fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
+    style S fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 ```
 
 ### Why GOALS Are Interdependent
@@ -332,9 +255,9 @@ graph TB
     
     subgraph "<b>Dynamic ABAC - Agent-Ready</b>"
         A1["<b>User Request:</b><br/><b>'Show my lab results'</b>"]
-        A2["<b>Evaluate Context Attributes:</b><br/><b>👤 Who: patient_id=12345</b><br/><b>📋 What: lab_results table</b><br/><b>📅 When: 2025-10-27 14:32</b><br/><b>📱 Where: mobile_app</b><br/><b>🎯 Why: patient_self_access</b>"]
-        A3["<b>Apply Dynamic Policy:</b><br/><b>IF requester.patient_id == record.patient_id</b><br/><b>AND data.type == 'lab_results'</b><br/><b>AND patient.consent_status == 'active'</b><br/><b>AND access_time WITHIN business_hours</b><br/><b>THEN permit WITH row_level_filter</b>"]
-        A4["<b>✅ Secure Result:</b><br/><b>Only patient 12345's labs</b><br/><b>Provider notes masked</b><br/><b>Full audit trail logged with context</b><br/><b>Sub-10ms evaluation</b>"]
+        A2["<b>Context Evaluation:</b><br/><b>👤 Who • 📋 What • 📅 When • 📱 Where • 🎯 Why</b>"]
+        A3["<b>Dynamic Policy Engine:</b><br/><b>Multi-attribute validation</b><br/><b>Row-level filtering</b>"]
+        A4["<b>✅ Secure Result:</b><br/><b>Only patient 12345's labs</b><br/><b>Sub-10ms evaluation</b>"]
         
         A1 --> A2
         A2 --> A3
@@ -877,45 +800,38 @@ Echo's semantic layer includes business glossaries with natural language mapping
 
 **Diagram 6: Natural Language → Data Operation Pipeline**
 ```mermaid
-graph TB
-    NL["<b>User Query:</b><br/><b>'Show my doctor's availability next week'</b>"]
+graph LR
+    NL["<b>User Query:</b><br/><b>'Show my doctor's</b><br/><b>availability next week'</b>"]
     
-    NL --> PARSE["<b>Intent Parsing:</b><br/><b>Action: 'show' → SELECT query</b><br/><b>Subject: 'doctor' → provider entity</b><br/><b>Qualifier: 'my' → needs resolution</b><br/><b>Timeframe: 'next week' → date range</b>"]
+    subgraph "<b>Phase 1: UNDERSTAND</b>"
+        P1["<b>• Parse intent & entities</b><br/><b>• Extract context signals</b><br/><b>• Identify ambiguities</b>"]
+    end
     
-    PARSE --> ENTITY{"<b>Entity Resolution:</b><br/><b>Which doctor?</b>"}
+    subgraph "<b>Phase 2: RESOLVE</b>"
+        P2["<b>• Resolve entities (confidence)</b><br/><b>• Glossary lookup</b><br/><b>• Build semantic query</b>"]
+    end
     
-    ENTITY --> CTX["<b>Context Signals:</b><br/><b>✓ User: patient_id 12345</b><br/><b>✓ Recent visit: dr_martinez provider_id 789</b><br/><b>✓ Primary care: dr_martinez</b><br/><b>✓ Specialty context: diabetes care</b><br/><b>✓ Last appointment: 2025-09-15</b>"]
+    subgraph "<b>Phase 3: EXECUTE</b>"
+        P3["<b>• ABAC validation</b><br/><b>• Execute query</b><br/><b>• Format response & feedback</b>"]
+    end
     
-    CTX --> RESOLVE["<b>Resolved Entity:</b><br/><b>'my doctor' = Dr. Maria Martinez</b><br/><b>provider_id = 789</b><br/><b>Confidence: 0.94</b>"]
+    CLARIFY["<b>❌ Clarification Needed</b><br/><b>Confidence < 0.90</b>"]
     
-    RESOLVE --> AMBIG{"<b>Confidence</b><br/><b>>0.90?</b>"}
+    RESULT["<b>✅ Natural Response:</b><br/><b>'Dr. Martinez has</b><br/><b>5 openings next week'</b>"]
     
-    AMBIG -->|<b>Yes</b><br/><b>Confident</b>| GLOSS["<b>Glossary Lookup:</b><br/><b>'availability' → provider_schedule.status</b><br/><b>'next week' → DATE BETWEEN</b><br/><b>2025-10-28 AND 2025-11-03</b><br/><b>'show' → SELECT with patient_view filter</b>"]
+    NL --> P1
+    P1 --> P2
+    P2 --> P3
+    P3 --> RESULT
     
-    AMBIG -->|<b>No</b><br/><b>Ambiguous</b>| CLARIFY["<b>Ask Clarification:</b><br/><b>'Which doctor do you mean?</b><br/><b>- Dr. Martinez primary care</b><br/><b>- Dr. Chen endocrinology'</b>"]
+    P1 -.->|<b>Low confidence</b>| CLARIFY
     
-    GLOSS --> SEMANTIC["<b>Semantic Query Construction:</b><br/><b>SELECT p.provider_name,</b><br/><b>       s.appointment_date,</b><br/><b>       s.appointment_time,</b><br/><b>       s.duration_minutes</b><br/><b>FROM provider_schedule s</b><br/><b>JOIN providers p ON s.provider_id = p.id</b><br/><b>WHERE p.provider_id = 789</b><br/><b>  AND s.appointment_date BETWEEN</b><br/><b>      '2025-10-28' AND '2025-11-03'</b><br/><b>  AND s.availability_status = 'open'</b><br/><b>  AND s.accepts_patient_type = 'existing'</b>"]
-    
-    SEMANTIC --> ABAC["<b>ABAC Validation:</b><br/><b>✓ User 12345 authorized for provider 789?</b><br/><b>✓ Access = appointment_scheduling?</b><br/><b>✓ Time = business hours?</b><br/><b>→ Policy: PERMIT</b>"]
-    
-    ABAC --> EXEC["<b>Execute Query</b><br/><b>Return: 5 available slots</b>"]
-    
-    EXEC --> FORMAT["<b>Natural Language Response:</b><br/><b>'Dr. Martinez has 5 openings next week:</b><br/><b>Mon 10/28: 10am, 2pm</b><br/><b>Wed 10/30: 9am, 3pm</b><br/><b>Fri 11/1: 11am'</b>"]
-    
-    FORMAT --> FB["<b>Feedback Loop:</b><br/><b>✓ Log translation accuracy</b><br/><b>✓ Update entity confidence scores</b><br/><b>✓ Learn: 'my doctor' + patient_12345 → provider_789</b><br/><b>✓ Cache: semantic query for similar requests</b>"]
-    
-    style PARSE fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style ENTITY fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style CTX fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style RESOLVE fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
-    style AMBIG fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style GLOSS fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style SEMANTIC fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style ABAC fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style EXEC fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
-    style FORMAT fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style FB fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style P1 fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
+    style P2 fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
+    style P3 fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
+    style RESULT fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CLARIFY fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style NL fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
 ```
 
 **The Seven Stages of Semantic Translation**
