@@ -44,7 +44,7 @@ Sarah's journey from 9-13 second responses to 1.8 seconds, from 40-60% accuracy 
 - **📍 Checkpoint 1** *(After Layer 3 - Foundation Complete)*
 
 ### Part III: The Intelligence Layers
-- [Layer 4: Intelligent Retrieval (RAG)](#layer-4-intelligent-retrieval-layer-rag-infrastructure-with-embedding-models)
+- [Layer 4: Intelligence Orchestration & Retrieval](#layer-4-intelligence-orchestration--retrieval-rag-infrastructure-with-embedding-models)
 - [Layer 5: Agent-Aware Governance](#layer-5-agent-aware-governance)
 - [Layer 6: Observability & Feedback](#layer-6-observability--feedback-mlops--llm-monitoring)
 - **📍 Checkpoint 2** *(After Layer 6 - Intelligence Complete)*
@@ -137,12 +137,47 @@ Karpathy identifies three distinct eras requiring different infrastructure:
 
 The enterprise challenge: attempting to run Software 3.0 agents on Software 1.0 infrastructure is like running cloud-native microservices on mainframe batch processing. The architectural assumptions don't align.
 
-**Diagram 0: The Software 3.0 Paradigm Shift**
-![Alt text](./diagrams/diagram0_1_a_software1to3Evolution.png "Karpathy's framework shows why Software 3.0 requires fundamentally new infrastructure, not just upgraded Software 1.0 systems. Each paradigm demands different architectural foundations.")
+**Diagram 0a: Software 1.0 to 3.0 Evolution**
 
-**Figure 0:** *Karpathy's framework shows why Software 3.0 requires fundamentally new infrastructure, not just upgraded Software 1.0 systems. Each paradigm demands different architectural foundations.[15]*
+```mermaid
+graph LR
+    subgraph sw1["`**SOFTWARE 1.0**<br/>**1950s-2010s**<br/>**EXPLICIT LOGIC**`"]
+        direction TB
+        prog1["`**Programming Model**<br/>━━━━━━━━━━<br/>Humans write instructions<br/>in C++, Java, Python`"]
+        infra1["`**Enterprise Infrastructure**<br/>━━━━━━━━━━<br/>• Data warehouses<br/>• Batch ETL pipelines<br/>• BI dashboards<br/>• Rigid schemas<br/>• Predefined queries`"]
+        char1["`**Characteristics**<br/>━━━━━━━━━━<br/>✓ Deterministic<br/>✓ Explicit rules<br/>✓ Schema-on-write<br/>✓ Overnight batch`"]
+        prog1 --> infra1
+        infra1 --> char1
+    end
 
-**Alt text for accessibility:** "Three-column diagram comparing Software 1.0, 2.0, and 3.0 paradigms. Software 1.0 shows explicit logic programming with data warehouses and batch processing. Software 2.0 adds neural networks and ML microservices to the 1.0 foundation. Software 3.0 requires entirely new infrastructure including vector databases, real-time data fabric, semantic layers, and reasoning observability. An arrow shows paradigm shift from 2.0 to 3.0 labeled 'Cannot just upgrade.'"
+    subgraph sw2["`**SOFTWARE 2.0**<br/>**2010s-2023**<br/>**NEURAL NETWORKS**`"]
+        direction TB
+        prog2["`**Programming Model**<br/>━━━━━━━━━━<br/>Curate datasets<br/>Train models<br/>Learned weights`"]
+        infra2["`**Infrastructure Additions**<br/>━━━━━━━━━━<br/>• 1.0 foundation preserved<br/>• ML microservices<br/>• Model registries<br/>• MLOps platforms<br/>• Point solutions`"]
+        char2["`**Characteristics**<br/>━━━━━━━━━━<br/>✓ Pattern recognition<br/>✓ Task-specific<br/>✓ Supervised learning<br/>✓ Inference endpoints`"]
+        prog2 --> infra2
+        infra2 --> char2
+    end
+
+    subgraph sw3["`**SOFTWARE 3.0**<br/>**2023-Present**<br/>**NATURAL LANGUAGE**`"]
+        direction TB
+        prog3["`**Programming Model**<br/>━━━━━━━━━━<br/>English prompts<br/>In-context learning<br/>General reasoning`"]
+        infra3["`**NEW Infrastructure Required**<br/>━━━━━━━━━━<br/>• Vector databases<br/>• Real-time data fabric<br/>• Semantic layers<br/>• Dynamic ABAC<br/>• Reasoning observability<br/>• Feedback loops`"]
+        char3["`**Characteristics**<br/>━━━━━━━━━━<br/>✓ Probabilistic<br/>✓ General-purpose<br/>✓ Natural language<br/>✓ Context-aware`"]
+        prog3 --> infra3
+        infra3 --> char3
+    end
+
+    sw1 -.->|"Added ML<br/>as point solutions"| sw2
+    sw2 -.->|"PARADIGM SHIFT<br/>Cannot just upgrade"| sw3
+
+    style sw1 fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style sw2 fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style sw3 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px
+    style infra3 fill:#c5e1a5,stroke:#558b2f,stroke-width:2px
+```
+
+Karpathy's framework shows why Software 3.0 requires fundamentally new infrastructure, not just upgraded Software 1.0 systems. Each paradigm demands different architectural foundations.[15]
 
 ### The Paradigm Mismatch: Why Upgrades Fail
 
@@ -156,13 +191,52 @@ When enterprises attempt agent deployments on BI-era infrastructure, critical mi
 
 **Learning cycles transform.** Software 1.0 required code changes. Software 2.0 required model retraining. Software 3.0 enables in-context learning through interaction. But capturing that learning requires feedback loops and validation mechanisms that BI-era infrastructure never contemplated.
 
-**Diagram 0b: The Infrastructure Paradigm Mismatch**
+**Diagram 0b: Infrastructure Paradigm Mismatch**
 
-![Alt text](./diagrams/diagram0_1_b_architectureEvolution.png "Most enterprises attempt to deploy Software 3.0 agents on Software 1.0 infrastructure creating the architectural mismatch that drives the 95% pilot failure rate.")
+```mermaid
+graph TB
+    subgraph challenge["`**⚠️  THE INFRASTRUCTURE PARADIGM MISMATCH**`"]
+        direction TB
+        
+        current["`**60% OF ENTERPRISES**<br/><br/>Built on Software 1.0 Infrastructure<br/>━━━━━━━━━━━━━━━━━━━━<br/>✓ Data warehouses<br/>✓ Batch ETL (8-24 hour lag)<br/>✓ BI dashboards<br/>✓ Static RBAC<br/>✓ Schema-on-write`"]
+        
+        attempting["`**ATTEMPTING TO DEPLOY**<br/><br/>Software 3.0 Agents<br/>━━━━━━━━━━━━━━━━━━━━<br/>Require:<br/>• Sub-second semantic retrieval<br/>• Real-time data access<br/>• Dynamic contextual permissions<br/>• Reasoning chain observability<br/>• In-context learning loops`"]
+        
+        gap["`**ARCHITECTURAL MISMATCH**<br/>━━━━━━━━━━━━━━━━━━━━<br/>Cannot bridge with middleware<br/>Cannot patch with API layers<br/>Cannot solve with better prompts`"]
+        
+        result["`**OUTCOME**<br/>━━━━━━━━━━━━━━━━━━━━<br/>❌ 95% pilot failure rate<br/>❌ 9-13 second response times<br/>❌ 40-60% accuracy<br/>❌ Compliance violations<br/>❌ Cannot reach production`"]
+        
+        current --> gap
+        attempting --> gap
+        gap --> result
+    end
+    
+    subgraph solution["`**✅  THE SOLUTION**`"]
+        direction TB
+        
+        transform["`**Agent-Ready Architecture**<br/>━━━━━━━━━━━━━━━━━━━━<br/>7-Layer Infrastructure Stack`"]
+        
+        delivers["`**DELIVERS SOFTWARE 3.0 CAPABILITIES**<br/>━━━━━━━━━━━━━━━━━━━━<br/>✓ Real-time data fabric<br/>✓ Semantic understanding<br/>✓ Dynamic ABAC governance<br/>✓ Sub-second retrieval (1.8s)<br/>✓ 85%+ accuracy<br/>✓ Production-ready reliability`"]
+        
+        transform --> delivers
+    end
+    
+    result -.->|Requires<br/>**Paradigm Transformation**| transform
 
-**Figure 0b:** *Most enterprises attempt to deploy Software 3.0 agents on Software 1.0 infrastructure creating the architectural mismatch that drives the 95% pilot failure rate.*
+    style challenge fill:#fff8fa,stroke:#c62828,stroke-width:3px
+    style current fill:#fffaf3,stroke:#f57c00,stroke-width:2px
+    style attempting fill:#f0fbfd,stroke:#0288d1,stroke-width:2px
+    style gap fill:#ffd6d6,stroke:#b71c1c,stroke-width:3px,color:#333
+    style result fill:#ffd6d6,stroke:#c62828,stroke-width:2px,color:#333
+    style solution fill:#f4fbf4,stroke:#2e7d32,stroke-width:3px
+    style transform fill:#e4f8e7,stroke:#388e3c,stroke-width:2px
+    style delivers fill:#d4f5db,stroke:#2e7d32,stroke-width:2px
 
-**Alt text for accessibility:** "Diagram showing the infrastructure mismatch problem. Left side shows 60% of enterprises with Software 1.0 infrastructure (data warehouses, batch ETL, static RBAC). Right side shows agents requiring Software 3.0 capabilities (sub-second retrieval, real-time access, dynamic permissions). Center shows the gap cannot be bridged with middleware, resulting in 95% pilot failure rate. Bottom shows solution: Agent-Ready 7-Layer Architecture delivering real-time capabilities and production reliability."
+    classDef bold font-weight:bold;
+    class current,attempting,gap,result,transform,delivers bold;
+```
+
+Most enterprises attempt to deploy Software 3.0 agents on Software 1.0 infrastructure creating the architectural mismatch that drives the 95% pilot failure rate.
 
 ### The Iron Man Suit Model: Design Philosophy for Agents
 
@@ -201,7 +275,7 @@ The architecture consists of seven integrated layers, each addressing specific a
 - **Layer 7:** Self-Service Data Products & Multi-Agent Orchestration
 - **Layer 6:** Observability & Feedback (MLOps + LLM Monitoring)  
 - **Layer 5:** Agent-Aware Governance (ABAC, audit logging)
-- **Layer 4:** Intelligent Retrieval (RAG) + Embedding Models
+- **Layer 4:** Intelligence Orchestration & Retrieval (RAG Infrastructure + Embedding Models)
 - **Layer 3:** Universal Semantic Layer (Business glossary, ontologies, entity resolution)
 - **Layer 2:** Real-Time Data Fabric (CDC, streaming, training pipelines)
 - **Layer 1:** Multi-Modal Storage (Vector DB, Knowledge Graphs, Model Registry)
@@ -227,10 +301,184 @@ Let's examine each layer in detail, understanding how it contributes to deliveri
 
 Each layer solves specific agent requirements. Let's explore them in detail. The complete seven-layer stack is visualized in Diagram 1 (Seven-Layer Architecture).
 
-**[Diagram 1: Seven-Layer Architecture - See diagram1_1_a_seven_layers.mermaid]**
-![Alt text](./diagrams/diagram1_1_b_seven_layers.png "The 7-Layer Agent-Ready Data Architecture - Layer 5: Agent-Aware Governance showing ABAC policies, audit logging, and compliance automation")
-![Alt text](./diagrams/diagram1_1_a_seven_layers.png "The 7-Layer Agent-Ready Data Architecture - Layer 7: Self-Service Data Products and Multi-Agent Orchestration showing domain ownership, API catalog, and orchestration frameworks")
-![Alt text](./diagrams/diagram1_1_c_seven_layers.png "The 7-Layer Agent-Ready Data Architecture - Layer 5: Agent-Aware Governance showing ABAC policies, audit logging, and compliance automation")
+**Diagram 1a: Seven-Layer Architecture (Detailed Component View)**
+
+```mermaid
+graph TB
+    subgraph L7["`**Layer 7: Self-Service Data Products & Multi-Agent Orchestration**`"]
+        L7A["`**Data Product Catalog**<br/><i>Primary Function</i>`"]
+        L7B["`**Multi-Agent Frameworks**<br/><b>LangGraph, CrewAI, AutoGen</b><br/><i>Intelligence</i>`"]
+        L7C["`**API Gateway & Documentation**<br/><i>Integration</i>`"]
+        L7D["`**Domain Ownership Model**<br/><i>Data Handling</i>`"]
+        L7E["`**SLA Management**<br/><i>Quality Assurance</i>`"]
+        L7F["`**Usage Metrics & Analytics**<br/><i>Supporting Tech</i>`"]
+    end
+
+    subgraph L6["`**Layer 6: Observability & Feedback**`"]
+        L6A["`**Data Quality Monitoring**<br/><i>Primary Function</i>`"]
+        L6B["`**Agent Performance Telemetry**<br/><i>Intelligence</i>`"]
+        L6C["`**Model Drift Detection**<br/><i>Integration</i>`"]
+        L6D["`**Cost & Usage Tracking**<br/><i>Data Handling</i>`"]
+        L6E["`**Feedback Loops**<br/><i>Quality Assurance</i>`"]
+        L6F["`**Trace Propagation**<br/><i>Supporting Tech</i>`"]
+    end
+
+    subgraph L5["`**Layer 5: Agent-Aware Governance**`"]
+        L5A["`**ABAC Policy Engine**<br/><i>Primary Function</i>`"]
+        L5B["`**Dynamic Data Masking**<br/><i>Intelligence</i>`"]
+        L5C["`**Real-time Audit Logging**<br/><i>Integration</i>`"]
+        L5D["`**Compliance Automation**<br/><i>Data Handling</i>`"]
+        L5E["`**Policy Version Control**<br/><i>Quality Assurance</i>`"]
+        L5F["`**Privacy Controls**<br/><i>Supporting Tech</i>`"]
+    end
+
+    subgraph L4["`**Layer 4: Intelligence Orchestration & Retrieval**`"]
+        L4A["`**Query Understanding**<br/><i>Primary Function</i>`"]
+        L4B["`**Embedding Models**<br/><i>Intelligence</i>`"]
+        L4C["`**Hybrid Search**<br/><i>Integration</i>`"]
+        L4D["`**Result Reranking**<br/><i>Data Handling</i>`"]
+        L4E["`**Context Assembly**<br/><i>Quality Assurance</i>`"]
+        L4F["`**Semantic Caching**<br/><i>Supporting Tech</i>`"]
+    end
+
+    subgraph L3["`**Layer 3: Universal Semantic Layer**`"]
+        L3A["`**Business Glossary**<br/><i>Primary Function</i>`"]
+        L3B["`**Ontologies & Taxonomies**<br/><i>Intelligence</i>`"]
+        L3C["`**Metric Definitions**<br/><i>Integration</i>`"]
+        L3D["`**Entity Resolution**<br/><i>Data Handling</i>`"]
+        L3E["`**Natural Language Mappings**<br/><i>Quality Assurance</i>`"]
+        L3F["`**Lineage Tracking**<br/><i>Supporting Tech</i>`"]
+    end
+
+    subgraph L2["`**Layer 2: Real-Time Data Fabric**`"]
+        L2A["`**Change Data Capture**<br/><i>Primary Function</i>`"]
+        L2B["`**Event Streaming**<br/><i>Intelligence</i>`"]
+        L2C["`**Stream Processing**<br/><i>Integration</i>`"]
+        L2D["`**Feature Stores**<br/><i>Data Handling</i>`"]
+        L2E["`**Training Pipelines**<br/><i>Quality Assurance</i>`"]
+        L2F["`**Data Quality Validation**<br/><i>Supporting Tech</i>`"]
+    end
+
+    subgraph L1["`**Layer 1: Multi-Modal Storage**`"]
+        L1A["`**Vector Database**<br/><i>Primary Function</i>`"]
+        L1B["`**Knowledge Graph**<br/><i>Intelligence</i>`"]
+        L1C["`**Document Store**<br/><i>Integration</i>`"]
+        L1D["`**RDBMS**<br/><i>Data Handling</i>`"]
+        L1E["`**Data Warehouse**<br/><i>Quality Assurance</i>`"]
+        L1F["`**Model Registry**<br/><i>Supporting Tech</i>`"]
+    end
+
+    L7A ~~~ L6A
+    L7B ~~~ L6B
+    L7C ~~~ L6C
+    L7D ~~~ L6D
+    L7E ~~~ L6E
+    L7F ~~~ L6F
+
+    L6A ~~~ L5A
+    L6B ~~~ L5B
+    L6C ~~~ L5C
+    L6D ~~~ L5D
+    L6E ~~~ L5E
+    L6F ~~~ L5F
+
+    L5A ~~~ L4A
+    L5B ~~~ L4B
+    L5C ~~~ L4C
+    L5D ~~~ L4D
+    L5E ~~~ L4E
+    L5F ~~~ L4F
+
+    L4A ~~~ L3A
+    L4B ~~~ L3B
+    L4C ~~~ L3C
+    L4D ~~~ L3D
+    L4E ~~~ L3E
+    L4F ~~~ L3F
+
+    L3A ~~~ L2A
+    L3B ~~~ L2B
+    L3C ~~~ L2C
+    L3D ~~~ L2D
+    L3E ~~~ L2E
+    L3F ~~~ L2F
+
+    L2A ~~~ L1A
+    L2B ~~~ L1B
+    L2C ~~~ L1C
+    L2D ~~~ L1D
+    L2E ~~~ L1E
+    L2F ~~~ L1F
+
+    style L7A fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style L7B fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style L7C fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style L7D fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style L7E fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style L7F fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+
+    style L6A fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style L6B fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style L6C fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style L6D fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style L6E fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style L6F fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+
+    style L5A fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style L5B fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style L5C fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style L5D fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style L5E fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style L5F fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+
+    style L4A fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style L4B fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style L4C fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style L4D fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style L4E fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style L4F fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+
+    style L3A fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style L3B fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style L3C fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style L3D fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style L3E fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style L3F fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+
+    style L2A fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
+    style L2B fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
+    style L2C fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
+    style L2D fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
+    style L2E fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
+    style L2F fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
+
+    style L1A fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style L1B fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style L1C fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style L1D fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style L1E fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style L1F fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+```
+
+The seven-layer agent-ready data architecture with teal gradient showing foundation (Layer 1) to orchestration (Layer 7). Layer 4 (Intelligence Orchestration & Retrieval) coordinates multiple retrieval strategies.
+
+---
+
+**Diagram 1b: Seven-Layer Stack (Visual Overview)**
+
+![Seven-Layer 3D Stack Visualization](./diagrams/diagram1_1_b_seven_layers.png "The 7-Layer Agent-Ready Data Architecture showing 3D stack from Multi-Modal Storage foundation to Self-Service Products orchestration layer")
+
+> **NOTE TO RAM:** This professional PNG needs manual update:
+> - Change Layer 4 text from "Intelligent Retrieval RAG" to "**Intelligence Orchestration & Retrieval**"
+
+---
+
+**Diagram 1c: Seven-Layer Function Matrix**
+
+![Seven-Layer Comprehensive Function Matrix](./diagrams/diagram1_1_c_seven_layers.png "Complete 7×6 matrix showing all layer functions from Primary through Supporting Tech across all seven layers")
+
+> **NOTE TO RAM:** This professional PNG needs manual update:
+> - Change Column 4 header from "Layer 4: Intelligent Retrieval (RAG)" to "**Layer 4: Intelligence Orchestration & Retrieval**"
 ---
 
 ### Layer 1: Multi-Modal Storage Architecture (Including Model Registry)
@@ -477,9 +725,43 @@ To ensure Layer 1 delivers on its promise, monitor these key indicators (as deta
 
 The semantic mapping flow from natural language phrases to data structures is illustrated in Diagram 2 (Semantic Flow), showing how natural language concepts are resolved to specific data entities across systems.
 
-**[Diagram 2: Semantic Flow - See diagram2-semantic-flow.mermaid]**
-![Alt text](./diagrams/diagram2_semantic_flow_1.png "Semantic Flow: Unified Entity Resolution Process")
-<!--![Alt text](./diagrams/diagram2_semantic_flow_2.png "Semantic Flow: Unified Entity Resolution Process")-->
+**Diagram 2: Semantic Entity Resolution Flow**
+
+```mermaid
+flowchart LR
+    A["`**User Query:**<br/><b>'My doctor'</b>`"] 
+    B["`**Layer 3:**<br/><b>Semantic Layer</b>`"]
+    C{"`**Entity<br/>Resolution**`"}
+    D["`**EHR System:**<br/><b>primary_care_provider_id</b>`"]
+    E["`**Credentialing:**<br/><b>physician_npi</b>`"]
+    F["`**Scheduling:**<br/><b>provider_schedule_id</b>`"]
+    G["`**Golden ID:**<br/><b>provider_npi=1234567890</b>`"]
+    H["`**Unified Entity:**<br/><b>Dr. Sarah Martinez</b>`"]
+    I["`**Agent Context:**<br/><b>Complete provider profile<br/>across all systems</b>`"]
+    
+    A --> B
+    B --> C
+    C --> D
+    C --> E
+    C --> F
+    D --> G
+    E --> G
+    F --> G
+    G --> H
+    H --> I
+    
+    style A fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style B fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style C fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style D fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style E fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style F fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style G fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style H fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style I fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+```
+
+Layer 3's semantic layer resolves ambiguous natural language to unified entities, enabling Layer 4's Intelligence Orchestration & Retrieval to assemble complete context.
 
 
 **Real-world validation:** dbt Labs' semantic layer documentation explains how modern semantic layers enable natural language queries by providing consistent metric definitions and business logic that can be consumed by AI applications without requiring knowledge of underlying data structures.[2]
@@ -602,7 +884,7 @@ To keep Layer 2 healthy and agent-aligned:
 
 ---
 
-### Layer 4: Intelligent Retrieval Layer (RAG Infrastructure with Embedding Models)
+### Layer 4: Intelligence Orchestration & Retrieval (RAG Infrastructure with Embedding Models)
 
 **What it is:** The system that determines what data the agent needs, retrieves it efficiently from the right storage layer, assembles it into useful context for the language model, and manages the embedding models that power semantic search.
 
@@ -1008,11 +1290,62 @@ Supporting contributions to:
 
 **Real-world validation:** According to Monte Carlo's analysis, data downtime refers to periods when data is partial, erroneous, missing, or otherwise inaccurate and by applying observability principles to data and ML systems, these issues can be identified, resolved, and even prevented.[7] Organizations implementing data observability report up to 80% reductions in data downtime, directly improving agent reliability.
 
-**[Diagram 3: Observability Dashboard - See diagram3-observability-dashboard.mermaid]**
-![Observability metrics comparison across architectural layers](./diagrams/diagram3_observability_1.png "Observability dashboard showing key metrics tracked across all seven layers: data freshness, query latency, retrieval quality, ABAC evaluation time, model drift scores, and cost per query")
-![Observability feedback loop architecture](./diagrams/diagram3_observability_2.png "Observability dashboard showing automated feedback loops: data quality issues triggering pipeline fixes, model drift triggering retraining, and performance degradation triggering optimization")
+**Diagram 3: Observability & Automated Feedback Loops**
 
-The observability architecture with monitoring loops and feedback mechanisms is visualized in Diagram 3 (Observability Dashboard).
+```mermaid
+graph TB
+    subgraph metrics["`**MONITORING METRICS**`"]
+        subgraph data["`**Data Layer**`"]
+            DL1["`**Freshness: <1 min**`"]
+            DL2["`**Volume Anomalies: ±20%**`"]
+            DL3["`**Schema Changes**`"]
+            DL4["`**Quality Score: >99%**`"]
+            DL5["`**Pipeline Health: >99.5%**`"]
+        end
+        
+        subgraph model["`**Model Layer**`"]
+            ML1["`**Embedding Drift: KL Divergence**`"]
+            ML2["`**Semantic Drift Detection**`"]
+            ML3["`**LLM Response Quality**`"]
+            ML4["`**Retrieval: NDCG@5**`"]
+            ML5["`**Model Latency: p95**`"]
+        end
+        
+        subgraph agent["`**Agent Layer**`"]
+            AL1["`**Query Latency: <2s**`"]
+            AL2["`**Retrieval Quality Score**`"]
+            AL3["`**Response Accuracy**`"]
+            AL4["`**Hallucination Rate: <3%**`"]
+            AL5["`**User Satisfaction**`"]
+            AL6["`**Cost per Query: <$0.01**`"]
+        end
+    end
+    
+    subgraph feedback["`**AUTOMATED FEEDBACK LOOPS**`"]
+        FB1["`**✅ Auto-fix:**<br/><b>Data Quality</b>`"]
+        FB2["`**✅ Auto-retrain:**<br/><b>Model Drift</b>`"]
+        FB3["`**⚠️ Auto-scale:**<br/><b>Cost Control</b>`"]
+        FB4["`**⚠️ Alert:**<br/><b>Threshold Breach</b>`"]
+    end
+    
+    DL4 -->|Quality Issue| FB1
+    ML1 -->|Drift Detected| FB2
+    AL6 -->|Cost Spike| FB3
+    AL4 -->|High Rate| FB4
+    
+    style data fill:#f9f9f9,stroke:#666666,stroke-width:2px
+    style model fill:#f9f9f9,stroke:#666666,stroke-width:2px
+    style agent fill:#f9f9f9,stroke:#666666,stroke-width:2px
+    style metrics fill:#fafafa,stroke:#666666,stroke-width:1px
+    style feedback fill:#fafafa,stroke:#666666,stroke-width:1px
+    
+    style FB1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style FB2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style FB3 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style FB4 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+```
+
+Layer 6 observability monitors all seven layers and triggers automated responses. Layer 4's Intelligence Orchestration & Retrieval metrics include retrieval quality (NDCG@5) and latency tracking.
 
 #### Global Trace ID Architecture
 
@@ -1159,7 +1492,7 @@ Supporting contributions to:
 
 **What we've covered since Checkpoint 1:**
 
-✅ **Layer 4 (Intelligent Retrieval/RAG):** Semantic search with embedding models, hybrid search combining vector similarity and keywords, result reranking, confidence-based handling, and prompt caching for 50-90% cost reduction. Agents retrieve relevant context intelligently in under 200ms.
+✅ **Layer 4 (Intelligence Orchestration & Retrieval):** Semantic search with embedding models, hybrid search combining vector similarity and keywords, result reranking, confidence-based handling, and prompt caching for 50-90% cost reduction. Agents retrieve relevant context intelligently in under 200ms.
 
 ✅ **Layer 5 (Agent-Aware Governance):** Dynamic ABAC replacing static RBAC, evaluating permissions in real-time (<10ms) based on user, data, action, and environment. Comprehensive audit logging captures who, what, when, why for HIPAA/GDPR compliance. Input/output guardrails prevent harmful behavior.
 
@@ -1235,8 +1568,47 @@ Additionally, complex tasks often require multiple specialized agents working to
 
 The comparison between traditional data access and self-service data products is illustrated in Diagram 4 (Self-Service Comparison), showing how automation reduces provisioning time from weeks to minutes.
 
-**[Diagram 4: Self-Service Comparison - See diagram4-self-service-comparison.mermaid]**
-![Manual data access workflow](./diagrams/diagram4_1_a_self_service.png "Manual data access process showing 2-3 week timeline: email data team, wait for approval, receive credentials, figure out schema, requiring 12 people and multiple meetings")
+**Diagram 4: Self-Service Data Access Transformation**
+
+```mermaid
+flowchart TB
+    subgraph before["`**❌ BEFORE: Manual Process**`"]
+        direction LR
+        B1["`**Developer needs data**`"]
+        B2["`**Email data team**`"]
+        B3["`**Wait 2 days**`"]
+        B4["`**Get credentials**`"]
+        B5["`**Figure out schema**`"]
+        B6["`**Wait 3 more days**`"]
+        B7["`**Finally integrate**`"]
+        B8["`**⚠️ Total: 2-3 weeks**<br/><b>12 people involved</b>`"]
+        
+        B1 --> B2 --> B3 --> B4 --> B5 --> B6 --> B7 --> B8
+    end
+
+    subgraph after["`**✅ AFTER: Self-Service**`"]
+        direction LR
+        A1["`**Developer needs data**`"]
+        A2["`**Search catalog**`"]
+        A3["`**2 minutes**`"]
+        A4["`**Request access**`"]
+        A5["`**Auto-approved instantly**`"]
+        A6["`**Use API examples**`"]
+        A7["`**Integrate in 30 min**`"]
+        A8["`**✅ Total: <1 hour**<br/><b>Zero meetings</b>`"]
+        
+        A1 --> A2 --> A3 --> A4 --> A5 --> A6 --> A7 --> A8
+    end
+
+    before -.->|"`**Transformation**`"| after
+
+    style before fill:#fff5f5,stroke:#c62828,stroke-width:2px
+    style after fill:#f0fff0,stroke:#00897b,stroke-width:2px
+    style B8 fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
+    style A8 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+```
+
+Layer 7's self-service data products include semantic metadata enabling Layer 4's Intelligence Orchestration & Retrieval to automatically discover and use datasets.
 
 
 #### Real-World Multi-Agent Patterns
@@ -1483,9 +1855,62 @@ The power isn't in individual layers, it's in how they integrate into a cohesive
 
 For the complete multi-agent query flow showing coordination between specialists and how all seven layers interact, see Diagram 5 (Multi-Agent Query Flow).
 
-**[Diagram 5: Multi-Agent Query Flow - See diagram5-query-flow.mermaid]**
-![Alt text](./diagrams/diagram5_query_flow_2.png "Query flow: Appointment Scheduling & Insurance Verification Process")
-![Alt text](./diagrams/diagram5_1_a_query_flow.png "Query flow: Appointment Scheduling & Insurance Verification Process")
+**Diagram 5a: Multi-Agent Orchestration (Simplified View)**
+
+```mermaid
+graph TB
+    U["`**User Query**<br/><i>Complex, multi-part question</i>`"]
+    
+    R["`**Router Agent**<br/><i>Layer 7: Orchestrator</i>`"]
+    
+    subgraph parallel["`**Parallel Specialist Execution**`"]
+        S1["`**Scheduling<br/>Specialist**`"]
+        S2["`**Insurance<br/>Specialist**`"]
+    end
+    
+    subgraph stack["`**7-Layer Stack**<br/><i>Shared Infrastructure</i>`"]
+        ST["`**• ABAC Governance (L5)**<br/><b>• Intelligence Orchestration (L4)</b><br/><b>• Semantic Layer (L3)</b><br/><b>• Real-Time Data (L2)</b><br/><b>• Multi-Modal Storage (L1)</b>`"]
+    end
+    
+    O["`**Observability**<br/><i>Layer 6: Monitoring</i>`"]
+    
+    RESP["`**✅ Synthesized Response**<br/><i>Combined, coherent answer</i>`"]
+    
+    U --> R
+    R -->|Decompose| parallel
+    S1 --> stack
+    S2 --> stack
+    stack --> S1
+    stack --> S2
+    S1 --> R
+    S2 --> R
+    R --> RESP
+    RESP --> U
+    
+    R -.-> O
+    parallel -.-> O
+    stack -.-> O
+    
+    style U fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style R fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style parallel fill:#fafafa,stroke:#00897b,stroke-width:2px
+    style S1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style S2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style stack fill:#fafafa,stroke:#666666,stroke-width:2px
+    style ST fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style O fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    style RESP fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+```
+
+Layer 7 orchestrator coordinates specialists, each using Layer 4's Intelligence Orchestration & Retrieval for domain-specific context.
+
+---
+
+**Diagram 5b: Complete Query Flow Timeline (Detailed)**
+
+![End-to-End Multi-Agent Query Flow](./diagrams/diagram5_query_flow_2.png "Detailed appointment scheduling and insurance verification process timeline showing Router decomposition, parallel agent execution, Layer 4 Intelligence Orchestration & Retrieval for context assembly, and response synthesis")
+
+> **NOTE TO RAM:** Review this professional PNG - if it mentions "RAG" or "Intelligent Retrieval" specifically, update to "**Intelligence Orchestration & Retrieval**"
 
 #### Example: End-to-End Multi-Agent Query Flow
 
@@ -1818,11 +2243,59 @@ Every decision is traceable, reproducible, and auditable. Multi-agent systems lo
 
 ## Comparison: Agent Requirements vs. BI Requirements
 
-**[Diagram 6: BI vs Agent Comparison - See diagram6-bi-vs-agent-v2.mermaid]**
-![BI Era data architecture characteristics](./diagrams/diagram6_bi_vs_agent_1.png "BI-era architecture showing batch ETL, overnight data updates, static RBAC, human decision-making, visual dashboards, and acceptable response times of minutes to hours")
-![AI Agent Era data architecture characteristics](./diagrams/diagram6_bi_vs_agent_2.png "Agent-era architecture showing real-time streaming, sub-second responses, dynamic ABAC, autonomous decision-making, conversational interfaces, and continuous learning loops")
+**Diagram 6: BI Era vs Agent Era Architecture**
 
-The comparison between traditional BI and agent-ready architectures is illustrated in Diagram 6 (BI vs Agent Architecture), showing fundamental differences in requirements and design.
+```mermaid
+graph LR
+    subgraph bi["`**❌ BI ERA ARCHITECTURE**<br/><i>1990-2015</i>`"]
+        direction TB
+        BI1["`**Batch ETL**<br/><b>8-24 hour lag</b>`"]
+        BI2["`**Data Warehouse**<br/><b>OLAP Cubes</b>`"]
+        BI3["`**BI Dashboards**<br/><b>Fixed queries</b>`"]
+        BI4["`**Human Analysts**<br/><b>Manual decisions</b>`"]
+        
+        BI1 --> BI2 --> BI3 --> BI4
+    end
+    
+    subgraph agent["`**✅ AGENT ERA ARCHITECTURE**<br/><i>2023-Present</i>`"]
+        direction TB
+        A1["`**Real-Time Streaming**<br/><b>Sub-30s freshness</b>`"]
+        A2["`**Multi-Modal Storage**<br/><b>Vector + Graph + RDBMS</b>`"]
+        A3["`**Intelligence Orchestration**<br/><b>Natural language queries</b>`"]
+        A4["`**Autonomous Agents**<br/><b>Instant decisions</b>`"]
+        
+        A1 --> A2 --> A3 --> A4
+    end
+    
+    BI4 -.->|"`**Paradigm<br/>Evolution**`"| A4
+    
+    style bi fill:#fff5f5,stroke:#c62828,stroke-width:3px
+    style agent fill:#f0fff0,stroke:#00897b,stroke-width:3px
+    
+    style BI1 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style BI2 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style BI3 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style BI4 fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
+    
+    style A1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style A2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style A3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style A4 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+```
+
+**Key Architectural Differences**
+
+| Dimension | BI Era | Agent Era |
+|-----------|--------|-----------|
+| **Response Time** | Minutes to hours | <2 seconds |
+| **Data Freshness** | Daily (overnight ETL) | Real-time (sub-minute) |
+| **Query Interface** | Fixed dashboards, SQL | Natural language |
+| **Retrieval Layer** | SQL queries only | Intelligence Orchestration & Retrieval (Layer 4) |
+| **Decision Making** | Human analysts | Autonomous agents |
+| **Access Control** | Static RBAC | Dynamic ABAC (Layer 5) |
+| **Scale** | Hundreds of queries/day | Millions of queries/day |
+
+Layer 4's Intelligence Orchestration & Retrieval replaces simple SQL with hybrid search, RAG, knowledge graphs, and semantic caching.
 
 | Dimension | BI Systems | Agent Systems | Impact on Architecture |
 |-----------|------------|---------------|------------------------|
@@ -1986,11 +2459,68 @@ The five enterprise archetypes are compared in Table 5 (Enterprise Archetype Com
 5. **Greenfield/Digital Native (2%)** - Cloud-native, API-first
    - **Gap:** 40-50% missing | **Timeline:** 60-90 days | **Readiness:** 35-45/100
 
-**[Diagram 7: Evolution Timeline - See diagram7-evolution-timeline.mermaid]**
-![Alt text](./diagrams/diagram7_evolution_1.png "Enterprise Data Architecture Evolution: From BI Era to AI Era")
-![Alt text](./diagrams/diagram7_evolution_2.png "Enterprise Data Architecture Evolution: From BI Era to AI Era")
+**Diagram 7a: Enterprise Data Architecture Evolution Timeline**
 
-The evolution from BI Era through ML Era to Agentic Era is traced in Diagram 7 (Evolution Timeline), showing how enterprise data architecture has evolved over three decades.
+```mermaid
+timeline
+    title Enterprise Data Architecture Evolution: Three Eras
+    
+    section BI Era (1990-2015)
+        1990s : Data Warehouses Emerge
+              : Kimball Dimensional Modeling
+              : SQL becomes standard
+        2000s : ETL Tools Mature
+              : Business Intelligence Platforms
+              : OLAP Cubes, Reporting
+        2010s : Cloud Data Warehouses
+              : Self-Service BI
+              : Tableau, Power BI adoption
+              
+    section ML Era (2015-2023)
+        2015 : Hadoop & Big Data Lakes
+             : "Store everything" philosophy
+             : Spark for distributed processing
+        2018 : Feature Stores introduced
+             : ML Pipelines & MLOps
+             : Model training at scale
+        2020 : Real-time ML inference
+             : Model registries (MLflow)
+             : Embedding models gain traction
+        2022 : LLMs go mainstream
+             : ChatGPT released (Nov)
+             : Prompt engineering emerges
+             
+    section Agentic Era (2023-Present)
+        2023 : RAG Architecture patterns
+             : Vector databases production-ready
+             : Agent frameworks emerge
+        2024 : Multi-agent orchestration begins
+             : LangGraph, CrewAI, AutoGen
+             : MCP protocol announced (Nov)
+             : 7-Layer architecture synthesized
+        2025 : Agent-ready infrastructure matures
+             : ABAC governance standard
+             : Semantic layers for NL
+             : Multi-modal storage required
+             : Continuous model monitoring
+             : MCP mainstream adoption
+             : OpenAI, Google, MS support MCP
+             : Stable v1.0 SDKs released
+        2026+ : Production agent era
+              : Multi-agent systems standard
+              : Intelligence orchestration evolved
+              : Enterprise-wide deployment
+```
+
+Enterprise data architecture evolved from BI-era batch processing through ML-era model training to agentic-era intelligence orchestration. Layer 4 (Intelligence Orchestration & Retrieval) emerged as enterprises moved beyond simple RAG to coordinated multi-modal strategies.
+
+---
+
+**Diagram 7b: Evolution Comparison Matrix (Table View)**
+
+![Enterprise Architecture Evolution Comparison Matrix](./diagrams/diagram7_evolution_2.png "Side-by-side comparison across BI Era, ML Era, and Agentic Era showing Key Technologies, Data Paradigms, Focus Areas, Key Concepts, and Notable Milestones")
+
+> **NOTE TO RAM:** Review this professional PNG table - if "Agentic Era" column mentions "RAG" alone or "Intelligent Retrieval", consider context to determine if update needed.
 
 ---
 
@@ -2044,7 +2574,7 @@ Chapters 6-8 provide detailed 90-day implementation roadmaps for each phase: Qui
    - **Layer 2:** Real-Time Data Fabric (including training pipelines)
    - **Layer 3:** Universal Semantic Layer (entity resolution, metric versioning, bias governance)
    - **Layer 1:** Multi-Modal Storage (including model registry, encryption)
-   - **Layer 4:** Intelligent Retrieval/RAG (with embedding models, chunking, confidence display)
+   - **Layer 4:** Intelligence Orchestration & Retrieval (with embedding models, chunking, confidence display)
    - **Layer 5:** Agent-Aware Governance (ABAC, dynamic permissions, purpose-of-use logging)
    - **Layer 6:** Observability & Feedback (MLOps + LLM monitoring, drift detection, trace IDs)
    - **Layer 7:** Self-Service Data Products & Multi-Agent Orchestration (transparency metadata, failure recovery)
