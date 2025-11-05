@@ -5,11 +5,12 @@
 **Author:** Ram Katamaraja, CEO of Colaberry Inc.  
 **Publisher:** Colaberry Press  
 **Chapter Length:** 20 pages  
-**Version:** 3.5.0 (Product Recommendations Edition)
-**Last Updated:** October 27, 2025
+**Version:** 3.6.0 (Intelligence Layer Update)
+**Last Updated:** November 5, 2025
 **Alignment Status:** ✅ Synchronized with Chapter 0 v3.2.0 and Chapter 1 v3.2.1
 
 **Version History:**
+- **v3.6.0** (November 5, 2025): Layer 4 terminology standardization—renamed "RAG" to "Intelligence Orchestration & Retrieval" throughout (14 updates: 3 diagrams, 11 prose references). Aligns with architectural philosophy of capability-based naming. Maintains nuanced references to "RAG frameworks" as implementation tools (LangChain, LlamaIndex). Achieves consistency with Chapter 1 naming conventions.
 - **v3.5.0** (October 27, 2025): Added comprehensive product recommendations matching Chapter 1 pattern. Each GOAL now includes 2-3 specific technology options with URLs and selection criteria for ABAC/audit platforms (Governance), ML/LLM monitoring tools (Observability), streaming/caching/storage technologies (Accessibility), semantic layer platforms (Language), and data quality tools (Soundness). Total additions: ~850 words of actionable technology guidance.
 - **v3.4.0** (October 27, 2025): Aggressive trim—removed 2,800+ words of redundancy with Chapters 0-1. Eliminated INPACT™ re-explanations, consolidated biological analogy, removed repetitive connection boxes, streamlined Echo history references. Result: 12,142 → 9,300 words (23% reduction) while preserving all essential GOALS content.
 - **v3.3.0** (October 27, 2025): Enhanced readability—broke up 150-250 word paragraphs into 50-75 word segments, added 3-4 subheadings per GOAL section, varied entry points, added white space for breathing room.
@@ -102,7 +103,7 @@ This is the difference between architecture and operational targets.
 
 **Architecture answers: "What do we need to build?"**
 
-Multi-modal storage. Real-time data fabric. Semantic layer. RAG infrastructure. Agent-aware governance. Observability. Data products.
+Multi-modal storage. Real-time data fabric. Semantic layer. Intelligence infrastructure. Agent-aware governance. Observability. Data products.
 
 **GOALS answer: "How do we know it's working?"**
 
@@ -128,7 +129,7 @@ Both are essential, but they require fundamentally different mindsets.
 graph TB
     INPACT["<b>Chapter 0: INPACT™</b><br/><b>Six User Needs</b><br/><b>I • N • P • A • C • T</b><br/><b>Instant, Natural, Permitted,</b><br/><b>Adaptive, Contextual, Trusted</b>"]
     
-    ARCH["<b>Chapter 1: Seven-Layer Architecture</b><br/><b>Technical Implementation</b><br/><b>Layers 1-7: Storage → Fabric → Semantic</b><br/><b>→ RAG → Governance → Observability → Orchestration</b>"]
+    ARCH["<b>Chapter 1: Seven-Layer Architecture</b><br/><b>Technical Implementation</b><br/><b>Layers 1-7: Storage → Fabric → Semantic</b><br/><b>→ Intelligence → Governance → Observability → Orchestration</b>"]
     
     GOALS["<b>Chapter 2: Five GOALS</b><br/><b>Operational Discipline</b><br/><b>G • O • A • L • S</b><br/><b>Governance, Observability, Accessibility,</b><br/><b>Language, Soundness</b>"]
     
@@ -409,7 +410,7 @@ Effective observability requires visibility across multiple dimensions:
 
 **Semantic drift detection:** When does terminology diverge from actual usage? New medical codes were introduced, but the semantic layer wasn't updated, causing misinterpretation of 12% of diabetes-related queries.
 
-**Retrieval quality metrics:** Is RAG finding the most relevant information? NDCG scores revealed that recent clinic policy changes weren't being retrieved even though they were in the knowledge base.
+**Retrieval quality metrics:** Is intelligent retrieval finding the most relevant information? NDCG scores revealed that recent clinic policy changes weren't being retrieved even though they were in the knowledge base.
 
 **Model performance tracking:** When do embedding models or LLMs degrade? Echo's embedding model accuracy dropped from 0.92 to 0.78 over two months as medical terminology evolved.
 
@@ -431,7 +432,7 @@ sequenceDiagram
     participant U as <b>User</b>
     participant A as <b>Agent</b><br/><b>(Layer 7)</b>
     participant S as <b>Semantic</b><br/><b>(Layer 3)</b>
-    participant R as <b>RAG</b><br/><b>(Layer 4)</b>
+    participant I as <b>Intelligence</b><br/><b>(Layer 4)</b>
     participant D as <b>Data Fabric</b><br/><b>(Layer 2)</b>
     participant DB as <b>Storage</b><br/><b>(Layer 1)</b>
     participant O as <b>Observability</b><br/><b>(Layer 6)</b>
@@ -452,10 +453,10 @@ sequenceDiagram
     S-->>A: <b>Translated: provider_id=789, date=2025-10-28</b>
     deactivate S
     
-    A->>R: <b>Retrieve: provider_schedule context</b>
-    activate R
-    R->>O: <b>Log: RAG retrieval started (trace: abc-123-def)</b>
-    R->>D: <b>Query: provider_schedule WHERE id=789 AND date=2025-10-28</b>
+    A->>I: <b>Retrieve: provider_schedule context</b>
+    activate I
+    I->>O: <b>Log: Intelligence retrieval started (trace: abc-123-def)</b>
+    I->>D: <b>Query: provider_schedule WHERE id=789 AND date=2025-10-28</b>
     activate D
     D->>O: <b>Log: Real-time stream query (trace: abc-123-def)</b>
     D->>DB: <b>Execute: SELECT * FROM provider_schedule...</b>
@@ -464,11 +465,11 @@ sequenceDiagram
     Note over DB: <b>Missing index on</b><br/><b>provider_id column!</b>
     DB-->>D: <b>Result: 3 available time slots</b>
     deactivate DB
-    D-->>R: <b>Stream: 3 slots</b>
+    D-->>I: <b>Stream: 3 slots</b>
     deactivate D
-    R->>O: <b>Log: Context retrieved 2.5s total (trace: abc-123-def)</b>
-    R-->>A: <b>Context: [8:00am, 10:00am, 2:00pm]</b>
-    deactivate R
+    I->>O: <b>Log: Context retrieved 2.5s total (trace: abc-123-def)</b>
+    I-->>A: <b>Context: [8:00am, 10:00am, 2:00pm]</b>
+    deactivate I
     
     A->>O: <b>Log: Response generated 2.9s total (trace: abc-123-def)</b>
     A->>U: <b>"Dr. Martinez has 3 openings tomorrow:</b><br/><b>8:00am, 10:00am, 2:00pm"</b>
@@ -489,7 +490,7 @@ Without trace IDs, this 2.9-second query would have generated alerts like "Agent
 
 **Layer 7 (Agent):** 2.9s total response time → flag for investigation  
 **Layer 3 (Semantic):** 0.3s translation → performing well ✓  
-**Layer 4 (RAG):** 2.5s retrieval → slower than target, investigate deeper  
+**Layer 4 (Intelligence):** 2.5s retrieval → slower than target, investigate deeper  
 **Layer 2 (Data Fabric):** streaming overhead minimal → not the issue  
 **Layer 1 (Storage):** **2.3s DB query → ROOT CAUSE IDENTIFIED** ❌
 
@@ -632,7 +633,7 @@ Migrated appointment queries to vector databases with semantic indexing—[Pinec
 
 **Solution 3: Parallel Retrieval**
 
-Redesigned RAG infrastructure using [LangChain](https://www.langchain.com) or [LlamaIndex](https://www.llamaindex.ai) to query multiple sources simultaneously. Three sequential 1.5-second queries became three parallel 1.5-second queries with 1.6-second total latency.
+Redesigned Intelligence Layer using RAG frameworks like [LangChain](https://www.langchain.com) or [LlamaIndex](https://www.llamaindex.ai) to orchestrate parallel retrieval across multiple sources. Three sequential 1.5-second queries became three parallel 1.5-second queries with 1.6-second total latency.
 
 **Solution 4: Intelligent Caching**
 
@@ -655,7 +656,7 @@ graph TD
     
     L3 -->|<b>✅ Cache Hit</b><br/><b>7% of queries</b>| C3["<b>Graph Traversal</b><br/><b>Provider→Schedule</b><br/><b>⚡ Return in 1.2s</b><br/><b>Cost: $0.015/query</b>"]
     
-    L3 -->|<b>❌ Cache Miss</b><br/><b>3% of queries</b>| L4["<b>Full Query Pipeline:</b><br/><b>RAG + Data Fabric + DB</b><br/><b>⏱️ 2.8-4.2s response</b><br/><b>Cost: $0.12/query</b>"]
+    L3 -->|<b>❌ Cache Miss</b><br/><b>3% of queries</b>| L4["<b>Full Query Pipeline:</b><br/><b>Intelligence + Data Fabric + DB</b><br/><b>⏱️ 2.8-4.2s response</b><br/><b>Cost: $0.12/query</b>"]
     
     C1 --> R["<b>Response to User:</b><br/><b>Sub-2s ✅</b>"]
     C2 --> R
@@ -709,7 +710,7 @@ graph TD
 
 **Level 4: Cold Path (3% of queries)**
 - **When:** Novel queries with no cached data at any level
-- **Speed:** 2.8-4.2s (full RAG + DB + processing)
+- **Speed:** 2.8-4.2s (full Intelligence + DB + processing)
 - **How it works:** Complete pipeline execution
 - **Cache warming:** Results populate all three cache levels for future queries
 - **Cost:** $0.12 per query (full processing cost)
@@ -724,7 +725,7 @@ graph TD
 
 ---
 
-**Selection criteria:** Prioritize managed streaming services for reduced operational overhead, query-optimized storage per data type (vector for semantic search, graph for relationships, RDBMS for transactions), RAG frameworks with native parallel retrieval support, and semantic caching over exact-match caching.
+**Selection criteria:** Prioritize managed streaming services for reduced operational overhead, query-optimized storage per data type (vector for semantic search, graph for relationships, RDBMS for transactions), Intelligence frameworks with native parallel retrieval support, and semantic caching over exact-match caching.
 
 ### Measuring Accessibility Health
 
@@ -1434,7 +1435,7 @@ You now have all three conceptual frameworks:
 
 **INPACT™ Framework (Chapter 0):** What agents need from the user's perspective—Instant, Natural, Permitted, Adaptive, Contextual, Trusted.
 
-**Seven-Layer Architecture (Chapter 1):** What you build to deliver those needs—Multi-Modal Storage, Real-Time Fabric, Semantic Layer, RAG, Governance, Observability, Data Products.
+**Seven-Layer Architecture (Chapter 1):** What you build to deliver those needs—Multi-Modal Storage, Real-Time Fabric, Semantic Layer, Intelligence Orchestration & Retrieval, Governance, Observability, Data Products.
 
 **Five GOALS (This Chapter):** What you continuously maintain to sustain success—Governance, Observability, Accessibility, Language, Soundness.
 
@@ -1596,7 +1597,7 @@ Start by building Layer 6 monitoring while implementing high-impact Accessibilit
 
 **Phase 2 (Days 31-60): Core Infrastructure**
 
-Construct foundational layers: real-time data fabric, semantic layer, multi-modal storage, RAG infrastructure. Result: Production-grade agent capability by day 60.
+Construct foundational layers: real-time data fabric, semantic layer, multi-modal storage, Intelligence infrastructure. Result: Production-grade agent capability by day 60.
 
 **Phase 3 (Days 61-90): Governance and Operationalization**
 
@@ -1749,7 +1750,7 @@ Use this rubric to assess your organization's current GOALS health. Score each d
 - **Product Categories Covered:**
   - Governance: ABAC engines (3), Audit logging (3)
   - Observability: ML/LLM monitoring (4), Data quality (3), APM (2)
-  - Accessibility: Event streaming (3), CDC (3), Stream processing (3), Vector DB (3), Knowledge graphs (3), RAG (2), Caching (2)
+  - Accessibility: Event streaming (3), CDC (3), Stream processing (3), Vector DB (3), Knowledge graphs (3), Intelligence frameworks (2), Caching (2)
   - Language: Semantic layer (3), Metadata management (3), Ontology (3)
   - Soundness: Data observability (3), Validation frameworks (3), Profiling (3)
 - **Total Products Recommended:** 45+ with URLs and selection criteria
