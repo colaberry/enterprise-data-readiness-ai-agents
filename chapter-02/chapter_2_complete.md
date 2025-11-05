@@ -268,7 +268,8 @@ You need attribute-based access control policies that evaluate dozens of factors
 **Diagram 3: RBAC vs ABAC Authorization Flow**
 ```mermaid
 graph LR
-    subgraph OLD["Analytics Era: Role-Based Access Control RBAC"]
+    subgraph OLD["Analytics Era: RBAC"]
+        TITLE1["Role-Based Access Control"]
         R1["User Request"]
         R2["Check Role"]
         R3["Role = Patient"]
@@ -276,6 +277,7 @@ graph LR
         R5["❌ Total: Violates
         minimum necessary"]
         
+        TITLE1 --> R1
         R1 --> R2
         R2 --> R3
         R3 --> R4
@@ -284,7 +286,8 @@ graph LR
     
     OLD -.->|Evolution| NEW
     
-    subgraph NEW["Agent Era: Attribute-Based Access Control ABAC"]
+    subgraph NEW["Agent Era: ABAC"]
+        TITLE2["Attribute-Based Access Control"]
         A1["User Request"]
         A2["Context Eval
         👤📋📅📱🎯"]
@@ -293,18 +296,21 @@ graph LR
         A5["✅ Total: Sub-10ms
         secure access"]
         
+        TITLE2 --> A1
         A1 --> A2
         A2 --> A3
         A3 --> A4
         A4 --> A5
     end
     
+    style TITLE1 fill:#ffcccc,stroke:#c62828,stroke-width:3px,color:#b71c1c,font-weight:bold
     style R1 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style R2 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style R3 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style R4 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style R5 fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
     
+    style TITLE2 fill:#b3e0cc,stroke:#00897b,stroke-width:3px,color:#004d40,font-weight:bold
     style A1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style A2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style A3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
