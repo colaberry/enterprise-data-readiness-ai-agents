@@ -126,31 +126,31 @@ Both are essential, but they require fundamentally different mindsets.
 
 ```mermaid
 graph TB
-    subgraph "Chapter 0: INPACT™ Needs"
-        I[I - Instant]
-        N[N - Natural]
-        P[P - Permitted]
-        A[A - Adaptive]
-        C[C - Contextual]
-        T[T - Trusted]
+    subgraph "<b>Chapter 0: INPACT™ Needs</b>"
+        I["<b>I - Instant</b>"]
+        N["<b>N - Natural</b>"]
+        P["<b>P - Permitted</b>"]
+        A["<b>A - Adaptive</b>"]
+        C["<b>C - Contextual</b>"]
+        T["<b>T - Trusted</b>"]
     end
     
-    subgraph "Chapter 1: 7-Layer Architecture"
-        L1[Layer 1: Multi-Modal Storage]
-        L2[Layer 2: Real-Time Data Fabric]
-        L3[Layer 3: Universal Semantic Layer]
-        L4[Layer 4: RAG Infrastructure]
-        L5[Layer 5: Agent-Aware Governance]
-        L6[Layer 6: Observability & Feedback]
-        L7[Layer 7: Data Products & Orchestration]
+    subgraph "<b>Chapter 1: 7-Layer Architecture</b>"
+        L1["<b>Layer 1: Multi-Modal Storage</b>"]
+        L2["<b>Layer 2: Real-Time Data Fabric</b>"]
+        L3["<b>Layer 3: Universal Semantic Layer</b>"]
+        L4["<b>Layer 4: RAG Infrastructure</b>"]
+        L5["<b>Layer 5: Agent-Aware Governance</b>"]
+        L6["<b>Layer 6: Observability & Feedback</b>"]
+        L7["<b>Layer 7: Data Products & Orchestration</b>"]
     end
     
-    subgraph "Chapter 2: Five GOALS"
-        G[G - Governance<br/>Security & Compliance]
-        O[O - Observability<br/>Monitoring & Feedback]
-        AA[A - Accessibility<br/>Speed & Freshness]
-        LL[L - Language<br/>Semantic Understanding]
-        S[S - Soundness<br/>Data Quality & Reliability]
+    subgraph "<b>Chapter 2: Five GOALS</b>"
+        G["<b>G - Governance</b><br/><b>Security & Compliance</b>"]
+        O["<b>O - Observability</b><br/><b>Monitoring & Feedback</b>"]
+        AA["<b>A - Accessibility</b><br/><b>Speed & Freshness</b>"]
+        LL["<b>L - Language</b><br/><b>Semantic Understanding</b>"]
+        S["<b>S - Soundness</b><br/><b>Data Quality & Reliability</b>"]
     end
     
     I --> L2
@@ -180,11 +180,26 @@ graph TB
     T --> G
     T --> O
     
-    style G fill:#e1f5ff
-    style O fill:#fff4e1
-    style AA fill:#e8f5e1
-    style LL fill:#f5e1ff
-    style S fill:#ffe1e1
+    style I fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:2px
+    style N fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:2px
+    style P fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:2px
+    style A fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:2px
+    style C fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:2px
+    style T fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:2px
+    
+    style L1 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style L2 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style L3 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style L4 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style L5 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style L6 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style L7 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    
+    style G fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style O fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style AA fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style LL fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style S fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
 ```
 
 ### How Everything Connects
@@ -198,41 +213,41 @@ Just as you can have a perfect skeleton but fail if your cardiovascular system i
 **Diagram 2: GOALS Interdependencies - How One GOAL Supports Another**
 ```mermaid
 graph LR
-    G[Governance<br/>Security & Compliance]
-    O[Observability<br/>Monitoring & Feedback]
-    A[Accessibility<br/>Speed & Freshness]
-    L[Language<br/>Semantic Understanding]
-    S[Soundness<br/>Data Quality]
+    G["<b>Governance</b><br/><b>Security & Compliance</b>"]
+    O["<b>Observability</b><br/><b>Monitoring & Feedback</b>"]
+    A["<b>Accessibility</b><br/><b>Speed & Freshness</b>"]
+    L["<b>Language</b><br/><b>Semantic Understanding</b>"]
+    S["<b>Soundness</b><br/><b>Data Quality</b>"]
     
-    G -->|Audit trails enable| O
-    O -->|Detects policy violations| G
+    G -->|<b>Audit trails enable</b>| O
+    O -->|<b>Detects policy violations</b>| G
     
-    O -->|Monitors performance| A
-    A -->|Real-time metrics feed| O
+    O -->|<b>Monitors performance</b>| A
+    A -->|<b>Real-time metrics feed</b>| O
     
-    O -->|Tracks semantic drift| L
-    L -->|Improves query accuracy| O
+    O -->|<b>Tracks semantic drift</b>| L
+    L -->|<b>Improves query accuracy</b>| O
     
-    O -->|Detects data issues| S
-    S -->|Reliable data enables| O
+    O -->|<b>Detects data issues</b>| S
+    S -->|<b>Reliable data enables</b>| O
     
-    A -->|Fast retrieval supports| L
-    L -->|Optimized queries improve| A
+    A -->|<b>Fast retrieval supports</b>| L
+    L -->|<b>Optimized queries improve</b>| A
     
-    L -->|Semantic validation checks| S
-    S -->|Quality data improves| L
+    L -->|<b>Semantic validation checks</b>| S
+    S -->|<b>Quality data improves</b>| L
     
-    S -->|Clean data enables| A
-    A -->|Fresh data maintains| S
+    S -->|<b>Clean data enables</b>| A
+    A -->|<b>Fresh data maintains</b>| S
     
-    G -->|Access policies protect| S
-    S -->|Audit logs depend on| G
+    G -->|<b>Access policies protect</b>| S
+    S -->|<b>Audit logs depend on</b>| G
     
-    style G fill:#e1f5ff
-    style O fill:#fff4e1
-    style A fill:#e8f5e1
-    style L fill:#f5e1ff
-    style S fill:#ffe1e1
+    style G fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style O fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style A fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style L fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style S fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
 ```
 
 ### Why GOALS Are Interdependent
@@ -301,35 +316,40 @@ Giving the agent a "patient" role doesn't tell you which specific patient's data
 
 You need attribute-based access control policies that evaluate dozens of factors in real-time.
 
-**Diagram 7: RBAC vs ABAC Authorization Flow**
+**Diagram 3: RBAC vs ABAC Authorization Flow**
 ```mermaid
 graph TB
-    subgraph "Traditional RBAC - Fails for Agents"
-        R1[User Request:<br/>'Show my lab results']
-        R2[Check Role:<br/>User = 'Patient']
-        R3[Role Permissions:<br/>READ patients.lab_results]
-        R4[❌ Problem: Too Broad<br/>Agent retrieves ALL patients' data<br/>Violates 'minimum necessary' standard]
+    subgraph "<b>Traditional RBAC - Fails for Agents</b>"
+        R1["<b>User Request:</b><br/><b>'Show my lab results'</b>"]
+        R2["<b>Check Role:</b><br/><b>User = 'Patient'</b>"]
+        R3["<b>Role Permissions:</b><br/><b>READ patients.lab_results</b>"]
+        R4["<b>❌ Problem: Too Broad</b><br/><b>Agent retrieves ALL patients' data</b><br/><b>Violates 'minimum necessary' standard</b>"]
         
         R1 --> R2
         R2 --> R3
         R3 --> R4
     end
     
-    subgraph "Dynamic ABAC - Agent-Ready"
-        A1[User Request:<br/>'Show my lab results']
-        A2[Evaluate Context Attributes:<br/>👤 Who: patient_id=12345<br/>📋 What: lab_results table<br/>📅 When: 2025-10-27 14:32<br/>📱 Where: mobile_app<br/>🎯 Why: patient_self_access]
-        A3[Apply Dynamic Policy:<br/>IF requester.patient_id == record.patient_id<br/>AND data.type == 'lab_results'<br/>AND patient.consent_status == 'active'<br/>AND access_time WITHIN business_hours<br/>THEN permit WITH row_level_filter]
-        A4[✅ Secure Result:<br/>Only patient 12345's labs<br/>Provider notes masked<br/>Full audit trail logged with context<br/>Sub-10ms evaluation]
+    subgraph "<b>Dynamic ABAC - Agent-Ready</b>"
+        A1["<b>User Request:</b><br/><b>'Show my lab results'</b>"]
+        A2["<b>Evaluate Context Attributes:</b><br/><b>👤 Who: patient_id=12345</b><br/><b>📋 What: lab_results table</b><br/><b>📅 When: 2025-10-27 14:32</b><br/><b>📱 Where: mobile_app</b><br/><b>🎯 Why: patient_self_access</b>"]
+        A3["<b>Apply Dynamic Policy:</b><br/><b>IF requester.patient_id == record.patient_id</b><br/><b>AND data.type == 'lab_results'</b><br/><b>AND patient.consent_status == 'active'</b><br/><b>AND access_time WITHIN business_hours</b><br/><b>THEN permit WITH row_level_filter</b>"]
+        A4["<b>✅ Secure Result:</b><br/><b>Only patient 12345's labs</b><br/><b>Provider notes masked</b><br/><b>Full audit trail logged with context</b><br/><b>Sub-10ms evaluation</b>"]
         
         A1 --> A2
         A2 --> A3
         A3 --> A4
     end
     
-    style R4 fill:#ffcccc,stroke:#cc0000,stroke-width:2px
-    style A4 fill:#ccffcc,stroke:#00cc00,stroke-width:2px
-    style A2 fill:#e1f5ff
-    style A3 fill:#e1f5ff
+    style R1 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style R2 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style R3 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style R4 fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
+    
+    style A1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style A2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style A3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style A4 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 ```
 
 **The Five W's of ABAC Authorization**
@@ -482,60 +502,60 @@ User query → semantic translation → retrieval → policy evaluation → data
 
 This enabled root cause analysis impossible with infrastructure metrics alone.
 
-**Diagram 8: End-to-End Observability with Trace IDs**
+**Diagram 4: End-to-End Observability with Trace IDs**
 ```mermaid
 sequenceDiagram
-    participant U as User
-    participant A as Agent<br/>(Layer 7)
-    participant S as Semantic<br/>(Layer 3)
-    participant R as RAG<br/>(Layer 4)
-    participant D as Data Fabric<br/>(Layer 2)
-    participant DB as Storage<br/>(Layer 1)
-    participant O as Observability<br/>(Layer 6)
+    participant U as <b>User</b>
+    participant A as <b>Agent</b><br/><b>(Layer 7)</b>
+    participant S as <b>Semantic</b><br/><b>(Layer 3)</b>
+    participant R as <b>RAG</b><br/><b>(Layer 4)</b>
+    participant D as <b>Data Fabric</b><br/><b>(Layer 2)</b>
+    participant DB as <b>Storage</b><br/><b>(Layer 1)</b>
+    participant O as <b>Observability</b><br/><b>(Layer 6)</b>
     
-    rect rgb(230, 245, 255)
-        Note over U,O: Trace ID: abc-123-def | Timestamp: 2025-10-27 14:32:15
+    rect rgb(224, 242, 241)
+        Note over U,O: <b>Trace ID: abc-123-def | Timestamp: 2025-10-27 14:32:15</b>
     end
     
-    U->>A: "Show Dr. Martinez's availability tomorrow"
+    U->>A: <b>"Show Dr. Martinez's availability tomorrow"</b>
     activate A
-    A->>O: Log: Query received (trace: abc-123-def, user: patient_12345)
+    A->>O: <b>Log: Query received (trace: abc-123-def, user: patient_12345)</b>
     
-    A->>S: Translate: "Dr. Martinez" + "availability" + "tomorrow"
+    A->>S: <b>Translate: "Dr. Martinez" + "availability" + "tomorrow"</b>
     activate S
-    S->>O: Log: Semantic translation started (trace: abc-123-def)
-    S->>S: Entity resolution:<br/>"Dr. Martinez" → provider_id=789<br/>"tomorrow" → date=2025-10-28
-    S->>O: Log: Translation complete 0.3s (trace: abc-123-def)
-    S-->>A: Translated: provider_id=789, date=2025-10-28
+    S->>O: <b>Log: Semantic translation started (trace: abc-123-def)</b>
+    S->>S: <b>Entity resolution:</b><br/><b>"Dr. Martinez" → provider_id=789</b><br/><b>"tomorrow" → date=2025-10-28</b>
+    S->>O: <b>Log: Translation complete 0.3s (trace: abc-123-def)</b>
+    S-->>A: <b>Translated: provider_id=789, date=2025-10-28</b>
     deactivate S
     
-    A->>R: Retrieve: provider_schedule context
+    A->>R: <b>Retrieve: provider_schedule context</b>
     activate R
-    R->>O: Log: RAG retrieval started (trace: abc-123-def)
-    R->>D: Query: provider_schedule WHERE id=789 AND date=2025-10-28
+    R->>O: <b>Log: RAG retrieval started (trace: abc-123-def)</b>
+    R->>D: <b>Query: provider_schedule WHERE id=789 AND date=2025-10-28</b>
     activate D
-    D->>O: Log: Real-time stream query (trace: abc-123-def)
-    D->>DB: Execute: SELECT * FROM provider_schedule...
+    D->>O: <b>Log: Real-time stream query (trace: abc-123-def)</b>
+    D->>DB: <b>Execute: SELECT * FROM provider_schedule...</b>
     activate DB
-    DB->>O: ⚠️ Log: Query execution 2.3s - SLOW (trace: abc-123-def)
-    Note over DB: Missing index on<br/>provider_id column!
-    DB-->>D: Result: 3 available time slots
+    DB->>O: <b>⚠️ Log: Query execution 2.3s - SLOW (trace: abc-123-def)</b>
+    Note over DB: <b>Missing index on</b><br/><b>provider_id column!</b>
+    DB-->>D: <b>Result: 3 available time slots</b>
     deactivate DB
-    D-->>R: Stream: 3 slots
+    D-->>R: <b>Stream: 3 slots</b>
     deactivate D
-    R->>O: Log: Context retrieved 2.5s total (trace: abc-123-def)
-    R-->>A: Context: [8:00am, 10:00am, 2:00pm]
+    R->>O: <b>Log: Context retrieved 2.5s total (trace: abc-123-def)</b>
+    R-->>A: <b>Context: [8:00am, 10:00am, 2:00pm]</b>
     deactivate R
     
-    A->>O: Log: Response generated 2.9s total (trace: abc-123-def)
-    A->>U: "Dr. Martinez has 3 openings tomorrow:<br/>8:00am, 10:00am, 2:00pm"
+    A->>O: <b>Log: Response generated 2.9s total (trace: abc-123-def)</b>
+    A->>U: <b>"Dr. Martinez has 3 openings tomorrow:</b><br/><b>8:00am, 10:00am, 2:00pm"</b>
     deactivate A
     
-    rect rgb(255, 240, 240)
-        Note over O: Root Cause Analysis (trace: abc-123-def):<br/>❌ Bottleneck: Layer 1 DB query 2.3s<br/>💡 Cause: Missing index on provider_id<br/>🎯 Action: Auto-create ticket DBA-2847<br/>⏱️ Expected fix: Add index, reduce to <20ms
+    rect rgb(255, 235, 238)
+        Note over O: <b>Root Cause Analysis (trace: abc-123-def):</b><br/><b>❌ Bottleneck: Layer 1 DB query 2.3s</b><br/><b>💡 Cause: Missing index on provider_id</b><br/><b>🎯 Action: Auto-create ticket DBA-2847</b><br/><b>⏱️ Expected fix: Add index, reduce to <20ms</b>
     end
     
-    O->>O: Auto-alert: Performance degradation<br/>Create incident ticket<br/>Assign to: Database team<br/>Priority: Medium (>2s query)
+    O->>O: <b>Auto-alert: Performance degradation</b><br/><b>Create incident ticket</b><br/><b>Assign to: Database team</b><br/><b>Priority: Medium (>2s query)</b>
 ```
 
 **The Power of Trace-Based Diagnosis**
@@ -695,46 +715,50 @@ Redesigned RAG infrastructure using [LangChain](https://www.langchain.com) or [L
 
 Semantic caching with [Redis](https://redis.io) or [Momento](https://www.gomomento.com) achieving 60%+ hit rates. Common queries returned from cache in 300ms instead of querying data sources.
 
-**Diagram 9: Multi-Level Caching Strategy for Sub-2s Performance**
+**Diagram 5: Multi-Level Caching Strategy for Sub-2s Performance**
 ```mermaid
 graph TD
-    Q[User Query:<br/>'Show Dr. Martinez availability tomorrow']
+    Q["<b>User Query:</b><br/><b>'Show Dr. Martinez availability tomorrow'</b>"]
     
-    Q --> L1{Level 1:<br/>Semantic Cache<br/>Redis/Momento}
+    Q --> L1{"<b>Level 1:</b><br/><b>Semantic Cache</b><br/><b>Redis/Momento</b>"}
     
-    L1 -->|✅ Cache Hit<br/>65% of queries| C1[Semantic Match Found<br/>⚡ Return in 300ms<br/>Cost: $0.001/query]
+    L1 -->|<b>✅ Cache Hit</b><br/><b>65% of queries</b>| C1["<b>Semantic Match Found</b><br/><b>⚡ Return in 300ms</b><br/><b>Cost: $0.001/query</b>"]
     
-    L1 -->|❌ Cache Miss<br/>35% of queries| L2{Level 2:<br/>Vector Database<br/>Pinecone/Weaviate}
+    L1 -->|<b>❌ Cache Miss</b><br/><b>35% of queries</b>| L2{"<b>Level 2:</b><br/><b>Vector Database</b><br/><b>Pinecone/Weaviate</b>"}
     
-    L2 -->|✅ Cache Hit<br/>25% of queries| C2[Embedding Lookup<br/>⚡ Return in 800ms<br/>Cost: $0.008/query]
+    L2 -->|<b>✅ Cache Hit</b><br/><b>25% of queries</b>| C2["<b>Embedding Lookup</b><br/><b>⚡ Return in 800ms</b><br/><b>Cost: $0.008/query</b>"]
     
-    L2 -->|❌ Cache Miss<br/>10% of queries| L3{Level 3:<br/>Knowledge Graph<br/>Neo4j/Neptune}
+    L2 -->|<b>❌ Cache Miss</b><br/><b>10% of queries</b>| L3{"<b>Level 3:</b><br/><b>Knowledge Graph</b><br/><b>Neo4j/Neptune</b>"}
     
-    L3 -->|✅ Cache Hit<br/>7% of queries| C3[Graph Traversal<br/>Provider→Schedule<br/>⚡ Return in 1.2s<br/>Cost: $0.015/query]
+    L3 -->|<b>✅ Cache Hit</b><br/><b>7% of queries</b>| C3["<b>Graph Traversal</b><br/><b>Provider→Schedule</b><br/><b>⚡ Return in 1.2s</b><br/><b>Cost: $0.015/query</b>"]
     
-    L3 -->|❌ Cache Miss<br/>3% of queries| L4[Full Query Pipeline:<br/>RAG + Data Fabric + DB<br/>⏱️ 2.8-4.2s response<br/>Cost: $0.12/query]
+    L3 -->|<b>❌ Cache Miss</b><br/><b>3% of queries</b>| L4["<b>Full Query Pipeline:</b><br/><b>RAG + Data Fabric + DB</b><br/><b>⏱️ 2.8-4.2s response</b><br/><b>Cost: $0.12/query</b>"]
     
-    C1 --> R[Response to User:<br/>Sub-2s ✅]
+    C1 --> R["<b>Response to User:</b><br/><b>Sub-2s ✅</b>"]
     C2 --> R
     C3 --> R
-    L4 --> SLOW[Response to User:<br/>2.8-4.2s ⚠️]
+    L4 --> SLOW["<b>Response to User:</b><br/><b>2.8-4.2s ⚠️</b>"]
     
-    L4 --> U[Update All Cache Levels<br/>For Next Similar Query]
+    L4 --> U["<b>Update All Cache Levels</b><br/><b>For Next Similar Query</b>"]
     
-    U -.->|Cache warming| L1
-    U -.->|Cache warming| L2
-    U -.->|Cache warming| L3
+    U -.->|<b>Cache warming</b>| L1
+    U -.->|<b>Cache warming</b>| L2
+    U -.->|<b>Cache warming</b>| L3
     
-    style C1 fill:#ccffcc,stroke:#00cc00,stroke-width:2px
-    style C2 fill:#e8f5e1,stroke:#00aa00,stroke-width:2px
-    style C3 fill:#fff4e1,stroke:#aa8800,stroke-width:2px
-    style L4 fill:#ffcccc,stroke:#cc0000,stroke-width:2px
-    style R fill:#ccffcc
-    style SLOW fill:#ffe1e1
+    style C1 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style C2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style C3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style L4 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style R fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style SLOW fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
     
-    Note1[💡 Semantic Cache Insight:<br/>'Dr. Martinez availability tomorrow' ≈<br/>'Dr. M schedule 10/28' ≈<br/>'Show Martinez times tomorrow'<br/>All resolve to same cached result]
+    style L1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style L2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style L3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     
-    Note2[💡 Why 4 Levels Matter:<br/>L1: Instant for common patterns<br/>L2: Fast for semantic similarity<br/>L3: Good for relationships<br/>L4: Complete for novel queries]
+    Note1["<b>💡 Semantic Cache Insight:</b><br/><b>'Dr. Martinez availability tomorrow' ≈</b><br/><b>'Dr. M schedule 10/28' ≈</b><br/><b>'Show Martinez times tomorrow'</b><br/><b>All resolve to same cached result</b>"]
+    
+    Note2["<b>💡 Why 4 Levels Matter:</b><br/><b>L1: Instant for common patterns</b><br/><b>L2: Fast for semantic similarity</b><br/><b>L3: Good for relationships</b><br/><b>L4: Complete for novel queries</b>"]
 ```
 
 **Understanding the Caching Hierarchy**
@@ -851,41 +875,47 @@ Language GOAL depends on maintaining a comprehensive, accurate semantic layer.
 
 Echo's semantic layer includes business glossaries with natural language mappings, entity resolution rules that disambiguate references, metric definitions with embedded business logic, and ontologies defining relationships between concepts.
 
-**Diagram 10: Natural Language → Data Operation Pipeline**
+**Diagram 6: Natural Language → Data Operation Pipeline**
 ```mermaid
 graph TB
-    NL[User Query:<br/>'Show my doctor's availability next week']
+    NL["<b>User Query:</b><br/><b>'Show my doctor's availability next week'</b>"]
     
-    NL --> PARSE[Intent Parsing:<br/>Action: 'show' → SELECT query<br/>Subject: 'doctor' → provider entity<br/>Qualifier: 'my' → needs resolution<br/>Timeframe: 'next week' → date range]
+    NL --> PARSE["<b>Intent Parsing:</b><br/><b>Action: 'show' → SELECT query</b><br/><b>Subject: 'doctor' → provider entity</b><br/><b>Qualifier: 'my' → needs resolution</b><br/><b>Timeframe: 'next week' → date range</b>"]
     
-    PARSE --> ENTITY{Entity Resolution:<br/>Which doctor?}
+    PARSE --> ENTITY{"<b>Entity Resolution:</b><br/><b>Which doctor?</b>"}
     
-    ENTITY --> CTX[Context Signals:<br/>✓ User: patient_id 12345<br/>✓ Recent visit: dr_martinez provider_id 789<br/>✓ Primary care: dr_martinez<br/>✓ Specialty context: diabetes care<br/>✓ Last appointment: 2025-09-15]
+    ENTITY --> CTX["<b>Context Signals:</b><br/><b>✓ User: patient_id 12345</b><br/><b>✓ Recent visit: dr_martinez provider_id 789</b><br/><b>✓ Primary care: dr_martinez</b><br/><b>✓ Specialty context: diabetes care</b><br/><b>✓ Last appointment: 2025-09-15</b>"]
     
-    CTX --> RESOLVE[Resolved Entity:<br/>'my doctor' = Dr. Maria Martinez<br/>provider_id = 789<br/>Confidence: 0.94]
+    CTX --> RESOLVE["<b>Resolved Entity:</b><br/><b>'my doctor' = Dr. Maria Martinez</b><br/><b>provider_id = 789</b><br/><b>Confidence: 0.94</b>"]
     
-    RESOLVE --> AMBIG{Confidence<br/>>0.90?}
+    RESOLVE --> AMBIG{"<b>Confidence</b><br/><b>>0.90?</b>"}
     
-    AMBIG -->|Yes<br/>Confident| GLOSS[Glossary Lookup:<br/>'availability' → provider_schedule.status<br/>'next week' → DATE BETWEEN<br/>2025-10-28 AND 2025-11-03<br/>'show' → SELECT with patient_view filter]
+    AMBIG -->|<b>Yes</b><br/><b>Confident</b>| GLOSS["<b>Glossary Lookup:</b><br/><b>'availability' → provider_schedule.status</b><br/><b>'next week' → DATE BETWEEN</b><br/><b>2025-10-28 AND 2025-11-03</b><br/><b>'show' → SELECT with patient_view filter</b>"]
     
-    AMBIG -->|No<br/>Ambiguous| CLARIFY[Ask Clarification:<br/>'Which doctor do you mean?<br/>- Dr. Martinez primary care<br/>- Dr. Chen endocrinology']
+    AMBIG -->|<b>No</b><br/><b>Ambiguous</b>| CLARIFY["<b>Ask Clarification:</b><br/><b>'Which doctor do you mean?</b><br/><b>- Dr. Martinez primary care</b><br/><b>- Dr. Chen endocrinology'</b>"]
     
-    GLOSS --> SEMANTIC[Semantic Query Construction:<br/>SELECT p.provider_name,<br/>       s.appointment_date,<br/>       s.appointment_time,<br/>       s.duration_minutes<br/>FROM provider_schedule s<br/>JOIN providers p ON s.provider_id = p.id<br/>WHERE p.provider_id = 789<br/>  AND s.appointment_date BETWEEN<br/>      '2025-10-28' AND '2025-11-03'<br/>  AND s.availability_status = 'open'<br/>  AND s.accepts_patient_type = 'existing']
+    GLOSS --> SEMANTIC["<b>Semantic Query Construction:</b><br/><b>SELECT p.provider_name,</b><br/><b>       s.appointment_date,</b><br/><b>       s.appointment_time,</b><br/><b>       s.duration_minutes</b><br/><b>FROM provider_schedule s</b><br/><b>JOIN providers p ON s.provider_id = p.id</b><br/><b>WHERE p.provider_id = 789</b><br/><b>  AND s.appointment_date BETWEEN</b><br/><b>      '2025-10-28' AND '2025-11-03'</b><br/><b>  AND s.availability_status = 'open'</b><br/><b>  AND s.accepts_patient_type = 'existing'</b>"]
     
-    SEMANTIC --> ABAC[ABAC Validation:<br/>✓ User 12345 authorized for provider 789?<br/>✓ Access = appointment_scheduling?<br/>✓ Time = business hours?<br/>→ Policy: PERMIT]
+    SEMANTIC --> ABAC["<b>ABAC Validation:</b><br/><b>✓ User 12345 authorized for provider 789?</b><br/><b>✓ Access = appointment_scheduling?</b><br/><b>✓ Time = business hours?</b><br/><b>→ Policy: PERMIT</b>"]
     
-    ABAC --> EXEC[Execute Query<br/>Return: 5 available slots]
+    ABAC --> EXEC["<b>Execute Query</b><br/><b>Return: 5 available slots</b>"]
     
-    EXEC --> FORMAT[Natural Language Response:<br/>'Dr. Martinez has 5 openings next week:<br/>Mon 10/28: 10am, 2pm<br/>Wed 10/30: 9am, 3pm<br/>Fri 11/1: 11am']
+    EXEC --> FORMAT["<b>Natural Language Response:</b><br/><b>'Dr. Martinez has 5 openings next week:</b><br/><b>Mon 10/28: 10am, 2pm</b><br/><b>Wed 10/30: 9am, 3pm</b><br/><b>Fri 11/1: 11am'</b>"]
     
-    FORMAT --> FB[Feedback Loop:<br/>✓ Log translation accuracy<br/>✓ Update entity confidence scores<br/>✓ Learn: 'my doctor' + patient_12345 → provider_789<br/>✓ Cache: semantic query for similar requests]
+    FORMAT --> FB["<b>Feedback Loop:</b><br/><b>✓ Log translation accuracy</b><br/><b>✓ Update entity confidence scores</b><br/><b>✓ Learn: 'my doctor' + patient_12345 → provider_789</b><br/><b>✓ Cache: semantic query for similar requests</b>"]
     
-    style RESOLVE fill:#e8f5e1,stroke:#00aa00,stroke-width:2px
-    style SEMANTIC fill:#e1f5ff,stroke:#0066cc,stroke-width:2px
-    style ABAC fill:#fff4e1,stroke:#cc8800,stroke-width:2px
-    style EXEC fill:#ccffcc,stroke:#00cc00,stroke-width:2px
-    style CLARIFY fill:#ffe1e1,stroke:#cc0000,stroke-width:2px
-    style FORMAT fill:#f5e1ff,stroke:#8800cc,stroke-width:2px
+    style PARSE fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style ENTITY fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style CTX fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style RESOLVE fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style AMBIG fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style GLOSS fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style SEMANTIC fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style ABAC fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style EXEC fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style FORMAT fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style FB fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style CLARIFY fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
 ```
 
 **The Seven Stages of Semantic Translation**
@@ -1076,33 +1106,33 @@ Maintaining soundness requires vigilance across four interconnected dimensions:
 
 **Timeliness:** Is data fresh enough for its use case? Lab results were 24 hours old—fine for analytical reports but problematic when patients asked about "my recent test results" meaning tests from this morning.
 
-**Diagram 11: Continuous Data Quality Monitoring & Remediation Pipeline**
+**Diagram 7: Continuous Data Quality Monitoring & Remediation Pipeline**
 ```mermaid
 graph TB
-    subgraph "Source Systems"
-        S1[EHR System<br/>Patient Demographics<br/>Real-time updates]
-        S2[Scheduling System<br/>Appointments<br/>Every 30 seconds]
-        S3[Billing System<br/>Insurance Records<br/>Nightly + critical alerts]
+    subgraph "<b>Source Systems</b>"
+        S1["<b>EHR System</b><br/><b>Patient Demographics</b><br/><b>Real-time updates</b>"]
+        S2["<b>Scheduling System</b><br/><b>Appointments</b><br/><b>Every 30 seconds</b>"]
+        S3["<b>Billing System</b><br/><b>Insurance Records</b><br/><b>Nightly + critical alerts</b>"]
     end
     
-    subgraph "Data Fabric - Layer 2"
-        CDC[Change Data Capture<br/>Debezium + Kafka<br/>Sub-30s streaming]
+    subgraph "<b>Data Fabric - Layer 2</b>"
+        CDC["<b>Change Data Capture</b><br/><b>Debezium + Kafka</b><br/><b>Sub-30s streaming</b>"]
     end
     
-    S1 -->|Stream changes| CDC
-    S2 -->|Stream changes| CDC
-    S3 -->|Stream changes| CDC
+    S1 -->|<b>Stream changes</b>| CDC
+    S2 -->|<b>Stream changes</b>| CDC
+    S3 -->|<b>Stream changes</b>| CDC
     
-    subgraph "Quality Monitoring - Layer 6"
-        Q1[Freshness Check:<br/>✓ Data age < 30s for critical<br/>✓ Data age < 5min for normal<br/>⚠️ Alert if stale]
+    subgraph "<b>Quality Monitoring - Layer 6</b>"
+        Q1["<b>Freshness Check:</b><br/><b>✓ Data age < 30s for critical</b><br/><b>✓ Data age < 5min for normal</b><br/><b>⚠️ Alert if stale</b>"]
         
-        Q2[Completeness Check:<br/>✓ Required fields populated<br/>✓ patient_id NOT NULL<br/>✓ insurance_status present<br/>⚠️ Flag if <95%]
+        Q2["<b>Completeness Check:</b><br/><b>✓ Required fields populated</b><br/><b>✓ patient_id NOT NULL</b><br/><b>✓ insurance_status present</b><br/><b>⚠️ Flag if <95%</b>"]
         
-        Q3[Consistency Check:<br/>✓ Cross-system alignment<br/>✓ EHR address = Billing address<br/>✓ Demographics match<br/>⚠️ Flag conflicts]
+        Q3["<b>Consistency Check:</b><br/><b>✓ Cross-system alignment</b><br/><b>✓ EHR address = Billing address</b><br/><b>✓ Demographics match</b><br/><b>⚠️ Flag conflicts</b>"]
         
-        Q4[Accuracy Check:<br/>✓ Valid formats phone, email, ZIP<br/>✓ Date ranges logical<br/>✓ Code values in valid sets<br/>⚠️ Flag invalid data]
+        Q4["<b>Accuracy Check:</b><br/><b>✓ Valid formats phone, email, ZIP</b><br/><b>✓ Date ranges logical</b><br/><b>✓ Code values in valid sets</b><br/><b>⚠️ Flag invalid data</b>"]
         
-        Q5[Anomaly Detection:<br/>✓ Statistical outliers<br/>✓ Volume drops/spikes<br/>✓ Distribution shifts<br/>⚠️ ML-based flagging]
+        Q5["<b>Anomaly Detection:</b><br/><b>✓ Statistical outliers</b><br/><b>✓ Volume drops/spikes</b><br/><b>✓ Distribution shifts</b><br/><b>⚠️ ML-based flagging</b>"]
     end
     
     CDC --> Q1
@@ -1111,34 +1141,45 @@ graph TB
     CDC --> Q4
     CDC --> Q5
     
-    Q1 --> GATE{Quality Gates<br/>All Pass?}
+    Q1 --> GATE{"<b>Quality Gates</b><br/><b>All Pass?</b>"}
     Q2 --> GATE
     Q3 --> GATE
     Q4 --> GATE
     Q5 --> GATE
     
-    GATE -->|✅ Pass<br/>98% of records| STORAGE[Agent-Ready Storage<br/>Layer 1: Multi-Modal<br/>✓ Validated data only<br/>✓ Full audit trail<br/>✓ Available to agents]
+    GATE -->|<b>✅ Pass</b><br/><b>98% of records</b>| STORAGE["<b>Agent-Ready Storage</b><br/><b>Layer 1: Multi-Modal</b><br/><b>✓ Validated data only</b><br/><b>✓ Full audit trail</b><br/><b>✓ Available to agents</b>"]
     
-    GATE -->|❌ Fail<br/>2% of records| QUARANTINE[Data Quarantine:<br/>❌ Block from agents<br/>🔒 Isolate bad records<br/>📋 Create incident ticket<br/>⚠️ Alert data owner]
+    GATE -->|<b>❌ Fail</b><br/><b>2% of records</b>| QUARANTINE["<b>Data Quarantine:</b><br/><b>❌ Block from agents</b><br/><b>🔒 Isolate bad records</b><br/><b>📋 Create incident ticket</b><br/><b>⚠️ Alert data owner</b>"]
     
-    STORAGE --> AGENTS[AI Agents Query:<br/>Only see validated,<br/>high-quality data<br/>Trust score: 98%+]
+    STORAGE --> AGENTS["<b>AI Agents Query:</b><br/><b>Only see validated,</b><br/><b>high-quality data</b><br/><b>Trust score: 98%+</b>"]
     
-    QUARANTINE --> RCA[Root Cause Analysis:<br/>🔍 Trace to source system<br/>🎯 Identify failure point<br/>📊 Pattern detection<br/>👤 Auto-assign owner]
+    QUARANTINE --> RCA["<b>Root Cause Analysis:</b><br/><b>🔍 Trace to source system</b><br/><b>🎯 Identify failure point</b><br/><b>📊 Pattern detection</b><br/><b>👤 Auto-assign owner</b>"]
     
-    RCA --> TICKET[Incident Ticket:<br/>DQ-2847: Patient records<br/>missing insurance_status<br/>Source: Billing system<br/>Owner: Billing team<br/>SLA: 4 hours]
+    RCA --> TICKET["<b>Incident Ticket:</b><br/><b>DQ-2847: Patient records</b><br/><b>missing insurance_status</b><br/><b>Source: Billing system</b><br/><b>Owner: Billing team</b><br/><b>SLA: 4 hours</b>"]
     
-    TICKET --> FIX[Source System Fix:<br/>✓ Update records at source<br/>✓ Validate fix<br/>✓ Re-process through CDC<br/>✓ Confirm quality]
+    TICKET --> FIX["<b>Source System Fix:</b><br/><b>✓ Update records at source</b><br/><b>✓ Validate fix</b><br/><b>✓ Re-process through CDC</b><br/><b>✓ Confirm quality</b>"]
     
-    FIX -->|Corrected data| CDC
+    FIX -->|<b>Corrected data</b>| CDC
     
-    QUARANTINE -.->|Quality metrics| DASH[Quality Dashboard:<br/>📊 Real-time health<br/>📈 Trend analysis<br/>⚠️ Alert thresholds<br/>🎯 SLA tracking]
+    QUARANTINE -.->|<b>Quality metrics</b>| DASH["<b>Quality Dashboard:</b><br/><b>📊 Real-time health</b><br/><b>📈 Trend analysis</b><br/><b>⚠️ Alert thresholds</b><br/><b>🎯 SLA tracking</b>"]
     
-    style GATE fill:#fff4e1,stroke:#cc8800,stroke-width:3px
-    style STORAGE fill:#ccffcc,stroke:#00cc00,stroke-width:2px
-    style QUARANTINE fill:#ffcccc,stroke:#cc0000,stroke-width:2px
-    style AGENTS fill:#e8f5e1,stroke:#00aa00,stroke-width:2px
-    style RCA fill:#e1f5ff,stroke:#0066cc,stroke-width:2px
-    style FIX fill:#f5e1ff,stroke:#8800cc,stroke-width:2px
+    style S1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style S2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style S3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style CDC fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style Q1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style Q2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style Q3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style Q4 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style Q5 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style GATE fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
+    style STORAGE fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style QUARANTINE fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
+    style AGENTS fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style RCA fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style TICKET fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style FIX fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style DASH fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
 ```
 
 **The Five Dimensions of Quality Monitoring**
@@ -1313,65 +1354,65 @@ This Language degradation triggered a cascade:
 
 One GOAL failing pulled others down with it.
 
-**Diagram 4: Cascade Failure Example - Language Drift Impact**
+**Diagram 8: Cascade Failure Example - Language Drift Impact**
 
 ```mermaid
 graph TD
-    A[Language GOAL Degrades<br/>Coverage: 78% → 64%<br/>Accuracy: 96% → 87%] --> B[Observability Impact<br/>Can't distinguish semantic vs data failures]
-    A --> C[Accessibility Impact<br/>Cache hit rate: 65% → 48%<br/>Latency: 1.8s → 2.3s]
-    A --> D[Soundness Appears to Fail<br/>More 'wrong answers' reported<br/>But data actually stable]
-    A --> E[Governance Complexity Increases<br/>Policies misapplied<br/>Audit logs less reliable]
+    A["<b>Language GOAL Degrades</b><br/><b>Coverage: 78% → 64%</b><br/><b>Accuracy: 96% → 87%</b>"] --> B["<b>Observability Impact</b><br/><b>Can't distinguish semantic vs data failures</b>"]
+    A --> C["<b>Accessibility Impact</b><br/><b>Cache hit rate: 65% → 48%</b><br/><b>Latency: 1.8s → 2.3s</b>"]
+    A --> D["<b>Soundness Appears to Fail</b><br/><b>More 'wrong answers' reported</b><br/><b>But data actually stable</b>"]
+    A --> E["<b>Governance Complexity Increases</b><br/><b>Policies misapplied</b><br/><b>Audit logs less reliable</b>"]
     
-    B --> F[User Satisfaction Declines<br/>-15 points over 6 weeks]
+    B --> F["<b>User Satisfaction Declines</b><br/><b>-15 points over 6 weeks</b>"]
     C --> F
     D --> F
     E --> F
     
-    style A fill:#ff9999
-    style B fill:#ffcccc
-    style C fill:#ffcccc
-    style D fill:#ffcccc
-    style E fill:#ffcccc
-    style F fill:#ff6666
+    style A fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
+    style B fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style C fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style D fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style E fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style F fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
 ```
 
 ### Understanding Interdependencies
 
-**Diagram 3: GOALS Interdependencies**
+**Diagram 9: GOALS Interdependencies**
 
 ```mermaid
 graph TB
-    G[Governance<br/>Security & Compliance]
-    O[Observability<br/>Monitoring & Feedback]
-    A[Accessibility<br/>Speed & Freshness]
-    L[Language<br/>Semantic Understanding]
-    S[Soundness<br/>Data Quality]
+    G["<b>Governance</b><br/><b>Security & Compliance</b>"]
+    O["<b>Observability</b><br/><b>Monitoring & Feedback</b>"]
+    A["<b>Accessibility</b><br/><b>Speed & Freshness</b>"]
+    L["<b>Language</b><br/><b>Semantic Understanding</b>"]
+    S["<b>Soundness</b><br/><b>Data Quality</b>"]
     
-    S -.->|Requires accurate data| G
-    S -.->|Requires accurate data| O
-    S -.->|Requires accurate data| A
-    S -.->|Requires accurate data| L
+    S -.->|<b>Requires accurate data</b>| G
+    S -.->|<b>Requires accurate data</b>| O
+    S -.->|<b>Requires accurate data</b>| A
+    S -.->|<b>Requires accurate data</b>| L
     
-    O -.->|Detects issues in| G
-    O -.->|Detects issues in| A
-    O -.->|Detects issues in| L
-    O -.->|Detects issues in| S
+    O -.->|<b>Detects issues in</b>| G
+    O -.->|<b>Detects issues in</b>| A
+    O -.->|<b>Detects issues in</b>| L
+    O -.->|<b>Detects issues in</b>| S
     
-    L -.->|Enables semantic caching in| A
-    L -.->|Enables policy classification in| G
-    L -.->|Provides context for| O
+    L -.->|<b>Enables semantic caching in</b>| A
+    L -.->|<b>Enables policy classification in</b>| G
+    L -.->|<b>Provides context for</b>| O
     
-    A -.->|Fast access enables| O
-    A -.->|Performance affects| L
+    A -.->|<b>Fast access enables</b>| O
+    A -.->|<b>Performance affects</b>| L
     
-    G -.->|Audit trails feed| O
-    G -.->|Access patterns affect| A
+    G -.->|<b>Audit trails feed</b>| O
+    G -.->|<b>Access patterns affect</b>| A
     
-    style G fill:#e1f5ff
-    style O fill:#fff4e1
-    style A fill:#e8f5e1
-    style L fill:#f5e1ff
-    style S fill:#ffe1e1
+    style G fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style O fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style A fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style L fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style S fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 ```
 
 **Soundness is foundational.** If data quality fails, all other GOALS become unreliable.
@@ -1406,44 +1447,46 @@ They maintain GOALS health dashboards showing both individual scores and interde
 
 This dashboard shows Language as the current cascade risk. The declining trend signals potential future impacts on other GOALS if not addressed.
 
-**Diagram 3: Cascade Failure Example - How Language Drift Impacts All GOALS**
+**Diagram 10: Cascade Failure Example - How Language Drift Impacts All GOALS**
 ```mermaid
 sequenceDiagram
-    participant U as User
-    participant Agent as AI Agent
-    participant L as Language Layer
-    participant S as Soundness Layer
-    participant A as Accessibility Layer
-    participant O as Observability Layer
-    participant G as Governance Layer
+    participant U as <b>User</b>
+    participant Agent as <b>AI Agent</b>
+    participant L as <b>Language Layer</b>
+    participant S as <b>Soundness Layer</b>
+    participant A as <b>Accessibility Layer</b>
+    participant O as <b>Observability Layer</b>
+    participant G as <b>Governance Layer</b>
     
-    Note over L: Medical code "CPT-2025"<br/>added, not in semantic layer
+    Note over L: <b>Medical code "CPT-2025"</b><br/><b>added, not in semantic layer</b>
     
-    U->>Agent: "Schedule my diabetes follow-up"
-    Agent->>L: Translate query
-    L->>L: ❌ Misinterprets "diabetes"<br/>Maps to old code
-    Note over L: Language GOAL degrades<br/>Score: 89→65
+    U->>Agent: <b>"Schedule my diabetes follow-up"</b>
+    Agent->>L: <b>Translate query</b>
+    L->>L: <b>❌ Misinterprets "diabetes"</b><br/><b>Maps to old code</b>
+    Note over L: <b>Language GOAL degrades</b><br/><b>Score: 89→65</b>
     
-    L->>S: Request data with wrong code
-    S->>S: ❌ Returns incomplete records<br/>(missing recent visits)
-    Note over S: Soundness GOAL degrades<br/>Score: 93→78
+    L->>S: <b>Request data with wrong code</b>
+    S->>S: <b>❌ Returns incomplete records</b><br/><b>(missing recent visits)</b>
+    Note over S: <b>Soundness GOAL degrades</b><br/><b>Score: 93→78</b>
     
-    S->>A: Retrieves partial data
-    A->>A: ❌ Multiple fallback queries<br/>Response time: 1.8s → 4.2s
-    Note over A: Accessibility GOAL degrades<br/>Score: 88→72
+    S->>A: <b>Retrieves partial data</b>
+    A->>A: <b>❌ Multiple fallback queries</b><br/><b>Response time: 1.8s → 4.2s</b>
+    Note over A: <b>Accessibility GOAL degrades</b><br/><b>Score: 88→72</b>
     
-    A->>O: Slow query triggers alert
-    O->>O: ❌ Can't identify root cause<br/>Trace doesn't show semantic error
-    Note over O: Observability GOAL degrades<br/>Score: 88→74
+    A->>O: <b>Slow query triggers alert</b>
+    O->>O: <b>❌ Can't identify root cause</b><br/><b>Trace doesn't show semantic error</b>
+    Note over O: <b>Observability GOAL degrades</b><br/><b>Score: 88→74</b>
     
-    Agent->>U: Wrong answer (4.2s delay)
-    U->>U: ❌ Loses trust
+    Agent->>U: <b>Wrong answer (4.2s delay)</b>
+    U->>U: <b>❌ Loses trust</b>
     
-    Note over G: Meanwhile...<br/>Audit log shows access to wrong records
-    G->>G: ❌ Compliance team flags<br/>unnecessary data access
-    Note over G: Governance GOAL degrades<br/>Score: 94→81
+    Note over G: <b>Meanwhile...</b><br/><b>Audit log shows access to wrong records</b>
+    G->>G: <b>❌ Compliance team flags</b><br/><b>unnecessary data access</b>
+    Note over G: <b>Governance GOAL degrades</b><br/><b>Score: 94→81</b>
     
-    Note over U,G: One semantic drift (Language)<br/>cascaded to all 5 GOALS<br/>within 48 hours
+    rect rgb(255, 235, 238)
+        Note over U,G: <b>One semantic drift (Language)</b><br/><b>cascaded to all 5 GOALS</b><br/><b>within 48 hours</b>
+    end
 ```
 
 ### Anatomy of a Cascade Failure
@@ -1523,65 +1566,65 @@ And maintain the five GOALS (continuous operational discipline).
 Skip any of these and you'll eventually fail.
 
 ---
-**Diagram 4: Echo's GOALS Maturity Journey - Stage Progression**
+**Diagram 11: Echo's GOALS Maturity Journey - Stage Progression**
 ```mermaid
 graph LR
-    subgraph "Stage 1: Basic (Months 1-3)"
-        G1[Governance: 62]
-        O1[Observability: 52]
-        A1[Accessibility: 28]
-        L1[Language: 58]
-        S1[Soundness: 67]
+    subgraph "<b>Stage 1: Basic (Months 1-3)</b>"
+        G1["<b>Governance: 62</b>"]
+        O1["<b>Observability: 52</b>"]
+        A1["<b>Accessibility: 28</b>"]
+        L1["<b>Language: 58</b>"]
+        S1["<b>Soundness: 67</b>"]
     end
     
-    subgraph "Stage 2: Enhanced (Months 4-9)"
-        G2[Governance: 82]
-        O2[Observability: 75]
-        A2[Accessibility: 65]
-        L2[Language: 73]
-        S2[Soundness: 79]
+    subgraph "<b>Stage 2: Enhanced (Months 4-9)</b>"
+        G2["<b>Governance: 82</b>"]
+        O2["<b>Observability: 75</b>"]
+        A2["<b>Accessibility: 65</b>"]
+        L2["<b>Language: 73</b>"]
+        S2["<b>Soundness: 79</b>"]
     end
     
-    subgraph "Stage 3: Advanced (Months 10-15)"
-        G3[Governance: 94]
-        O3[Observability: 88]
-        A3[Accessibility: 88]
-        L3[Language: 89]
-        S3[Soundness: 93]
+    subgraph "<b>Stage 3: Advanced (Months 10-15)</b>"
+        G3["<b>Governance: 94</b>"]
+        O3["<b>Observability: 88</b>"]
+        A3["<b>Accessibility: 88</b>"]
+        L3["<b>Language: 89</b>"]
+        S3["<b>Soundness: 93</b>"]
     end
     
-    G1 -->|ABAC implementation| G2
-    G2 -->|Automated response| G3
+    G1 -->|<b>ABAC implementation</b>| G2
+    G2 -->|<b>Automated response</b>| G3
     
-    O1 -->|Trace IDs + drift detection| O2
-    O2 -->|Closed-loop feedback| O3
+    O1 -->|<b>Trace IDs + drift detection</b>| O2
+    O2 -->|<b>Closed-loop feedback</b>| O3
     
-    A1 -->|CDC + basic caching| A2
-    A2 -->|Query optimization + semantic caching| A3
+    A1 -->|<b>CDC + basic caching</b>| A2
+    A2 -->|<b>Query optimization + semantic caching</b>| A3
     
-    L1 -->|Enhanced glossary| L2
-    L2 -->|Continuous learning| L3
+    L1 -->|<b>Enhanced glossary</b>| L2
+    L2 -->|<b>Continuous learning</b>| L3
     
-    S1 -->|Continuous monitoring| S2
-    S2 -->|Predictive quality + auto-response| S3
+    S1 -->|<b>Continuous monitoring</b>| S2
+    S2 -->|<b>Predictive quality + auto-response</b>| S3
     
-    style G1 fill:#ffe1e1
-    style O1 fill:#ffe1e1
-    style A1 fill:#ffe1e1
-    style L1 fill:#ffe1e1
-    style S1 fill:#ffe1e1
+    style G1 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style O1 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style A1 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style L1 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style S1 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     
-    style G2 fill:#fff4e1
-    style O2 fill:#fff4e1
-    style A2 fill:#fff4e1
-    style L2 fill:#fff4e1
-    style S2 fill:#fff4e1
+    style G2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    style O2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    style A2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    style L2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    style S2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
     
-    style G3 fill:#e8f5e1
-    style O3 fill:#e8f5e1
-    style A3 fill:#e8f5e1
-    style L3 fill:#e8f5e1
-    style S3 fill:#e8f5e1
+    style G3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style O3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style A3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style L3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style S3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
 ```
 
 ### The 15-Month Journey to Production Excellence
