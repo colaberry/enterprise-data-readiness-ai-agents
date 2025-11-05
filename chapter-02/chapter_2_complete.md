@@ -127,15 +127,26 @@ Both are essential, but they require fundamentally different mindsets.
 
 ```mermaid
 graph TB
-    INPACT["<b>Chapter 0: INPACT™</b><br/><b>Six User Needs</b><br/><b>I • N • P • A • C • T</b><br/><b>Instant, Natural, Permitted,</b><br/><b>Adaptive, Contextual, Trusted</b>"]
+    INPACT["Chapter 0: INPACT™
+    Six User Needs
+    I • N • P • A • C • T
+    Instant, Natural, Permitted,
+    Adaptive, Contextual, Trusted"]
     
-    ARCH["<b>Chapter 1: Seven-Layer Architecture</b><br/><b>Technical Implementation</b><br/><b>Layers 1-7: Storage → Fabric → Semantic</b><br/><b>→ Intelligence → Governance → Observability → Orchestration</b>"]
+    ARCH["Chapter 1: Seven-Layer Architecture
+    Technical Implementation
+    Layers 1-7: Storage → Fabric → Semantic
+    → Intelligence → Governance → Observability → Orchestration"]
     
-    GOALS["<b>Chapter 2: Five GOALS</b><br/><b>Operational Discipline</b><br/><b>G • O • A • L • S</b><br/><b>Governance, Observability, Accessibility,</b><br/><b>Language, Soundness</b>"]
+    GOALS["Chapter 2: Five GOALS
+    Operational Discipline
+    G • O • A • L • S
+    Governance, Observability, Accessibility,
+    Language, Soundness"]
     
-    INPACT -->|<b>User needs drive</b>| ARCH
-    ARCH -->|<b>Architecture enables</b>| GOALS
-    GOALS -->|<b>Operations sustain</b>| INPACT
+    INPACT -->|User needs drive| ARCH
+    ARCH -->|Architecture enables| GOALS
+    GOALS -->|Operations sustain| INPACT
     
     style INPACT fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style ARCH fill:#f9f9f9,stroke:#666666,stroke-width:3px,color:#000000
@@ -153,19 +164,24 @@ Just as you can have a perfect skeleton but fail if your cardiovascular system i
 **Diagram 2: GOALS Interdependencies - How One GOAL Supports Another**
 ```mermaid
 graph TB
-    G["<b>G - Governance</b><br/><b>Security & Compliance</b>"]
-    O["<b>O - Observability</b><br/><b>Monitoring & Feedback</b>"]
-    A["<b>A - Accessibility</b><br/><b>Speed & Freshness</b>"]
-    L["<b>L - Language</b><br/><b>Semantic Understanding</b>"]
-    S["<b>S - Soundness</b><br/><b>Data Quality</b>"]
+    G["G - Governance
+    Security & Compliance"]
+    O["O - Observability
+    Monitoring & Feedback"]
+    A["A - Accessibility
+    Speed & Freshness"]
+    L["L - Language
+    Semantic Understanding"]
+    S["S - Soundness
+    Data Quality"]
     
-    G <-->|<b>Audit trails ↔ Policy violations</b>| O
-    O <-->|<b>Performance metrics ↔ Monitoring</b>| A
-    A <-->|<b>Fast retrieval ↔ Query optimization</b>| L
-    L <-->|<b>Semantic validation ↔ Quality data</b>| S
+    G <-->|Audit trails ↔ Policy violations| O
+    O <-->|Performance metrics ↔ Monitoring| A
+    A <-->|Fast retrieval ↔ Query optimization| L
+    L <-->|Semantic validation ↔ Quality data| S
     
-    S -.->|<b>Foundation: Enables all GOALS</b>| G
-    O -.->|<b>Diagnostic: Detects issues in all GOALS</b>| L
+    S -.->|Foundation: Enables all GOALS| G
+    O -.->|Diagnostic: Detects issues in all GOALS| L
     
     style G fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
     style O fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
@@ -243,12 +259,13 @@ You need attribute-based access control policies that evaluate dozens of factors
 **Diagram 3: RBAC vs ABAC Authorization Flow**
 ```mermaid
 graph LR
-    subgraph OLD["<b>Analytics Era: Role-Based Access Control (RBAC)</b>"]
-        R1["<b>User Request</b>"]
-        R2["<b>Check Role</b>"]
-        R3["<b>Role = Patient</b>"]
-        R4["<b>Grant Broad Access</b>"]
-        R5["<b>❌ Total: Violates</b><br/><b>minimum necessary</b>"]
+    subgraph OLD["Analytics Era: Role-Based Access Control RBAC"]
+        R1["User Request"]
+        R2["Check Role"]
+        R3["Role = Patient"]
+        R4["Grant Broad Access"]
+        R5["❌ Total: Violates
+        minimum necessary"]
         
         R1 --> R2
         R2 --> R3
@@ -256,14 +273,16 @@ graph LR
         R4 --> R5
     end
     
-    OLD -.->|<b>Evolution</b>| NEW
+    OLD -.->|Evolution| NEW
     
-    subgraph NEW["<b>Agent Era: Attribute-Based Access Control (ABAC)</b>"]
-        A1["<b>User Request</b>"]
-        A2["<b>Context Eval</b><br/><b>👤📋📅📱🎯</b>"]
-        A3["<b>Dynamic Policy</b>"]
-        A4["<b>Filter Rows</b>"]
-        A5["<b>✅ Total: Sub-10ms</b><br/><b>secure access</b>"]
+    subgraph NEW["Agent Era: Attribute-Based Access Control ABAC"]
+        A1["User Request"]
+        A2["Context Eval
+        👤📋📅📱🎯"]
+        A3["Dynamic Policy"]
+        A4["Filter Rows"]
+        A5["✅ Total: Sub-10ms
+        secure access"]
         
         A1 --> A2
         A2 --> A3
@@ -440,57 +459,57 @@ This enabled root cause analysis impossible with infrastructure metrics alone.
 **Diagram 4: End-to-End Observability with Trace IDs**
 ```mermaid
 sequenceDiagram
-    participant U as <b>User</b>
-    participant A as <b>Agent</b><br/><b>(Layer 7)</b>
-    participant S as <b>Semantic</b><br/><b>(Layer 3)</b>
-    participant I as <b>Intelligence</b><br/><b>(Layer 4)</b>
-    participant D as <b>Data Fabric</b><br/><b>(Layer 2)</b>
-    participant DB as <b>Storage</b><br/><b>(Layer 1)</b>
-    participant O as <b>Observability</b><br/><b>(Layer 6)</b>
+    participant U as User
+    participant A as Agent (Layer 7)
+    participant S as Semantic (Layer 3)
+    participant I as Intelligence (Layer 4)
+    participant D as Data Fabric (Layer 2)
+    participant DB as Storage (Layer 1)
+    participant O as Observability (Layer 6)
     
     rect rgb(224, 242, 241)
-        Note over U,O: <b>Trace ID: abc-123-def | Timestamp: 2025-10-27 14:32:15</b>
+        Note over U,O: Trace ID: abc-123-def | Timestamp: 2025-10-27 14:32:15
     end
     
-    U->>A: <b>"Show Dr. Martinez's availability tomorrow"</b>
+    U->>A: Show Dr. Martinez's availability tomorrow
     activate A
-    A->>O: <b>Log: Query received (trace: abc-123-def, user: patient_12345)</b>
+    A->>O: Log: Query received (trace: abc-123-def, user: patient_12345)
     
-    A->>S: <b>Translate: "Dr. Martinez" + "availability" + "tomorrow"</b>
+    A->>S: Translate: Dr. Martinez + availability + tomorrow
     activate S
-    S->>O: <b>Log: Semantic translation started (trace: abc-123-def)</b>
-    S->>S: <b>Entity resolution:</b><br/><b>"Dr. Martinez" → provider_id=789</b><br/><b>"tomorrow" → date=2025-10-28</b>
-    S->>O: <b>Log: Translation complete 0.3s (trace: abc-123-def)</b>
-    S-->>A: <b>Translated: provider_id=789, date=2025-10-28</b>
+    S->>O: Log: Semantic translation started (trace: abc-123-def)
+    S->>S: Entity resolution: Dr. Martinez → provider_id=789
+    S->>O: Log: Translation complete 0.3s (trace: abc-123-def)
+    S-->>A: Translated: provider_id=789, date=2025-10-28
     deactivate S
     
-    A->>I: <b>Retrieve: provider_schedule context</b>
+    A->>I: Retrieve: provider_schedule context
     activate I
-    I->>O: <b>Log: Intelligence retrieval started (trace: abc-123-def)</b>
-    I->>D: <b>Query: provider_schedule WHERE id=789 AND date=2025-10-28</b>
+    I->>O: Log: Intelligence retrieval started (trace: abc-123-def)
+    I->>D: Query: provider_schedule WHERE id=789 AND date=2025-10-28
     activate D
-    D->>O: <b>Log: Real-time stream query (trace: abc-123-def)</b>
-    D->>DB: <b>Execute: SELECT * FROM provider_schedule...</b>
+    D->>O: Log: Real-time stream query (trace: abc-123-def)
+    D->>DB: Execute: SELECT * FROM provider_schedule...
     activate DB
-    DB->>O: <b>⚠️ Log: Query execution 2.3s - SLOW (trace: abc-123-def)</b>
-    Note over DB: <b>Missing index on</b><br/><b>provider_id column!</b>
-    DB-->>D: <b>Result: 3 available time slots</b>
+    DB->>O: ⚠️ Log: Query execution 2.3s - SLOW (trace: abc-123-def)
+    Note over DB: Missing index on provider_id column!
+    DB-->>D: Result: 3 available time slots
     deactivate DB
-    D-->>I: <b>Stream: 3 slots</b>
+    D-->>I: Stream: 3 slots
     deactivate D
-    I->>O: <b>Log: Context retrieved 2.5s total (trace: abc-123-def)</b>
-    I-->>A: <b>Context: [8:00am, 10:00am, 2:00pm]</b>
+    I->>O: Log: Context retrieved 2.5s total (trace: abc-123-def)
+    I-->>A: Context: [8:00am, 10:00am, 2:00pm]
     deactivate I
     
-    A->>O: <b>Log: Response generated 2.9s total (trace: abc-123-def)</b>
-    A->>U: <b>"Dr. Martinez has 3 openings tomorrow:</b><br/><b>8:00am, 10:00am, 2:00pm"</b>
+    A->>O: Log: Response generated 2.9s total (trace: abc-123-def)
+    A->>U: Dr. Martinez has 3 openings tomorrow: 8:00am, 10:00am, 2:00pm
     deactivate A
     
     rect rgb(255, 235, 238)
-        Note over O: <b>Root Cause Analysis (trace: abc-123-def):</b><br/><b>❌ Bottleneck: Layer 1 DB query 2.3s</b><br/><b>💡 Cause: Missing index on provider_id</b><br/><b>🎯 Action: Auto-create ticket DBA-2847</b><br/><b>⏱️ Expected fix: Add index, reduce to <20ms</b>
+        Note over O: Root Cause Analysis (trace: abc-123-def): Bottleneck Layer 1 DB query 2.3s - Missing index on provider_id - Auto-create ticket DBA-2847
     end
     
-    O->>O: <b>Auto-alert: Performance degradation</b><br/><b>Create incident ticket</b><br/><b>Assign to: Database team</b><br/><b>Priority: Medium (>2s query)</b>
+    O->>O: Auto-alert: Performance degradation - Create incident ticket - Assign to Database team
 ```
 
 **The Power of Trace-Based Diagnosis**
@@ -653,32 +672,52 @@ Semantic caching with [Redis](https://redis.io) or [Momento](https://www.gomomen
 **Diagram 5: Multi-Level Caching Strategy for Sub-2s Performance**
 ```mermaid
 graph TD
-    Q["<b>User Query:</b><br/><b>'Show Dr. Martinez availability tomorrow'</b>"]
+    Q["User Query:
+    Show Dr. Martinez availability tomorrow"]
     
-    Q --> L1{"<b>Level 1:</b><br/><b>Semantic Cache</b><br/><b>Redis/Momento</b>"}
+    Q --> L1{"Level 1:
+    Semantic Cache
+    Redis/Momento"}
     
-    L1 -->|<b>✅ Cache Hit</b><br/><b>65% of queries</b>| C1["<b>Semantic Match Found</b><br/><b>⚡ Return in 300ms</b><br/><b>Cost: $0.001/query</b>"]
+    L1 -->|✅ Cache Hit - 65% of queries| C1["Semantic Match Found
+    ⚡ Return in 300ms
+    Cost: $0.001/query"]
     
-    L1 -->|<b>❌ Cache Miss</b><br/><b>35% of queries</b>| L2{"<b>Level 2:</b><br/><b>Vector Database</b><br/><b>Pinecone/Weaviate</b>"}
+    L1 -->|❌ Cache Miss - 35% of queries| L2{"Level 2:
+    Vector Database
+    Pinecone/Weaviate"}
     
-    L2 -->|<b>✅ Cache Hit</b><br/><b>25% of queries</b>| C2["<b>Embedding Lookup</b><br/><b>⚡ Return in 800ms</b><br/><b>Cost: $0.008/query</b>"]
+    L2 -->|✅ Cache Hit - 25% of queries| C2["Embedding Lookup
+    ⚡ Return in 800ms
+    Cost: $0.008/query"]
     
-    L2 -->|<b>❌ Cache Miss</b><br/><b>10% of queries</b>| L3{"<b>Level 3:</b><br/><b>Knowledge Graph</b><br/><b>Neo4j/Neptune</b>"}
+    L2 -->|❌ Cache Miss - 10% of queries| L3{"Level 3:
+    Knowledge Graph
+    Neo4j/Neptune"}
     
-    L3 -->|<b>✅ Cache Hit</b><br/><b>7% of queries</b>| C3["<b>Graph Traversal</b><br/><b>Provider→Schedule</b><br/><b>⚡ Return in 1.2s</b><br/><b>Cost: $0.015/query</b>"]
+    L3 -->|✅ Cache Hit - 7% of queries| C3["Graph Traversal
+    Provider→Schedule
+    ⚡ Return in 1.2s
+    Cost: $0.015/query"]
     
-    L3 -->|<b>❌ Cache Miss</b><br/><b>3% of queries</b>| L4["<b>Full Query Pipeline:</b><br/><b>Intelligence + Data Fabric + DB</b><br/><b>⏱️ 2.8-4.2s response</b><br/><b>Cost: $0.12/query</b>"]
+    L3 -->|❌ Cache Miss - 3% of queries| L4["Full Query Pipeline:
+    Intelligence + Data Fabric + DB
+    ⏱️ 2.8-4.2s response
+    Cost: $0.12/query"]
     
-    C1 --> R["<b>Response to User:</b><br/><b>Sub-2s ✅</b>"]
+    C1 --> R["Response to User:
+    Sub-2s ✅"]
     C2 --> R
     C3 --> R
-    L4 --> SLOW["<b>Response to User:</b><br/><b>2.8-4.2s ⚠️</b>"]
+    L4 --> SLOW["Response to User:
+    2.8-4.2s ⚠️"]
     
-    L4 --> U["<b>Update All Cache Levels</b><br/><b>For Next Similar Query</b>"]
+    L4 --> U["Update All Cache Levels
+    For Next Similar Query"]
     
-    U -.->|<b>Cache warming</b>| L1
-    U -.->|<b>Cache warming</b>| L2
-    U -.->|<b>Cache warming</b>| L3
+    U -.->|Cache warming| L1
+    U -.->|Cache warming| L2
+    U -.->|Cache warming| L3
     
     style C1 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style C2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -690,10 +729,6 @@ graph TD
     style L1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style L2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style L3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    
-    Note1["<b>💡 Semantic Cache Insight:</b><br/><b>'Dr. Martinez availability tomorrow' ≈</b><br/><b>'Dr. M schedule 10/28' ≈</b><br/><b>'Show Martinez times tomorrow'</b><br/><b>All resolve to same cached result</b>"]
-    
-    Note2["<b>💡 Why 4 Levels Matter:</b><br/><b>L1: Instant for common patterns</b><br/><b>L2: Fast for semantic similarity</b><br/><b>L3: Good for relationships</b><br/><b>L4: Complete for novel queries</b>"]
 ```
 
 **Understanding the Caching Hierarchy**
@@ -813,30 +848,41 @@ Echo's semantic layer includes business glossaries with natural language mapping
 **Diagram 6: Natural Language → Data Operation Pipeline**
 ```mermaid
 graph LR
-    NL["<b>User Query:</b><br/><b>'Show my doctor's</b><br/><b>availability next week'</b>"]
+    NL["User Query:
+    Show my doctor's
+    availability next week"]
     
-    subgraph "<b>Phase 1: UNDERSTAND</b>"
-        P1["<b>• Parse intent & entities</b><br/><b>• Extract context signals</b><br/><b>• Identify ambiguities</b>"]
+    subgraph "Phase 1: UNDERSTAND"
+        P1["• Parse intent & entities
+        • Extract context signals
+        • Identify ambiguities"]
     end
     
-    subgraph "<b>Phase 2: RESOLVE</b>"
-        P2["<b>• Resolve entities (confidence)</b><br/><b>• Glossary lookup</b><br/><b>• Build semantic query</b>"]
+    subgraph "Phase 2: RESOLVE"
+        P2["• Resolve entities confidence
+        • Glossary lookup
+        • Build semantic query"]
     end
     
-    subgraph "<b>Phase 3: EXECUTE</b>"
-        P3["<b>• ABAC validation</b><br/><b>• Execute query</b><br/><b>• Format response & feedback</b>"]
+    subgraph "Phase 3: EXECUTE"
+        P3["• ABAC validation
+        • Execute query
+        • Format response & feedback"]
     end
     
-    CLARIFY["<b>❌ Clarification Needed</b><br/><b>Confidence < 0.90</b>"]
+    CLARIFY["❌ Clarification Needed
+    Confidence < 0.90"]
     
-    RESULT["<b>✅ Natural Response:</b><br/><b>'Dr. Martinez has</b><br/><b>5 openings next week'</b>"]
+    RESULT["✅ Natural Response:
+    Dr. Martinez has
+    5 openings next week"]
     
     NL --> P1
     P1 --> P2
     P2 --> P3
     P3 --> RESULT
     
-    P1 -.->|<b>Low confidence</b>| CLARIFY
+    P1 -.->|Low confidence| CLARIFY
     
     style P1 fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
     style P2 fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
@@ -1037,30 +1083,57 @@ Maintaining soundness requires vigilance across four interconnected dimensions:
 **Diagram 7: Continuous Data Quality Monitoring & Remediation Pipeline**
 ```mermaid
 graph TB
-    subgraph "<b>Source Systems</b>"
-        S1["<b>EHR System</b><br/><b>Patient Demographics</b><br/><b>Real-time updates</b>"]
-        S2["<b>Scheduling System</b><br/><b>Appointments</b><br/><b>Every 30 seconds</b>"]
-        S3["<b>Billing System</b><br/><b>Insurance Records</b><br/><b>Nightly + critical alerts</b>"]
+    subgraph "Source Systems"
+        S1["EHR System
+    Patient Demographics
+    Real-time updates"]
+        S2["Scheduling System
+    Appointments
+    Every 30 seconds"]
+        S3["Billing System
+    Insurance Records
+    Nightly + critical alerts"]
     end
     
-    subgraph "<b>Data Fabric - Layer 2</b>"
-        CDC["<b>Change Data Capture</b><br/><b>Debezium + Kafka</b><br/><b>Sub-30s streaming</b>"]
+    subgraph "Data Fabric - Layer 2"
+        CDC["Change Data Capture
+    Debezium + Kafka
+    Sub-30s streaming"]
     end
     
-    S1 -->|<b>Stream changes</b>| CDC
-    S2 -->|<b>Stream changes</b>| CDC
-    S3 -->|<b>Stream changes</b>| CDC
+    S1 -->|Stream changes| CDC
+    S2 -->|Stream changes| CDC
+    S3 -->|Stream changes| CDC
     
-    subgraph "<b>Quality Monitoring - Layer 6</b>"
-        Q1["<b>Freshness Check:</b><br/><b>✓ Data age < 30s for critical</b><br/><b>✓ Data age < 5min for normal</b><br/><b>⚠️ Alert if stale</b>"]
+    subgraph "Quality Monitoring - Layer 6"
+        Q1["Freshness Check:
+    ✓ Data age < 30s for critical
+    ✓ Data age < 5min for normal
+    ⚠️ Alert if stale"]
         
-        Q2["<b>Completeness Check:</b><br/><b>✓ Required fields populated</b><br/><b>✓ patient_id NOT NULL</b><br/><b>✓ insurance_status present</b><br/><b>⚠️ Flag if <95%</b>"]
+        Q2["Completeness Check:
+    ✓ Required fields populated
+    ✓ patient_id NOT NULL
+    ✓ insurance_status present
+    ⚠️ Flag if <95%"]
         
-        Q3["<b>Consistency Check:</b><br/><b>✓ Cross-system alignment</b><br/><b>✓ EHR address = Billing address</b><br/><b>✓ Demographics match</b><br/><b>⚠️ Flag conflicts</b>"]
+        Q3["Consistency Check:
+    ✓ Cross-system alignment
+    ✓ EHR address = Billing address
+    ✓ Demographics match
+    ⚠️ Flag conflicts"]
         
-        Q4["<b>Accuracy Check:</b><br/><b>✓ Valid formats phone, email, ZIP</b><br/><b>✓ Date ranges logical</b><br/><b>✓ Code values in valid sets</b><br/><b>⚠️ Flag invalid data</b>"]
+        Q4["Accuracy Check:
+    ✓ Valid formats phone, email, ZIP
+    ✓ Date ranges logical
+    ✓ Code values in valid sets
+    ⚠️ Flag invalid data"]
         
-        Q5["<b>Anomaly Detection:</b><br/><b>✓ Statistical outliers</b><br/><b>✓ Volume drops/spikes</b><br/><b>✓ Distribution shifts</b><br/><b>⚠️ ML-based flagging</b>"]
+        Q5["Anomaly Detection:
+    ✓ Statistical outliers
+    ✓ Volume drops/spikes
+    ✓ Distribution shifts
+    ⚠️ ML-based flagging"]
     end
     
     CDC --> Q1
@@ -1069,27 +1142,58 @@ graph TB
     CDC --> Q4
     CDC --> Q5
     
-    Q1 --> GATE{"<b>Quality Gates</b><br/><b>All Pass?</b>"}
+    Q1 --> GATE{"Quality Gates
+    All Pass?"}
     Q2 --> GATE
     Q3 --> GATE
     Q4 --> GATE
     Q5 --> GATE
     
-    GATE -->|<b>✅ Pass</b><br/><b>98% of records</b>| STORAGE["<b>Agent-Ready Storage</b><br/><b>Layer 1: Multi-Modal</b><br/><b>✓ Validated data only</b><br/><b>✓ Full audit trail</b><br/><b>✓ Available to agents</b>"]
+    GATE -->|✅ Pass
+    98% of records| STORAGE["Agent-Ready Storage
+    Layer 1: Multi-Modal
+    ✓ Validated data only
+    ✓ Full audit trail
+    ✓ Available to agents"]
     
-    GATE -->|<b>❌ Fail</b><br/><b>2% of records</b>| QUARANTINE["<b>Data Quarantine:</b><br/><b>❌ Block from agents</b><br/><b>🔒 Isolate bad records</b><br/><b>📋 Create incident ticket</b><br/><b>⚠️ Alert data owner</b>"]
+    GATE -->|❌ Fail
+    2% of records| QUARANTINE["Data Quarantine:
+    ❌ Block from agents
+    🔒 Isolate bad records
+    📋 Create incident ticket
+    ⚠️ Alert data owner"]
     
-    STORAGE --> AGENTS["<b>AI Agents Query:</b><br/><b>Only see validated,</b><br/><b>high-quality data</b><br/><b>Trust score: 98%+</b>"]
+    STORAGE --> AGENTS["AI Agents Query:
+    Only see validated,
+    high-quality data
+    Trust score: 98%+"]
     
-    QUARANTINE --> RCA["<b>Root Cause Analysis:</b><br/><b>🔍 Trace to source system</b><br/><b>🎯 Identify failure point</b><br/><b>📊 Pattern detection</b><br/><b>👤 Auto-assign owner</b>"]
+    QUARANTINE --> RCA["Root Cause Analysis:
+    🔍 Trace to source system
+    🎯 Identify failure point
+    📊 Pattern detection
+    👤 Auto-assign owner"]
     
-    RCA --> TICKET["<b>Incident Ticket:</b><br/><b>DQ-2847: Patient records</b><br/><b>missing insurance_status</b><br/><b>Source: Billing system</b><br/><b>Owner: Billing team</b><br/><b>SLA: 4 hours</b>"]
+    RCA --> TICKET["Incident Ticket:
+    DQ-2847: Patient records
+    missing insurance_status
+    Source: Billing system
+    Owner: Billing team
+    SLA: 4 hours"]
     
-    TICKET --> FIX["<b>Source System Fix:</b><br/><b>✓ Update records at source</b><br/><b>✓ Validate fix</b><br/><b>✓ Re-process through CDC</b><br/><b>✓ Confirm quality</b>"]
+    TICKET --> FIX["Source System Fix:
+    ✓ Update records at source
+    ✓ Validate fix
+    ✓ Re-process through CDC
+    ✓ Confirm quality"]
     
-    FIX -->|<b>Corrected data</b>| CDC
+    FIX -->|Corrected data| CDC
     
-    QUARANTINE -.->|<b>Quality metrics</b>| DASH["<b>Quality Dashboard:</b><br/><b>📊 Real-time health</b><br/><b>📈 Trend analysis</b><br/><b>⚠️ Alert thresholds</b><br/><b>🎯 SLA tracking</b>"]
+    QUARANTINE -.->|Quality metrics| DASH["Quality Dashboard:
+    📊 Real-time health
+    📈 Trend analysis
+    ⚠️ Alert thresholds
+    🎯 SLA tracking"]
     
     style S1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style S2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -1286,12 +1390,22 @@ One GOAL failing pulled others down with it.
 
 ```mermaid
 graph TD
-    A["<b>Language GOAL Degrades</b><br/><b>Coverage: 78% → 64%</b><br/><b>Accuracy: 96% → 87%</b>"] --> B["<b>Observability Impact</b><br/><b>Can't distinguish semantic vs data failures</b>"]
-    A --> C["<b>Accessibility Impact</b><br/><b>Cache hit rate: 65% → 48%</b><br/><b>Latency: 1.8s → 2.3s</b>"]
-    A --> D["<b>Soundness Appears to Fail</b><br/><b>More 'wrong answers' reported</b><br/><b>But data actually stable</b>"]
-    A --> E["<b>Governance Complexity Increases</b><br/><b>Policies misapplied</b><br/><b>Audit logs less reliable</b>"]
+    A["Language GOAL Degrades
+    Coverage: 78% → 64%
+    Accuracy: 96% → 87%"] --> B["Observability Impact
+    Can't distinguish semantic vs data failures"]
+    A --> C["Accessibility Impact
+    Cache hit rate: 65% → 48%
+    Latency: 1.8s → 2.3s"]
+    A --> D["Soundness Appears to Fail
+    More 'wrong answers' reported
+    But data actually stable"]
+    A --> E["Governance Complexity Increases
+    Policies misapplied
+    Audit logs less reliable"]
     
-    B --> F["<b>User Satisfaction Declines</b><br/><b>-15 points over 6 weeks</b>"]
+    B --> F["User Satisfaction Declines
+    -15 points over 6 weeks"]
     C --> F
     D --> F
     E --> F
@@ -1310,31 +1424,36 @@ graph TD
 
 ```mermaid
 graph TB
-    G["<b>Governance</b><br/><b>Security & Compliance</b>"]
-    O["<b>Observability</b><br/><b>Monitoring & Feedback</b>"]
-    A["<b>Accessibility</b><br/><b>Speed & Freshness</b>"]
-    L["<b>Language</b><br/><b>Semantic Understanding</b>"]
-    S["<b>Soundness</b><br/><b>Data Quality</b>"]
+    G["Governance
+    Security & Compliance"]
+    O["Observability
+    Monitoring & Feedback"]
+    A["Accessibility
+    Speed & Freshness"]
+    L["Language
+    Semantic Understanding"]
+    S["Soundness
+    Data Quality"]
     
-    S -.->|<b>Requires accurate data</b>| G
-    S -.->|<b>Requires accurate data</b>| O
-    S -.->|<b>Requires accurate data</b>| A
-    S -.->|<b>Requires accurate data</b>| L
+    S -.->|Requires accurate data| G
+    S -.->|Requires accurate data| O
+    S -.->|Requires accurate data| A
+    S -.->|Requires accurate data| L
     
-    O -.->|<b>Detects issues in</b>| G
-    O -.->|<b>Detects issues in</b>| A
-    O -.->|<b>Detects issues in</b>| L
-    O -.->|<b>Detects issues in</b>| S
+    O -.->|Detects issues in| G
+    O -.->|Detects issues in| A
+    O -.->|Detects issues in| L
+    O -.->|Detects issues in| S
     
-    L -.->|<b>Enables semantic caching in</b>| A
-    L -.->|<b>Enables policy classification in</b>| G
-    L -.->|<b>Provides context for</b>| O
+    L -.->|Enables semantic caching in| A
+    L -.->|Enables policy classification in| G
+    L -.->|Provides context for| O
     
-    A -.->|<b>Fast access enables</b>| O
-    A -.->|<b>Performance affects</b>| L
+    A -.->|Fast access enables| O
+    A -.->|Performance affects| L
     
-    G -.->|<b>Audit trails feed</b>| O
-    G -.->|<b>Access patterns affect</b>| A
+    G -.->|Audit trails feed| O
+    G -.->|Access patterns affect| A
     
     style G fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style O fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -1378,42 +1497,56 @@ This dashboard shows Language as the current cascade risk. The declining trend s
 **Diagram 10: Cascade Failure Example - How Language Drift Impacts All GOALS**
 ```mermaid
 sequenceDiagram
-    participant U as <b>User</b>
-    participant Agent as <b>AI Agent</b>
-    participant L as <b>Language Layer</b>
-    participant S as <b>Soundness Layer</b>
-    participant A as <b>Accessibility Layer</b>
-    participant O as <b>Observability Layer</b>
-    participant G as <b>Governance Layer</b>
+    participant U as User
+    participant Agent as AI Agent
+    participant L as Language Layer
+    participant S as Soundness Layer
+    participant A as Accessibility Layer
+    participant O as Observability Layer
+    participant G as Governance Layer
     
-    Note over L: <b>Medical code "CPT-2025"</b><br/><b>added, not in semantic layer</b>
+    Note over L: Medical code "CPT-2025"
+    added, not in semantic layer
     
-    U->>Agent: <b>"Schedule my diabetes follow-up"</b>
-    Agent->>L: <b>Translate query</b>
-    L->>L: <b>❌ Misinterprets "diabetes"</b><br/><b>Maps to old code</b>
-    Note over L: <b>Language GOAL degrades</b><br/><b>Score: 89→65</b>
+    U->>Agent: "Schedule my diabetes follow-up"
+    Agent->>L: Translate query
+    L->>L: ❌ Misinterprets "diabetes"
+    Maps to old code
+    Note over L: Language GOAL degrades
+    Score: 89→65
     
-    L->>S: <b>Request data with wrong code</b>
-    S->>S: <b>❌ Returns incomplete records</b><br/><b>(missing recent visits)</b>
-    Note over S: <b>Soundness GOAL degrades</b><br/><b>Score: 93→78</b>
+    L->>S: Request data with wrong code
+    S->>S: ❌ Returns incomplete records
+    (missing recent visits)
+    Note over S: Soundness GOAL degrades
+    Score: 93→78
     
-    S->>A: <b>Retrieves partial data</b>
-    A->>A: <b>❌ Multiple fallback queries</b><br/><b>Response time: 1.8s → 4.2s</b>
-    Note over A: <b>Accessibility GOAL degrades</b><br/><b>Score: 88→72</b>
+    S->>A: Retrieves partial data
+    A->>A: ❌ Multiple fallback queries
+    Response time: 1.8s → 4.2s
+    Note over A: Accessibility GOAL degrades
+    Score: 88→72
     
-    A->>O: <b>Slow query triggers alert</b>
-    O->>O: <b>❌ Can't identify root cause</b><br/><b>Trace doesn't show semantic error</b>
-    Note over O: <b>Observability GOAL degrades</b><br/><b>Score: 88→74</b>
+    A->>O: Slow query triggers alert
+    O->>O: ❌ Can't identify root cause
+    Trace doesn't show semantic error
+    Note over O: Observability GOAL degrades
+    Score: 88→74
     
-    Agent->>U: <b>Wrong answer (4.2s delay)</b>
-    U->>U: <b>❌ Loses trust</b>
+    Agent->>U: Wrong answer (4.2s delay)
+    U->>U: ❌ Loses trust
     
-    Note over G: <b>Meanwhile...</b><br/><b>Audit log shows access to wrong records</b>
-    G->>G: <b>❌ Compliance team flags</b><br/><b>unnecessary data access</b>
-    Note over G: <b>Governance GOAL degrades</b><br/><b>Score: 94→81</b>
+    Note over G: Meanwhile...
+    Audit log shows access to wrong records
+    G->>G: ❌ Compliance team flags
+    unnecessary data access
+    Note over G: Governance GOAL degrades
+    Score: 94→81
     
     rect rgb(255, 235, 238)
-        Note over U,G: <b>One semantic drift (Language)</b><br/><b>cascaded to all 5 GOALS</b><br/><b>within 48 hours</b>
+        Note over U,G: One semantic drift (Language)
+    cascaded to all 5 GOALS
+    within 48 hours
     end
 ```
 
@@ -1497,44 +1630,44 @@ Skip any of these and you'll eventually fail.
 **Diagram 11: Echo's GOALS Maturity Journey - Stage Progression**
 ```mermaid
 graph LR
-    subgraph "<b>Stage 1: Basic (Months 1-3)</b>"
-        G1["<b>Governance: 62</b>"]
-        O1["<b>Observability: 52</b>"]
-        A1["<b>Accessibility: 28</b>"]
-        L1["<b>Language: 58</b>"]
-        S1["<b>Soundness: 67</b>"]
+    subgraph "Stage 1: Basic (Months 1-3)"
+        G1["Governance: 62"]
+        O1["Observability: 52"]
+        A1["Accessibility: 28"]
+        L1["Language: 58"]
+        S1["Soundness: 67"]
     end
     
-    subgraph "<b>Stage 2: Enhanced (Months 4-9)</b>"
-        G2["<b>Governance: 82</b>"]
-        O2["<b>Observability: 75</b>"]
-        A2["<b>Accessibility: 65</b>"]
-        L2["<b>Language: 73</b>"]
-        S2["<b>Soundness: 79</b>"]
+    subgraph "Stage 2: Enhanced (Months 4-9)"
+        G2["Governance: 82"]
+        O2["Observability: 75"]
+        A2["Accessibility: 65"]
+        L2["Language: 73"]
+        S2["Soundness: 79"]
     end
     
-    subgraph "<b>Stage 3: Advanced (Months 10-15)</b>"
-        G3["<b>Governance: 94</b>"]
-        O3["<b>Observability: 88</b>"]
-        A3["<b>Accessibility: 88</b>"]
-        L3["<b>Language: 89</b>"]
-        S3["<b>Soundness: 93</b>"]
+    subgraph "Stage 3: Advanced (Months 10-15)"
+        G3["Governance: 94"]
+        O3["Observability: 88"]
+        A3["Accessibility: 88"]
+        L3["Language: 89"]
+        S3["Soundness: 93"]
     end
     
-    G1 -->|<b>ABAC implementation</b>| G2
-    G2 -->|<b>Automated response</b>| G3
+    G1 -->|ABAC implementation| G2
+    G2 -->|Automated response| G3
     
-    O1 -->|<b>Trace IDs + drift detection</b>| O2
-    O2 -->|<b>Closed-loop feedback</b>| O3
+    O1 -->|Trace IDs + drift detection| O2
+    O2 -->|Closed-loop feedback| O3
     
-    A1 -->|<b>CDC + basic caching</b>| A2
-    A2 -->|<b>Query optimization + semantic caching</b>| A3
+    A1 -->|CDC + basic caching| A2
+    A2 -->|Query optimization + semantic caching| A3
     
-    L1 -->|<b>Enhanced glossary</b>| L2
-    L2 -->|<b>Continuous learning</b>| L3
+    L1 -->|Enhanced glossary| L2
+    L2 -->|Continuous learning| L3
     
-    S1 -->|<b>Continuous monitoring</b>| S2
-    S2 -->|<b>Predictive quality + auto-response</b>| S3
+    S1 -->|Continuous monitoring| S2
+    S2 -->|Predictive quality + auto-response| S3
     
     style G1 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style O1 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
