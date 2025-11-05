@@ -301,6 +301,63 @@ Giving the agent a "patient" role doesn't tell you which specific patient's data
 
 You need attribute-based access control policies that evaluate dozens of factors in real-time.
 
+**Diagram 7: RBAC vs ABAC Authorization Flow**
+```mermaid
+graph TB
+    subgraph "Traditional RBAC - Fails for Agents"
+        R1[User Request:<br/>'Show my lab results']
+        R2[Check Role:<br/>User = 'Patient']
+        R3[Role Permissions:<br/>READ patients.lab_results]
+        R4[❌ Problem: Too Broad<br/>Agent retrieves ALL patients' data<br/>Violates 'minimum necessary' standard]
+        
+        R1 --> R2
+        R2 --> R3
+        R3 --> R4
+    end
+    
+    subgraph "Dynamic ABAC - Agent-Ready"
+        A1[User Request:<br/>'Show my lab results']
+        A2[Evaluate Context Attributes:<br/>👤 Who: patient_id=12345<br/>📋 What: lab_results table<br/>📅 When: 2025-10-27 14:32<br/>📱 Where: mobile_app<br/>🎯 Why: patient_self_access]
+        A3[Apply Dynamic Policy:<br/>IF requester.patient_id == record.patient_id<br/>AND data.type == 'lab_results'<br/>AND patient.consent_status == 'active'<br/>AND access_time WITHIN business_hours<br/>THEN permit WITH row_level_filter]
+        A4[✅ Secure Result:<br/>Only patient 12345's labs<br/>Provider notes masked<br/>Full audit trail logged with context<br/>Sub-10ms evaluation]
+        
+        A1 --> A2
+        A2 --> A3
+        A3 --> A4
+    end
+    
+    style R4 fill:#ffcccc,stroke:#cc0000,stroke-width:2px
+    style A4 fill:#ccffcc,stroke:#00cc00,stroke-width:2px
+    style A2 fill:#e1f5ff
+    style A3 fill:#e1f5ff
+```
+
+**The Five W's of ABAC Authorization**
+
+Traditional RBAC asks one question: "What role does this user have?"
+
+Dynamic ABAC asks five questions simultaneously:
+
+**👤 Who:** Patient ID 12345 requesting data (not just "a patient role")
+
+**📋 What:** Specific table and columns being accessed (lab_results, not all patient data)
+
+**📅 When:** Timestamp and business context (normal business hours vs. suspicious 3am access)
+
+**📱 Where:** Access channel and location (mobile app from registered device vs. unknown location)
+
+**🎯 Why:** Business justification (patient self-access vs. administrative lookup)
+
+These five dimensions enable policies that are **dynamically evaluated in real-time**, achieving the sub-10ms latency agents require while maintaining HIPAA's "minimum necessary" compliance standard.
+
+**Echo's ABAC Impact:**
+- Policy violations detected: 8-24 hours → under 60 seconds
+- Audit trail completeness: 62% → 94%
+- False positive security alerts: 340/month → 12/month
+- Agent authorization latency: 45ms → 8ms
+
+---
+
 ### Key Technologies for Agent Governance
 
 **ABAC Policy Engines:**
@@ -424,6 +481,86 @@ Every agent request received a unique identifier propagating through all seven l
 User query → semantic translation → retrieval → policy evaluation → data access → response generation → user delivery.
 
 This enabled root cause analysis impossible with infrastructure metrics alone.
+
+**Diagram 8: End-to-End Observability with Trace IDs**
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant A as Agent<br/>(Layer 7)
+    participant S as Semantic<br/>(Layer 3)
+    participant R as RAG<br/>(Layer 4)
+    participant D as Data Fabric<br/>(Layer 2)
+    participant DB as Storage<br/>(Layer 1)
+    participant O as Observability<br/>(Layer 6)
+    
+    rect rgb(230, 245, 255)
+        Note over U,O: Trace ID: abc-123-def | Timestamp: 2025-10-27 14:32:15
+    end
+    
+    U->>A: "Show Dr. Martinez's availability tomorrow"
+    activate A
+    A->>O: Log: Query received (trace: abc-123-def, user: patient_12345)
+    
+    A->>S: Translate: "Dr. Martinez" + "availability" + "tomorrow"
+    activate S
+    S->>O: Log: Semantic translation started (trace: abc-123-def)
+    S->>S: Entity resolution:<br/>"Dr. Martinez" → provider_id=789<br/>"tomorrow" → date=2025-10-28
+    S->>O: Log: Translation complete 0.3s (trace: abc-123-def)
+    S-->>A: Translated: provider_id=789, date=2025-10-28
+    deactivate S
+    
+    A->>R: Retrieve: provider_schedule context
+    activate R
+    R->>O: Log: RAG retrieval started (trace: abc-123-def)
+    R->>D: Query: provider_schedule WHERE id=789 AND date=2025-10-28
+    activate D
+    D->>O: Log: Real-time stream query (trace: abc-123-def)
+    D->>DB: Execute: SELECT * FROM provider_schedule...
+    activate DB
+    DB->>O: ⚠️ Log: Query execution 2.3s - SLOW (trace: abc-123-def)
+    Note over DB: Missing index on<br/>provider_id column!
+    DB-->>D: Result: 3 available time slots
+    deactivate DB
+    D-->>R: Stream: 3 slots
+    deactivate D
+    R->>O: Log: Context retrieved 2.5s total (trace: abc-123-def)
+    R-->>A: Context: [8:00am, 10:00am, 2:00pm]
+    deactivate R
+    
+    A->>O: Log: Response generated 2.9s total (trace: abc-123-def)
+    A->>U: "Dr. Martinez has 3 openings tomorrow:<br/>8:00am, 10:00am, 2:00pm"
+    deactivate A
+    
+    rect rgb(255, 240, 240)
+        Note over O: Root Cause Analysis (trace: abc-123-def):<br/>❌ Bottleneck: Layer 1 DB query 2.3s<br/>💡 Cause: Missing index on provider_id<br/>🎯 Action: Auto-create ticket DBA-2847<br/>⏱️ Expected fix: Add index, reduce to <20ms
+    end
+    
+    O->>O: Auto-alert: Performance degradation<br/>Create incident ticket<br/>Assign to: Database team<br/>Priority: Medium (>2s query)
+```
+
+**The Power of Trace-Based Diagnosis**
+
+Without trace IDs, this 2.9-second query would have generated alerts like "Agent response time degraded" with no clear path to resolution. The team would spend hours manually correlating logs across seven layers.
+
+**With end-to-end tracing:**
+
+**Layer 7 (Agent):** 2.9s total response time → flag for investigation  
+**Layer 3 (Semantic):** 0.3s translation → performing well ✓  
+**Layer 4 (RAG):** 2.5s retrieval → slower than target, investigate deeper  
+**Layer 2 (Data Fabric):** streaming overhead minimal → not the issue  
+**Layer 1 (Storage):** **2.3s DB query → ROOT CAUSE IDENTIFIED** ❌
+
+The trace shows the exact SQL query, table, and conditions. Database team can immediately see the missing index on `provider_id` column. Expected fix: add index, reduce query time from 2.3s to <20ms.
+
+**Echo's Observability Impact:**
+- Mean time to identify root cause: 4.2 hours → 8 minutes
+- Percentage of issues auto-diagnosed: 0% → 67%
+- False positive alerts: 340/month → 45/month
+- Incidents requiring human investigation: 100% → 33%
+
+This is why observability requires more than infrastructure monitoring—it needs **application-level traces that show the complete story** across all seven layers.
+
+---
 
 ### Key Technologies for Agent Observability
 
@@ -558,6 +695,88 @@ Redesigned RAG infrastructure using [LangChain](https://www.langchain.com) or [L
 
 Semantic caching with [Redis](https://redis.io) or [Momento](https://www.gomomento.com) achieving 60%+ hit rates. Common queries returned from cache in 300ms instead of querying data sources.
 
+**Diagram 9: Multi-Level Caching Strategy for Sub-2s Performance**
+```mermaid
+graph TD
+    Q[User Query:<br/>'Show Dr. Martinez availability tomorrow']
+    
+    Q --> L1{Level 1:<br/>Semantic Cache<br/>Redis/Momento}
+    
+    L1 -->|✅ Cache Hit<br/>65% of queries| C1[Semantic Match Found<br/>⚡ Return in 300ms<br/>Cost: $0.001/query]
+    
+    L1 -->|❌ Cache Miss<br/>35% of queries| L2{Level 2:<br/>Vector Database<br/>Pinecone/Weaviate}
+    
+    L2 -->|✅ Cache Hit<br/>25% of queries| C2[Embedding Lookup<br/>⚡ Return in 800ms<br/>Cost: $0.008/query]
+    
+    L2 -->|❌ Cache Miss<br/>10% of queries| L3{Level 3:<br/>Knowledge Graph<br/>Neo4j/Neptune}
+    
+    L3 -->|✅ Cache Hit<br/>7% of queries| C3[Graph Traversal<br/>Provider→Schedule<br/>⚡ Return in 1.2s<br/>Cost: $0.015/query]
+    
+    L3 -->|❌ Cache Miss<br/>3% of queries| L4[Full Query Pipeline:<br/>RAG + Data Fabric + DB<br/>⏱️ 2.8-4.2s response<br/>Cost: $0.12/query]
+    
+    C1 --> R[Response to User:<br/>Sub-2s ✅]
+    C2 --> R
+    C3 --> R
+    L4 --> SLOW[Response to User:<br/>2.8-4.2s ⚠️]
+    
+    L4 --> U[Update All Cache Levels<br/>For Next Similar Query]
+    
+    U -.->|Cache warming| L1
+    U -.->|Cache warming| L2
+    U -.->|Cache warming| L3
+    
+    style C1 fill:#ccffcc,stroke:#00cc00,stroke-width:2px
+    style C2 fill:#e8f5e1,stroke:#00aa00,stroke-width:2px
+    style C3 fill:#fff4e1,stroke:#aa8800,stroke-width:2px
+    style L4 fill:#ffcccc,stroke:#cc0000,stroke-width:2px
+    style R fill:#ccffcc
+    style SLOW fill:#ffe1e1
+    
+    Note1[💡 Semantic Cache Insight:<br/>'Dr. Martinez availability tomorrow' ≈<br/>'Dr. M schedule 10/28' ≈<br/>'Show Martinez times tomorrow'<br/>All resolve to same cached result]
+    
+    Note2[💡 Why 4 Levels Matter:<br/>L1: Instant for common patterns<br/>L2: Fast for semantic similarity<br/>L3: Good for relationships<br/>L4: Complete for novel queries]
+```
+
+**Understanding the Caching Hierarchy**
+
+**Level 1: Semantic Cache (65% hit rate)**
+- **Technology:** Redis or Momento with semantic key generation
+- **Speed:** 300ms average
+- **How it works:** Queries with same *intent* share cache keys, even if worded differently
+- **Example:** "Dr. Martinez availability tomorrow" and "Show Dr. M's schedule for 10/28" both map to the same semantic key
+- **Cost:** $0.001 per query (40x cheaper than cold path)
+
+**Level 2: Vector Database (25% additional hit rate)**
+- **Technology:** Pinecone, Weaviate, or Qdrant
+- **Speed:** 800ms average
+- **How it works:** Embedding-based similarity search finds "close enough" results
+- **Example:** Query about "Dr. Martinez" retrieves cached results for "Dr. Maria Martinez" even if exact name differs
+- **Cost:** $0.008 per query (15x cheaper than cold path)
+
+**Level 3: Knowledge Graph (7% additional hit rate)**
+- **Technology:** Neo4j, Amazon Neptune, or Azure Cosmos DB
+- **Speed:** 1.2s average
+- **How it works:** Relationship traversal (Provider → Department → Schedule) uses graph caching
+- **Example:** Query navigates Provider→Specialty→Availability without re-computing relationships
+- **Cost:** $0.015 per query (8x cheaper than cold path)
+
+**Level 4: Cold Path (3% of queries)**
+- **When:** Novel queries with no cached data at any level
+- **Speed:** 2.8-4.2s (full RAG + DB + processing)
+- **How it works:** Complete pipeline execution
+- **Cache warming:** Results populate all three cache levels for future queries
+- **Cost:** $0.12 per query (full processing cost)
+
+**Echo's Caching Impact:**
+- Average response time: 9.2s → 1.8s (80% improvement)
+- Sub-2-second responses: 45% → 90% of queries
+- Infrastructure costs: $8,400/month → $2,100/month (75% reduction)
+- Cache hit rate (cumulative): 0% → 97%
+
+**The 97% Rule:** With proper caching strategy, 97% of queries never need full processing. This is how Echo achieved consistent sub-2-second performance at 75% lower cost.
+
+---
+
 **Selection criteria:** Prioritize managed streaming services for reduced operational overhead, query-optimized storage per data type (vector for semantic search, graph for relationships, RDBMS for transactions), RAG frameworks with native parallel retrieval support, and semantic caching over exact-match caching.
 
 ### Measuring Accessibility Health
@@ -631,6 +850,96 @@ The agent returns results. Users assume it understood correctly. But the retriev
 Language GOAL depends on maintaining a comprehensive, accurate semantic layer.
 
 Echo's semantic layer includes business glossaries with natural language mappings, entity resolution rules that disambiguate references, metric definitions with embedded business logic, and ontologies defining relationships between concepts.
+
+**Diagram 10: Natural Language → Data Operation Pipeline**
+```mermaid
+graph TB
+    NL[User Query:<br/>'Show my doctor's availability next week']
+    
+    NL --> PARSE[Intent Parsing:<br/>Action: 'show' → SELECT query<br/>Subject: 'doctor' → provider entity<br/>Qualifier: 'my' → needs resolution<br/>Timeframe: 'next week' → date range]
+    
+    PARSE --> ENTITY{Entity Resolution:<br/>Which doctor?}
+    
+    ENTITY --> CTX[Context Signals:<br/>✓ User: patient_id 12345<br/>✓ Recent visit: dr_martinez provider_id 789<br/>✓ Primary care: dr_martinez<br/>✓ Specialty context: diabetes care<br/>✓ Last appointment: 2025-09-15]
+    
+    CTX --> RESOLVE[Resolved Entity:<br/>'my doctor' = Dr. Maria Martinez<br/>provider_id = 789<br/>Confidence: 0.94]
+    
+    RESOLVE --> AMBIG{Confidence<br/>>0.90?}
+    
+    AMBIG -->|Yes<br/>Confident| GLOSS[Glossary Lookup:<br/>'availability' → provider_schedule.status<br/>'next week' → DATE BETWEEN<br/>2025-10-28 AND 2025-11-03<br/>'show' → SELECT with patient_view filter]
+    
+    AMBIG -->|No<br/>Ambiguous| CLARIFY[Ask Clarification:<br/>'Which doctor do you mean?<br/>- Dr. Martinez primary care<br/>- Dr. Chen endocrinology']
+    
+    GLOSS --> SEMANTIC[Semantic Query Construction:<br/>SELECT p.provider_name,<br/>       s.appointment_date,<br/>       s.appointment_time,<br/>       s.duration_minutes<br/>FROM provider_schedule s<br/>JOIN providers p ON s.provider_id = p.id<br/>WHERE p.provider_id = 789<br/>  AND s.appointment_date BETWEEN<br/>      '2025-10-28' AND '2025-11-03'<br/>  AND s.availability_status = 'open'<br/>  AND s.accepts_patient_type = 'existing']
+    
+    SEMANTIC --> ABAC[ABAC Validation:<br/>✓ User 12345 authorized for provider 789?<br/>✓ Access = appointment_scheduling?<br/>✓ Time = business hours?<br/>→ Policy: PERMIT]
+    
+    ABAC --> EXEC[Execute Query<br/>Return: 5 available slots]
+    
+    EXEC --> FORMAT[Natural Language Response:<br/>'Dr. Martinez has 5 openings next week:<br/>Mon 10/28: 10am, 2pm<br/>Wed 10/30: 9am, 3pm<br/>Fri 11/1: 11am']
+    
+    FORMAT --> FB[Feedback Loop:<br/>✓ Log translation accuracy<br/>✓ Update entity confidence scores<br/>✓ Learn: 'my doctor' + patient_12345 → provider_789<br/>✓ Cache: semantic query for similar requests]
+    
+    style RESOLVE fill:#e8f5e1,stroke:#00aa00,stroke-width:2px
+    style SEMANTIC fill:#e1f5ff,stroke:#0066cc,stroke-width:2px
+    style ABAC fill:#fff4e1,stroke:#cc8800,stroke-width:2px
+    style EXEC fill:#ccffcc,stroke:#00cc00,stroke-width:2px
+    style CLARIFY fill:#ffe1e1,stroke:#cc0000,stroke-width:2px
+    style FORMAT fill:#f5e1ff,stroke:#8800cc,stroke-width:2px
+```
+
+**The Seven Stages of Semantic Translation**
+
+**Stage 1: Intent Parsing**
+- Identifies action verb ("show" → SELECT operation)
+- Extracts subject ("doctor" → provider entity)
+- Recognizes qualifiers ("my" requires personalization)
+- Interprets temporal references ("next week" → date range calculation)
+
+**Stage 2: Entity Resolution**
+- Resolves ambiguous references using multiple signals
+- Considers user context (patient history, recent appointments)
+- Evaluates relationship strength (primary care vs. specialist)
+- Generates confidence score (0.94 = very confident)
+
+**Stage 3: Ambiguity Check**
+- High confidence (>0.90): Proceed with resolved entity
+- Low confidence (<0.90): Ask clarifying question
+- Prevents wrong answers from ambiguous queries
+
+**Stage 4: Glossary Lookup**
+- Maps business terms to technical schema
+- "availability" → `provider_schedule.status = 'open'`
+- "next week" → DATE BETWEEN logic with timezone handling
+- "show" → SELECT with appropriate patient view filter
+
+**Stage 5: Semantic Query Construction**
+- Generates valid SQL with proper JOINs
+- Includes all necessary filters and conditions
+- Applies business rules (existing patients only, proper time slots)
+- Optimized for performance (appropriate indexes)
+
+**Stage 6: ABAC Validation**
+- Security check before execution
+- Verifies user authorized to see provider 789's schedule
+- Confirms access reason is legitimate (appointment scheduling)
+- Ensures request during appropriate hours
+
+**Stage 7: Natural Language Response + Feedback**
+- Translates SQL results back to conversational language
+- Logs translation for accuracy tracking
+- Updates entity resolution confidence scores
+- Caches semantic query for similar future requests
+
+**Echo's Language GOAL Impact:**
+- Query understanding accuracy: 58% → 89%
+- Clarification questions needed: 35% → 8%
+- User query rephrasing: 28% → 6%
+- Average conversation turns: 2.8 → 1.3
+
+**Key Insight:** The 0.90 confidence threshold is critical. Below 90%, the system asks for clarification rather than guessing. This prevents the "confident but wrong" answers that destroy user trust.
+
+---
 
 ### Key Technologies for Semantic Understanding
 
@@ -766,6 +1075,132 @@ Maintaining soundness requires vigilance across four interconnected dimensions:
 **Consistency:** Does data align across systems? Patient demographics in EHR showed different addresses than billing records for 3% of patients. Entity resolution failed.
 
 **Timeliness:** Is data fresh enough for its use case? Lab results were 24 hours old—fine for analytical reports but problematic when patients asked about "my recent test results" meaning tests from this morning.
+
+**Diagram 11: Continuous Data Quality Monitoring & Remediation Pipeline**
+```mermaid
+graph TB
+    subgraph "Source Systems"
+        S1[EHR System<br/>Patient Demographics<br/>Real-time updates]
+        S2[Scheduling System<br/>Appointments<br/>Every 30 seconds]
+        S3[Billing System<br/>Insurance Records<br/>Nightly + critical alerts]
+    end
+    
+    subgraph "Data Fabric - Layer 2"
+        CDC[Change Data Capture<br/>Debezium + Kafka<br/>Sub-30s streaming]
+    end
+    
+    S1 -->|Stream changes| CDC
+    S2 -->|Stream changes| CDC
+    S3 -->|Stream changes| CDC
+    
+    subgraph "Quality Monitoring - Layer 6"
+        Q1[Freshness Check:<br/>✓ Data age < 30s for critical<br/>✓ Data age < 5min for normal<br/>⚠️ Alert if stale]
+        
+        Q2[Completeness Check:<br/>✓ Required fields populated<br/>✓ patient_id NOT NULL<br/>✓ insurance_status present<br/>⚠️ Flag if <95%]
+        
+        Q3[Consistency Check:<br/>✓ Cross-system alignment<br/>✓ EHR address = Billing address<br/>✓ Demographics match<br/>⚠️ Flag conflicts]
+        
+        Q4[Accuracy Check:<br/>✓ Valid formats phone, email, ZIP<br/>✓ Date ranges logical<br/>✓ Code values in valid sets<br/>⚠️ Flag invalid data]
+        
+        Q5[Anomaly Detection:<br/>✓ Statistical outliers<br/>✓ Volume drops/spikes<br/>✓ Distribution shifts<br/>⚠️ ML-based flagging]
+    end
+    
+    CDC --> Q1
+    CDC --> Q2
+    CDC --> Q3
+    CDC --> Q4
+    CDC --> Q5
+    
+    Q1 --> GATE{Quality Gates<br/>All Pass?}
+    Q2 --> GATE
+    Q3 --> GATE
+    Q4 --> GATE
+    Q5 --> GATE
+    
+    GATE -->|✅ Pass<br/>98% of records| STORAGE[Agent-Ready Storage<br/>Layer 1: Multi-Modal<br/>✓ Validated data only<br/>✓ Full audit trail<br/>✓ Available to agents]
+    
+    GATE -->|❌ Fail<br/>2% of records| QUARANTINE[Data Quarantine:<br/>❌ Block from agents<br/>🔒 Isolate bad records<br/>📋 Create incident ticket<br/>⚠️ Alert data owner]
+    
+    STORAGE --> AGENTS[AI Agents Query:<br/>Only see validated,<br/>high-quality data<br/>Trust score: 98%+]
+    
+    QUARANTINE --> RCA[Root Cause Analysis:<br/>🔍 Trace to source system<br/>🎯 Identify failure point<br/>📊 Pattern detection<br/>👤 Auto-assign owner]
+    
+    RCA --> TICKET[Incident Ticket:<br/>DQ-2847: Patient records<br/>missing insurance_status<br/>Source: Billing system<br/>Owner: Billing team<br/>SLA: 4 hours]
+    
+    TICKET --> FIX[Source System Fix:<br/>✓ Update records at source<br/>✓ Validate fix<br/>✓ Re-process through CDC<br/>✓ Confirm quality]
+    
+    FIX -->|Corrected data| CDC
+    
+    QUARANTINE -.->|Quality metrics| DASH[Quality Dashboard:<br/>📊 Real-time health<br/>📈 Trend analysis<br/>⚠️ Alert thresholds<br/>🎯 SLA tracking]
+    
+    style GATE fill:#fff4e1,stroke:#cc8800,stroke-width:3px
+    style STORAGE fill:#ccffcc,stroke:#00cc00,stroke-width:2px
+    style QUARANTINE fill:#ffcccc,stroke:#cc0000,stroke-width:2px
+    style AGENTS fill:#e8f5e1,stroke:#00aa00,stroke-width:2px
+    style RCA fill:#e1f5ff,stroke:#0066cc,stroke-width:2px
+    style FIX fill:#f5e1ff,stroke:#8800cc,stroke-width:2px
+```
+
+**The Five Dimensions of Quality Monitoring**
+
+**1. Freshness Check (Timeliness)**
+- **Critical sources (appointments, eligibility):** < 30 seconds
+- **Normal sources (patient demographics):** < 5 minutes
+- **Historical sources (archived records):** Daily acceptable
+- **Detection:** Timestamp comparison between source update and data fabric arrival
+- **Alert:** Automated ticket if freshness SLA breached
+
+**2. Completeness Check (Coverage)**
+- **Required fields:** Must be populated (patient_id, insurance_status, contact_info)
+- **Target:** 95%+ completeness for required fields, 85%+ for optional
+- **Detection:** NULL rate monitoring across 50+ critical fields
+- **Alert:** Flag records with missing required fields for quarantine
+
+**3. Consistency Check (Cross-System Alignment)**
+- **Patient demographics:** EHR address must match billing address
+- **Provider information:** Scheduling system credentials match credential verification
+- **Insurance records:** Coverage effective dates logically consistent
+- **Detection:** 200+ validation rules running hourly
+- **Alert:** Conflicts trigger reconciliation workflow
+
+**4. Accuracy Check (Format Validation)**
+- **Phone numbers:** Valid format (555-123-4567 not 5551234567890)
+- **Email addresses:** Proper structure with @ and domain
+- **ZIP codes:** Valid 5-digit or 9-digit US format
+- **Dates:** Logical ranges (birth_date not in future, appointment_date not 50 years ago)
+- **Code values:** Insurance codes, procedure codes in valid value sets
+- **Detection:** Regex patterns, range checks, lookup validation
+- **Alert:** Invalid values quarantined immediately
+
+**5. Anomaly Detection (Statistical Monitoring)**
+- **Volume monitoring:** Sudden drop in daily records (3,000 → 400 = pipeline failure)
+- **Distribution shifts:** Patient age distribution suddenly skewed (data corruption)
+- **Outlier detection:** Single patient with 847 appointments in one day (data error)
+- **Detection:** ML-based statistical models trained on historical patterns
+- **Alert:** Unusual patterns trigger investigation even if individual records pass validation
+
+**The Quality Gates Decision Point**
+
+Every record streaming through the data fabric passes through **five parallel quality checks**. Only when ALL FIVE checks pass does data reach agent-ready storage.
+
+**Pass rate: 98%** (quality gates validate data meets standards)  
+**Fail rate: 2%** (quarantined for investigation and remediation)
+
+**Why 98% Matters:**
+- Agents only query validated, high-quality data
+- User trust maintained (wrong answers caused by quality issues drop from 23% to <1%)
+- Compliance preserved (audit trails prove data quality rigor)
+- Costs optimized (agents don't waste time processing bad data)
+
+**Echo's Soundness Impact:**
+- Data quality incidents: 14/week → 2/week (86% reduction)
+- Mean time to detect quality issues: 18 hours → 8 minutes (99.3% faster)
+- Agent accuracy affected by data quality: 23% of errors → <1%
+- User-reported "wrong answer" issues: 89/month → 6/month
+
+**The Closed-Loop Advantage:** The pipeline doesn't just detect quality issues—it **automatically creates tickets, assigns owners, tracks resolution, and re-validates fixes**. This transforms data quality from a quarterly audit exercise to a continuous operational discipline.
+
+---
 
 ### Measuring Soundness Health
 
