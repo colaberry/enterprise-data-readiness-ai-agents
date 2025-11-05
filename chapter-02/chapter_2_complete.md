@@ -1095,7 +1095,7 @@ graph TB
     Nightly + critical alerts"]
     end
     
-    subgraph "Data Fabric - Layer 2"
+    subgraph "Real-Time Data Fabric"
         CDC["Change Data Capture
     Debezium + Kafka
     Sub-30s streaming"]
@@ -1105,7 +1105,7 @@ graph TB
     S2 -->|Stream changes| CDC
     S3 -->|Stream changes| CDC
     
-    subgraph "Quality Monitoring - Layer 6"
+    subgraph "Quality Monitoring"
         Q1["Freshness Check:
     ✓ Data age < 30s for critical
     ✓ Data age < 5min for normal
@@ -1149,15 +1149,67 @@ graph TB
     Q4 --> GATE
     Q5 --> GATE
     
-    GATE -->|✅ Pass
-    98% of records| STORAGE["Agent-Ready Storage
-    Layer 1: Multi-Modal
+    GATE -->|✅ Pass - 98% of records| STORAGE["Agent-Ready Storage
     ✓ Validated data only
     ✓ Full audit trail
     ✓ Available to agents"]
     
-    GATE -->|❌ Fail
-    2% of records| QUARANTINE["Data Quarantine:
+    GATE -->|❌ Fail - 2% of records| QUARANTINE["Data Quarantine:
+    ❌ Block from agents
+    🔒 Isolate bad records
+    📋 Create incident ticket
+    ⚠️ Alert data owner"]
+    
+    STORAGE --> AGENTS["AI Agents Query:
+    Only see validated,
+    high-quality data
+    Trust score: 98%+"]
+    
+    QUARANTINE --> RCA["Root Cause Analysis:
+    🔍 Trace to source system
+    🎯 Identify failure point
+    📊 Pattern detection
+    👤 Auto-assign owner"]
+    
+    RCA --> TICKET["Incident Ticket:
+    DQ-2847: Patient records
+    missing insurance_status
+    Source: Billing system
+    Owner: Billing team
+    SLA: 4 hours"]
+    
+    TICKET --> FIX["Source System Fix:
+    ✓ Update records at source
+    ✓ Validate fix
+    ✓ Re-process through CDC
+    ✓ Confirm quality"]
+    
+    FIX -->|Corrected data| CDC
+    
+    QUARANTINE -.->|Quality metrics| DASH["Quality Dashboard:
+    📊 Real-time health
+    📈 Trend analysis
+    ⚠️ Alert thresholds
+    🎯 SLA tracking"]
+    
+    style S1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style S2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style S3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style CDC fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style Q1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style Q2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style Q3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style Q4 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style Q5 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style GATE fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
+    style STORAGE fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style QUARANTINE fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
+    style AGENTS fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style RCA fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style TICKET fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style FIX fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style DASH fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+```
     ❌ Block from agents
     🔒 Isolate bad records
     📋 Create incident ticket
@@ -1505,48 +1557,34 @@ sequenceDiagram
     participant O as Observability Layer
     participant G as Governance Layer
     
-    Note over L: Medical code "CPT-2025"
-    added, not in semantic layer
+    Note over L: Medical code CPT-2025 added, not in semantic layer
     
-    U->>Agent: "Schedule my diabetes follow-up"
+    U->>Agent: Schedule my diabetes follow-up
     Agent->>L: Translate query
-    L->>L: ❌ Misinterprets "diabetes"
-    Maps to old code
-    Note over L: Language GOAL degrades
-    Score: 89→65
+    Note over L: ❌ Misinterprets diabetes - Maps to old code
+    Note over L: Language GOAL degrades - Score 89 to 65
     
     L->>S: Request data with wrong code
-    S->>S: ❌ Returns incomplete records
-    (missing recent visits)
-    Note over S: Soundness GOAL degrades
-    Score: 93→78
+    Note over S: ❌ Returns incomplete records - missing recent visits
+    Note over S: Soundness GOAL degrades - Score 93 to 78
     
     S->>A: Retrieves partial data
-    A->>A: ❌ Multiple fallback queries
-    Response time: 1.8s → 4.2s
-    Note over A: Accessibility GOAL degrades
-    Score: 88→72
+    Note over A: ❌ Multiple fallback queries - Response time 1.8s to 4.2s
+    Note over A: Accessibility GOAL degrades - Score 88 to 72
     
     A->>O: Slow query triggers alert
-    O->>O: ❌ Can't identify root cause
-    Trace doesn't show semantic error
-    Note over O: Observability GOAL degrades
-    Score: 88→74
+    Note over O: ❌ Cannot identify root cause - Trace does not show semantic error
+    Note over O: Observability GOAL degrades - Score 88 to 74
     
-    Agent->>U: Wrong answer (4.2s delay)
-    U->>U: ❌ Loses trust
+    Agent->>U: Wrong answer with 4.2s delay
+    Note over U: ❌ Loses trust
     
-    Note over G: Meanwhile...
-    Audit log shows access to wrong records
-    G->>G: ❌ Compliance team flags
-    unnecessary data access
-    Note over G: Governance GOAL degrades
-    Score: 94→81
+    Note over G: Meanwhile... Audit log shows access to wrong records
+    Note over G: ❌ Compliance team flags unnecessary data access
+    Note over G: Governance GOAL degrades - Score 94 to 81
     
     rect rgb(255, 235, 238)
-        Note over U,G: One semantic drift (Language)
-    cascaded to all 5 GOALS
-    within 48 hours
+        Note over U,G: One semantic drift in Language cascaded to all 5 GOALS within 48 hours
     end
 ```
 
@@ -1630,7 +1668,7 @@ Skip any of these and you'll eventually fail.
 **Diagram 11: Echo's GOALS Maturity Journey - Stage Progression**
 ```mermaid
 graph LR
-    subgraph "Stage 1: Basic (Months 1-3)"
+    subgraph "Stage 1: Basic"
         G1["Governance: 62"]
         O1["Observability: 52"]
         A1["Accessibility: 28"]
@@ -1638,7 +1676,7 @@ graph LR
         S1["Soundness: 67"]
     end
     
-    subgraph "Stage 2: Enhanced (Months 4-9)"
+    subgraph "Stage 2: Enhanced"
         G2["Governance: 82"]
         O2["Observability: 75"]
         A2["Accessibility: 65"]
@@ -1646,7 +1684,7 @@ graph LR
         S2["Soundness: 79"]
     end
     
-    subgraph "Stage 3: Advanced (Months 10-15)"
+    subgraph "Stage 3: Advanced"
         G3["Governance: 94"]
         O3["Observability: 88"]
         A3["Accessibility: 88"]
