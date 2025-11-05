@@ -1105,7 +1105,7 @@ graph TB
     S2 -->|Stream changes| CDC
     S3 -->|Stream changes| CDC
     
-    subgraph "Quality Monitoring"
+    subgraph "Soundness Monitoring"
         Q1["Freshness Check:
     ✓ Data age < 30s for critical
     ✓ Data age < 5min for normal
