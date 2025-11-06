@@ -173,10 +173,10 @@ graph TB
     A["<b>A - Accessibility</b><br/><b>Speed & Freshness</b>"]
     L["<b>L - Language</b><br/><b>Semantic Understanding</b>"]
     S["<b>S - Soundness</b><br/><b>Data Quality</b>"]
-    G <-->|<b>Audit trails ↔ Policy violations</b>| O
-    O <-->|<b>Performance metrics ↔ Monitoring</b>| A
-    A <-->|<b>Fast retrieval ↔ Query optimization</b>| L
-    L <-->|<b>Semantic validation ↔ Quality data</b>| S
+    G <-->|<b>Audit trails and Policy violations</b>| O
+    O <-->|<b>Performance metrics and Monitoring</b>| A
+    A <-->|<b>Fast retrieval and Query optimization</b>| L
+    L <-->|<b>Semantic validation and Quality data</b>| S
     S -.->|<b>Foundation: Enables all GOALS</b>| G
     O -.->|<b>Diagnostic: Detects issues in all GOALS</b>| L
     COPYRIGHT["© 2025 Colaberry Inc."]
@@ -275,7 +275,7 @@ graph LR
         R2["<b>Check Role</b>"]
         R3["<b>Role = Patient</b>"]
         R4["<b>Grant Broad Access</b>"]
-        R5["<b>❌ Total: Violates
+        R5["<b>FAIL: Violates
         minimum necessary</b>"]
         TITLE1 --> R1
         R1 --> R2
@@ -288,10 +288,10 @@ graph LR
         TITLE2["<b>Attribute-Based Access Control</b>"]
         A1["<b>User Request</b>"]
         A2["<b>Context Eval
-        👤📋📅📱🎯</b>"]
+        Who What When Where Why</b>"]
         A3["<b>Dynamic Policy</b>"]
         A4["<b>Filter Rows</b>"]
-        A5["<b>✅ Total: Sub-10ms
+        A5["<b>SUCCESS: Sub-10ms
         secure access</b>"]
         TITLE2 --> A1
         A1 --> A2
