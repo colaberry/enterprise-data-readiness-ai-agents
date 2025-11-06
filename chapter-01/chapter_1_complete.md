@@ -166,11 +166,6 @@ graph LR
     sw2 -.->|"<b>PARADIGM SHIFT</b>"| sw3
 
     %% Link styling
-    linkStyle 0 stroke:#666666,stroke-width:2px
-    linkStyle 1 stroke:#666666,stroke-width:2px
-    linkStyle 2 stroke:#00897b,stroke-width:2px
-    linkStyle 3 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 4 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
 
     style sw1 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style sw2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
@@ -186,6 +181,7 @@ graph LR
 
     style infra3 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
+
 ```
 
 Karpathy's framework shows why Software 3.0 requires fundamentally new infrastructure, not just upgraded Software 1.0 systems. Each paradigm demands different architectural foundations.[15]
@@ -235,11 +231,6 @@ graph TB
     result -.->|"<b>Requires Transformation</b>"| transform
 
     %% Link styling
-    linkStyle 0 stroke:#c62828,stroke-width:2px
-    linkStyle 1 stroke:#c62828,stroke-width:2px
-    linkStyle 2 stroke:#c62828,stroke-width:2px
-    linkStyle 3 stroke:#00897b,stroke-width:2px
-    linkStyle 4 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
 
     style challenge fill:#fff5f5,stroke:#c62828,stroke-width:3px,color:#b71c1c
     style current fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
@@ -254,6 +245,7 @@ graph TB
 
     style delivers fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
+
 ```
 
 Most enterprises attempt to deploy Software 3.0 agents on Software 1.0 infrastructure creating the architectural mismatch that drives the 95% pilot failure rate.
@@ -420,7 +412,6 @@ graph LR
     LEGEND_BOX -.-> LAYERS
 
     %% Link styling (invisible links for spacing don't need color, but the dotted reference link does)
-    linkStyle 6 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
 
     %% Legend styling
     style LEGEND_BOX fill:#ffffff,stroke:#00897b,stroke-width:3px,color:#004d40
@@ -498,6 +489,7 @@ graph LR
     style L1E fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style L1F fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 
+
 ```
 
 ---
@@ -558,19 +550,6 @@ graph TB
     M --> U
     
     %% Link styling
-    linkStyle 0 stroke:#666666,stroke-width:2px
-    linkStyle 1 stroke:#00897b,stroke-width:2px
-    linkStyle 2 stroke:#00897b,stroke-width:2px
-    linkStyle 3 stroke:#00897b,stroke-width:2px
-    linkStyle 4 stroke:#00897b,stroke-width:2px
-    linkStyle 5 stroke:#00897b,stroke-width:2px
-    linkStyle 6 stroke:#00897b,stroke-width:2px
-    linkStyle 7 stroke:#00897b,stroke-width:2px
-    linkStyle 8 stroke:#00897b,stroke-width:2px
-    linkStyle 9 stroke:#00897b,stroke-width:2px
-    linkStyle 10 stroke:#00897b,stroke-width:2px
-    linkStyle 11 stroke:#00897b,stroke-width:2px
-    linkStyle 12 stroke:#00897b,stroke-width:2px
     
     style Q fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style R fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -587,6 +566,7 @@ graph TB
 
     style U fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
+
 ```
 
 Layer 1 provides six specialized storage types, each optimized for different query patterns. The Query Router determines which storage systems to engage based on the question type.
@@ -721,13 +701,6 @@ graph TB
     TRAIN --> READY
     
     %% Link styling
-    linkStyle 0 stroke:#666666,stroke-width:2px
-    linkStyle 1 stroke:#00897b,stroke-width:2px
-    linkStyle 2 stroke:#00897b,stroke-width:2px
-    linkStyle 3 stroke:#00897b,stroke-width:2px
-    linkStyle 4 stroke:#00897b,stroke-width:2px
-    linkStyle 5 stroke:#00897b,stroke-width:2px
-    linkStyle 6 stroke:#00897b,stroke-width:2px
     
     style S fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style CDC fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -741,6 +714,7 @@ graph TB
 
     style READY fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
+
 ```
 
 Layer 2 transforms source system data into agent-ready format through real-time pipelines. Data freshness improves from 8-24 hours (batch ETL) to under 30 seconds (streaming).
@@ -883,6 +857,7 @@ flowchart LR
 
     style CONTEXT fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
+
 ```
 
 Layer 3 resolves ambiguous natural language to unified entities across siloed systems. "My doctor" becomes a specific provider with complete profile data, enabling accurate agent responses.
@@ -958,18 +933,6 @@ graph LR
     H --> I
     
     %% Link styling
-    linkStyle 0 stroke:#666666,stroke-width:2px
-    linkStyle 1 stroke:#00897b,stroke-width:2px
-    linkStyle 2 stroke:#00897b,stroke-width:2px
-    linkStyle 3 stroke:#00897b,stroke-width:2px
-    linkStyle 4 stroke:#00897b,stroke-width:2px
-    linkStyle 5 stroke:#00897b,stroke-width:2px
-    linkStyle 6 stroke:#00897b,stroke-width:2px
-    linkStyle 7 stroke:#00897b,stroke-width:2px
-    linkStyle 8 stroke:#00897b,stroke-width:2px
-    linkStyle 9 stroke:#00897b,stroke-width:2px
-    linkStyle 10 stroke:#00897b,stroke-width:2px
-    linkStyle 11 stroke:#00897b,stroke-width:2px
     
     style A fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style B fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -985,6 +948,7 @@ graph LR
 
     style I fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
+
 ```
 
 Layer 3's semantic layer resolves ambiguous natural language to unified entities, enabling Layer 4's Intelligence Orchestration & Retrieval to assemble complete context.
@@ -1149,16 +1113,6 @@ graph TB
     CACHE --> LLM
     
     %% Link styling
-    linkStyle 0 stroke:#666666,stroke-width:2px
-    linkStyle 1 stroke:#00897b,stroke-width:2px
-    linkStyle 2 stroke:#00897b,stroke-width:2px
-    linkStyle 3 stroke:#00897b,stroke-width:2px
-    linkStyle 4 stroke:#00897b,stroke-width:2px
-    linkStyle 5 stroke:#00897b,stroke-width:2px
-    linkStyle 6 stroke:#00897b,stroke-width:2px
-    linkStyle 7 stroke:#00897b,stroke-width:2px
-    linkStyle 8 stroke:#00897b,stroke-width:2px
-    linkStyle 9 stroke:#00897b,stroke-width:2px
     
     style Q fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style U fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -1176,6 +1130,7 @@ graph TB
 
     style LLM fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
+
 ```
 
 Layer 4 orchestrates multiple retrieval strategies to find relevant context. Hybrid search combines vector similarity, keyword matching, and graph traversal, achieving 85%+ accuracy vs 40-60% with single-strategy approaches.
@@ -1424,15 +1379,6 @@ graph TB
     MASK --> ALLOW
     
     %% Link styling
-    linkStyle 0 stroke:#666666,stroke-width:2px
-    linkStyle 1 stroke:#00897b,stroke-width:2px
-    linkStyle 2 stroke:#00897b,stroke-width:2px
-    linkStyle 3 stroke:#00897b,stroke-width:2px
-    linkStyle 4 stroke:#00897b,stroke-width:2px
-    linkStyle 5 stroke:#00897b,stroke-width:2px
-    linkStyle 6 stroke:#00897b,stroke-width:2px
-    linkStyle 7 stroke:#c62828,stroke-width:2px
-    linkStyle 8 stroke:#00897b,stroke-width:2px
     
     style REQ fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style POL fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -1450,6 +1396,7 @@ graph TB
 
     style DENY fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
+
 ```
 
 Layer 5 evaluates permissions dynamically based on four contextual factors (Who, What, When, Where) in under 10ms. ABAC replaces static RBAC, enabling compliant agent operations with field-level masking and comprehensive audit trails.
@@ -1618,13 +1565,6 @@ graph TB
     IMPROVE -.->|"<b>Enhances</b>"| metrics
     
     %% Link styling
-    linkStyle 0 stroke:#666666,stroke-width:2px
-    linkStyle 1 stroke:#00897b,stroke-width:2px
-    linkStyle 2 stroke:#00897b,stroke-width:2px
-    linkStyle 3 stroke:#c62828,stroke-width:2px
-    linkStyle 4 stroke:#00897b,stroke-width:2px
-    linkStyle 5 stroke:#00897b,stroke-width:2px
-    linkStyle 6 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
     
     style metrics fill:#fafafa,stroke:#666666,stroke-width:2px,color:#000000
     style M1 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
@@ -1641,6 +1581,7 @@ graph TB
 
     style IMPROVE fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
+
 ```
 
 Layer 6 monitors metrics across all layers and triggers automated responses. Auto-fix handles data quality and model drift (80% of issues), while critical problems alert humans. Feedback loops drive continuous 5-10% monthly accuracy improvements.
@@ -1737,12 +1678,6 @@ graph TB
     AGENT -.->|High Hallucination| FB4
     
     %% Link styling
-    linkStyle 0 stroke:#666666,stroke-width:2px
-    linkStyle 1 stroke:#666666,stroke-width:2px
-    linkStyle 2 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
-    linkStyle 3 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
-    linkStyle 4 stroke:#c62828,stroke-width:2px,stroke-dasharray:5
-    linkStyle 5 stroke:#c62828,stroke-width:2px,stroke-dasharray:5
     
     style metrics fill:#f9f9f9,stroke:#666666,stroke-width:3px,color:#000000
     style DATA fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -1758,6 +1693,7 @@ graph TB
     %% Copyright Notice
     CR["© 2025 Colaberry Inc."]
     style CR fill:none,stroke:none,color:#999999
+
 
 ```
 
@@ -1953,13 +1889,6 @@ graph TB
     ACCESS -.->|"<b>Enables</b>"| SPEC
     
     %% Link styling
-    linkStyle 0 stroke:#666666,stroke-width:2px
-    linkStyle 1 stroke:#00897b,stroke-width:2px
-    linkStyle 2 stroke:#00897b,stroke-width:2px
-    linkStyle 3 stroke:#666666,stroke-width:2px
-    linkStyle 4 stroke:#00897b,stroke-width:2px
-    linkStyle 5 stroke:#00897b,stroke-width:2px
-    linkStyle 6 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
     
     style discovery fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000
     style orchestration fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000
@@ -1976,6 +1905,7 @@ graph TB
 
     style SYNTH fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
+
 ```
 
 Layer 7 enables self-service data discovery (reducing access time from 2-3 weeks to <1 hour) and coordinates specialist agents for complex queries. The router decomposes multi-part questions and synthesizes results into coherent responses.
@@ -2075,21 +2005,6 @@ flowchart TB
     before -.->|"`**Transformation**`"| after
 
     %% Link styling
-    linkStyle 0 stroke:#c62828,stroke-width:2px
-    linkStyle 1 stroke:#c62828,stroke-width:2px
-    linkStyle 2 stroke:#c62828,stroke-width:2px
-    linkStyle 3 stroke:#c62828,stroke-width:2px
-    linkStyle 4 stroke:#c62828,stroke-width:2px
-    linkStyle 5 stroke:#c62828,stroke-width:2px
-    linkStyle 6 stroke:#c62828,stroke-width:2px
-    linkStyle 7 stroke:#00897b,stroke-width:2px
-    linkStyle 8 stroke:#00897b,stroke-width:2px
-    linkStyle 9 stroke:#00897b,stroke-width:2px
-    linkStyle 10 stroke:#00897b,stroke-width:2px
-    linkStyle 11 stroke:#00897b,stroke-width:2px
-    linkStyle 12 stroke:#00897b,stroke-width:2px
-    linkStyle 13 stroke:#00897b,stroke-width:2px
-    linkStyle 14 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
 
     style before fill:#fff5f5,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style after fill:#f0fff0,stroke:#00897b,stroke-width:2px,color:#000000
@@ -2099,6 +2014,7 @@ flowchart TB
     %% Copyright Notice
     CR["© 2025 Colaberry Inc."]
     style CR fill:none,stroke:none,color:#999999
+
 ```
 
 Layer 7's self-service data products include semantic metadata enabling Layer 4's Intelligence Orchestration & Retrieval to automatically discover and use datasets.
@@ -2385,19 +2301,6 @@ graph TB
     stack -.-> O
     
     %% Link styling
-    linkStyle 0 stroke:#666666,stroke-width:2px
-    linkStyle 1 stroke:#00897b,stroke-width:2px
-    linkStyle 2 stroke:#00897b,stroke-width:2px
-    linkStyle 3 stroke:#00897b,stroke-width:2px
-    linkStyle 4 stroke:#666666,stroke-width:2px
-    linkStyle 5 stroke:#666666,stroke-width:2px
-    linkStyle 6 stroke:#00897b,stroke-width:2px
-    linkStyle 7 stroke:#00897b,stroke-width:2px
-    linkStyle 8 stroke:#00897b,stroke-width:2px
-    linkStyle 9 stroke:#666666,stroke-width:2px
-    linkStyle 10 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
-    linkStyle 11 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
-    linkStyle 12 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
     
     style U fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style R fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -2415,6 +2318,7 @@ graph TB
     %% Copyright Notice
     CR["© 2025 Colaberry Inc."]
     style CR fill:none,stroke:none,color:#999999
+
 
 ```
 
@@ -2786,13 +2690,6 @@ graph LR
     BI4 -.->|"`**Paradigm<br/>Evolution**`"| A4
     
     %% Link styling
-    linkStyle 0 stroke:#c62828,stroke-width:2px
-    linkStyle 1 stroke:#c62828,stroke-width:2px
-    linkStyle 2 stroke:#c62828,stroke-width:2px
-    linkStyle 3 stroke:#00897b,stroke-width:2px
-    linkStyle 4 stroke:#00897b,stroke-width:2px
-    linkStyle 5 stroke:#00897b,stroke-width:2px
-    linkStyle 6 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
     
     style bi fill:#fff5f5,stroke:#c62828,stroke-width:3px,color:#b71c1c
     style agent fill:#f0fff0,stroke:#00897b,stroke-width:3px,color:#000000
@@ -2810,6 +2707,7 @@ graph LR
     %% Copyright Notice
     CR["© 2025 Colaberry Inc."]
     style CR fill:none,stroke:none,color:#999999
+
 ```
 
 **Key Architectural Differences**
@@ -3040,6 +2938,7 @@ timeline
               : Intelligence orchestration evolved
               : Enterprise-wide deployment
               
+
 ```
 
 **© 2025 Colaberry Inc.**
