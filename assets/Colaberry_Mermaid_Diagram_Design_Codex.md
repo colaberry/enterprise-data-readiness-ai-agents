@@ -1,4 +1,7 @@
 # The Colaberry Mermaid Diagram Design Codex
+
+**© 2025 Colaberry Inc. All Rights Reserved.**
+
 **Version:** 1.0  
 **Date:** November 5, 2025  
 **Purpose:** Standardized rules for creating human-readable, professional Mermaid diagrams  
@@ -194,6 +197,44 @@ A -->|<b>Enables</b>| B
 
 ❌ WRONG:
 A -->|Enables| B
+```
+
+### Copyright Notice (MANDATORY)
+
+**EVERY diagram MUST include Colaberry copyright:**
+
+```mermaid
+✅ CORRECT:
+graph TB
+    A["<b>Box 1</b>"]
+    B["<b>Box 2</b>"]
+    C["<b>© 2025 Colaberry Inc.</b>"]
+    
+    A --> B
+    
+    style C fill:#ffffff,stroke:none,color:#666666
+```
+
+**Placement Rules:**
+- Add copyright as the last node in the diagram
+- Use neutral styling: `fill:#ffffff,stroke:none,color:#666666`
+- No arrows connecting to/from copyright node
+- Text format: `"<b>© 2025 Colaberry Inc.</b>"`
+
+**Example in context:**
+```mermaid
+graph TB
+    Input["<b>User Query</b>"]
+    Process["<b>Semantic Search</b>"]
+    Output["<b>Results</b>"]
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    
+    Input --> Process --> Output
+    
+    style Input fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style Process fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style Output fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
 ---
@@ -608,6 +649,7 @@ graph TB
     A["<b>Input/Start</b><br/><b>Brief description</b>"]
     B["<b>Process</b><br/><b>Brief description</b>"]
     C["<b>Output/Result</b><br/><b>Brief description</b>"]
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
     
     A -->|<b>Triggers</b>| B
     B -->|<b>Produces</b>| C
@@ -615,6 +657,7 @@ graph TB
     style A fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style B fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style C fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
 ### Template 2: Problem vs Solution
@@ -635,6 +678,8 @@ graph TB
         S1 --> S2 --> S3
     end
     
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    
     style P1 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style P2 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style P3 fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
@@ -642,6 +687,8 @@ graph TB
     style S1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style S2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style S3 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    
+    style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
 ### Template 3: Three-Phase Horizontal
@@ -663,6 +710,7 @@ graph LR
     end
     
     OUTPUT["<b>Output</b>"]
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
     
     INPUT --> P1 --> P2 --> P3 --> OUTPUT
     
@@ -671,6 +719,8 @@ graph LR
     style P2 fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
     style P3 fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
     style OUTPUT fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style Copyright fill:#ffffff,stroke:none,color:#666666
+```
 ```
 
 ### Template 4: Vertical Stack with Foundation
@@ -680,6 +730,7 @@ graph TB
     A["<b>Top Layer</b><br/><b>Surface level</b>"]
     B["<b>Middle Layer</b><br/><b>Processing</b>"]
     C["<b>Bottom Layer</b><br/><b>Foundation</b>"]
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
     
     A <-->|<b>Interaction</b>| B
     B <-->|<b>Interaction</b>| C
@@ -688,6 +739,7 @@ graph TB
     style A fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style B fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style C fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
 ---
@@ -874,6 +926,7 @@ Update existing rules when:
 - [ ] ≤10 boxes, ≤10 arrows
 - [ ] ≤3 lines per box
 - [ ] Prose explains details
+- [ ] **Copyright notice added (© 2025 Colaberry Inc.)**
 
 ---
 
@@ -904,6 +957,7 @@ Update existing rules when:
 - ✅ Fits A4 portrait (≤4 boxes wide)
 - ✅ 5-second understanding test passes
 - ✅ Prose explains what diagram shows
+- ✅ **Copyright notice included (© 2025 Colaberry Inc.)**
 
 **Quality Levels:**
 - ⭐⭐⭐⭐⭐ Perfect: All rules followed, professional appearance
@@ -914,10 +968,22 @@ Update existing rules when:
 
 ---
 
-**© 2025 Colaberry Inc.**  
+## 📄 COPYRIGHT & LICENSE
+
+**© 2025 Colaberry Inc. All Rights Reserved.**
+
+**Proprietary Information**  
+This document contains proprietary and confidential information of Colaberry Inc. Unauthorized reproduction, distribution, or disclosure of this material, in whole or in part, is strictly prohibited without express written permission from Colaberry Inc.
+
 **Created by:** Ram Katamaraja + Claude  
+**Published by:** Colaberry Inc.  
 **Philosophy:** "Keep it simple. Communicate more."  
-**Mission:** Make every diagram a perfect visual anchor.  
+**Mission:** Make every diagram a perfect visual anchor.
+
+**For licensing inquiries or permissions, contact:**  
+Colaberry Inc.  
+Email: info@colaberry.com  
+Website: www.colaberry.com
 
 ---
 

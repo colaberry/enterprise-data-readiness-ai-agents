@@ -489,7 +489,8 @@ graph LR
     style L1E fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style L1F fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 
-
+  Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
 ---
@@ -2888,6 +2889,8 @@ The five enterprise archetypes are compared in Table 5 (Enterprise Archetype Com
 
 **Diagram 7a: Enterprise Data Architecture Evolution Timeline**
 
+````markdown
+**Diagram 7a: Enterprise Data Architecture Evolution Timeline**
 ```mermaid
 timeline
     title Enterprise Data Architecture Evolution: Three Eras
@@ -2937,8 +2940,9 @@ timeline
               : Multi-agent systems standard
               : Intelligence orchestration evolved
               : Enterprise-wide deployment
-              
-
+    
+    section Copyright
+        © 2025 Colaberry Inc. : -
 ```
 
 **© 2025 Colaberry Inc.**
