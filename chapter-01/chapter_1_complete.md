@@ -311,7 +311,7 @@ Each layer solves specific agent requirements. Let's explore them in detail. The
 
 ```mermaid
 graph TB
-    subgraph L7["`**Layer 7: Self-Service & Orchestration**`"]
+    subgraph L7["`**LAYER 7**`"]
         L7A["`**Data Product Catalog**<br/><i>Primary Function</i>`"]
         L7B["`**Multi-Agent Frameworks**<br/><b>LangGraph, CrewAI, AutoGen</b><br/><i>Intelligence</i>`"]
         L7C["`**API Gateway & Documentation**<br/><i>Integration</i>`"]
@@ -320,7 +320,7 @@ graph TB
         L7F["`**Usage Metrics & Analytics**<br/><i>Supporting Tech</i>`"]
     end
 
-    subgraph L6["`**Layer 6: Observability & Feedback**`"]
+    subgraph L6["`**LAYER 6**`"]
         L6A["`**Data Quality Monitoring**<br/><i>Primary Function</i>`"]
         L6B["`**Agent Performance Telemetry**<br/><i>Intelligence</i>`"]
         L6C["`**Model Drift Detection**<br/><i>Integration</i>`"]
@@ -329,7 +329,7 @@ graph TB
         L6F["`**Trace Propagation**<br/><i>Supporting Tech</i>`"]
     end
 
-    subgraph L5["`**Layer 5: Agent-Aware Governance**`"]
+    subgraph L5["`**LAYER 5**`"]
         L5A["`**ABAC Policy Engine**<br/><i>Primary Function</i>`"]
         L5B["`**Dynamic Data Masking**<br/><i>Intelligence</i>`"]
         L5C["`**Real-time Audit Logging**<br/><i>Integration</i>`"]
@@ -338,7 +338,7 @@ graph TB
         L5F["`**Privacy Controls**<br/><i>Supporting Tech</i>`"]
     end
 
-    subgraph L4["`**Layer 4: Intelligence Orchestration**`"]
+    subgraph L4["`**LAYER 4**`"]
         L4A["`**Query Understanding**<br/><i>Primary Function</i>`"]
         L4B["`**Embedding Models**<br/><i>Intelligence</i>`"]
         L4C["`**Hybrid Search**<br/><i>Integration</i>`"]
@@ -347,7 +347,7 @@ graph TB
         L4F["`**Semantic Caching**<br/><i>Supporting Tech</i>`"]
     end
 
-    subgraph L3["`**Layer 3: Universal Semantic Layer**`"]
+    subgraph L3["`**LAYER 3**`"]
         L3A["`**Business Glossary**<br/><i>Primary Function</i>`"]
         L3B["`**Ontologies & Taxonomies**<br/><i>Intelligence</i>`"]
         L3C["`**Metric Definitions**<br/><i>Integration</i>`"]
@@ -356,7 +356,7 @@ graph TB
         L3F["`**Lineage Tracking**<br/><i>Supporting Tech</i>`"]
     end
 
-    subgraph L2["`**Layer 2: Real-Time Data Fabric**`"]
+    subgraph L2["`**LAYER 2**`"]
         L2A["`**Change Data Capture**<br/><i>Primary Function</i>`"]
         L2B["`**Event Streaming**<br/><i>Intelligence</i>`"]
         L2C["`**Stream Processing**<br/><i>Integration</i>`"]
@@ -365,7 +365,7 @@ graph TB
         L2F["`**Data Quality Validation**<br/><i>Supporting Tech</i>`"]
     end
 
-    subgraph L1["`**Layer 1: Multi-Modal Storage**`"]
+    subgraph L1["`**LAYER 1**`"]
         L1A["`**Vector Database**<br/><i>Primary Function</i>`"]
         L1B["`**Knowledge Graph**<br/><i>Intelligence</i>`"]
         L1C["`**Document Store**<br/><i>Integration</i>`"]
@@ -470,6 +470,18 @@ graph TB
     style L1F fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
 ```
+
+**Layer Legend:**
+
+| Layer | Full Name | Primary Purpose |
+|-------|-----------|-----------------|
+| **Layer 7** | Self-Service Data Products & Multi-Agent Orchestration | Agent coordination, workflow management, data product catalog |
+| **Layer 6** | Observability & Feedback | MLOps monitoring, LLM tracking, automated feedback loops |
+| **Layer 5** | Agent-Aware Governance | ABAC policies, dynamic permissions, audit trails, compliance |
+| **Layer 4** | Intelligence Orchestration & Retrieval | RAG infrastructure, hybrid search, context assembly, embeddings |
+| **Layer 3** | Universal Semantic Layer | Business glossary, natural language mappings, metric definitions |
+| **Layer 2** | Real-Time Data Fabric | CDC, event streaming, training pipelines, feature stores |
+| **Layer 1** | Multi-Modal Storage | Vector DB, knowledge graph, RDBMS, document store, model registry |
 
 The seven-layer agent-ready data architecture with teal gradient showing foundation (Layer 1) to orchestration (Layer 7). Layer 4 (Intelligence Orchestration & Retrieval) coordinates multiple retrieval strategies.
 
