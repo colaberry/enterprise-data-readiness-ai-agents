@@ -688,10 +688,7 @@ graph TD
     Q["<b>User Query:
     Show Dr. Martinez availability tomorrow</b>"]
     
-    Q --> L4["<b>Layer 4: Intelligence Orchestration & Retrieval
-    LLM analyzes query
-    Plans execution strategy
-    Orchestrates caching & retrieval</b>"]
+    Q --> L4["<b>Layer 4:</b><br/><b>Intelligence Orchestration & Retrieval</b><br/><b>LLM analyzes query</b><br/><b>Plans execution strategy</b><br/><b>Orchestrates caching & retrieval</b>"]
     
     L4 --> L1{"Caching Level 1:
     Semantic Cache
@@ -904,17 +901,17 @@ Echo's semantic layer includes business glossaries with natural language mapping
 graph TB
     NL["<b>User Query:</b><br/><b>Show my doctor's</b><br/><b>availability next week</b>"]
     
-    NL --> L4["<b>Layer 4: Intelligence Orchestration & Retrieval</b><br/><b>(LLM receives raw natural language)</b>"]
+    NL --> L4["<b>Layer 4: Intelligence</b><br/><b>Orchestration & Retrieval</b><br/><b>(LLM receives raw natural language)</b>"]
     
-    subgraph PHASE1["<b>Phase 1: UNDERSTAND (Layer 4 Analysis)</b>"]
+    subgraph PHASE1["<b>Phase 1: UNDERSTAND</b><br/><b>(Layer 4 Analysis)</b>"]
         P1["<b>LLM Analysis:</b><br/><b>Parse • Extract • Plan</b>"]
     end
     
-    subgraph PHASE2["<b>Phase 2: RESOLVE (Layer 4 calls Layer 3)</b>"]
+    subgraph PHASE2["<b>Phase 2: RESOLVE</b><br/><b>(Layer 4 calls Layer 3)</b>"]
         P2["<b>Call Layer 3:</b><br/><b>resolve_entity • lookup_glossary</b>"]
     end
     
-    subgraph PHASE3["<b>Phase 3: EXECUTE (Layer 4 orchestrates)</b>"]
+    subgraph PHASE3["<b>Phase 3: EXECUTE</b><br/><b>(Layer 4 orchestrates)</b>"]
         P3["<b>Orchestrate:</b><br/><b>ABAC (L5) • Query (L2→L1) • Format</b>"]
     end
     
