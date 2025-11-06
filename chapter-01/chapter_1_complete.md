@@ -310,7 +310,20 @@ Each layer solves specific agent requirements. Let's explore them in detail. The
 **Diagram 1a: Seven-Layer Architecture (Detailed Component View)**
 
 ```mermaid
+
 graph TB
+    %% Horizontal legend at TOP - Above all layers
+    subgraph LEGEND[" "]
+        direction LR
+        LEG_L7["`**L7**<br/><b>Orchestration</b>`"]
+        LEG_L6["`**L6**<br/><b>Observability</b>`"]
+        LEG_L5["`**L5**<br/><b>Governance</b>`"]
+        LEG_L4["`**L4** 🎯<br/><b>Intelligence</b>`"]
+        LEG_L3["`**L3**<br/><b>Semantic</b>`"]
+        LEG_L2["`**L2**<br/><b>Data Fabric</b>`"]
+        LEG_L1["`**L1**<br/><b>Storage</b>`"]
+    end
+
     subgraph L7["`**LAYER 7**`"]
         direction LR
         L7A["`**Data Product<br/>Catalog**`"]
@@ -487,17 +500,8 @@ graph TB
     style L1E fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style L1F fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 
-    %% Horizontal legend at bottom - Left to Right
-    subgraph LEGEND[" "]
-        direction LR
-        LEG_L7["`**L7**<br/><b>Orchestration</b>`"]
-        LEG_L6["`**L6**<br/><b>Observability</b>`"]
-        LEG_L5["`**L5**<br/><b>Governance</b>`"]
-        LEG_L4["`**L4** 🎯<br/><b>Intelligence</b>`"]
-        LEG_L3["`**L3**<br/><b>Semantic</b>`"]
-        LEG_L2["`**L2**<br/><b>Data Fabric</b>`"]
-        LEG_L1["`**L1**<br/><b>Storage</b>`"]
-    end
+    %% Connect legend to Layer 7
+    LEGEND ~~~ L7
 
     %% Transparent legend container with colored boxes
     style LEGEND fill:none,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -511,7 +515,7 @@ graph TB
     
     %% Copyright Notice at bottom
     CR["© 2025 Colaberry Inc."]
-    LEGEND ~~~ CR
+    L1 ~~~ CR
     style CR fill:none,stroke:none,color:#999999
 
 ```
