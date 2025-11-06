@@ -315,13 +315,13 @@ graph TB
     %% Horizontal legend at TOP - Above all layers
     subgraph LEGEND[" "]
         direction LR
-        LEG_L7["`**L7**<br/><b>Orchestration</b>`"]
-        LEG_L6["`**L6**<br/><b>Observability</b>`"]
-        LEG_L5["`**L5**<br/><b>Governance</b>`"]
-        LEG_L4["`**L4** 🎯<br/><b>Intelligence</b>`"]
-        LEG_L3["`**L3**<br/><b>Semantic</b>`"]
-        LEG_L2["`**L2**<br/><b>Data Fabric</b>`"]
-        LEG_L1["`**L1**<br/><b>Storage</b>`"]
+        LEG_L7["`**Layer 7**<br/><b>Orchestration</b>`"]
+        LEG_L6["`**Layer 6**<br/><b>Observability</b>`"]
+        LEG_L5["`**Layer 5**<br/><b>Governance</b>`"]
+        LEG_L4["`**Layer 4** 🎯<br/><b>Intelligence</b>`"]
+        LEG_L3["`**Layer 3**<br/><b>Semantic</b>`"]
+        LEG_L2["`**Layer 2**<br/><b>Data Fabric</b>`"]
+        LEG_L1["`**Layer 1**<br/><b>Storage</b>`"]
     end
 
     subgraph L7["`**LAYER 7**`"]
