@@ -2889,8 +2889,6 @@ The five enterprise archetypes are compared in Table 5 (Enterprise Archetype Com
 
 **Diagram 7a: Enterprise Data Architecture Evolution Timeline**
 
-````markdown
-**Diagram 7a: Enterprise Data Architecture Evolution Timeline**
 ```mermaid
 timeline
     title Enterprise Data Architecture Evolution: Three Eras
