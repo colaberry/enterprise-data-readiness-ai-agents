@@ -141,23 +141,23 @@ The enterprise challenge: attempting to run Software 3.0 agents on Software 1.0 
 
 ```mermaid
 graph LR
-    subgraph sw1["<b>SOFTWARE 1.0</b><br/><b>1950s-2010s</b>"]
+    subgraph sw1["<b>SOFTWARE 1.0</b>"]
         direction TB
-        prog1["<b>Programming</b><br/>Explicit instructions<br/>C++, Java, Python"]
+        prog1["<b>Programming</b><br/><i>(1950s-2010s)</i><br/>Explicit instructions<br/>C++, Java, Python"]
         infra1["<b>Infrastructure</b><br/>Data warehouses<br/>Batch ETL, BI dashboards"]
         prog1 --> infra1
     end
 
-    subgraph sw2["<b>SOFTWARE 2.0</b><br/><b>2010s-2023</b>"]
+    subgraph sw2["<b>SOFTWARE 2.0</b>"]
         direction TB
-        prog2["<b>Programming</b><br/>Curate datasets<br/>Train ML models"]
+        prog2["<b>Programming</b><br/><i>(2010s-2023)</i><br/>Curate datasets<br/>Train ML models"]
         infra2["<b>Infrastructure</b><br/>Added ML layers<br/>MLOps, registries"]
         prog2 --> infra2
     end
 
-    subgraph sw3["<b>SOFTWARE 3.0</b><br/><b>2023-Present</b>"]
+    subgraph sw3["<b>SOFTWARE 3.0</b>"]
         direction TB
-        prog3["<b>Programming</b><br/>Natural language<br/>In-context learning"]
+        prog3["<b>Programming</b><br/><i>(2023-Present)</i><br/>Natural language<br/>In-context learning"]
         infra3["<b>NEW Infrastructure</b><br/>Vector DBs, real-time<br/>Semantic layers, ABAC"]
         prog3 --> infra3
     end
@@ -173,7 +173,12 @@ graph LR
     style prog2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
     style infra2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
     style prog3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+
+    %% Copyright Notice
+    CR["© 2025 Colaberry Inc."]
+
     style infra3 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style CR fill:none,stroke:none,color:#999999
 ```
 
 Karpathy's framework shows why Software 3.0 requires fundamentally new infrastructure, not just upgraded Software 1.0 systems. Each paradigm demands different architectural foundations.[15]
@@ -229,7 +234,12 @@ graph TB
     style result fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
     style solution fill:#f0fff0,stroke:#00897b,stroke-width:3px,color:#004d40
     style transform fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+
+    %% Copyright Notice
+    CR["© 2025 Colaberry Inc."]
+
     style delivers fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style CR fill:none,stroke:none,color:#999999
 ```
 
 Most enterprises attempt to deploy Software 3.0 agents on Software 1.0 infrastructure creating the architectural mismatch that drives the 95% pilot failure rate.
@@ -301,7 +311,7 @@ Each layer solves specific agent requirements. Let's explore them in detail. The
 
 ```mermaid
 graph TB
-    subgraph L7["`**Layer 7: Self-Service Data Products & Multi-Agent Orchestration**`"]
+    subgraph L7["`**Layer 7: Self-Service & Orchestration**`"]
         L7A["`**Data Product Catalog**<br/><i>Primary Function</i>`"]
         L7B["`**Multi-Agent Frameworks**<br/><b>LangGraph, CrewAI, AutoGen</b><br/><i>Intelligence</i>`"]
         L7C["`**API Gateway & Documentation**<br/><i>Integration</i>`"]
@@ -328,7 +338,7 @@ graph TB
         L5F["`**Privacy Controls**<br/><i>Supporting Tech</i>`"]
     end
 
-    subgraph L4["`**Layer 4: Intelligence Orchestration & Retrieval**`"]
+    subgraph L4["`**Layer 4: Intelligence Orchestration**`"]
         L4A["`**Query Understanding**<br/><i>Primary Function</i>`"]
         L4B["`**Embedding Models**<br/><i>Intelligence</i>`"]
         L4C["`**Hybrid Search**<br/><i>Integration</i>`"]
@@ -453,7 +463,12 @@ graph TB
     style L1C fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style L1D fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style L1E fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+
+    %% Copyright Notice
+    CR["© 2025 Colaberry Inc."]
+
     style L1F fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style CR fill:none,stroke:none,color:#999999
 ```
 
 The seven-layer agent-ready data architecture with teal gradient showing foundation (Layer 1) to orchestration (Layer 7). Layer 4 (Intelligence Orchestration & Retrieval) coordinates multiple retrieval strategies.
@@ -517,14 +532,18 @@ graph TB
     
     style Q fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style R fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style storage fill:#fafafa,stroke:#00897b,stroke-width:2px
-    style V fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style storage fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000    style V fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style K fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style D fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style S fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style W fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style M fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+
+    %% Copyright Notice
+    CR["© 2025 Colaberry Inc."]
+
     style U fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style CR fill:none,stroke:none,color:#999999
 ```
 
 Layer 1 provides six specialized storage types, each optimized for different query patterns. The Query Router determines which storage systems to engage based on the question type.
@@ -664,7 +683,12 @@ graph TB
     style PROC fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style FS fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style TRAIN fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+
+    %% Copyright Notice
+    CR["© 2025 Colaberry Inc."]
+
     style READY fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style CR fill:none,stroke:none,color:#999999
 ```
 
 Layer 2 transforms source system data into agent-ready format through real-time pipelines. Data freshness improves from 8-24 hours (batch ETL) to under 30 seconds (streaming).
@@ -795,13 +819,17 @@ flowchart LR
     style NL fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style PARSE fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style GLOSS fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style resolve fill:#fafafa,stroke:#00897b,stroke-width:2px
-    style E1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style resolve fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000    style E1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style E2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style E3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style GOLD fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style ENTITY fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+
+    %% Copyright Notice
+    CR["© 2025 Colaberry Inc."]
+
     style CONTEXT fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style CR fill:none,stroke:none,color:#999999
 ```
 
 Layer 3 resolves ambiguous natural language to unified entities across siloed systems. "My doctor" becomes a specific provider with complete profile data, enabling accurate agent responses.
@@ -884,7 +912,12 @@ flowchart LR
     style F fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style G fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style H fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+
+    %% Copyright Notice
+    CR["© 2025 Colaberry Inc."]
+
     style I fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style CR fill:none,stroke:none,color:#999999
 ```
 
 Layer 3's semantic layer resolves ambiguous natural language to unified entities, enabling Layer 4's Intelligence Orchestration & Retrieval to assemble complete context.
@@ -1051,14 +1084,18 @@ graph TB
     style Q fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style U fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style E fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style retrieval fill:#fafafa,stroke:#00897b,stroke-width:2px
-    style V fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style retrieval fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000    style V fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style K fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style G fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style RANK fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style ASSEMBLE fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style CACHE fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+
+    %% Copyright Notice
+    CR["© 2025 Colaberry Inc."]
+
     style LLM fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style CR fill:none,stroke:none,color:#999999
 ```
 
 Layer 4 orchestrates multiple retrieval strategies to find relevant context. Hybrid search combines vector similarity, keyword matching, and graph traversal, achieving 85%+ accuracy vs 40-60% with single-strategy approaches.
@@ -1308,15 +1345,19 @@ graph TB
     
     style REQ fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style POL fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style eval fill:#fafafa,stroke:#00897b,stroke-width:2px
-    style WHO fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style eval fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000    style WHO fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style WHAT fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style WHEN fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style WHERE fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style DEC fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
     style MASK fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style ALLOW fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+
+    %% Copyright Notice
+    CR["© 2025 Colaberry Inc."]
+
     style DENY fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
+    style CR fill:none,stroke:none,color:#999999
 ```
 
 Layer 5 evaluates permissions dynamically based on four contextual factors (Who, What, When, Where) in under 10ms. ABAC replaces static RBAC, enabling compliant agent operations with field-level masking and comprehensive audit trails.
@@ -1484,8 +1525,7 @@ graph TB
     FEEDBACK --> IMPROVE
     IMPROVE -.->|"<b>Enhances</b>"| metrics
     
-    style metrics fill:#fafafa,stroke:#666666,stroke-width:2px
-    style M1 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style metrics fill:#fafafa,stroke:#666666,stroke-width:2px,color:#000000    style M1 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style M2 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style M3 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style DETECT fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -1493,7 +1533,12 @@ graph TB
     style AUTO fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style ALERT fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
     style FEEDBACK fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+
+    %% Copyright Notice
+    CR["© 2025 Colaberry Inc."]
+
     style IMPROVE fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style CR fill:none,stroke:none,color:#999999
 ```
 
 Layer 6 monitors metrics across all layers and triggers automated responses. Auto-fix handles data quality and model drift (80% of issues), while critical problems alert humans. Feedback loops drive continuous 5-10% monthly accuracy improvements.
@@ -1562,55 +1607,48 @@ Layer 6 monitors metrics across all layers and triggers automated responses. Aut
 
 ```mermaid
 graph TB
-    subgraph metrics["`**MONITORING METRICS**`"]
-        subgraph data["`**Data Layer**`"]
-            DL1["`**Freshness: <1 min**`"]
-            DL2["`**Volume Anomalies: ±20%**`"]
-            DL3["`**Schema Changes**`"]
-            DL4["`**Quality Score: >99%**`"]
-            DL5["`**Pipeline Health: >99.5%**`"]
-        end
+    subgraph metrics["`**MONITORING METRICS (Layer 6)**`"]
+        direction TB
         
-        subgraph model["`**Model Layer**`"]
-            ML1["`**Embedding Drift: KL Divergence**`"]
-            ML2["`**Semantic Drift Detection**`"]
-            ML3["`**LLM Response Quality**`"]
-            ML4["`**Retrieval: NDCG@5**`"]
-            ML5["`**Model Latency: p95**`"]
-        end
+        DATA["`**Data Layer Metrics**<br/>Freshness <1min | Quality >99%<br/>Volume anomalies | Schema changes`"]
         
-        subgraph agent["`**Agent Layer**`"]
-            AL1["`**Query Latency: <2s**`"]
-            AL2["`**Retrieval Quality Score**`"]
-            AL3["`**Response Accuracy**`"]
-            AL4["`**Hallucination Rate: <3%**`"]
-            AL5["`**User Satisfaction**`"]
-            AL6["`**Cost per Query: <$0.01**`"]
-        end
+        MODEL["`**Model Layer Metrics**<br/>Embedding drift | Semantic drift<br/>LLM quality | Retrieval NDCG@5`"]
+        
+        AGENT["`**Agent Layer Metrics**<br/>Latency <2s | Accuracy >85%<br/>Hallucination <3% | Cost <$0.01`"]
+        
+        DATA --> MODEL
+        MODEL --> AGENT
     end
     
     subgraph feedback["`**AUTOMATED FEEDBACK LOOPS**`"]
-        FB1["`**✅ Auto-fix:**<br/><b>Data Quality</b>`"]
-        FB2["`**✅ Auto-retrain:**<br/><b>Model Drift</b>`"]
-        FB3["`**⚠️ Auto-scale:**<br/><b>Cost Control</b>`"]
-        FB4["`**⚠️ Alert:**<br/><b>Threshold Breach</b>`"]
+        direction LR
+        
+        FB1["`**✅ Auto-fix**<br/>Data Quality`"]
+        FB2["`**✅ Auto-retrain**<br/>Model Drift`"]
+        FB3["`**⚠️ Auto-scale**<br/>Cost Control`"]
+        FB4["`**⚠️ Alert**<br/>Threshold Breach`"]
     end
     
-    DL4 -->|Quality Issue| FB1
-    ML1 -->|Drift Detected| FB2
-    AL6 -->|Cost Spike| FB3
-    AL4 -->|High Rate| FB4
+    DATA -.->|Quality Issue| FB1
+    MODEL -.->|Drift Detected| FB2
+    AGENT -.->|Cost Spike| FB3
+    AGENT -.->|High Hallucination| FB4
     
-    style data fill:#f9f9f9,stroke:#666666,stroke-width:2px
-    style model fill:#f9f9f9,stroke:#666666,stroke-width:2px
-    style agent fill:#f9f9f9,stroke:#666666,stroke-width:2px
-    style metrics fill:#fafafa,stroke:#666666,stroke-width:1px
-    style feedback fill:#fafafa,stroke:#666666,stroke-width:1px
+    style metrics fill:#f9f9f9,stroke:#666666,stroke-width:3px,color:#000000
+    style DATA fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style MODEL fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style AGENT fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     
-    style FB1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style FB2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style feedback fill:#f9f9f9,stroke:#666666,stroke-width:3px,color:#000000
+    style FB1 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:2px
+    style FB2 fill:#00695c,color:#ffffff,stroke:#004d40,stroke:2px
     style FB3 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+
+    %% Copyright Notice
+    CR["© 2025 Colaberry Inc."]
+
     style FB4 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style CR fill:none,stroke:none,color:#999999
 ```
 
 Layer 6 observability monitors all seven layers and triggers automated responses. Layer 4's Intelligence Orchestration & Retrieval metrics include retrieval quality (NDCG@5) and latency tracking.
@@ -1804,16 +1842,19 @@ graph TB
     
     ACCESS -.->|"<b>Enables</b>"| SPEC
     
-    style discovery fill:#fafafa,stroke:#00897b,stroke-width:2px
-    style orchestration fill:#fafafa,stroke:#00897b,stroke-width:2px
-    style DEV fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style discovery fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000    style orchestration fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000    style DEV fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style CAT fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style PROD fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style ACCESS fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style QUERY fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style ROUTER fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style SPEC fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+
+    %% Copyright Notice
+    CR["© 2025 Colaberry Inc."]
+
     style SYNTH fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style CR fill:none,stroke:none,color:#999999
 ```
 
 Layer 7 enables self-service data discovery (reducing access time from 2-3 weeks to <1 hour) and coordinates specialist agents for complex queries. The router decomposes multi-part questions and synthesizes results into coherent responses.
@@ -1912,10 +1953,13 @@ flowchart TB
 
     before -.->|"`**Transformation**`"| after
 
-    style before fill:#fff5f5,stroke:#c62828,stroke-width:2px
-    style after fill:#f0fff0,stroke:#00897b,stroke-width:2px
-    style B8 fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
+    style before fill:#fff5f5,stroke:#c62828,stroke-width:2px,color:#b71c1c    style after fill:#f0fff0,stroke:#00897b,stroke-width:2px,color:#000000    style B8 fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
+
+    %% Copyright Notice
+    CR["© 2025 Colaberry Inc."]
+
     style A8 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style CR fill:none,stroke:none,color:#999999
 ```
 
 Layer 7's self-service data products include semantic metadata enabling Layer 4's Intelligence Orchestration & Retrieval to automatically discover and use datasets.
@@ -2178,7 +2222,7 @@ graph TB
         S2["`**Insurance<br/>Specialist**`"]
     end
     
-    subgraph stack["`**7-Layer Stack**<br/><i>Shared Infrastructure</i>`"]
+    subgraph stack["`**7-Layer Stack (Shared)**`"]
         ST["`**• ABAC Governance (L5)**<br/><b>• Intelligence Orchestration (L4)</b><br/><b>• Semantic Layer (L3)</b><br/><b>• Real-Time Data (L2)</b><br/><b>• Multi-Modal Storage (L1)</b>`"]
     end
     
@@ -2203,13 +2247,16 @@ graph TB
     
     style U fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style R fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style parallel fill:#fafafa,stroke:#00897b,stroke-width:2px
-    style S1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style parallel fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000    style S1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style S2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style stack fill:#fafafa,stroke:#666666,stroke-width:2px
-    style ST fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style stack fill:#fafafa,stroke:#666666,stroke-width:2px,color:#000000    style ST fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style O fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+
+    %% Copyright Notice
+    CR["© 2025 Colaberry Inc."]
+
     style RESP fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style CR fill:none,stroke:none,color:#999999
 ```
 
 Layer 7 orchestrator coordinates specialists, each using Layer 4's Intelligence Orchestration & Retrieval for domain-specific context.
@@ -2557,7 +2604,7 @@ Every decision is traceable, reproducible, and auditable. Multi-agent systems lo
 
 ```mermaid
 graph LR
-    subgraph bi["`**❌ BI ERA ARCHITECTURE**<br/><i>1990-2015</i>`"]
+    subgraph bi["`**❌ BI ERA (1990-2015)**`"]
         direction TB
         BI1["`**Batch ETL**<br/><b>8-24 hour lag</b>`"]
         BI2["`**Data Warehouse**<br/><b>OLAP Cubes</b>`"]
@@ -2567,7 +2614,7 @@ graph LR
         BI1 --> BI2 --> BI3 --> BI4
     end
     
-    subgraph agent["`**✅ AGENT ERA ARCHITECTURE**<br/><i>2023-Present</i>`"]
+    subgraph agent["`**✅ AGENT ERA (2023-Present)**`"]
         direction TB
         A1["`**Real-Time Streaming**<br/><b>Sub-30s freshness</b>`"]
         A2["`**Multi-Modal Storage**<br/><b>Vector + Graph + RDBMS</b>`"]
@@ -2579,9 +2626,8 @@ graph LR
     
     BI4 -.->|"`**Paradigm<br/>Evolution**`"| A4
     
-    style bi fill:#fff5f5,stroke:#c62828,stroke-width:3px
-    style agent fill:#f0fff0,stroke:#00897b,stroke-width:3px
-    
+    style bi fill:#fff5f5,stroke:#c62828,stroke-width:3px,color:#b71c1c
+    style agent fill:#f0fff0,stroke:#00897b,stroke-width:3px,color:#000000    
     style BI1 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style BI2 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style BI3 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
@@ -2590,7 +2636,12 @@ graph LR
     style A1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style A2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style A3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+
+    %% Copyright Notice
+    CR["© 2025 Colaberry Inc."]
+
     style A4 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style CR fill:none,stroke:none,color:#999999
 ```
 
 **Key Architectural Differences**
@@ -2820,6 +2871,11 @@ timeline
               : Multi-agent systems standard
               : Intelligence orchestration evolved
               : Enterprise-wide deployment
+
+    %% Copyright Notice
+    CR["© 2025 Colaberry Inc."]
+
+    style CR fill:none,stroke:none,color:#999999
 ```
 
 Enterprise data architecture evolved from BI-era batch processing through ML-era model training to agentic-era intelligence orchestration. Layer 4 (Intelligence Orchestration & Retrieval) emerged as enterprises moved beyond simple RAG to coordinated multi-modal strategies.
