@@ -154,7 +154,7 @@ graph TB
     style GOALS fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
     
 
-    linkStyle 0 stroke:#666666,stroke-width:2px
+    linkStyle 0 stroke:#00897b,stroke-width:2px
     linkStyle 1 stroke:#00897b,stroke-width:2px
     linkStyle 2 stroke:#00897b,stroke-width:2px
     COPYRIGHT["© 2025 Colaberry Inc."]
@@ -203,8 +203,6 @@ graph TB
     linkStyle 7 stroke:#666666,stroke-width:2px
     linkStyle 8 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
     linkStyle 9 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
-    linkStyle 10 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
-    linkStyle 11 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
     COPYRIGHT["© 2025 Colaberry Inc."]
     style COPYRIGHT fill:#ffffff,stroke:#cccccc,stroke-width:1px,color:#999999,font-size:10px
 ```
@@ -337,12 +335,11 @@ graph LR
     linkStyle 3 stroke:#666666,stroke-width:2px
     linkStyle 4 stroke:#666666,stroke-width:2px
     linkStyle 5 stroke:#c62828,stroke-width:2px,stroke-dasharray:5
-    linkStyle 6 stroke:#c62828,stroke-width:2px,stroke-dasharray:5
+    linkStyle 6 stroke:#666666,stroke-width:2px
     linkStyle 7 stroke:#666666,stroke-width:2px
     linkStyle 8 stroke:#666666,stroke-width:2px
     linkStyle 9 stroke:#666666,stroke-width:2px
     linkStyle 10 stroke:#666666,stroke-width:2px
-    linkStyle 11 stroke:#666666,stroke-width:2px
     COPYRIGHT["© 2025 Colaberry Inc."]
     style COPYRIGHT fill:#ffffff,stroke:#cccccc,stroke-width:1px,color:#999999,font-size:10px
 ```
@@ -558,12 +555,12 @@ sequenceDiagram
     linkStyle 1 stroke:#666666,stroke-width:2px
     linkStyle 2 stroke:#666666,stroke-width:2px
     linkStyle 3 stroke:#666666,stroke-width:2px
-    linkStyle 4 stroke:#00897b,stroke-width:2px
+    linkStyle 4 stroke:#666666,stroke-width:2px
     linkStyle 5 stroke:#666666,stroke-width:2px
     linkStyle 6 stroke:#666666,stroke-width:2px
     linkStyle 7 stroke:#666666,stroke-width:2px
-    linkStyle 8 stroke:#666666,stroke-width:2px
-    linkStyle 9 stroke:#666666,stroke-width:2px
+    linkStyle 8 stroke:#00897b,stroke-width:2px
+    linkStyle 9 stroke:#00897b,stroke-width:2px
     linkStyle 10 stroke:#666666,stroke-width:2px
     linkStyle 11 stroke:#666666,stroke-width:2px
     linkStyle 12 stroke:#666666,stroke-width:2px
@@ -582,6 +579,14 @@ sequenceDiagram
     linkStyle 25 stroke:#666666,stroke-width:2px
     linkStyle 26 stroke:#666666,stroke-width:2px
     linkStyle 27 stroke:#666666,stroke-width:2px
+    linkStyle 28 stroke:#666666,stroke-width:2px
+    linkStyle 29 stroke:#666666,stroke-width:2px
+    linkStyle 30 stroke:#666666,stroke-width:2px
+    linkStyle 31 stroke:#666666,stroke-width:2px
+    linkStyle 32 stroke:#666666,stroke-width:2px
+    linkStyle 33 stroke:#666666,stroke-width:2px
+    linkStyle 34 stroke:#666666,stroke-width:2px
+    linkStyle 35 stroke:#666666,stroke-width:2px
 ```
 
 **The Power of Trace-Based Diagnosis**
@@ -845,9 +850,6 @@ graph TD
     linkStyle 14 stroke:#666666,stroke-width:2px,stroke-dasharray:5
     linkStyle 15 stroke:#666666,stroke-width:2px,stroke-dasharray:5
     linkStyle 16 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 17 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 18 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 19 stroke:#666666,stroke-width:2px,stroke-dasharray:5
     COPYRIGHT["© 2025 Colaberry Inc."]
     style COPYRIGHT fill:#ffffff,stroke:#cccccc,stroke-width:1px,color:#999999,font-size:10px
 ```
@@ -1038,7 +1040,6 @@ graph TB
     linkStyle 3 stroke:#666666,stroke-width:2px
     linkStyle 4 stroke:#666666,stroke-width:2px
     linkStyle 5 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 6 stroke:#666666,stroke-width:2px,stroke-dasharray:5
     COPYRIGHT["© 2025 Colaberry Inc."]
     style COPYRIGHT fill:#ffffff,stroke:#cccccc,stroke-width:1px,color:#999999,font-size:10px
 ```
@@ -1383,7 +1384,6 @@ graph TB
     linkStyle 18 stroke:#666666,stroke-width:2px
     linkStyle 19 stroke:#666666,stroke-width:2px
     linkStyle 20 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 21 stroke:#666666,stroke-width:2px,stroke-dasharray:5
     COPYRIGHT["© 2025 Colaberry Inc."]
     style COPYRIGHT fill:#ffffff,stroke:#cccccc,stroke-width:1px,color:#999999,font-size:10px
 ```
@@ -1660,28 +1660,13 @@ graph TB
     linkStyle 5 stroke:#666666,stroke-width:2px,stroke-dasharray:5
     linkStyle 6 stroke:#666666,stroke-width:2px,stroke-dasharray:5
     linkStyle 7 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 8 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 9 stroke:#666666,stroke-width:2px,stroke-dasharray:5
+    linkStyle 8 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
+    linkStyle 9 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
     linkStyle 10 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 11 stroke:#666666,stroke-width:2px,stroke-dasharray:5
+    linkStyle 11 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
     linkStyle 12 stroke:#666666,stroke-width:2px,stroke-dasharray:5
     linkStyle 13 stroke:#666666,stroke-width:2px,stroke-dasharray:5
     linkStyle 14 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 15 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 16 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
-    linkStyle 17 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
-    linkStyle 18 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
-    linkStyle 19 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
-    linkStyle 20 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 21 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 22 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
-    linkStyle 23 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
-    linkStyle 24 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 25 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 26 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 27 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 28 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 29 stroke:#666666,stroke-width:2px,stroke-dasharray:5
     COPYRIGHT["© 2025 Colaberry Inc."]
     style COPYRIGHT fill:#ffffff,stroke:#cccccc,stroke-width:1px,color:#999999,font-size:10px
 ```
@@ -1766,10 +1751,17 @@ sequenceDiagram
     linkStyle 0 stroke:#666666,stroke-width:2px
     linkStyle 1 stroke:#666666,stroke-width:2px
     linkStyle 2 stroke:#666666,stroke-width:2px
-    linkStyle 3 stroke:#c62828,stroke-width:2px
+    linkStyle 3 stroke:#666666,stroke-width:2px
     linkStyle 4 stroke:#666666,stroke-width:2px
     linkStyle 5 stroke:#666666,stroke-width:2px
     linkStyle 6 stroke:#c62828,stroke-width:2px
+    linkStyle 7 stroke:#c62828,stroke-width:2px
+    linkStyle 8 stroke:#666666,stroke-width:2px
+    linkStyle 9 stroke:#666666,stroke-width:2px
+    linkStyle 10 stroke:#666666,stroke-width:2px
+    linkStyle 11 stroke:#666666,stroke-width:2px
+    linkStyle 12 stroke:#c62828,stroke-width:2px
+    linkStyle 13 stroke:#c62828,stroke-width:2px
 ```
 
 ### Anatomy of a Cascade Failure
@@ -1911,15 +1903,15 @@ graph LR
     
 
     linkStyle 0 stroke:#00897b,stroke-width:2px
-    linkStyle 1 stroke:#666666,stroke-width:2px
-    linkStyle 2 stroke:#c62828,stroke-width:2px
-    linkStyle 3 stroke:#666666,stroke-width:2px
-    linkStyle 4 stroke:#666666,stroke-width:2px
-    linkStyle 5 stroke:#666666,stroke-width:2px
+    linkStyle 1 stroke:#00897b,stroke-width:2px
+    linkStyle 2 stroke:#00897b,stroke-width:2px
+    linkStyle 3 stroke:#00897b,stroke-width:2px
+    linkStyle 4 stroke:#00897b,stroke-width:2px
+    linkStyle 5 stroke:#00897b,stroke-width:2px
     linkStyle 6 stroke:#00897b,stroke-width:2px
-    linkStyle 7 stroke:#666666,stroke-width:2px
-    linkStyle 8 stroke:#666666,stroke-width:2px
-    linkStyle 9 stroke:#666666,stroke-width:2px
+    linkStyle 7 stroke:#00897b,stroke-width:2px
+    linkStyle 8 stroke:#00897b,stroke-width:2px
+    linkStyle 9 stroke:#00897b,stroke-width:2px
     COPYRIGHT["© 2025 Colaberry Inc."]
     style COPYRIGHT fill:#ffffff,stroke:#cccccc,stroke-width:1px,color:#999999,font-size:10px
 ```
