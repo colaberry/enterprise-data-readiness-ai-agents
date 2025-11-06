@@ -311,69 +311,77 @@ Each layer solves specific agent requirements. Let's explore them in detail. The
 
 ```mermaid
 graph TB
-    subgraph L7["`**LAYER 7**`"]
-        L7A["`**Data Product Catalog**<br/><i>Primary Function</i>`"]
-        L7B["`**Multi-Agent Frameworks**<br/><b>LangGraph, CrewAI, AutoGen</b><br/><i>Intelligence</i>`"]
-        L7C["`**API Gateway & Documentation**<br/><i>Integration</i>`"]
-        L7D["`**Domain Ownership Model**<br/><i>Data Handling</i>`"]
-        L7E["`**SLA Management**<br/><i>Quality Assurance</i>`"]
-        L7F["`**Usage Metrics & Analytics**<br/><i>Supporting Tech</i>`"]
+    subgraph L7["`**LAYER 7: Self-Service Data Products & Multi-Agent Orchestration**`"]
+        direction LR
+        L7A["`**Data Product<br/>Catalog**`"]
+        L7B["`**Multi-Agent<br/>Frameworks**`"]
+        L7C["`**API Gateway &<br/>Documentation**`"]
+        L7D["`**Domain<br/>Ownership**`"]
+        L7E["`**SLA<br/>Management**`"]
+        L7F["`**Usage Metrics<br/>& Analytics**`"]
     end
 
-    subgraph L6["`**LAYER 6**`"]
-        L6A["`**Data Quality Monitoring**<br/><i>Primary Function</i>`"]
-        L6B["`**Agent Performance Telemetry**<br/><i>Intelligence</i>`"]
-        L6C["`**Model Drift Detection**<br/><i>Integration</i>`"]
-        L6D["`**Cost & Usage Tracking**<br/><i>Data Handling</i>`"]
-        L6E["`**Feedback Loops**<br/><i>Quality Assurance</i>`"]
-        L6F["`**Trace Propagation**<br/><i>Supporting Tech</i>`"]
+    subgraph L6["`**LAYER 6: Observability & Feedback (MLOps + LLM Monitoring)**`"]
+        direction LR
+        L6A["`**Data Quality<br/>Monitoring**`"]
+        L6B["`**Agent Performance<br/>Telemetry**`"]
+        L6C["`**Model Drift<br/>Detection**`"]
+        L6D["`**Cost & Usage<br/>Tracking**`"]
+        L6E["`**Feedback<br/>Loops**`"]
+        L6F["`**Trace<br/>Propagation**`"]
     end
 
-    subgraph L5["`**LAYER 5**`"]
-        L5A["`**ABAC Policy Engine**<br/><i>Primary Function</i>`"]
-        L5B["`**Dynamic Data Masking**<br/><i>Intelligence</i>`"]
-        L5C["`**Real-time Audit Logging**<br/><i>Integration</i>`"]
-        L5D["`**Compliance Automation**<br/><i>Data Handling</i>`"]
-        L5E["`**Policy Version Control**<br/><i>Quality Assurance</i>`"]
-        L5F["`**Privacy Controls**<br/><i>Supporting Tech</i>`"]
+    subgraph L5["`**LAYER 5: Agent-Aware Governance (ABAC + Audit)**`"]
+        direction LR
+        L5A["`**ABAC Policy<br/>Engine**`"]
+        L5B["`**Dynamic Data<br/>Masking**`"]
+        L5C["`**Real-time Audit<br/>Logging**`"]
+        L5D["`**Compliance<br/>Automation**`"]
+        L5E["`**Policy Version<br/>Control**`"]
+        L5F["`**Privacy<br/>Controls**`"]
     end
 
-    subgraph L4["`**LAYER 4**`"]
-        L4A["`**Query Understanding**<br/><i>Primary Function</i>`"]
-        L4B["`**Embedding Models**<br/><i>Intelligence</i>`"]
-        L4C["`**Hybrid Search**<br/><i>Integration</i>`"]
-        L4D["`**Result Reranking**<br/><i>Data Handling</i>`"]
-        L4E["`**Context Assembly**<br/><i>Quality Assurance</i>`"]
-        L4F["`**Semantic Caching**<br/><i>Supporting Tech</i>`"]
+    subgraph L4["`**LAYER 4: Intelligence Orchestration & Retrieval 🎯**`"]
+        direction LR
+        L4A["`**Query<br/>Understanding**`"]
+        L4B["`**Embedding<br/>Models**`"]
+        L4C["`**Hybrid<br/>Search**`"]
+        L4D["`**Result<br/>Reranking**`"]
+        L4E["`**Context<br/>Assembly**`"]
+        L4F["`**Semantic<br/>Caching**`"]
     end
 
-    subgraph L3["`**LAYER 3**`"]
-        L3A["`**Business Glossary**<br/><i>Primary Function</i>`"]
-        L3B["`**Ontologies & Taxonomies**<br/><i>Intelligence</i>`"]
-        L3C["`**Metric Definitions**<br/><i>Integration</i>`"]
-        L3D["`**Entity Resolution**<br/><i>Data Handling</i>`"]
-        L3E["`**Natural Language Mappings**<br/><i>Quality Assurance</i>`"]
-        L3F["`**Lineage Tracking**<br/><i>Supporting Tech</i>`"]
+    subgraph L3["`**LAYER 3: Universal Semantic Layer (Business Glossary + NL)**`"]
+        direction LR
+        L3A["`**Business<br/>Glossary**`"]
+        L3B["`**Ontologies &<br/>Taxonomies**`"]
+        L3C["`**Metric<br/>Definitions**`"]
+        L3D["`**Entity<br/>Resolution**`"]
+        L3E["`**Natural Language<br/>Mappings**`"]
+        L3F["`**Lineage<br/>Tracking**`"]
     end
 
-    subgraph L2["`**LAYER 2**`"]
-        L2A["`**Change Data Capture**<br/><i>Primary Function</i>`"]
-        L2B["`**Event Streaming**<br/><i>Intelligence</i>`"]
-        L2C["`**Stream Processing**<br/><i>Integration</i>`"]
-        L2D["`**Feature Stores**<br/><i>Data Handling</i>`"]
-        L2E["`**Training Pipelines**<br/><i>Quality Assurance</i>`"]
-        L2F["`**Data Quality Validation**<br/><i>Supporting Tech</i>`"]
+    subgraph L2["`**LAYER 2: Real-Time Data Fabric (CDC + Streaming)**`"]
+        direction LR
+        L2A["`**Change Data<br/>Capture**`"]
+        L2B["`**Event<br/>Streaming**`"]
+        L2C["`**Stream<br/>Processing**`"]
+        L2D["`**Feature<br/>Stores**`"]
+        L2E["`**Training<br/>Pipelines**`"]
+        L2F["`**Data Quality<br/>Validation**`"]
     end
 
-    subgraph L1["`**LAYER 1**`"]
-        L1A["`**Vector Database**<br/><i>Primary Function</i>`"]
-        L1B["`**Knowledge Graph**<br/><i>Intelligence</i>`"]
-        L1C["`**Document Store**<br/><i>Integration</i>`"]
-        L1D["`**RDBMS**<br/><i>Data Handling</i>`"]
-        L1E["`**Data Warehouse**<br/><i>Quality Assurance</i>`"]
-        L1F["`**Model Registry**<br/><i>Supporting Tech</i>`"]
+    subgraph L1["`**LAYER 1: Multi-Modal Storage (Vector + Graph + RDBMS)**`"]
+        direction LR
+        L1A["`**Vector<br/>Database**`"]
+        L1B["`**Knowledge<br/>Graph**`"]
+        L1C["`**Document<br/>Store**`"]
+        L1D["`**RDBMS**`"]
+        L1E["`**Data<br/>Warehouse**`"]
+        L1F["`**Model<br/>Registry**`"]
     end
 
+    %% Vertical connections
     L7A ~~~ L6A
     L7B ~~~ L6B
     L7C ~~~ L6C
@@ -416,6 +424,8 @@ graph TB
     L2E ~~~ L1E
     L2F ~~~ L1F
 
+    %% Layer 7 Styling - Lightest (Orchestration)
+    style L7 fill:#f0f9f8,stroke:#00897b,stroke-width:3px,color:#004d40
     style L7A fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style L7B fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style L7C fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -423,67 +433,87 @@ graph TB
     style L7E fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style L7F fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
 
-    style L6A fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style L6B fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style L6C fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style L6D fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style L6E fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style L6F fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    %% Layer 6 Styling - Medium-Light
+    style L6 fill:#e8f5f3,stroke:#00897b,stroke-width:3px,color:#004d40
+    style L6A fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style L6B fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style L6C fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style L6D fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style L6E fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style L6F fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
 
-    style L5A fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style L5B fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style L5C fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style L5D fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style L5E fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style L5F fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    %% Layer 5 Styling - Medium-Light
+    style L5 fill:#e0f2ef,stroke:#00897b,stroke-width:3px,color:#004d40
+    style L5A fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style L5B fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style L5C fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style L5D fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style L5E fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style L5F fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
 
-    style L4A fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
-    style L4B fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
-    style L4C fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
-    style L4D fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
-    style L4E fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
-    style L4F fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    %% Layer 4 Styling - CRITICAL HUB - Emphasized
+    style L4 fill:#d7f0ed,stroke:#00695c,stroke-width:4px,color:#004d40
+    style L4A fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
+    style L4B fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
+    style L4C fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
+    style L4D fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
+    style L4E fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
+    style L4F fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
 
-    style L3A fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
-    style L3B fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
-    style L3C fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
-    style L3D fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
-    style L3E fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
-    style L3F fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    %% Layer 3 Styling - Medium
+    style L3 fill:#cfeae6,stroke:#00695c,stroke-width:3px,color:#004d40
+    style L3A fill:#4db6ac,stroke:#00695c,stroke-width:2px,color:#004d40
+    style L3B fill:#4db6ac,stroke:#00695c,stroke-width:2px,color:#004d40
+    style L3C fill:#4db6ac,stroke:#00695c,stroke-width:2px,color:#004d40
+    style L3D fill:#4db6ac,stroke:#00695c,stroke-width:2px,color:#004d40
+    style L3E fill:#4db6ac,stroke:#00695c,stroke-width:2px,color:#004d40
+    style L3F fill:#4db6ac,stroke:#00695c,stroke-width:2px,color:#004d40
 
-    style L2A fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
-    style L2B fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
-    style L2C fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
-    style L2D fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
-    style L2E fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
-    style L2F fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
+    %% Layer 2 Styling - Medium-Dark
+    style L2 fill:#c7e6e1,stroke:#00695c,stroke-width:3px,color:#004d40
+    style L2A fill:#26a69a,stroke:#00695c,stroke-width:2px,color:#004d40
+    style L2B fill:#26a69a,stroke:#00695c,stroke-width:2px,color:#004d40
+    style L2C fill:#26a69a,stroke:#00695c,stroke-width:2px,color:#004d40
+    style L2D fill:#26a69a,stroke:#00695c,stroke-width:2px,color:#004d40
+    style L2E fill:#26a69a,stroke:#00695c,stroke-width:2px,color:#004d40
+    style L2F fill:#26a69a,stroke:#00695c,stroke-width:2px,color:#004d40
 
+    %% Layer 1 Styling - Darkest (Foundation) - White text
+    style L1 fill:#b8ddd9,stroke:#004d40,stroke-width:4px,color:#004d40
     style L1A fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style L1B fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style L1C fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style L1D fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style L1E fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style L1F fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+
+    %% Legend at bottom
+    subgraph LEGEND["`**📊 LAYER LEGEND: Agent-Ready Data Architecture Stack**`"]
+        direction LR
+        LEG1["`**L7** - Orchestration<br/><i>Self-Service Products<br/>Multi-Agent Coordination</i>`"]
+        LEG2["`**L6** - Observability<br/><i>MLOps, LLM Tracking<br/>Feedback Loops</i>`"]
+        LEG3["`**L5** - Governance<br/><i>ABAC Policies<br/>Audit & Compliance</i>`"]
+        LEG4["`**L4** 🎯 - Intelligence<br/><i>RAG Orchestration<br/>Hybrid Search & Context</i>`"]
+        LEG5["`**L3** - Semantic<br/><i>Business Glossary<br/>NL Mappings</i>`"]
+        LEG6["`**L2** - Data Fabric<br/><i>CDC & Streaming<br/>Real-Time Pipelines</i>`"]
+        LEG7["`**L1** - Storage<br/><i>Multi-Modal Foundation<br/>Vector, Graph, RDBMS</i>`"]
+    end
+
+    L1A -.-> LEGEND
+
+    style LEGEND fill:#ffffff,stroke:#00897b,stroke-width:3px,color:#004d40
+    style LEG1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style LEG2 fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style LEG3 fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style LEG4 fill:#80cbc4,stroke:#00695c,stroke-width:3px,color:#004d40
+    style LEG5 fill:#4db6ac,stroke:#00695c,stroke-width:2px,color:#004d40
+    style LEG6 fill:#26a69a,stroke:#00695c,stroke-width:2px,color:#004d40
+    style LEG7 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 
     %% Copyright Notice
     CR["© 2025 Colaberry Inc."]
-
-    style L1F fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
 ```
-
-**Layer Legend:**
-
-| Layer | Full Name | Primary Purpose |
-|-------|-----------|-----------------|
-| **Layer 7** | Self-Service Data Products & Multi-Agent Orchestration | Agent coordination, workflow management, data product catalog |
-| **Layer 6** | Observability & Feedback | MLOps monitoring, LLM tracking, automated feedback loops |
-| **Layer 5** | Agent-Aware Governance | ABAC policies, dynamic permissions, audit trails, compliance |
-| **Layer 4** | Intelligence Orchestration & Retrieval | RAG infrastructure, hybrid search, context assembly, embeddings |
-| **Layer 3** | Universal Semantic Layer | Business glossary, natural language mappings, metric definitions |
-| **Layer 2** | Real-Time Data Fabric | CDC, event streaming, training pipelines, feature stores |
-| **Layer 1** | Multi-Modal Storage | Vector DB, knowledge graph, RDBMS, document store, model registry |
-
-The seven-layer agent-ready data architecture with teal gradient showing foundation (Layer 1) to orchestration (Layer 7). Layer 4 (Intelligence Orchestration & Retrieval) coordinates multiple retrieval strategies.
 
 ---
 
