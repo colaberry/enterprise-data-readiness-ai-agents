@@ -2224,6 +2224,7 @@ For the complete multi-agent query flow showing coordination between specialists
 **Diagram 5a: Multi-Agent Orchestration (Simplified View)**
 
 ```mermaid
+
 graph TB
     U["`**User Query**<br/><i>Complex, multi-part question</i>`"]
     
@@ -2259,16 +2260,21 @@ graph TB
     
     style U fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style R fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style parallel fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000    style S1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    
+    style parallel fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000
+    style S1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style S2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style stack fill:#fafafa,stroke:#666666,stroke-width:2px,color:#000000    style ST fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    
+    style stack fill:#fafafa,stroke:#666666,stroke-width:2px,color:#000000
+    style ST fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    
     style O fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    style RESP fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 
     %% Copyright Notice
     CR["© 2025 Colaberry Inc."]
-
-    style RESP fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
+    
 ```
 
 Layer 7 orchestrator coordinates specialists, each using Layer 4's Intelligence Orchestration & Retrieval for domain-specific context.
