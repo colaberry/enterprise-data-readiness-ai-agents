@@ -311,7 +311,7 @@ Each layer solves specific agent requirements. Let's explore them in detail. The
 
 ```mermaid
 graph TB
-    subgraph L7["`**LAYER 7: Self-Service Data Products & Multi-Agent Orchestration**`"]
+    subgraph L7["`**LAYER 7**`"]
         direction LR
         L7A["`**Data Product<br/>Catalog**`"]
         L7B["`**Multi-Agent<br/>Frameworks**`"]
@@ -321,7 +321,7 @@ graph TB
         L7F["`**Usage Metrics<br/>& Analytics**`"]
     end
 
-    subgraph L6["`**LAYER 6: Observability & Feedback (MLOps + LLM Monitoring)**`"]
+    subgraph L6["`**LAYER 6**`"]
         direction LR
         L6A["`**Data Quality<br/>Monitoring**`"]
         L6B["`**Agent Performance<br/>Telemetry**`"]
@@ -331,7 +331,7 @@ graph TB
         L6F["`**Trace<br/>Propagation**`"]
     end
 
-    subgraph L5["`**LAYER 5: Agent-Aware Governance (ABAC + Audit)**`"]
+    subgraph L5["`**LAYER 5**`"]
         direction LR
         L5A["`**ABAC Policy<br/>Engine**`"]
         L5B["`**Dynamic Data<br/>Masking**`"]
@@ -341,7 +341,7 @@ graph TB
         L5F["`**Privacy<br/>Controls**`"]
     end
 
-    subgraph L4["`**LAYER 4: Intelligence Orchestration & Retrieval 🎯**`"]
+    subgraph L4["`**LAYER 4**`"]
         direction LR
         L4A["`**Query<br/>Understanding**`"]
         L4B["`**Embedding<br/>Models**`"]
@@ -351,7 +351,7 @@ graph TB
         L4F["`**Semantic<br/>Caching**`"]
     end
 
-    subgraph L3["`**LAYER 3: Universal Semantic Layer (Business Glossary + NL)**`"]
+    subgraph L3["`**LAYER 3**`"]
         direction LR
         L3A["`**Business<br/>Glossary**`"]
         L3B["`**Ontologies &<br/>Taxonomies**`"]
@@ -361,7 +361,7 @@ graph TB
         L3F["`**Lineage<br/>Tracking**`"]
     end
 
-    subgraph L2["`**LAYER 2: Real-Time Data Fabric (CDC + Streaming)**`"]
+    subgraph L2["`**LAYER 2**`"]
         direction LR
         L2A["`**Change Data<br/>Capture**`"]
         L2B["`**Event<br/>Streaming**`"]
@@ -371,7 +371,7 @@ graph TB
         L2F["`**Data Quality<br/>Validation**`"]
     end
 
-    subgraph L1["`**LAYER 1: Multi-Modal Storage (Vector + Graph + RDBMS)**`"]
+    subgraph L1["`**LAYER 1**`"]
         direction LR
         L1A["`**Vector<br/>Database**`"]
         L1B["`**Knowledge<br/>Graph**`"]
@@ -487,32 +487,33 @@ graph TB
     style L1E fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style L1F fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 
-    %% Legend at bottom
-    subgraph LEGEND["`**📊 LAYER LEGEND: Agent-Ready Data Architecture Stack**`"]
+    %% Horizontal legend at bottom - Left to Right
+    subgraph LEGEND[" "]
         direction LR
-        LEG1["`**L7** - Orchestration<br/><i>Self-Service Products<br/>Multi-Agent Coordination</i>`"]
-        LEG2["`**L6** - Observability<br/><i>MLOps, LLM Tracking<br/>Feedback Loops</i>`"]
-        LEG3["`**L5** - Governance<br/><i>ABAC Policies<br/>Audit & Compliance</i>`"]
-        LEG4["`**L4** 🎯 - Intelligence<br/><i>RAG Orchestration<br/>Hybrid Search & Context</i>`"]
-        LEG5["`**L3** - Semantic<br/><i>Business Glossary<br/>NL Mappings</i>`"]
-        LEG6["`**L2** - Data Fabric<br/><i>CDC & Streaming<br/>Real-Time Pipelines</i>`"]
-        LEG7["`**L1** - Storage<br/><i>Multi-Modal Foundation<br/>Vector, Graph, RDBMS</i>`"]
+        LEG_L7["`**L7**<br/><b>Orchestration</b>`"]
+        LEG_L6["`**L6**<br/><b>Observability</b>`"]
+        LEG_L5["`**L5**<br/><b>Governance</b>`"]
+        LEG_L4["`**L4** 🎯<br/><b>Intelligence</b>`"]
+        LEG_L3["`**L3**<br/><b>Semantic</b>`"]
+        LEG_L2["`**L2**<br/><b>Data Fabric</b>`"]
+        LEG_L1["`**L1**<br/><b>Storage</b>`"]
     end
 
-    L1A -.-> LEGEND
-
-    style LEGEND fill:#ffffff,stroke:#00897b,stroke-width:3px,color:#004d40
-    style LEG1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style LEG2 fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
-    style LEG3 fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
-    style LEG4 fill:#80cbc4,stroke:#00695c,stroke-width:3px,color:#004d40
-    style LEG5 fill:#4db6ac,stroke:#00695c,stroke-width:2px,color:#004d40
-    style LEG6 fill:#26a69a,stroke:#00695c,stroke-width:2px,color:#004d40
-    style LEG7 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
-
-    %% Copyright Notice
+    %% Transparent legend container with colored boxes
+    style LEGEND fill:none,stroke:#00897b,stroke-width:2px,color:#004d40
+    style LEG_L7 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style LEG_L6 fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style LEG_L5 fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style LEG_L4 fill:#80cbc4,stroke:#00695c,stroke-width:3px,color:#004d40
+    style LEG_L3 fill:#4db6ac,stroke:#00695c,stroke-width:2px,color:#004d40
+    style LEG_L2 fill:#26a69a,stroke:#00695c,stroke-width:2px,color:#004d40
+    style LEG_L1 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    
+    %% Copyright Notice at bottom
     CR["© 2025 Colaberry Inc."]
+    LEGEND ~~~ CR
     style CR fill:none,stroke:none,color:#999999
+
 ```
 
 ---
