@@ -325,88 +325,88 @@ Each layer solves specific agent requirements. Let's explore them in detail. The
 
 ```mermaid
 graph LR
-    subgraph LEGEND_BOX["`**LEGEND**`"]
+    subgraph LEGEND_BOX["<b>LEGEND</b>"]
         direction TB
-        LEG_L7["`**Layer 7**<br/><b>Orchestration</b>`"]
-        LEG_L6["`**Layer 6**<br/><b>Observability</b>`"]
-        LEG_L5["`**Layer 5**<br/><b>Governance</b>`"]
-        LEG_L4["`**Layer 4** 🎯<br/><b>Intelligence</b>`"]
-        LEG_L3["`**Layer 3**<br/><b>Semantic</b>`"]
-        LEG_L2["`**Layer 2**<br/><b>Data Fabric</b>`"]
-        LEG_L1["`**Layer 1**<br/><b>Storage</b>`"]
+        LEG_L7["<b>Layer 7</b><br/><b>Orchestration</b>"]
+        LEG_L6["<b>Layer 6</b><br/><b>Observability</b>"]
+        LEG_L5["<b>Layer 5</b><br/><b>Governance</b>"]
+        LEG_L4["<b>Layer 4 🎯</b><br/><b>Intelligence</b>"]
+        LEG_L3["<b>Layer 3</b><br/><b>Semantic</b>"]
+        LEG_L2["<b>Layer 2</b><br/><b>Data Fabric</b>"]
+        LEG_L1["<b>Layer 1</b><br/><b>Storage</b>"]
     end
 
-    subgraph LAYERS["`**SEVEN-LAYER ARCHITECTURE**`"]
+    subgraph LAYERS["<b>SEVEN-LAYER ARCHITECTURE</b>"]
         direction TB
         
-        subgraph L7["`**LAYER 7**`"]
+        subgraph L7["<b>LAYER 7</b>"]
             direction LR
-            L7A["`**Data Product<br/>Catalog**`"]
-            L7B["`**Multi-Agent<br/>Frameworks**`"]
-            L7C["`**API Gateway &<br/>Documentation**`"]
-            L7D["`**Domain<br/>Ownership**`"]
-            L7E["`**SLA<br/>Management**`"]
-            L7F["`**Usage Metrics<br/>& Analytics**`"]
+            L7A["<b>Data Product<br/>Catalog</b>"]
+            L7B["<b>Multi-Agent<br/>Frameworks</b>"]
+            L7C["<b>API Gateway &<br/>Documentation</b>"]
+            L7D["<b>Domain<br/>Ownership</b>"]
+            L7E["<b>SLA<br/>Management</b>"]
+            L7F["<b>Usage Metrics<br/>& Analytics</b>"]
         end
 
-        subgraph L6["`**LAYER 6**`"]
+        subgraph L6["<b>LAYER 6</b>"]
             direction LR
-            L6A["`**Data Quality<br/>Monitoring**`"]
-            L6B["`**Agent Performance<br/>Telemetry**`"]
-            L6C["`**Model Drift<br/>Detection**`"]
-            L6D["`**Cost & Usage<br/>Tracking**`"]
-            L6E["`**Feedback<br/>Loops**`"]
-            L6F["`**Trace<br/>Propagation**`"]
+            L6A["<b>Data Quality<br/>Monitoring</b>"]
+            L6B["<b>Agent Performance<br/>Telemetry</b>"]
+            L6C["<b>Model Drift<br/>Detection</b>"]
+            L6D["<b>Cost & Usage<br/>Tracking</b>"]
+            L6E["<b>Feedback<br/>Loops</b>"]
+            L6F["<b>Trace<br/>Propagation</b>"]
         end
 
-        subgraph L5["`**LAYER 5**`"]
+        subgraph L5["<b>LAYER 5</b>"]
             direction LR
-            L5A["`**ABAC Policy<br/>Engine**`"]
-            L5B["`**Dynamic Data<br/>Masking**`"]
-            L5C["`**Real-time Audit<br/>Logging**`"]
-            L5D["`**Compliance<br/>Automation**`"]
-            L5E["`**Policy Version<br/>Control**`"]
-            L5F["`**Privacy<br/>Controls**`"]
+            L5A["<b>ABAC Policy<br/>Engine</b>"]
+            L5B["<b>Dynamic Data<br/>Masking</b>"]
+            L5C["<b>Real-time Audit<br/>Logging</b>"]
+            L5D["<b>Compliance<br/>Automation</b>"]
+            L5E["<b>Policy Version<br/>Control</b>"]
+            L5F["<b>Privacy<br/>Controls</b>"]
         end
 
-        subgraph L4["`**LAYER 4**`"]
+        subgraph L4["<b>LAYER 4</b>"]
             direction LR
-            L4A["`**Query<br/>Understanding**`"]
-            L4B["`**Embedding<br/>Models**`"]
-            L4C["`**Hybrid<br/>Search**`"]
-            L4D["`**Result<br/>Reranking**`"]
-            L4E["`**Context<br/>Assembly**`"]
-            L4F["`**Semantic<br/>Caching**`"]
+            L4A["<b>Query<br/>Understanding</b>"]
+            L4B["<b>Embedding<br/>Models</b>"]
+            L4C["<b>Hybrid<br/>Search</b>"]
+            L4D["<b>Result<br/>Reranking</b>"]
+            L4E["<b>Context<br/>Assembly</b>"]
+            L4F["<b>Semantic<br/>Caching</b>"]
         end
 
-        subgraph L3["`**LAYER 3**`"]
+        subgraph L3["<b>LAYER 3</b>"]
             direction LR
-            L3A["`**Business<br/>Glossary**`"]
-            L3B["`**Ontologies &<br/>Taxonomies**`"]
-            L3C["`**Metric<br/>Definitions**`"]
-            L3D["`**Entity<br/>Resolution**`"]
-            L3E["`**Natural Language<br/>Mappings**`"]
-            L3F["`**Lineage<br/>Tracking**`"]
+            L3A["<b>Business<br/>Glossary</b>"]
+            L3B["<b>Ontologies &<br/>Taxonomies</b>"]
+            L3C["<b>Metric<br/>Definitions</b>"]
+            L3D["<b>Entity<br/>Resolution</b>"]
+            L3E["<b>Natural Language<br/>Mappings</b>"]
+            L3F["<b>Lineage<br/>Tracking</b>"]
         end
 
-        subgraph L2["`**LAYER 2**`"]
+        subgraph L2["<b>LAYER 2</b>"]
             direction LR
-            L2A["`**Change Data<br/>Capture**`"]
-            L2B["`**Event<br/>Streaming**`"]
-            L2C["`**Stream<br/>Processing**`"]
-            L2D["`**Feature<br/>Stores**`"]
-            L2E["`**Training<br/>Pipelines**`"]
-            L2F["`**Data Quality<br/>Validation**`"]
+            L2A["<b>Change Data<br/>Capture</b>"]
+            L2B["<b>Event<br/>Streaming</b>"]
+            L2C["<b>Stream<br/>Processing</b>"]
+            L2D["<b>Feature<br/>Stores</b>"]
+            L2E["<b>Training<br/>Pipelines</b>"]
+            L2F["<b>Data Quality<br/>Validation</b>"]
         end
 
-        subgraph L1["`**LAYER 1**`"]
+        subgraph L1["<b>LAYER 1</b>"]
             direction LR
-            L1A["`**Vector<br/>Database**`"]
-            L1B["`**Knowledge<br/>Graph**`"]
-            L1C["`**Document<br/>Store**`"]
-            L1D["`**RDBMS**`"]
-            L1E["`**Data<br/>Warehouse**`"]
-            L1F["`**Model<br/>Registry**`"]
+            L1A["<b>Vector<br/>Database</b>"]
+            L1B["<b>Knowledge<br/>Graph</b>"]
+            L1C["<b>Document<br/>Store</b>"]
+            L1D["<b>RDBMS</b>"]
+            L1E["<b>Data<br/>Warehouse</b>"]
+            L1F["<b>Model<br/>Registry</b>"]
         end
 
         L7A ~~~ L6A
@@ -935,16 +935,16 @@ The semantic mapping flow from natural language phrases to data structures is il
 **Diagram 2: Semantic Entity Resolution Flow**
 
 ```mermaid
-flowchart LR
-    A["`**User Query:**<br/><b>'My doctor'</b>`"] 
-    B["`**Layer 3:**<br/><b>Semantic Layer</b>`"]
-    C{"`**Entity<br/>Resolution**`"}
-    D["`**EHR System:**<br/><b>primary_care_provider_id</b>`"]
-    E["`**Credentialing:**<br/><b>physician_npi</b>`"]
-    F["`**Scheduling:**<br/><b>provider_schedule_id</b>`"]
-    G["`**Golden ID:**<br/><b>provider_npi=1234567890</b>`"]
-    H["`**Unified Entity:**<br/><b>Dr. Sarah Martinez</b>`"]
-    I["`**Agent Context:**<br/><b>Complete provider profile<br/>across all systems</b>`"]
+graph LR
+    A["<b>User Query:</b><br/>'My doctor'"] 
+    B["<b>Layer 3:</b><br/>Semantic Layer"]
+    C{"<b>Entity<br/>Resolution</b>"}
+    D["<b>EHR System:</b><br/>primary_care_provider_id"]
+    E["<b>Credentialing:</b><br/>physician_npi"]
+    F["<b>Scheduling:</b><br/>provider_schedule_id"]
+    G["<b>Golden ID:</b><br/>provider_npi=1234567890"]
+    H["<b>Unified Entity:</b><br/>Dr. Sarah Martinez"]
+    I["<b>Agent Context:</b><br/>Complete provider profile<br/>across all systems"]
     
     A --> B
     B --> C
@@ -1709,26 +1709,26 @@ Layer 6 monitors metrics across all layers and triggers automated responses. Aut
 
 ```mermaid
 graph TB
-    subgraph metrics["`**MONITORING METRICS (Layer 6)**`"]
+    subgraph metrics["<b>MONITORING METRICS (Layer 6)</b>"]
         direction TB
         
-        DATA["`**Data Layer Metrics**<br/>Freshness <1min | Quality >99%<br/>Volume anomalies | Schema changes`"]
+        DATA["<b>Data Layer Metrics</b><br/>Freshness <1min | Quality >99%<br/>Volume anomalies | Schema changes"]
         
-        MODEL["`**Model Layer Metrics**<br/>Embedding drift | Semantic drift<br/>LLM quality | Retrieval NDCG@5`"]
+        MODEL["<b>Model Layer Metrics</b><br/>Embedding drift | Semantic drift<br/>LLM quality | Retrieval NDCG@5"]
         
-        AGENT["`**Agent Layer Metrics**<br/>Latency <2s | Accuracy >85%<br/>Hallucination <3% | Cost <$0.01`"]
+        AGENT["<b>Agent Layer Metrics</b><br/>Latency <2s | Accuracy >85%<br/>Hallucination <3% | Cost <$0.01"]
         
         DATA --> MODEL
         MODEL --> AGENT
     end
     
-    subgraph feedback["`**AUTOMATED FEEDBACK LOOPS**`"]
+    subgraph feedback["<b>AUTOMATED FEEDBACK LOOPS</b>"]
         direction LR
         
-        FB1["`**✅ Auto-fix**<br/>Data Quality`"]
-        FB2["`**✅ Auto-retrain**<br/>Model Drift`"]
-        FB3["`**⚠️ Auto-scale**<br/>Cost Control`"]
-        FB4["`**⚠️ Alert**<br/>Threshold Breach`"]
+        FB1["<b>✅ Auto-fix</b><br/>Data Quality"]
+        FB2["<b>✅ Auto-retrain</b><br/>Model Drift"]
+        FB3["<b>⚠️ Auto-scale</b><br/>Cost Control"]
+        FB4["<b>⚠️ Alert</b><br/>Threshold Breach"]
     end
     
     DATA -.->|Quality Issue| FB1
@@ -2044,30 +2044,30 @@ The comparison between traditional data access and self-service data products is
 
 ```mermaid
 flowchart TB
-    subgraph before["`**❌ BEFORE: Manual Process**`"]
+    subgraph before["<b>❌ BEFORE: Manual Process</b>"]
         direction LR
-        B1["`**Developer needs data**`"]
-        B2["`**Email data team**`"]
-        B3["`**Wait 2 days**`"]
-        B4["`**Get credentials**`"]
-        B5["`**Figure out schema**`"]
-        B6["`**Wait 3 more days**`"]
-        B7["`**Finally integrate**`"]
-        B8["`**⚠️ Total: 2-3 weeks**<br/><b>12 people involved</b>`"]
+        B1["<b>Developer needs data</b>"]
+        B2["<b>Email data team</b>"]
+        B3["<b>Wait 2 days</b>"]
+        B4["<b>Get credentials</b>"]
+        B5["<b>Figure out schema</b>"]
+        B6["<b>Wait 3 more days</b>"]
+        B7["<b>Finally integrate</b>"]
+        B8["<b>⚠️ Total: 2-3 weeks</b><br/><b>12 people involved</b>"]
         
         B1 --> B2 --> B3 --> B4 --> B5 --> B6 --> B7 --> B8
     end
 
-    subgraph after["`**✅ AFTER: Self-Service**`"]
+    subgraph after["<b>✅ AFTER: Self-Service</b>"]
         direction LR
-        A1["`**Developer needs data**`"]
-        A2["`**Search catalog**`"]
-        A3["`**2 minutes**`"]
-        A4["`**Request access**`"]
-        A5["`**Auto-approved instantly**`"]
-        A6["`**Use API examples**`"]
-        A7["`**Integrate in 30 min**`"]
-        A8["`**✅ Total: <1 hour**<br/><b>Zero meetings</b>`"]
+        A1["<b>Developer needs data</b>"]
+        A2["<b>Search catalog</b>"]
+        A3["<b>2 minutes</b>"]
+        A4["<b>Request access</b>"]
+        A5["<b>Auto-approved instantly</b>"]
+        A6["<b>Use API examples</b>"]
+        A7["<b>Integrate in 30 min</b>"]
+        A8["<b>✅ Total: <1 hour</b><br/><b>Zero meetings</b>"]
         
         A1 --> A2 --> A3 --> A4 --> A5 --> A6 --> A7 --> A8
     end
@@ -2352,22 +2352,22 @@ For the complete multi-agent query flow showing coordination between specialists
 
 ```mermaid
 graph TB
-    U["`**User Query**<br/><i>Complex, multi-part question</i>`"]
+    U["<b>User Query</b><br/><i>Complex, multi-part question</i>"]
     
-    R["`**Router Agent**<br/><i>Layer 7: Orchestrator</i>`"]
+    R["<b>Router Agent</b><br/><i>Layer 7: Orchestrator</i>"]
     
-    subgraph parallel["`**Parallel Specialists**`"]
-        S1["`**Scheduling<br/>Specialist**`"]
-        S2["`**Insurance<br/>Specialist**`"]
+    subgraph parallel["<b>Parallel Specialists</b>"]
+        S1["<b>Scheduling<br/>Specialist</b>"]
+        S2["<b>Insurance<br/>Specialist</b>"]
     end
     
-    subgraph stack["`**7-Layer Stack (Shared)**`"]
-        ST["`**• ABAC Governance (L5)**<br/><b>• Intelligence Orchestration (L4)</b><br/><b>• Semantic Layer (L3)</b><br/><b>• Real-Time Data (L2)</b><br/><b>• Multi-Modal Storage (L1)</b>`"]
+    subgraph stack["<b>7-Layer Stack (Shared)</b>"]
+        ST["<b>• ABAC Governance (L5)</b><br/><b>• Intelligence Orchestration (L4)</b><br/><b>• Semantic Layer (L3)</b><br/><b>• Real-Time Data (L2)</b><br/><b>• Multi-Modal Storage (L1)</b>"]
     end
     
-    O["`**Observability**<br/><i>Layer 6: Monitoring</i>`"]
+    O["<b>Observability</b><br/><i>Layer 6: Monitoring</i>"]
     
-    RESP["`**✅ Synthesized Response**<br/><i>Combined, coherent answer</i>`"]
+    RESP["<b>✅ Synthesized Response</b><br/><i>Combined, coherent answer</i>"]
     
     U --> R
     R -->|Decompose| parallel
@@ -2763,22 +2763,22 @@ Every decision is traceable, reproducible, and auditable. Multi-agent systems lo
 
 ```mermaid
 graph LR
-    subgraph bi["`**❌ BI ERA (1990-2015)**`"]
+    subgraph bi["<b>❌ BI ERA (1990-2015)</b>"]
         direction TB
-        BI1["`**Batch ETL**<br/><b>8-24 hour lag</b>`"]
-        BI2["`**Data Warehouse**<br/><b>OLAP Cubes</b>`"]
-        BI3["`**BI Dashboards**<br/><b>Fixed queries</b>`"]
-        BI4["`**Human Analysts**<br/><b>Manual decisions</b>`"]
+        BI1["<b>Batch ETL</b><br/><b>8-24 hour lag</b>"]
+        BI2["<b>Data Warehouse</b><br/><b>OLAP Cubes</b>"]
+        BI3["<b>BI Dashboards</b><br/><b>Fixed queries</b>"]
+        BI4["<b>Human Analysts</b><br/><b>Manual decisions</b>"]
         
         BI1 --> BI2 --> BI3 --> BI4
     end
     
-    subgraph agent["`**✅ AGENT ERA (2023-Present)**`"]
+    subgraph agent["<b>✅ AGENT ERA (2023-Present)</b>"]
         direction TB
-        A1["`**Real-Time Streaming**<br/><b>Sub-30s freshness</b>`"]
-        A2["`**Multi-Modal Storage**<br/><b>Vector + Graph + RDBMS</b>`"]
-        A3["`**Intelligence Orchestration**<br/><b>Natural language queries</b>`"]
-        A4["`**Autonomous Agents**<br/><b>Instant decisions</b>`"]
+        A1["<b>Real-Time Streaming</b><br/><b>Sub-30s freshness</b>"]
+        A2["<b>Multi-Modal Storage</b><br/><b>Vector + Graph + RDBMS</b>"]
+        A3["<b>Intelligence Orchestration</b><br/><b>Natural language queries</b>"]
+        A4["<b>Autonomous Agents</b><br/><b>Instant decisions</b>"]
         
         A1 --> A2 --> A3 --> A4
     end
