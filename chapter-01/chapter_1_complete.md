@@ -1652,14 +1652,14 @@ graph TB
     
     style feedback fill:#f9f9f9,stroke:#666666,stroke-width:3px,color:#000000
     style FB1 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:2px
-    style FB2 fill:#00695c,color:#ffffff,stroke:#004d40,stroke:2px
+    style FB2 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:2px
     style FB3 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style FB4 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
 
     %% Copyright Notice
     CR["© 2025 Colaberry Inc."]
-
-    style FB4 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style CR fill:none,stroke:none,color:#999999
+
 ```
 
 Layer 6 observability monitors all seven layers and triggers automated responses. Layer 4's Intelligence Orchestration & Retrieval metrics include retrieval quality (NDCG@5) and latency tracking.
