@@ -141,40 +141,39 @@ The enterprise challenge: attempting to run Software 3.0 agents on Software 1.0 
 
 ```mermaid
 graph LR
-    subgraph sw1["`**SOFTWARE 1.0**<br/>**1950s-2010s**<br/>**EXPLICIT LOGIC**`"]
+    subgraph sw1["<b>SOFTWARE 1.0</b><br/><b>1950s-2010s</b>"]
         direction TB
-        prog1["`**Programming Model**<br/>━━━━━━━━━━<br/>Humans write instructions<br/>in C++, Java, Python`"]
-        infra1["`**Enterprise Infrastructure**<br/>━━━━━━━━━━<br/>• Data warehouses<br/>• Batch ETL pipelines<br/>• BI dashboards<br/>• Rigid schemas<br/>• Predefined queries`"]
-        char1["`**Characteristics**<br/>━━━━━━━━━━<br/>✓ Deterministic<br/>✓ Explicit rules<br/>✓ Schema-on-write<br/>✓ Overnight batch`"]
+        prog1["<b>Programming</b><br/>Explicit instructions<br/>C++, Java, Python"]
+        infra1["<b>Infrastructure</b><br/>Data warehouses<br/>Batch ETL, BI dashboards"]
         prog1 --> infra1
-        infra1 --> char1
     end
 
-    subgraph sw2["`**SOFTWARE 2.0**<br/>**2010s-2023**<br/>**NEURAL NETWORKS**`"]
+    subgraph sw2["<b>SOFTWARE 2.0</b><br/><b>2010s-2023</b>"]
         direction TB
-        prog2["`**Programming Model**<br/>━━━━━━━━━━<br/>Curate datasets<br/>Train models<br/>Learned weights`"]
-        infra2["`**Infrastructure Additions**<br/>━━━━━━━━━━<br/>• 1.0 foundation preserved<br/>• ML microservices<br/>• Model registries<br/>• MLOps platforms<br/>• Point solutions`"]
-        char2["`**Characteristics**<br/>━━━━━━━━━━<br/>✓ Pattern recognition<br/>✓ Task-specific<br/>✓ Supervised learning<br/>✓ Inference endpoints`"]
+        prog2["<b>Programming</b><br/>Curate datasets<br/>Train ML models"]
+        infra2["<b>Infrastructure</b><br/>Added ML layers<br/>MLOps, registries"]
         prog2 --> infra2
-        infra2 --> char2
     end
 
-    subgraph sw3["`**SOFTWARE 3.0**<br/>**2023-Present**<br/>**NATURAL LANGUAGE**`"]
+    subgraph sw3["<b>SOFTWARE 3.0</b><br/><b>2023-Present</b>"]
         direction TB
-        prog3["`**Programming Model**<br/>━━━━━━━━━━<br/>English prompts<br/>In-context learning<br/>General reasoning`"]
-        infra3["`**NEW Infrastructure Required**<br/>━━━━━━━━━━<br/>• Vector databases<br/>• Real-time data fabric<br/>• Semantic layers<br/>• Dynamic ABAC<br/>• Reasoning observability<br/>• Feedback loops`"]
-        char3["`**Characteristics**<br/>━━━━━━━━━━<br/>✓ Probabilistic<br/>✓ General-purpose<br/>✓ Natural language<br/>✓ Context-aware`"]
+        prog3["<b>Programming</b><br/>Natural language<br/>In-context learning"]
+        infra3["<b>NEW Infrastructure</b><br/>Vector DBs, real-time<br/>Semantic layers, ABAC"]
         prog3 --> infra3
-        infra3 --> char3
     end
 
-    sw1 -.->|"Added ML<br/>as point solutions"| sw2
-    sw2 -.->|"PARADIGM SHIFT<br/>Cannot just upgrade"| sw3
+    sw1 -.->|"<b>Added ML</b>"| sw2
+    sw2 -.->|"<b>PARADIGM SHIFT</b>"| sw3
 
-    style sw1 fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    style sw2 fill:#fff3e0,stroke:#f57c00,stroke-width:2px
-    style sw3 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px
-    style infra3 fill:#c5e1a5,stroke:#558b2f,stroke-width:2px
+    style sw1 fill:#f9f9f9,stroke:#666666,stroke-width:2px
+    style sw2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px
+    style sw3 fill:#e0f2f1,stroke:#00897b,stroke-width:3px
+    style prog1 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style infra1 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style prog2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    style infra2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    style prog3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style infra3 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 ```
 
 Karpathy's framework shows why Software 3.0 requires fundamentally new infrastructure, not just upgraded Software 1.0 systems. Each paradigm demands different architectural foundations.[15]
@@ -195,45 +194,42 @@ When enterprises attempt agent deployments on BI-era infrastructure, critical mi
 
 ```mermaid
 graph TB
-    subgraph challenge["`**⚠️  THE INFRASTRUCTURE PARADIGM MISMATCH**`"]
+    subgraph challenge["<b>⚠️  THE PROBLEM</b>"]
         direction TB
         
-        current["`**60% OF ENTERPRISES**<br/><br/>Built on Software 1.0 Infrastructure<br/>━━━━━━━━━━━━━━━━━━━━<br/>✓ Data warehouses<br/>✓ Batch ETL (8-24 hour lag)<br/>✓ BI dashboards<br/>✓ Static RBAC<br/>✓ Schema-on-write`"]
+        current["<b>60% of Enterprises</b><br/>Software 1.0 Infrastructure<br/>Batch ETL, Static RBAC"]
         
-        attempting["`**ATTEMPTING TO DEPLOY**<br/><br/>Software 3.0 Agents<br/>━━━━━━━━━━━━━━━━━━━━<br/>Require:<br/>• Sub-second semantic retrieval<br/>• Real-time data access<br/>• Dynamic contextual permissions<br/>• Reasoning chain observability<br/>• In-context learning loops`"]
+        attempting["<b>Attempting to Deploy</b><br/>Software 3.0 Agents<br/>Need real-time, dynamic access"]
         
-        gap["`**ARCHITECTURAL MISMATCH**<br/>━━━━━━━━━━━━━━━━━━━━<br/>Cannot bridge with middleware<br/>Cannot patch with API layers<br/>Cannot solve with better prompts`"]
+        gap["<b>Cannot Bridge Gap</b><br/>No middleware fix<br/>No API layer solution"]
         
-        result["`**OUTCOME**<br/>━━━━━━━━━━━━━━━━━━━━<br/>❌ 95% pilot failure rate<br/>❌ 9-13 second response times<br/>❌ 40-60% accuracy<br/>❌ Compliance violations<br/>❌ Cannot reach production`"]
+        result["<b>❌ 95% Failure Rate</b><br/>9-13 sec responses<br/>Compliance violations"]
         
         current --> gap
         attempting --> gap
         gap --> result
     end
     
-    subgraph solution["`**✅  THE SOLUTION**`"]
+    subgraph solution["<b>✅  THE SOLUTION</b>"]
         direction TB
         
-        transform["`**Agent-Ready Architecture**<br/>━━━━━━━━━━━━━━━━━━━━<br/>7-Layer Infrastructure Stack`"]
+        transform["<b>Agent-Ready Architecture</b><br/>7-Layer Infrastructure Stack"]
         
-        delivers["`**DELIVERS SOFTWARE 3.0 CAPABILITIES**<br/>━━━━━━━━━━━━━━━━━━━━<br/>✓ Real-time data fabric<br/>✓ Semantic understanding<br/>✓ Dynamic ABAC governance<br/>✓ Sub-second retrieval (1.8s)<br/>✓ 85%+ accuracy<br/>✓ Production-ready reliability`"]
+        delivers["<b>Delivers Results</b><br/>Sub-2s responses, 85%+ accuracy<br/>Production-ready reliability"]
         
         transform --> delivers
     end
     
-    result -.->|Requires<br/>**Paradigm Transformation**| transform
+    result -.->|"<b>Requires Transformation</b>"| transform
 
-    style challenge fill:#fff8fa,stroke:#c62828,stroke-width:3px
-    style current fill:#fffaf3,stroke:#f57c00,stroke-width:2px
-    style attempting fill:#f0fbfd,stroke:#0288d1,stroke-width:2px
-    style gap fill:#ffd6d6,stroke:#b71c1c,stroke-width:3px,color:#333
-    style result fill:#ffd6d6,stroke:#c62828,stroke-width:2px,color:#333
-    style solution fill:#f4fbf4,stroke:#2e7d32,stroke-width:3px
-    style transform fill:#e4f8e7,stroke:#388e3c,stroke-width:2px
-    style delivers fill:#d4f5db,stroke:#2e7d32,stroke-width:2px
-
-    classDef bold font-weight:bold;
-    class current,attempting,gap,result,transform,delivers bold;
+    style challenge fill:#fff5f5,stroke:#c62828,stroke-width:3px
+    style current fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style attempting fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style gap fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
+    style result fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
+    style solution fill:#f0fff0,stroke:#00897b,stroke-width:3px
+    style transform fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style delivers fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 ```
 
 Most enterprises attempt to deploy Software 3.0 agents on Software 1.0 infrastructure creating the architectural mismatch that drives the 95% pilot failure rate.
@@ -485,6 +481,54 @@ The seven-layer agent-ready data architecture with teal gradient showing foundat
 
 **What it is:** Multiple specialized databases, each optimized for different query patterns and data types working together as a unified system, with dedicated storage for ML artifacts.
 
+**Diagram L1: Multi-Modal Storage Architecture**
+
+```mermaid
+graph TB
+    Q["<b>Agent Query</b><br/>Natural language question"]
+    
+    R["<b>Query Router</b><br/>Determines optimal storage"]
+    
+    subgraph storage["<b>Multi-Modal Storage Layer</b>"]
+        V["<b>Vector Database</b><br/>Semantic similarity search"]
+        K["<b>Knowledge Graph</b><br/>Entity relationships"]
+        D["<b>Document Store</b><br/>Unstructured content"]
+        S["<b>RDBMS</b><br/>Structured transactions"]
+        W["<b>Data Warehouse</b><br/>Historical analytics"]
+        M["<b>Model Registry</b><br/>ML artifacts & embeddings"]
+    end
+    
+    U["<b>Unified Result</b><br/>Combined context for LLM"]
+    
+    Q --> R
+    R --> V
+    R --> K
+    R --> D
+    R --> S
+    R --> W
+    R --> M
+    
+    V --> U
+    K --> U
+    D --> U
+    S --> U
+    W --> U
+    M --> U
+    
+    style Q fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style R fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style storage fill:#fafafa,stroke:#00897b,stroke-width:2px
+    style V fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style K fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style D fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style S fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style W fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style M fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style U fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+```
+
+Layer 1 provides six specialized storage types, each optimized for different query patterns. The Query Router determines which storage systems to engage based on the question type.
+
 **Components:**
 - **Vector databases** for semantic search:
   - [Pinecone](https://www.pinecone.io) - Managed vector database
@@ -588,6 +632,43 @@ Supporting contributions to:
 
 **What it is:** Streaming infrastructure that moves data from source systems to agent-accessible storage in under one second, with specialized pipelines for both inference and model training data.
 
+**Diagram L2: Real-Time Data Fabric**
+
+```mermaid
+graph TB
+    S["<b>Source Systems</b><br/>EHR, Claims, Scheduling"]
+    
+    CDC["<b>Change Data Capture</b><br/>Detect updates (sub-30s)"]
+    
+    STREAM["<b>Event Streaming</b><br/>Kafka message broker"]
+    
+    PROC["<b>Stream Processing</b><br/>Transform & enrich data"]
+    
+    FS["<b>Feature Store</b><br/>Agent-ready features"]
+    
+    TRAIN["<b>Training Pipeline</b><br/>Model updates & embeddings"]
+    
+    READY["<b>✅ Agent-Ready Data</b><br/>Fresh, validated, accessible"]
+    
+    S --> CDC
+    CDC --> STREAM
+    STREAM --> PROC
+    PROC --> FS
+    PROC --> TRAIN
+    FS --> READY
+    TRAIN --> READY
+    
+    style S fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style CDC fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style STREAM fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style PROC fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style FS fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style TRAIN fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style READY fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+```
+
+Layer 2 transforms source system data into agent-ready format through real-time pipelines. Data freshness improves from 8-24 hours (batch ETL) to under 30 seconds (streaming).
+
 **What it replaces:** Nightly batch ETL jobs that made yesterday's data available this morning
 
 **Key Technologies:**
@@ -679,6 +760,51 @@ To ensure Layer 1 delivers on its promise, monitor these key indicators (as deta
 ### Layer 3: Universal Semantic Layer
 
 **What it is:** A business-readable representation of your data that agents can understand without knowing database schemas, table names, or join logic.
+
+**Diagram L3: Universal Semantic Layer**
+
+```mermaid
+flowchart LR
+    NL["<b>Natural Language</b><br/>'Schedule Dr. Martinez'"]
+    
+    PARSE["<b>Semantic Parser</b><br/>Extract intent & entities"]
+    
+    GLOSS["<b>Business Glossary</b><br/>Map to canonical terms"]
+    
+    subgraph resolve["<b>Entity Resolution</b>"]
+        E1["<b>EHR System</b><br/>provider_id"]
+        E2["<b>Credentialing</b><br/>physician_npi"]
+        E3["<b>Scheduling</b><br/>schedule_id"]
+    end
+    
+    GOLD["<b>Golden ID</b><br/>npi=1234567890"]
+    
+    ENTITY["<b>Unified Entity</b><br/>Dr. Sarah Martinez"]
+    
+    CONTEXT["<b>✅ Complete Context</b><br/>Profile across all systems"]
+    
+    NL --> PARSE
+    PARSE --> GLOSS
+    GLOSS --> resolve
+    E1 --> GOLD
+    E2 --> GOLD
+    E3 --> GOLD
+    GOLD --> ENTITY
+    ENTITY --> CONTEXT
+    
+    style NL fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style PARSE fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style GLOSS fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style resolve fill:#fafafa,stroke:#00897b,stroke-width:2px
+    style E1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style E2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style E3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style GOLD fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style ENTITY fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style CONTEXT fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+```
+
+Layer 3 resolves ambiguous natural language to unified entities across siloed systems. "My doctor" becomes a specific provider with complete profile data, enabling accurate agent responses.
 
 **What it includes:**
 - Business glossary with formal definitions and relationships
@@ -887,6 +1013,55 @@ To keep Layer 2 healthy and agent-aligned:
 ### Layer 4: Intelligence Orchestration & Retrieval (RAG Infrastructure with Embedding Models)
 
 **What it is:** The system that determines what data the agent needs, retrieves it efficiently from the right storage layer, assembles it into useful context for the language model, and manages the embedding models that power semantic search.
+
+**Diagram L4: Intelligence Orchestration & Retrieval**
+
+```mermaid
+graph TB
+    Q["<b>User Question</b><br/>Natural language query"]
+    
+    U["<b>Query Understanding</b><br/>Intent + entity extraction"]
+    
+    E["<b>Embedding Models</b><br/>Convert to vector space"]
+    
+    subgraph retrieval["<b>Parallel Retrieval Strategies</b>"]
+        V["<b>Vector Search</b><br/>Semantic similarity"]
+        K["<b>Keyword Search</b><br/>Exact term matching"]
+        G["<b>Knowledge Graph</b><br/>Relationship traversal"]
+    end
+    
+    RANK["<b>Reranking</b><br/>Score & prioritize results"]
+    
+    ASSEMBLE["<b>Context Assembly</b><br/>Build LLM context window"]
+    
+    CACHE["<b>Semantic Caching</b><br/>50-90% cost reduction"]
+    
+    LLM["<b>✅ LLM with Context</b><br/>Accurate, grounded response"]
+    
+    Q --> U
+    U --> E
+    E --> retrieval
+    V --> RANK
+    K --> RANK
+    G --> RANK
+    RANK --> ASSEMBLE
+    ASSEMBLE --> CACHE
+    CACHE --> LLM
+    
+    style Q fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style U fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style E fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style retrieval fill:#fafafa,stroke:#00897b,stroke-width:2px
+    style V fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style K fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style G fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style RANK fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style ASSEMBLE fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style CACHE fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style LLM fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+```
+
+Layer 4 orchestrates multiple retrieval strategies to find relevant context. Hybrid search combines vector similarity, keyword matching, and graph traversal, achieving 85%+ accuracy vs 40-60% with single-strategy approaches.
 
 **Components:**
 - **Query understanding and intent recognition**
@@ -1098,6 +1273,54 @@ Supporting contributions to:
 
 **What it is:** Real-time access control, audit logging, compliance automation, and data protection mechanisms that work at agent speed without creating bottlenecks.
 
+**Diagram L5: Agent-Aware Governance (ABAC)**
+
+```mermaid
+graph TB
+    REQ["<b>Agent Request</b><br/>User query + data access"]
+    
+    POL["<b>ABAC Policy Engine</b><br/>Evaluate context attributes"]
+    
+    subgraph eval["<b>Four-Factor Evaluation</b>"]
+        WHO["<b>👤 Who</b><br/>User role & permissions"]
+        WHAT["<b>📋 What</b><br/>Data sensitivity level"]
+        WHEN["<b>📅 When</b><br/>Time & consent validity"]
+        WHERE["<b>📱 Where</b><br/>Location & device"]
+    end
+    
+    DEC{<b>Decision</b>}
+    
+    MASK["<b>Apply Masking</b><br/>Redact sensitive fields"]
+    
+    ALLOW["<b>✅ Access Granted</b><br/>Secured, audited result"]
+    
+    DENY["<b>❌ Access Denied</b><br/>Logged with reason"]
+    
+    REQ --> POL
+    POL --> eval
+    WHO --> DEC
+    WHAT --> DEC
+    WHEN --> DEC
+    WHERE --> DEC
+    DEC -->|"<b>Allow</b>"| MASK
+    DEC -->|"<b>Deny</b>"| DENY
+    MASK --> ALLOW
+    
+    style REQ fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style POL fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style eval fill:#fafafa,stroke:#00897b,stroke-width:2px
+    style WHO fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style WHAT fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style WHEN fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style WHERE fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style DEC fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    style MASK fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style ALLOW fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style DENY fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
+```
+
+Layer 5 evaluates permissions dynamically based on four contextual factors (Who, What, When, Where) in under 10ms. ABAC replaces static RBAC, enabling compliant agent operations with field-level masking and comprehensive audit trails.
+
 **What it replaces:** Static role-based access control (RBAC) and manual compliance processes designed for human-driven queries
 
 **Key Technologies:**
@@ -1229,6 +1452,51 @@ Supporting contributions to:
 ### Layer 6: Observability & Feedback (MLOps + LLM Monitoring)
 
 **What it is:** Systems that monitor data health, agent performance, quality metrics, model drift, and costs, then feed insights back into data improvements and model retraining.
+
+**Diagram L6: Observability & Feedback**
+
+```mermaid
+graph TB
+    subgraph metrics["<b>Monitoring Metrics</b>"]
+        M1["<b>Data Freshness</b><br/>Target: <1 min"]
+        M2["<b>Retrieval Quality</b><br/>Target: NDCG@5 >0.8"]
+        M3["<b>Response Accuracy</b><br/>Target: 85%+"]
+    end
+    
+    DETECT["<b>Anomaly Detection</b><br/>Pattern analysis & thresholds"]
+    
+    CLASSIFY{<b>Issue Type</b>}
+    
+    AUTO["<b>✅ Auto-Fix</b><br/>Data quality corrections<br/>Model retraining"]
+    
+    ALERT["<b>⚠️ Human Alert</b><br/>Critical issues<br/>Threshold breaches"]
+    
+    FEEDBACK["<b>Feedback Loop</b><br/>Continuous improvement"]
+    
+    IMPROVE["<b>System Improvement</b><br/>Updated models & policies"]
+    
+    metrics --> DETECT
+    DETECT --> CLASSIFY
+    CLASSIFY -->|"<b>Fixable</b>"| AUTO
+    CLASSIFY -->|"<b>Critical</b>"| ALERT
+    AUTO --> FEEDBACK
+    ALERT --> FEEDBACK
+    FEEDBACK --> IMPROVE
+    IMPROVE -.->|"<b>Enhances</b>"| metrics
+    
+    style metrics fill:#fafafa,stroke:#666666,stroke-width:2px
+    style M1 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style M2 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style M3 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style DETECT fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style CLASSIFY fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    style AUTO fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style ALERT fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
+    style FEEDBACK fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style IMPROVE fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+```
+
+Layer 6 monitors metrics across all layers and triggers automated responses. Auto-fix handles data quality and model drift (80% of issues), while critical problems alert humans. Feedback loops drive continuous 5-10% monthly accuracy improvements.
 
 **What it includes:**
 - **Data quality monitoring** (freshness, completeness, accuracy)
@@ -1507,6 +1775,48 @@ Supporting contributions to:
 ### Layer 7: Self-Service Data Products & Multi-Agent Orchestration
 
 **What it is:** Domain-oriented data products with clear ownership, SLAs, and APIs designed for agent consumption enabling self-service discovery and use. Additionally, orchestration frameworks that coordinate multiple specialized agents working together on complex tasks.
+
+**Diagram L7: Self-Service Data Products & Multi-Agent Orchestration**
+
+```mermaid
+graph TB
+    subgraph discovery["<b>Self-Service Discovery</b>"]
+        DEV["<b>Developer</b><br/>Needs data"]
+        CAT["<b>Data Catalog</b><br/>Search & browse"]
+        PROD["<b>Data Product</b><br/>SLAs, docs, examples"]
+        ACCESS["<b>Auto-Approval</b><br/>Instant access (<1 hour)"]
+    end
+    
+    subgraph orchestration["<b>Multi-Agent Orchestration</b>"]
+        QUERY["<b>Complex Query</b><br/>Multi-part question"]
+        ROUTER["<b>Router Agent</b><br/>Decompose & coordinate"]
+        SPEC["<b>Specialist Agents</b><br/>Domain experts"]
+        SYNTH["<b>✅ Synthesis</b><br/>Coherent response"]
+    end
+    
+    DEV --> CAT
+    CAT --> PROD
+    PROD --> ACCESS
+    
+    QUERY --> ROUTER
+    ROUTER --> SPEC
+    SPEC --> SYNTH
+    
+    ACCESS -.->|"<b>Enables</b>"| SPEC
+    
+    style discovery fill:#fafafa,stroke:#00897b,stroke-width:2px
+    style orchestration fill:#fafafa,stroke:#00897b,stroke-width:2px
+    style DEV fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style CAT fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style PROD fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style ACCESS fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style QUERY fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style ROUTER fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style SPEC fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style SYNTH fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+```
+
+Layer 7 enables self-service data discovery (reducing access time from 2-3 weeks to <1 hour) and coordinates specialist agents for complex queries. The router decomposes multi-part questions and synthesizes results into coherent responses.
 
 **What it includes:**
 - **Data product infrastructure:**
