@@ -140,21 +140,25 @@ Both are essential, but they require fundamentally different mindsets.
 ```mermaid
 graph TB
     INPACT["<b>Chapter 0: INPACT™</b><br/><b>Six Agent Needs</b><br/><b>I • N • P • A • C • T</b><br/><b>Instant, Natural, Permitted,</b><br/><b>Adaptive, Contextual, Trusted</b>"]
+    
     ARCH["<b>Chapter 1: Seven-Layer</b><br/><b>Agent-Ready Enterprise Data Architecture</b><br/><b>Layers 1-7: Storage → Fabric → Semantic</b><br/><b>→ Intelligence → Governance → Observability → Orchestration</b>"]
+    
     GOALS["<b>Chapter 2: Five GOALS</b><br/><b>Operational Discipline</b><br/><b>G • O • A • L • S</b><br/><b>Governance, Observability, Accessibility,</b><br/><b>Language, Soundness</b>"]
+    
     INPACT -->|<b>Agent needs fulfilled by</b>| ARCH
     ARCH -->|<b>Architecture enables</b>| GOALS
     GOALS -->|<b>Operations sustain</b>| INPACT
-    COPYRIGHT["© 2025 Colaberry Inc."]
-
+    
     style INPACT fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style ARCH fill:#f9f9f9,stroke:#666666,stroke-width:3px,color:#000000
     style GOALS fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
+    
+    COPYRIGHT["© 2025 Colaberry Inc."]
     style COPYRIGHT fill:#ffffff,stroke:#cccccc,stroke-width:1px,color:#999999,font-size:10px
 
-    linkStyle 0 stroke:#00897b,stroke-width:2px
-    linkStyle 1 stroke:#00897b,stroke-width:2px
-    linkStyle 2 stroke:#00897b,stroke-width:2px
+    linkStyle 0 stroke:#666666,stroke-width:2px
+    linkStyle 1 stroke:#666666,stroke-width:2px
+    linkStyle 2 stroke:#666666,stroke-width:2px
 ```
 
 ### How Everything Connects
@@ -173,19 +177,22 @@ graph TB
     A["<b>A - Accessibility</b><br/><b>Speed & Freshness</b>"]
     L["<b>L - Language</b><br/><b>Semantic Understanding</b>"]
     S["<b>S - Soundness</b><br/><b>Data Quality</b>"]
-    G <-->|<b>Audit trails and Policy violations</b>| O
-    O <-->|<b>Performance metrics and Monitoring</b>| A
-    A <-->|<b>Fast retrieval and Query optimization</b>| L
-    L <-->|<b>Semantic validation and Quality data</b>| S
+    
+    G <-->|<b>Audit trails ↔ Policy violations</b>| O
+    O <-->|<b>Performance metrics ↔ Monitoring</b>| A
+    A <-->|<b>Fast retrieval ↔ Query optimization</b>| L
+    L <-->|<b>Semantic validation ↔ Quality data</b>| S
+    
     S -.->|<b>Foundation: Enables all GOALS</b>| G
     O -.->|<b>Diagnostic: Detects issues in all GOALS</b>| L
-    COPYRIGHT["© 2025 Colaberry Inc."]
-
+    
     style G fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
     style O fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
     style A fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
     style L fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
     style S fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    
+    COPYRIGHT["© 2025 Colaberry Inc."]
     style COPYRIGHT fill:#ffffff,stroke:#cccccc,stroke-width:1px,color:#999999,font-size:10px
 
     linkStyle 0 stroke:#666666,stroke-width:2px
@@ -196,8 +203,6 @@ graph TB
     linkStyle 5 stroke:#666666,stroke-width:2px
     linkStyle 6 stroke:#666666,stroke-width:2px
     linkStyle 7 stroke:#666666,stroke-width:2px
-    linkStyle 8 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
-    linkStyle 9 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
 ```
 
 ### Why GOALS Are Interdependent
@@ -275,46 +280,53 @@ graph LR
         R2["<b>Check Role</b>"]
         R3["<b>Role = Patient</b>"]
         R4["<b>Grant Broad Access</b>"]
-        R5["<b>FAIL: Violates
+        R5["<b>❌ Total: Violates
         minimum necessary</b>"]
+        
         TITLE1 --> R1
         R1 --> R2
         R2 --> R3
         R3 --> R4
         R4 --> R5
     end
+    
     OLD -.->|<b>Evolution</b>| NEW
+    
     subgraph NEW["<b>Agent Era: ABAC</b>"]
         TITLE2["<b>Attribute-Based Access Control</b>"]
         A1["<b>User Request</b>"]
         A2["<b>Context Eval
-        Who What When Where Why</b>"]
+        👤📋📅📱🎯</b>"]
         A3["<b>Dynamic Policy</b>"]
         A4["<b>Filter Rows</b>"]
-        A5["<b>SUCCESS: Sub-10ms
+        A5["<b>✅ Total: Sub-10ms
         secure access</b>"]
+        
         TITLE2 --> A1
         A1 --> A2
         A2 --> A3
         A3 --> A4
         A4 --> A5
     end
-    COPYRIGHT["© 2025 Colaberry Inc."]
-
+    
     style TITLE1 fill:#ffcccc,stroke:#c62828,stroke-width:3px,color:#b71c1c,font-weight:bold
     style R1 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style R2 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style R3 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style R4 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style R5 fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
+    
     style TITLE2 fill:#b3e0cc,stroke:#00897b,stroke-width:3px,color:#004d40,font-weight:bold
     style A1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style A2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style A3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style A4 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style A5 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    
     style OLD fill:#fff5f5,stroke:#c62828,stroke-width:2px
     style NEW fill:#f0fff0,stroke:#00897b,stroke-width:2px
+    
+    COPYRIGHT["© 2025 Colaberry Inc."]
     style COPYRIGHT fill:#ffffff,stroke:#cccccc,stroke-width:1px,color:#999999,font-size:10px
 
     linkStyle 0 stroke:#666666,stroke-width:2px
@@ -322,12 +334,11 @@ graph LR
     linkStyle 2 stroke:#666666,stroke-width:2px
     linkStyle 3 stroke:#666666,stroke-width:2px
     linkStyle 4 stroke:#666666,stroke-width:2px
-    linkStyle 5 stroke:#c62828,stroke-width:2px,stroke-dasharray:5
+    linkStyle 5 stroke:#666666,stroke-width:2px
     linkStyle 6 stroke:#666666,stroke-width:2px
     linkStyle 7 stroke:#666666,stroke-width:2px
     linkStyle 8 stroke:#666666,stroke-width:2px
     linkStyle 9 stroke:#666666,stroke-width:2px
-    linkStyle 10 stroke:#666666,stroke-width:2px
 ```
 
 **The Five W's of ABAC Authorization**
@@ -490,9 +501,15 @@ sequenceDiagram
     participant L3 as Layer 3<br/>Semantic
     participant L2 as Layer 2<br/>Data Fabric
     participant L1 as Layer 1<br/>Storage
+    
+    rect rgb(224, 242, 241)
+        Note over U,L1: Trace ID: abc-123-def | Timestamp: 2025-10-27 14:32:15
+    end
+    
     U->>L7: Show Dr. Martinez's availability tomorrow
     activate L7
     L7->>L6: 📊 Log: Query received (trace: abc-123-def, user: patient_12345)
+    
     L7->>L3: Translate: Dr. Martinez + availability + tomorrow
     activate L3
     L3->>L6: 📊 Log: Semantic translation started (trace: abc-123-def)
@@ -500,6 +517,7 @@ sequenceDiagram
     L3->>L6: 📊 Log: Translation complete 0.3s (trace: abc-123-def)
     L3-->>L7: Translated: provider_id=789, date=2025-10-28
     deactivate L3
+    
     L7->>L4: Retrieve: provider_schedule context
     activate L4
     L4->>L6: 📊 Log: Intelligence retrieval started (trace: abc-123-def)
@@ -509,6 +527,7 @@ sequenceDiagram
     L2->>L1: Execute: SELECT * FROM provider_schedule...
     activate L1
     L1->>L6: ⚠️ Log: Query execution 2.3s - SLOW (trace: abc-123-def)
+    Note over L1: Missing index on<br/>provider_id column!
     L1-->>L2: Result: 3 available time slots
     deactivate L1
     L2-->>L4: Stream: 3 slots
@@ -516,56 +535,23 @@ sequenceDiagram
     L4->>L6: 📊 Log: Context retrieved 2.5s total (trace: abc-123-def)
     L4-->>L7: Context: [8:00am, 10:00am, 2:00pm]
     deactivate L4
+    
     L7->>L6: 📊 Log: Response generated 2.9s total (trace: abc-123-def)
     L7->>U: Dr. Martinez has 3 openings tomorrow: 8:00am, 10:00am, 2:00pm
     deactivate L7
-    L6->>L6: Auto-alert: Performance degradation<br/>Create incident ticket<br/>Assign to Database team
-
-    rect rgb(224, 242, 241)
-        Note over U,L1: Trace ID: abc-123-def | Timestamp: 2025-10-27 14:32:15
-    end
-    Note over L1: Missing index on<br/>provider_id column!
+    
     rect rgb(255, 235, 238)
         Note over L6: Root Cause Analysis (trace: abc-123-def):<br/>Bottleneck at Layer 1 - DB query 2.3s<br/>Missing index on provider_id<br/>Auto-create ticket DBA-2847
     end
+    
+    L6->>L6: Auto-alert: Performance degradation<br/>Create incident ticket<br/>Assign to Database team
+    
     Note over U: © 2025 Colaberry Inc.
 
     linkStyle 0 stroke:#666666,stroke-width:2px
     linkStyle 1 stroke:#666666,stroke-width:2px
     linkStyle 2 stroke:#666666,stroke-width:2px
     linkStyle 3 stroke:#666666,stroke-width:2px
-    linkStyle 4 stroke:#666666,stroke-width:2px
-    linkStyle 5 stroke:#666666,stroke-width:2px
-    linkStyle 6 stroke:#666666,stroke-width:2px
-    linkStyle 7 stroke:#666666,stroke-width:2px
-    linkStyle 8 stroke:#00897b,stroke-width:2px
-    linkStyle 9 stroke:#00897b,stroke-width:2px
-    linkStyle 10 stroke:#666666,stroke-width:2px
-    linkStyle 11 stroke:#666666,stroke-width:2px
-    linkStyle 12 stroke:#666666,stroke-width:2px
-    linkStyle 13 stroke:#666666,stroke-width:2px
-    linkStyle 14 stroke:#666666,stroke-width:2px
-    linkStyle 15 stroke:#666666,stroke-width:2px
-    linkStyle 16 stroke:#666666,stroke-width:2px
-    linkStyle 17 stroke:#666666,stroke-width:2px
-    linkStyle 18 stroke:#666666,stroke-width:2px
-    linkStyle 19 stroke:#666666,stroke-width:2px
-    linkStyle 20 stroke:#666666,stroke-width:2px
-    linkStyle 21 stroke:#666666,stroke-width:2px
-    linkStyle 22 stroke:#666666,stroke-width:2px
-    linkStyle 23 stroke:#666666,stroke-width:2px
-    linkStyle 24 stroke:#666666,stroke-width:2px
-    linkStyle 25 stroke:#666666,stroke-width:2px
-    linkStyle 26 stroke:#666666,stroke-width:2px
-    linkStyle 27 stroke:#666666,stroke-width:2px
-    linkStyle 28 stroke:#666666,stroke-width:2px
-    linkStyle 29 stroke:#666666,stroke-width:2px
-    linkStyle 30 stroke:#666666,stroke-width:2px
-    linkStyle 31 stroke:#666666,stroke-width:2px
-    linkStyle 32 stroke:#666666,stroke-width:2px
-    linkStyle 33 stroke:#666666,stroke-width:2px
-    linkStyle 34 stroke:#666666,stroke-width:2px
-    linkStyle 35 stroke:#666666,stroke-width:2px
 ```
 
 **The Power of Trace-Based Diagnosis**
@@ -741,52 +727,66 @@ This orchestration model explains why semantic caching is so powerful: Layer 4 c
 graph TD
     Q["<b>User Query:
     Show Dr. Martinez availability tomorrow</b>"]
-    Q --> L4["<b>Layer 4:</b><br/><b>Intelligence Orchestration & Retrieval</b><br/><b>LLM analyzes query</b><br/><b>Plans execution strategy</b><br/><b>Orchestrates caching & retrieval</b>"]
+    
+    Q --> L4["<b>Layer 4: Intelligence Orchestration & Retrieval
+    LLM analyzes query
+    Plans execution strategy
+    Orchestrates caching & retrieval</b>"]
+    
     L4 --> L1{"Caching Level 1:
     Semantic Cache
     Redis/Momento
     (Layer 2: Data Fabric)"}
+    
     L1 -->|<b>✅ Cache Hit - 65% of queries</b>| C1["<b>Semantic Match Found
     ⚡ Return in 300ms
     Cost: $0.001/query</b>"]
+    
     L1 -->|<b>❌ Cache Miss - 35%</b>| RESOLVE["<b>Layer 4 calls Layer 3:
     resolve_entity('Dr. Martinez')
     → provider_npi=1234567890</b>"]
+    
     RESOLVE --> L2{"Caching Level 2:
     Vector Database
     Pinecone/Weaviate
     (Layer 1: Storage)"}
+    
     L2 -->|<b>✅ Cache Hit - 25% of queries</b>| C2["<b>Embedding Lookup
     ⚡ Return in 800ms
     Cost: $0.008/query</b>"]
+    
     L2 -->|<b>❌ Cache Miss - 10% of queries</b>| L3{"Caching Level 3:
     Knowledge Graph
     Neo4j/Neptune
     (Layer 1: Storage)"}
+    
     L3 -->|<b>✅ Cache Hit - 7% of queries</b>| C3["<b>Graph Traversal
     Provider→Schedule
     ⚡ Return in 1.2s
     Cost: $0.015/query</b>"]
+    
     L3 -->|<b>❌ Cache Miss - 3% of queries</b>| COLD["<b>Caching Level 4: Cold Path
     Full Orchestration
     Layers 4→3→2→1:
     Intelligence → Semantic → Data Fabric → Storage
     ⏱️ 2.8-4.2s response
     Cost: $0.12/query</b>"]
+    
     C1 --> R["<b>Response to User:
     Sub-2seconds ✅</b>"]
     C2 --> R
     C3 --> R
     COLD --> SLOW["<b>Response to User:
     2.8-4.2s ⚠️</b>"]
+    
     COLD --> U["<b>Layer 4 orchestrates cache warming:
     Populate Levels 1-3
     For next similar query</b>"]
+    
     U -.->|<b>Cache warming</b>| L1
     U -.->|<b>Cache warming</b>| L2
     U -.->|<b>Cache warming</b>| L3
-    COPYRIGHT["© 2025 Colaberry Inc."]
-
+    
     style L4 fill:#b39ddb,stroke:#7e57c2,stroke-width:3px,color:#000000
     style RESOLVE fill:#b2dfdb,stroke:#00695c,stroke-width:2px,color:#004d40
     style C1 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
@@ -795,28 +795,28 @@ graph TD
     style COLD fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style R fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style SLOW fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
+    
     style L1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style L2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style L3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    
+    COPYRIGHT["© 2025 Colaberry Inc."]
     style COPYRIGHT fill:#ffffff,stroke:#cccccc,stroke-width:1px,color:#999999,font-size:10px
 
     linkStyle 0 stroke:#666666,stroke-width:2px
     linkStyle 1 stroke:#666666,stroke-width:2px
     linkStyle 2 stroke:#666666,stroke-width:2px
-    linkStyle 3 stroke:#c62828,stroke-width:2px
+    linkStyle 3 stroke:#666666,stroke-width:2px
     linkStyle 4 stroke:#666666,stroke-width:2px
     linkStyle 5 stroke:#666666,stroke-width:2px
-    linkStyle 6 stroke:#c62828,stroke-width:2px
+    linkStyle 6 stroke:#666666,stroke-width:2px
     linkStyle 7 stroke:#666666,stroke-width:2px
-    linkStyle 8 stroke:#c62828,stroke-width:2px
+    linkStyle 8 stroke:#666666,stroke-width:2px
     linkStyle 9 stroke:#666666,stroke-width:2px
     linkStyle 10 stroke:#666666,stroke-width:2px
     linkStyle 11 stroke:#666666,stroke-width:2px
-    linkStyle 12 stroke:#c62828,stroke-width:2px
-    linkStyle 13 stroke:#c62828,stroke-width:2px
-    linkStyle 14 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 15 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 16 stroke:#666666,stroke-width:2px,stroke-dasharray:5
+    linkStyle 12 stroke:#666666,stroke-width:2px
+    linkStyle 13 stroke:#666666,stroke-width:2px
 ```
 
 **Understanding the Caching Hierarchy**
@@ -961,25 +961,32 @@ Echo's semantic layer includes business glossaries with natural language mapping
 ```mermaid
 graph TB
     NL["<b>User Query:</b><br/><b>Show my doctor's</b><br/><b>availability next week</b>"]
-    NL --> L4["<b>Layer 4: Intelligence</b><br/><b>Orchestration & Retrieval</b><br/><b>(LLM receives raw natural language)</b>"]
-    subgraph PHASE1["<b>Phase 1: UNDERSTAND</b><br/><b>(Layer 4 Analysis)</b>"]
+    
+    NL --> L4["<b>Layer 4: Intelligence Orchestration & Retrieval</b><br/><b>(LLM receives raw natural language)</b>"]
+    
+    subgraph PHASE1["<b>Phase 1: UNDERSTAND (Layer 4 Analysis)</b>"]
         P1["<b>LLM Analysis:</b><br/><b>Parse • Extract • Plan</b>"]
     end
-    subgraph PHASE2["<b>Phase 2: RESOLVE</b><br/><b>(Layer 4 calls Layer 3)</b>"]
+    
+    subgraph PHASE2["<b>Phase 2: RESOLVE (Layer 4 calls Layer 3)</b>"]
         P2["<b>Call Layer 3:</b><br/><b>resolve_entity • lookup_glossary</b>"]
     end
-    subgraph PHASE3["<b>Phase 3: EXECUTE</b><br/><b>(Layer 4 orchestrates)</b>"]
+    
+    subgraph PHASE3["<b>Phase 3: EXECUTE (Layer 4 orchestrates)</b>"]
         P3["<b>Orchestrate:</b><br/><b>ABAC (L5) • Query (L2→L1) • Format</b>"]
     end
+    
     CLARIFY["<b>❌ Clarification Needed</b><br/><b>Confidence < 0.90</b>"]
+    
     RESULT["<b>✅ Natural Response:</b><br/><b>Dr. Martinez has 5 openings</b>"]
+    
     L4 --> P1
     P1 --> P2
     P2 --> P3
     P3 --> RESULT
+    
     P1 -.->|<b>Low confidence</b>| CLARIFY
-    COPYRIGHT["© 2025 Colaberry Inc."]
-
+    
     style L4 fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
     style PHASE1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style PHASE2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -990,6 +997,8 @@ graph TB
     style RESULT fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CLARIFY fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style NL fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    
+    COPYRIGHT["© 2025 Colaberry Inc."]
     style COPYRIGHT fill:#ffffff,stroke:#cccccc,stroke-width:1px,color:#999999,font-size:10px
 
     linkStyle 0 stroke:#666666,stroke-width:2px
@@ -997,7 +1006,6 @@ graph TB
     linkStyle 2 stroke:#666666,stroke-width:2px
     linkStyle 3 stroke:#666666,stroke-width:2px
     linkStyle 4 stroke:#666666,stroke-width:2px
-    linkStyle 5 stroke:#666666,stroke-width:2px,stroke-dasharray:5
 ```
 
 **The Seven Stages of Semantic Translation**
@@ -1202,88 +1210,104 @@ graph TB
     Insurance Records
     Nightly + critical alerts</b>"]
     end
+    
     subgraph "Real-Time Data Fabric"
         CDC["<b>Change Data Capture
     Debezium + Kafka
     Sub-30s streaming</b>"]
     end
+    
     S1 -->|<b>Stream changes</b>| CDC
     S2 -->|<b>Stream changes</b>| CDC
     S3 -->|<b>Stream changes</b>| CDC
+    
     subgraph "Soundness Monitoring"
         Q1["<b>Freshness Check:
     ✓ Data age < 30s for critical
     ✓ Data age < 5min for normal
     ⚠️ Alert if stale</b>"]
+        
         Q2["<b>Completeness Check:
     ✓ Required fields populated
     ✓ patient_id NOT NULL
     ✓ insurance_status present
     ⚠️ Flag if <95%</b>"]
+        
         Q3["<b>Consistency Check:
     ✓ Cross-system alignment
     ✓ EHR address = Billing address
     ✓ Demographics match
     ⚠️ Flag conflicts</b>"]
+        
         Q4["<b>Accuracy Check:
     ✓ Valid formats phone, email, ZIP
     ✓ Date ranges logical
     ✓ Code values in valid sets
     ⚠️ Flag invalid data</b>"]
+        
         Q5["<b>Anomaly Detection:
     ✓ Statistical outliers
     ✓ Volume drops/spikes
     ✓ Distribution shifts
     ⚠️ ML-based flagging</b>"]
     end
+    
     CDC --> Q1
     CDC --> Q2
     CDC --> Q3
     CDC --> Q4
     CDC --> Q5
+    
     Q1 --> GATE{"Quality Gates
     All Pass?"}
     Q2 --> GATE
     Q3 --> GATE
     Q4 --> GATE
     Q5 --> GATE
+    
     GATE -->|<b>✅ Pass - 98% of records</b>| STORAGE["<b>Agent-Ready Storage
     ✓ Validated data only
     ✓ Full audit trail
     ✓ Available to agents</b>"]
+    
     GATE -->|<b>❌ Fail - 2% of records</b>| QUARANTINE["<b>Data Quarantine:
     ❌ Block from agents
     🔒 Isolate bad records
     📋 Create incident ticket
     ⚠️ Alert data owner</b>"]
+    
     STORAGE --> AGENTS["<b>AI Agents Query:
     Only see validated,
     high-quality data
     Trust score: 98%+</b>"]
+    
     QUARANTINE --> RCA["<b>Root Cause Analysis:
     🔍 Trace to source system
     🎯 Identify failure point
     📊 Pattern detection
     👤 Auto-assign owner</b>"]
+    
     RCA --> TICKET["<b>Incident Ticket:
     DQ-2847: Patient records
     missing insurance_status
     Source: Billing system
     Owner: Billing team
     SLA: 4 hours</b>"]
+    
     TICKET --> FIX["<b>Source System Fix:
     ✓ Update records at source
     ✓ Validate fix
     ✓ Re-process through CDC
     ✓ Confirm quality</b>"]
+    
     FIX -->|<b>Corrected data</b>| CDC
+    
     QUARANTINE -.->|<b>Quality metrics</b>| DASH["<b>Quality Dashboard:
     📊 Real-time health
     📈 Trend analysis
     ⚠️ Alert thresholds
     🎯 SLA tracking</b>"]
-    COPYRIGHT["© 2025 Colaberry Inc."]
-
+    
     style S1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style S2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style S3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -1301,6 +1325,8 @@ graph TB
     style TICKET fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style FIX fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style DASH fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    
+    COPYRIGHT["© 2025 Colaberry Inc."]
     style COPYRIGHT fill:#ffffff,stroke:#cccccc,stroke-width:1px,color:#999999,font-size:10px
 
     linkStyle 0 stroke:#666666,stroke-width:2px
@@ -1317,13 +1343,12 @@ graph TB
     linkStyle 11 stroke:#666666,stroke-width:2px
     linkStyle 12 stroke:#666666,stroke-width:2px
     linkStyle 13 stroke:#666666,stroke-width:2px
-    linkStyle 14 stroke:#c62828,stroke-width:2px
+    linkStyle 14 stroke:#666666,stroke-width:2px
     linkStyle 15 stroke:#666666,stroke-width:2px
     linkStyle 16 stroke:#666666,stroke-width:2px
     linkStyle 17 stroke:#666666,stroke-width:2px
     linkStyle 18 stroke:#666666,stroke-width:2px
     linkStyle 19 stroke:#666666,stroke-width:2px
-    linkStyle 20 stroke:#666666,stroke-width:2px,stroke-dasharray:5
 ```
 
 **The Five Dimensions of Quality Monitoring**
@@ -1519,24 +1544,26 @@ graph TD
     A --> E["<b>Governance Complexity Increases
     Policies misapplied
     Audit logs less reliable</b>"]
+    
     B --> F["<b>User Satisfaction Declines
     -15 points over 6 weeks</b>"]
     C --> F
     D --> F
     E --> F
-    COPYRIGHT["© 2025 Colaberry Inc."]
-
+    
     style A fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
     style B fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style C fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style D fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style E fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style F fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
+    
+    COPYRIGHT["© 2025 Colaberry Inc."]
     style COPYRIGHT fill:#ffffff,stroke:#cccccc,stroke-width:1px,color:#999999,font-size:10px
 
     linkStyle 0 stroke:#666666,stroke-width:2px
     linkStyle 1 stroke:#666666,stroke-width:2px
-    linkStyle 2 stroke:#c62828,stroke-width:2px
+    linkStyle 2 stroke:#666666,stroke-width:2px
     linkStyle 3 stroke:#666666,stroke-width:2px
     linkStyle 4 stroke:#666666,stroke-width:2px
     linkStyle 5 stroke:#666666,stroke-width:2px
@@ -1560,45 +1587,36 @@ graph TB
     Semantic Understanding</b>"]
     S["<b>Soundness
     Data Quality</b>"]
+    
     S -.->|<b>Requires accurate data</b>| G
     S -.->|<b>Requires accurate data</b>| O
     S -.->|<b>Requires accurate data</b>| A
     S -.->|<b>Requires accurate data</b>| L
+    
     O -.->|<b>Detects issues in</b>| G
     O -.->|<b>Detects issues in</b>| A
     O -.->|<b>Detects issues in</b>| L
     O -.->|<b>Detects issues in</b>| S
+    
     L -.->|<b>Enables semantic caching in</b>| A
     L -.->|<b>Enables policy classification in</b>| G
     L -.->|<b>Provides context for</b>| O
+    
     A -.->|<b>Fast access enables</b>| O
     A -.->|<b>Performance affects</b>| L
+    
     G -.->|<b>Audit trails feed</b>| O
     G -.->|<b>Access patterns affect</b>| A
-    COPYRIGHT["© 2025 Colaberry Inc."]
-
+    
     style G fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style O fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style A fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style L fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style S fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    
+    COPYRIGHT["© 2025 Colaberry Inc."]
     style COPYRIGHT fill:#ffffff,stroke:#cccccc,stroke-width:1px,color:#999999,font-size:10px
 
-    linkStyle 0 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 1 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 2 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 3 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 4 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 5 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 6 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 7 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 8 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
-    linkStyle 9 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
-    linkStyle 10 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 11 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
-    linkStyle 12 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 13 stroke:#666666,stroke-width:2px,stroke-dasharray:5
-    linkStyle 14 stroke:#666666,stroke-width:2px,stroke-dasharray:5
 ```
 
 **Soundness is foundational.** If data quality fails, all other GOALS become unreliable.
@@ -1636,54 +1654,48 @@ This dashboard shows Language as the current cascade risk. The declining trend s
 **Diagram 10: Cascade Failure Example - How Language Drift Impacts All GOALS**
 ```mermaid
 sequenceDiagram
-    participant U as User
-    participant Agent as AI Agent
-    participant L4 as Layer 4 Intelligence
-    participant L3 as Layer 3 Semantic
-    participant L1 as Layer 1 Storage
-    participant L5 as Layer 5 Governance
-    participant L6 as Layer 6 Observability
-    participant L2 as Layer 2 Data Fabric
-    U->>Agent: Schedule my diabetes follow up
-    Agent->>L4: Raw query received
-    L4->>L3: Translate query
-    L3->>L1: Request data with wrong code
-    L1->>L2: Retrieves partial data
-    L2->>L6: Slow query triggers alert
-    Agent->>U: Wrong answer with 4.2s delay
-
-    Note over L3: Medical code CPT 2025 added, not in semantic layer
-    Note over L3: Misinterprets diabetes, Maps to old code
-    Note over L3: Language GOAL degrades, Score 89 to 65
-    Note over L1: Returns incomplete records, missing recent visits
-    Note over L1: Soundness GOAL degrades, Score 93 to 78
-    Note over L2: Multiple fallback queries, Response time 1.8s to 4.2s
-    Note over L2: Accessibility GOAL degrades, Score 88 to 72
-    Note over L6: Cannot identify root cause, Trace does not show semantic error
-    Note over L6: Observability GOAL degrades, Score 88 to 74
-    Note over U: Loses trust
-    Note over L5: Meanwhile, Audit log shows access to wrong records
-    Note over L5: Compliance team flags unnecessary data access
-    Note over L5: Governance GOAL degrades, Score 94 to 81
+    participant U as <b>User</b>
+    participant Agent as <b>AI Agent</b>
+    participant L4 as <b>Layer 4 (Intelligence)</b>
+    participant L3 as <b>Layer 3 (Semantic)</b>
+    participant L1 as <b>Layer 1 (Storage)</b>
+    participant L5 as <b>Layer 5 (Governance)</b>
+    participant L6 as <b>Layer 6 (Observability)</b>
+    participant L2 as <b>Layer 2 (Data Fabric)</b>
+    
+    Note over L3: <b>Medical code CPT-2025 added, not in semantic layer</b>
+    
+    U->>Agent: <b>Schedule my diabetes follow-up</b>
+    Agent->>L4: <b>Raw query received</b>
+    L4->>L3: <b>Translate query</b>
+    Note over L3: <b>❌ Misinterprets diabetes - Maps to old code</b>
+    Note over L3: <b>Language GOAL degrades - Score 89 to 65</b>
+    
+    L3->>L1: <b>Request data with wrong code</b>
+    Note over L1: <b>❌ Returns incomplete records - missing recent visits</b>
+    Note over L1: <b>Soundness GOAL degrades - Score 93 to 78</b>
+    
+    L1->>L2: <b>Retrieves partial data</b>
+    Note over L2: <b>❌ Multiple fallback queries - Response time 1.8s to 4.2s</b>
+    Note over L2: <b>Accessibility GOAL degrades - Score 88 to 72</b>
+    
+    L2->>L6: <b>Slow query triggers alert</b>
+    Note over L6: <b>❌ Cannot identify root cause - Trace does not show semantic error</b>
+    Note over L6: <b>Observability GOAL degrades - Score 88 to 74</b>
+    
+    Agent->>U: <b>Wrong answer with 4.2s delay</b>
+    Note over U: <b>❌ Loses trust</b>
+    
+    Note over L5: <b>Meanwhile... Audit log shows access to wrong records</b>
+    Note over L5: <b>❌ Compliance team flags unnecessary data access</b>
+    Note over L5: <b>Governance GOAL degrades - Score 94 to 81</b>
+    
     rect rgb(255, 235, 238)
-        Note over U,L5: One semantic drift in Language cascaded to all 5 GOALS within 48 hours
+        Note over U,L5: <b>One semantic drift in Language cascaded to all 5 GOALS within 48 hours</b>
     end
+    
     Note over U: © 2025 Colaberry Inc.
 
-    linkStyle 0 stroke:#666666,stroke-width:2px
-    linkStyle 1 stroke:#666666,stroke-width:2px
-    linkStyle 2 stroke:#666666,stroke-width:2px
-    linkStyle 3 stroke:#666666,stroke-width:2px
-    linkStyle 4 stroke:#666666,stroke-width:2px
-    linkStyle 5 stroke:#666666,stroke-width:2px
-    linkStyle 6 stroke:#c62828,stroke-width:2px
-    linkStyle 7 stroke:#c62828,stroke-width:2px
-    linkStyle 8 stroke:#666666,stroke-width:2px
-    linkStyle 9 stroke:#666666,stroke-width:2px
-    linkStyle 10 stroke:#666666,stroke-width:2px
-    linkStyle 11 stroke:#666666,stroke-width:2px
-    linkStyle 12 stroke:#c62828,stroke-width:2px
-    linkStyle 13 stroke:#c62828,stroke-width:2px
 ```
 
 ### Anatomy of a Cascade Failure
@@ -1773,6 +1785,7 @@ graph LR
         L1["<b>Language: 58</b>"]
         S1["<b>Soundness: 67</b>"]
     end
+    
     subgraph "Stage 2: Enhanced"
         G2["<b>Governance: 82</b>"]
         O2["<b>Observability: 75</b>"]
@@ -1780,6 +1793,7 @@ graph LR
         L2["<b>Language: 73</b>"]
         S2["<b>Soundness: 79</b>"]
     end
+    
     subgraph "Stage 3: Advanced"
         G3["<b>Governance: 94</b>"]
         O3["<b>Observability: 88</b>"]
@@ -1787,45 +1801,53 @@ graph LR
         L3["<b>Language: 89</b>"]
         S3["<b>Soundness: 93</b>"]
     end
+    
     G1 -->|<b>ABAC implementation</b>| G2
     G2 -->|<b>Automated response</b>| G3
+    
     O1 -->|<b>Trace IDs + drift detection</b>| O2
     O2 -->|<b>Closed-loop feedback</b>| O3
+    
     A1 -->|<b>CDC + basic caching</b>| A2
     A2 -->|<b>Query optimization + semantic caching</b>| A3
+    
     L1 -->|<b>Enhanced glossary</b>| L2
     L2 -->|<b>Continuous learning</b>| L3
+    
     S1 -->|<b>Continuous monitoring</b>| S2
     S2 -->|<b>Predictive quality + auto-response</b>| S3
-    COPYRIGHT["© 2025 Colaberry Inc."]
-
+    
     style G1 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style O1 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style A1 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style L1 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style S1 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    
     style G2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
     style O2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
     style A2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
     style L2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
     style S2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    
     style G3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style O3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style A3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style L3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style S3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    
+    COPYRIGHT["© 2025 Colaberry Inc."]
     style COPYRIGHT fill:#ffffff,stroke:#cccccc,stroke-width:1px,color:#999999,font-size:10px
 
-    linkStyle 0 stroke:#00897b,stroke-width:2px
-    linkStyle 1 stroke:#00897b,stroke-width:2px
-    linkStyle 2 stroke:#00897b,stroke-width:2px
-    linkStyle 3 stroke:#00897b,stroke-width:2px
-    linkStyle 4 stroke:#00897b,stroke-width:2px
-    linkStyle 5 stroke:#00897b,stroke-width:2px
-    linkStyle 6 stroke:#00897b,stroke-width:2px
-    linkStyle 7 stroke:#00897b,stroke-width:2px
-    linkStyle 8 stroke:#00897b,stroke-width:2px
-    linkStyle 9 stroke:#00897b,stroke-width:2px
+    linkStyle 0 stroke:#666666,stroke-width:2px
+    linkStyle 1 stroke:#666666,stroke-width:2px
+    linkStyle 2 stroke:#666666,stroke-width:2px
+    linkStyle 3 stroke:#666666,stroke-width:2px
+    linkStyle 4 stroke:#666666,stroke-width:2px
+    linkStyle 5 stroke:#666666,stroke-width:2px
+    linkStyle 6 stroke:#666666,stroke-width:2px
+    linkStyle 7 stroke:#666666,stroke-width:2px
+    linkStyle 8 stroke:#666666,stroke-width:2px
+    linkStyle 9 stroke:#666666,stroke-width:2px
 ```
 
 ### The 15-Month Journey to Production Excellence
