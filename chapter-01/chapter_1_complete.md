@@ -165,6 +165,13 @@ graph LR
     sw1 -.->|"<b>Added ML</b>"| sw2
     sw2 -.->|"<b>PARADIGM SHIFT</b>"| sw3
 
+    %% Link styling
+    linkStyle 0 stroke:#666666,stroke-width:2px
+    linkStyle 1 stroke:#666666,stroke-width:2px
+    linkStyle 2 stroke:#00897b,stroke-width:2px
+    linkStyle 3 stroke:#666666,stroke-width:2px,stroke-dasharray:5
+    linkStyle 4 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
+
     style sw1 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style sw2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
     style sw3 fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
@@ -226,6 +233,13 @@ graph TB
     end
     
     result -.->|"<b>Requires Transformation</b>"| transform
+
+    %% Link styling
+    linkStyle 0 stroke:#c62828,stroke-width:2px
+    linkStyle 1 stroke:#c62828,stroke-width:2px
+    linkStyle 2 stroke:#c62828,stroke-width:2px
+    linkStyle 3 stroke:#00897b,stroke-width:2px
+    linkStyle 4 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
 
     style challenge fill:#fff5f5,stroke:#c62828,stroke-width:3px,color:#b71c1c
     style current fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
@@ -310,7 +324,6 @@ Each layer solves specific agent requirements. Let's explore them in detail. The
 **Diagram 1a: Seven-Layer Architecture (Detailed Component View)**
 
 ```mermaid
-
 graph LR
     subgraph LEGEND_BOX["`**LEGEND**`"]
         direction TB
@@ -405,6 +418,9 @@ graph LR
     end
 
     LEGEND_BOX -.-> LAYERS
+
+    %% Link styling (invisible links for spacing don't need color, but the dotted reference link does)
+    linkStyle 6 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
 
     %% Legend styling
     style LEGEND_BOX fill:#ffffff,stroke:#00897b,stroke-width:3px,color:#004d40
@@ -541,9 +557,25 @@ graph TB
     W --> U
     M --> U
     
+    %% Link styling
+    linkStyle 0 stroke:#666666,stroke-width:2px
+    linkStyle 1 stroke:#00897b,stroke-width:2px
+    linkStyle 2 stroke:#00897b,stroke-width:2px
+    linkStyle 3 stroke:#00897b,stroke-width:2px
+    linkStyle 4 stroke:#00897b,stroke-width:2px
+    linkStyle 5 stroke:#00897b,stroke-width:2px
+    linkStyle 6 stroke:#00897b,stroke-width:2px
+    linkStyle 7 stroke:#00897b,stroke-width:2px
+    linkStyle 8 stroke:#00897b,stroke-width:2px
+    linkStyle 9 stroke:#00897b,stroke-width:2px
+    linkStyle 10 stroke:#00897b,stroke-width:2px
+    linkStyle 11 stroke:#00897b,stroke-width:2px
+    linkStyle 12 stroke:#00897b,stroke-width:2px
+    
     style Q fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style R fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style storage fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000    style V fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style storage fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000
+    style V fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style K fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style D fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style S fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -688,6 +720,15 @@ graph TB
     FS --> READY
     TRAIN --> READY
     
+    %% Link styling
+    linkStyle 0 stroke:#666666,stroke-width:2px
+    linkStyle 1 stroke:#00897b,stroke-width:2px
+    linkStyle 2 stroke:#00897b,stroke-width:2px
+    linkStyle 3 stroke:#00897b,stroke-width:2px
+    linkStyle 4 stroke:#00897b,stroke-width:2px
+    linkStyle 5 stroke:#00897b,stroke-width:2px
+    linkStyle 6 stroke:#00897b,stroke-width:2px
+    
     style S fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style CDC fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style STREAM fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -830,7 +871,8 @@ flowchart LR
     style NL fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style PARSE fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style GLOSS fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style resolve fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000    style E1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style resolve fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000
+    style E1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style E2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style E3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style GOLD fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
@@ -914,6 +956,20 @@ flowchart LR
     F --> G
     G --> H
     H --> I
+    
+    %% Link styling
+    linkStyle 0 stroke:#666666,stroke-width:2px
+    linkStyle 1 stroke:#00897b,stroke-width:2px
+    linkStyle 2 stroke:#00897b,stroke-width:2px
+    linkStyle 3 stroke:#00897b,stroke-width:2px
+    linkStyle 4 stroke:#00897b,stroke-width:2px
+    linkStyle 5 stroke:#00897b,stroke-width:2px
+    linkStyle 6 stroke:#00897b,stroke-width:2px
+    linkStyle 7 stroke:#00897b,stroke-width:2px
+    linkStyle 8 stroke:#00897b,stroke-width:2px
+    linkStyle 9 stroke:#00897b,stroke-width:2px
+    linkStyle 10 stroke:#00897b,stroke-width:2px
+    linkStyle 11 stroke:#00897b,stroke-width:2px
     
     style A fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style B fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -1092,10 +1148,23 @@ graph TB
     ASSEMBLE --> CACHE
     CACHE --> LLM
     
+    %% Link styling
+    linkStyle 0 stroke:#666666,stroke-width:2px
+    linkStyle 1 stroke:#00897b,stroke-width:2px
+    linkStyle 2 stroke:#00897b,stroke-width:2px
+    linkStyle 3 stroke:#00897b,stroke-width:2px
+    linkStyle 4 stroke:#00897b,stroke-width:2px
+    linkStyle 5 stroke:#00897b,stroke-width:2px
+    linkStyle 6 stroke:#00897b,stroke-width:2px
+    linkStyle 7 stroke:#00897b,stroke-width:2px
+    linkStyle 8 stroke:#00897b,stroke-width:2px
+    linkStyle 9 stroke:#00897b,stroke-width:2px
+    
     style Q fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style U fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style E fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style retrieval fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000    style V fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style retrieval fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000
+    style V fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style K fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style G fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style RANK fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -1354,9 +1423,21 @@ graph TB
     DEC -->|"<b>Deny</b>"| DENY
     MASK --> ALLOW
     
+    %% Link styling
+    linkStyle 0 stroke:#666666,stroke-width:2px
+    linkStyle 1 stroke:#00897b,stroke-width:2px
+    linkStyle 2 stroke:#00897b,stroke-width:2px
+    linkStyle 3 stroke:#00897b,stroke-width:2px
+    linkStyle 4 stroke:#00897b,stroke-width:2px
+    linkStyle 5 stroke:#00897b,stroke-width:2px
+    linkStyle 6 stroke:#00897b,stroke-width:2px
+    linkStyle 7 stroke:#c62828,stroke-width:2px
+    linkStyle 8 stroke:#00897b,stroke-width:2px
+    
     style REQ fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style POL fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style eval fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000    style WHO fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style eval fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000
+    style WHO fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style WHAT fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style WHEN fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style WHERE fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -1536,7 +1617,17 @@ graph TB
     FEEDBACK --> IMPROVE
     IMPROVE -.->|"<b>Enhances</b>"| metrics
     
-    style metrics fill:#fafafa,stroke:#666666,stroke-width:2px,color:#000000    style M1 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    %% Link styling
+    linkStyle 0 stroke:#666666,stroke-width:2px
+    linkStyle 1 stroke:#00897b,stroke-width:2px
+    linkStyle 2 stroke:#00897b,stroke-width:2px
+    linkStyle 3 stroke:#c62828,stroke-width:2px
+    linkStyle 4 stroke:#00897b,stroke-width:2px
+    linkStyle 5 stroke:#00897b,stroke-width:2px
+    linkStyle 6 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
+    
+    style metrics fill:#fafafa,stroke:#666666,stroke-width:2px,color:#000000
+    style M1 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style M2 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style M3 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style DETECT fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -1644,6 +1735,14 @@ graph TB
     MODEL -.->|Drift Detected| FB2
     AGENT -.->|Cost Spike| FB3
     AGENT -.->|High Hallucination| FB4
+    
+    %% Link styling
+    linkStyle 0 stroke:#666666,stroke-width:2px
+    linkStyle 1 stroke:#666666,stroke-width:2px
+    linkStyle 2 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
+    linkStyle 3 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
+    linkStyle 4 stroke:#c62828,stroke-width:2px,stroke-dasharray:5
+    linkStyle 5 stroke:#c62828,stroke-width:2px,stroke-dasharray:5
     
     style metrics fill:#f9f9f9,stroke:#666666,stroke-width:3px,color:#000000
     style DATA fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -1853,7 +1952,18 @@ graph TB
     
     ACCESS -.->|"<b>Enables</b>"| SPEC
     
-    style discovery fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000    style orchestration fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000    style DEV fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    %% Link styling
+    linkStyle 0 stroke:#666666,stroke-width:2px
+    linkStyle 1 stroke:#00897b,stroke-width:2px
+    linkStyle 2 stroke:#00897b,stroke-width:2px
+    linkStyle 3 stroke:#666666,stroke-width:2px
+    linkStyle 4 stroke:#00897b,stroke-width:2px
+    linkStyle 5 stroke:#00897b,stroke-width:2px
+    linkStyle 6 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
+    
+    style discovery fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000
+    style orchestration fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000
+    style DEV fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style CAT fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style PROD fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style ACCESS fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -1963,6 +2073,23 @@ flowchart TB
     end
 
     before -.->|"`**Transformation**`"| after
+
+    %% Link styling
+    linkStyle 0 stroke:#c62828,stroke-width:2px
+    linkStyle 1 stroke:#c62828,stroke-width:2px
+    linkStyle 2 stroke:#c62828,stroke-width:2px
+    linkStyle 3 stroke:#c62828,stroke-width:2px
+    linkStyle 4 stroke:#c62828,stroke-width:2px
+    linkStyle 5 stroke:#c62828,stroke-width:2px
+    linkStyle 6 stroke:#c62828,stroke-width:2px
+    linkStyle 7 stroke:#00897b,stroke-width:2px
+    linkStyle 8 stroke:#00897b,stroke-width:2px
+    linkStyle 9 stroke:#00897b,stroke-width:2px
+    linkStyle 10 stroke:#00897b,stroke-width:2px
+    linkStyle 11 stroke:#00897b,stroke-width:2px
+    linkStyle 12 stroke:#00897b,stroke-width:2px
+    linkStyle 13 stroke:#00897b,stroke-width:2px
+    linkStyle 14 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
 
     style before fill:#fff5f5,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style after fill:#f0fff0,stroke:#00897b,stroke-width:2px,color:#000000
@@ -2224,7 +2351,6 @@ For the complete multi-agent query flow showing coordination between specialists
 **Diagram 5a: Multi-Agent Orchestration (Simplified View)**
 
 ```mermaid
-
 graph TB
     U["`**User Query**<br/><i>Complex, multi-part question</i>`"]
     
@@ -2257,6 +2383,21 @@ graph TB
     R -.-> O
     parallel -.-> O
     stack -.-> O
+    
+    %% Link styling
+    linkStyle 0 stroke:#666666,stroke-width:2px
+    linkStyle 1 stroke:#00897b,stroke-width:2px
+    linkStyle 2 stroke:#00897b,stroke-width:2px
+    linkStyle 3 stroke:#00897b,stroke-width:2px
+    linkStyle 4 stroke:#666666,stroke-width:2px
+    linkStyle 5 stroke:#666666,stroke-width:2px
+    linkStyle 6 stroke:#00897b,stroke-width:2px
+    linkStyle 7 stroke:#00897b,stroke-width:2px
+    linkStyle 8 stroke:#00897b,stroke-width:2px
+    linkStyle 9 stroke:#666666,stroke-width:2px
+    linkStyle 10 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
+    linkStyle 11 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
+    linkStyle 12 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
     
     style U fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style R fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -2644,6 +2785,15 @@ graph LR
     
     BI4 -.->|"`**Paradigm<br/>Evolution**`"| A4
     
+    %% Link styling
+    linkStyle 0 stroke:#c62828,stroke-width:2px
+    linkStyle 1 stroke:#c62828,stroke-width:2px
+    linkStyle 2 stroke:#c62828,stroke-width:2px
+    linkStyle 3 stroke:#00897b,stroke-width:2px
+    linkStyle 4 stroke:#00897b,stroke-width:2px
+    linkStyle 5 stroke:#00897b,stroke-width:2px
+    linkStyle 6 stroke:#00897b,stroke-width:2px,stroke-dasharray:5
+    
     style bi fill:#fff5f5,stroke:#c62828,stroke-width:3px,color:#b71c1c
     style agent fill:#f0fff0,stroke:#00897b,stroke-width:3px,color:#000000
     
@@ -2841,7 +2991,6 @@ The five enterprise archetypes are compared in Table 5 (Enterprise Archetype Com
 **Diagram 7a: Enterprise Data Architecture Evolution Timeline**
 
 ```mermaid
-
 timeline
     title Enterprise Data Architecture Evolution: Three Eras
     
