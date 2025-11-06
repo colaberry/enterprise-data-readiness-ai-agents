@@ -1965,12 +1965,13 @@ flowchart TB
 
     before -.->|"`**Transformation**`"| after
 
-    style before fill:#fff5f5,stroke:#c62828,stroke-width:2px,color:#b71c1c    style after fill:#f0fff0,stroke:#00897b,stroke-width:2px,color:#000000    style B8 fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
-
+    style before fill:#fff5f5,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style after fill:#f0fff0,stroke:#00897b,stroke-width:2px,color:#000000
+    style B8 fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
+    style A8 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    
     %% Copyright Notice
     CR["© 2025 Colaberry Inc."]
-
-    style A8 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
 ```
 
@@ -2639,7 +2640,8 @@ graph LR
     BI4 -.->|"`**Paradigm<br/>Evolution**`"| A4
     
     style bi fill:#fff5f5,stroke:#c62828,stroke-width:3px,color:#b71c1c
-    style agent fill:#f0fff0,stroke:#00897b,stroke-width:3px,color:#000000    
+    style agent fill:#f0fff0,stroke:#00897b,stroke-width:3px,color:#000000
+    
     style BI1 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style BI2 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style BI3 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
@@ -2648,11 +2650,10 @@ graph LR
     style A1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style A2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style A3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style A4 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 
     %% Copyright Notice
     CR["© 2025 Colaberry Inc."]
-
-    style A4 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
 ```
 
@@ -2836,59 +2837,56 @@ The five enterprise archetypes are compared in Table 5 (Enterprise Archetype Com
 
 ```mermaid
 timeline
-    title Enterprise Data Architecture Evolution: Three Eras
+    title <b>Enterprise Data Architecture Evolution: Three Eras</b>
     
-    section BI Era (1990-2015)
-        1990s : Data Warehouses Emerge
-              : Kimball Dimensional Modeling
-              : SQL becomes standard
-        2000s : ETL Tools Mature
-              : Business Intelligence Platforms
-              : OLAP Cubes, Reporting
-        2010s : Cloud Data Warehouses
-              : Self-Service BI
-              : Tableau, Power BI adoption
+    section <b>BI Era (1990-2015)</b>
+        1990s : <b>Data Warehouses Emerge</b>
+              : <b>Kimball Dimensional Modeling</b>
+              : <b>SQL becomes standard</b>
+        2000s : <b>ETL Tools Mature</b>
+              : <b>Business Intelligence Platforms</b>
+              : <b>OLAP Cubes, Reporting</b>
+        2010s : <b>Cloud Data Warehouses</b>
+              : <b>Self-Service BI</b>
+              : <b>Tableau, Power BI adoption</b>
               
-    section ML Era (2015-2023)
-        2015 : Hadoop & Big Data Lakes
-             : "Store everything" philosophy
-             : Spark for distributed processing
-        2018 : Feature Stores introduced
-             : ML Pipelines & MLOps
-             : Model training at scale
-        2020 : Real-time ML inference
-             : Model registries (MLflow)
-             : Embedding models gain traction
-        2022 : LLMs go mainstream
-             : ChatGPT released (Nov)
-             : Prompt engineering emerges
+    section <b>ML Era (2015-2023)</b>
+        2015 : <b>Hadoop & Big Data Lakes</b>
+             : <b>"Store everything" philosophy</b>
+             : <b>Spark for distributed processing</b>
+        2018 : <b>Feature Stores introduced</b>
+             : <b>ML Pipelines & MLOps</b>
+             : <b>Model training at scale</b>
+        2020 : <b>Real-time ML inference</b>
+             : <b>Model registries (MLflow)</b>
+             : <b>Embedding models gain traction</b>
+        2022 : <b>LLMs go mainstream</b>
+             : <b>ChatGPT released (Nov)</b>
+             : <b>Prompt engineering emerges</b>
              
-    section Agentic Era (2023-Present)
-        2023 : RAG Architecture patterns
-             : Vector databases production-ready
-             : Agent frameworks emerge
-        2024 : Multi-agent orchestration begins
-             : LangGraph, CrewAI, AutoGen
-             : MCP protocol announced (Nov)
-             : 7-Layer architecture synthesized
-        2025 : Agent-ready infrastructure matures
-             : ABAC governance standard
-             : Semantic layers for NL
-             : Multi-modal storage required
-             : Continuous model monitoring
-             : MCP mainstream adoption
-             : OpenAI, Google, MS support MCP
-             : Stable v1.0 SDKs released
-        2026+ : Production agent era
-              : Multi-agent systems standard
-              : Intelligence orchestration evolved
-              : Enterprise-wide deployment
-
-    %% Copyright Notice
-    CR["© 2025 Colaberry Inc."]
-
-    style CR fill:none,stroke:none,color:#999999
+    section <b>Agentic Era (2023-Present)</b>
+        2023 : <b>RAG Architecture patterns</b>
+             : <b>Vector databases production-ready</b>
+             : <b>Agent frameworks emerge</b>
+        2024 : <b>Multi-agent orchestration begins</b>
+             : <b>LangGraph, CrewAI, AutoGen</b>
+             : <b>MCP protocol announced (Nov)</b>
+             : <b>7-Layer architecture synthesized</b>
+        2025 : <b>Agent-ready infrastructure matures</b>
+             : <b>ABAC governance standard</b>
+             : <b>Semantic layers for NL</b>
+             : <b>Multi-modal storage required</b>
+             : <b>Continuous model monitoring</b>
+             : <b>MCP mainstream adoption</b>
+             : <b>OpenAI, Google, MS support MCP</b>
+             : <b>Stable v1.0 SDKs released</b>
+        2026+ : <b>Production agent era</b>
+              : <b>Multi-agent systems standard</b>
+              : <b>Intelligence orchestration evolved</b>
+              : <b>Enterprise-wide deployment</b>
 ```
+
+**© 2025 Colaberry Inc.**
 
 Enterprise data architecture evolved from BI-era batch processing through ML-era model training to agentic-era intelligence orchestration. Layer 4 (Intelligence Orchestration & Retrieval) emerged as enterprises moved beyond simple RAG to coordinated multi-modal strategies.
 
@@ -3090,10 +3088,12 @@ https://docs.google.com/presentation/d/1sZqMAoIJDxz79cbC5ap5v9jknYH4Aa9cFFaWL8Ri
 - **Diagram 1:** Seven-Layer Architecture (diagram1-seven-layers.mermaid)
 - **Diagram 2:** Semantic Flow - Phrase to Data (diagram2-semantic-flow.mermaid)
 - **Diagram 3:** Observability Dashboard (diagram3-observability-dashboard.mermaid)
-- **Diagram 4:** Self-Service Before/After (diagram4-self-service-comparison.mermaid)
+- **Diagram 4:** Self-Service Data Access Transformation (diagram4-self-service-comparison.mermaid)
 - **Diagram 5:** Multi-Agent Query Flow (diagram5-query-flow.mermaid)
-- **Diagram 6:** BI vs Agent Architecture (diagram6-bi-vs-agent.mermaid)
-- **Diagram 7:** Evolution Timeline (diagram7-evolution-timeline.mermaid)
+  - **Diagram 5b:** Complete Query Flow Timeline (diagram5_query_flow_2.png)
+- **Diagram 6:** BI Era vs Agent Era Architecture (diagram6-bi-vs-agent.mermaid)
+- **Diagram 7a:** Enterprise Data Architecture Evolution Timeline (diagram7-evolution-timeline.mermaid)
+  - **Diagram 7b:** Evolution Comparison Matrix (diagram7_evolution_2.png)
 ---
 
 ## Tables Reference
