@@ -165,9 +165,9 @@ graph LR
     sw1 -.->|"<b>Added ML</b>"| sw2
     sw2 -.->|"<b>PARADIGM SHIFT</b>"| sw3
 
-    style sw1 fill:#f9f9f9,stroke:#666666,stroke-width:2px
-    style sw2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px
-    style sw3 fill:#e0f2f1,stroke:#00897b,stroke-width:3px
+    style sw1 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style sw2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    style sw3 fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
     style prog1 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style infra1 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style prog2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
@@ -222,12 +222,12 @@ graph TB
     
     result -.->|"<b>Requires Transformation</b>"| transform
 
-    style challenge fill:#fff5f5,stroke:#c62828,stroke-width:3px
+    style challenge fill:#fff5f5,stroke:#c62828,stroke-width:3px,color:#b71c1c
     style current fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style attempting fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style gap fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
     style result fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
-    style solution fill:#f0fff0,stroke:#00897b,stroke-width:3px
+    style solution fill:#f0fff0,stroke:#00897b,stroke-width:3px,color:#004d40
     style transform fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style delivers fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 ```
