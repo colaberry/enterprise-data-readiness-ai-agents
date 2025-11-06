@@ -2230,7 +2230,7 @@ graph TB
     
     R["`**Router Agent**<br/><i>Layer 7: Orchestrator</i>`"]
     
-    subgraph parallel["`**Parallel Specialist Execution**`"]
+    subgraph parallel["`**Parallel Specialists**`"]
         S1["`**Scheduling<br/>Specialist**`"]
         S2["`**Insurance<br/>Specialist**`"]
     end
@@ -2274,7 +2274,7 @@ graph TB
     %% Copyright Notice
     CR["© 2025 Colaberry Inc."]
     style CR fill:none,stroke:none,color:#999999
-    
+
 ```
 
 Layer 7 orchestrator coordinates specialists, each using Layer 4's Intelligence Orchestration & Retrieval for domain-specific context.
@@ -2841,54 +2841,56 @@ The five enterprise archetypes are compared in Table 5 (Enterprise Archetype Com
 **Diagram 7a: Enterprise Data Architecture Evolution Timeline**
 
 ```mermaid
+
 timeline
-    title <b>Enterprise Data Architecture Evolution: Three Eras</b>
+    title Enterprise Data Architecture Evolution: Three Eras
     
-    section <b>BI Era (1990-2015)</b>
-        1990s : <b>Data Warehouses Emerge</b>
-              : <b>Kimball Dimensional Modeling</b>
-              : <b>SQL becomes standard</b>
-        2000s : <b>ETL Tools Mature</b>
-              : <b>Business Intelligence Platforms</b>
-              : <b>OLAP Cubes, Reporting</b>
-        2010s : <b>Cloud Data Warehouses</b>
-              : <b>Self-Service BI</b>
-              : <b>Tableau, Power BI adoption</b>
+    section BI Era (1990-2015)
+        1990s : Data Warehouses Emerge
+              : Kimball Dimensional Modeling
+              : SQL becomes standard
+        2000s : ETL Tools Mature
+              : Business Intelligence Platforms
+              : OLAP Cubes, Reporting
+        2010s : Cloud Data Warehouses
+              : Self-Service BI
+              : Tableau, Power BI adoption
               
-    section <b>ML Era (2015-2023)</b>
-        2015 : <b>Hadoop & Big Data Lakes</b>
-             : <b>"Store everything" philosophy</b>
-             : <b>Spark for distributed processing</b>
-        2018 : <b>Feature Stores introduced</b>
-             : <b>ML Pipelines & MLOps</b>
-             : <b>Model training at scale</b>
-        2020 : <b>Real-time ML inference</b>
-             : <b>Model registries (MLflow)</b>
-             : <b>Embedding models gain traction</b>
-        2022 : <b>LLMs go mainstream</b>
-             : <b>ChatGPT released (Nov)</b>
-             : <b>Prompt engineering emerges</b>
+    section ML Era (2015-2023)
+        2015 : Hadoop & Big Data Lakes
+             : Store everything philosophy
+             : Spark for distributed processing
+        2018 : Feature Stores introduced
+             : ML Pipelines & MLOps
+             : Model training at scale
+        2020 : Real-time ML inference
+             : Model registries (MLflow)
+             : Embedding models gain traction
+        2022 : LLMs go mainstream
+             : ChatGPT released (Nov)
+             : Prompt engineering emerges
              
-    section <b>Agentic Era (2023-Present)</b>
-        2023 : <b>RAG Architecture patterns</b>
-             : <b>Vector databases production-ready</b>
-             : <b>Agent frameworks emerge</b>
-        2024 : <b>Multi-agent orchestration begins</b>
-             : <b>LangGraph, CrewAI, AutoGen</b>
-             : <b>MCP protocol announced (Nov)</b>
-             : <b>7-Layer architecture synthesized</b>
-        2025 : <b>Agent-ready infrastructure matures</b>
-             : <b>ABAC governance standard</b>
-             : <b>Semantic layers for NL</b>
-             : <b>Multi-modal storage required</b>
-             : <b>Continuous model monitoring</b>
-             : <b>MCP mainstream adoption</b>
-             : <b>OpenAI, Google, MS support MCP</b>
-             : <b>Stable v1.0 SDKs released</b>
-        2026+ : <b>Production agent era</b>
-              : <b>Multi-agent systems standard</b>
-              : <b>Intelligence orchestration evolved</b>
-              : <b>Enterprise-wide deployment</b>
+    section Agentic Era (2023-Present)
+        2023 : RAG Architecture patterns
+             : Vector databases production-ready
+             : Agent frameworks emerge
+        2024 : Multi-agent orchestration begins
+             : LangGraph, CrewAI, AutoGen
+             : MCP protocol announced (Nov)
+             : 7-Layer architecture synthesized
+        2025 : Agent-ready infrastructure matures
+             : ABAC governance standard
+             : Semantic layers for NL
+             : Multi-modal storage required
+             : Continuous model monitoring
+             : MCP mainstream adoption
+             : OpenAI, Google, MS support MCP
+             : Stable v1.0 SDKs released
+        2026+ : Production agent era
+              : Multi-agent systems standard
+              : Intelligence orchestration evolved
+              : Enterprise-wide deployment
+              
 ```
 
 **© 2025 Colaberry Inc.**
