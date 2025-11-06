@@ -311,10 +311,9 @@ Each layer solves specific agent requirements. Let's explore them in detail. The
 
 ```mermaid
 
-graph TB
-    %% Horizontal legend at TOP - Above all layers
-    subgraph LEGEND[" "]
-        direction LR
+graph LR
+    subgraph LEGEND_BOX["`**LEGEND**`"]
+        direction TB
         LEG_L7["`**Layer 7**<br/><b>Orchestration</b>`"]
         LEG_L6["`**Layer 6**<br/><b>Observability</b>`"]
         LEG_L5["`**Layer 5**<br/><b>Governance</b>`"]
@@ -324,120 +323,103 @@ graph TB
         LEG_L1["`**Layer 1**<br/><b>Storage</b>`"]
     end
 
-    subgraph L7["`**LAYER 7**`"]
-        direction LR
-        L7A["`**Data Product<br/>Catalog**`"]
-        L7B["`**Multi-Agent<br/>Frameworks**`"]
-        L7C["`**API Gateway &<br/>Documentation**`"]
-        L7D["`**Domain<br/>Ownership**`"]
-        L7E["`**SLA<br/>Management**`"]
-        L7F["`**Usage Metrics<br/>& Analytics**`"]
+    subgraph LAYERS["`**SEVEN-LAYER ARCHITECTURE**`"]
+        direction TB
+        
+        subgraph L7["`**LAYER 7**`"]
+            direction LR
+            L7A["`**Data Product<br/>Catalog**`"]
+            L7B["`**Multi-Agent<br/>Frameworks**`"]
+            L7C["`**API Gateway &<br/>Documentation**`"]
+            L7D["`**Domain<br/>Ownership**`"]
+            L7E["`**SLA<br/>Management**`"]
+            L7F["`**Usage Metrics<br/>& Analytics**`"]
+        end
+
+        subgraph L6["`**LAYER 6**`"]
+            direction LR
+            L6A["`**Data Quality<br/>Monitoring**`"]
+            L6B["`**Agent Performance<br/>Telemetry**`"]
+            L6C["`**Model Drift<br/>Detection**`"]
+            L6D["`**Cost & Usage<br/>Tracking**`"]
+            L6E["`**Feedback<br/>Loops**`"]
+            L6F["`**Trace<br/>Propagation**`"]
+        end
+
+        subgraph L5["`**LAYER 5**`"]
+            direction LR
+            L5A["`**ABAC Policy<br/>Engine**`"]
+            L5B["`**Dynamic Data<br/>Masking**`"]
+            L5C["`**Real-time Audit<br/>Logging**`"]
+            L5D["`**Compliance<br/>Automation**`"]
+            L5E["`**Policy Version<br/>Control**`"]
+            L5F["`**Privacy<br/>Controls**`"]
+        end
+
+        subgraph L4["`**LAYER 4**`"]
+            direction LR
+            L4A["`**Query<br/>Understanding**`"]
+            L4B["`**Embedding<br/>Models**`"]
+            L4C["`**Hybrid<br/>Search**`"]
+            L4D["`**Result<br/>Reranking**`"]
+            L4E["`**Context<br/>Assembly**`"]
+            L4F["`**Semantic<br/>Caching**`"]
+        end
+
+        subgraph L3["`**LAYER 3**`"]
+            direction LR
+            L3A["`**Business<br/>Glossary**`"]
+            L3B["`**Ontologies &<br/>Taxonomies**`"]
+            L3C["`**Metric<br/>Definitions**`"]
+            L3D["`**Entity<br/>Resolution**`"]
+            L3E["`**Natural Language<br/>Mappings**`"]
+            L3F["`**Lineage<br/>Tracking**`"]
+        end
+
+        subgraph L2["`**LAYER 2**`"]
+            direction LR
+            L2A["`**Change Data<br/>Capture**`"]
+            L2B["`**Event<br/>Streaming**`"]
+            L2C["`**Stream<br/>Processing**`"]
+            L2D["`**Feature<br/>Stores**`"]
+            L2E["`**Training<br/>Pipelines**`"]
+            L2F["`**Data Quality<br/>Validation**`"]
+        end
+
+        subgraph L1["`**LAYER 1**`"]
+            direction LR
+            L1A["`**Vector<br/>Database**`"]
+            L1B["`**Knowledge<br/>Graph**`"]
+            L1C["`**Document<br/>Store**`"]
+            L1D["`**RDBMS**`"]
+            L1E["`**Data<br/>Warehouse**`"]
+            L1F["`**Model<br/>Registry**`"]
+        end
+
+        L7A ~~~ L6A
+        L6A ~~~ L5A
+        L5A ~~~ L4A
+        L4A ~~~ L3A
+        L3A ~~~ L2A
+        L2A ~~~ L1A
     end
 
-    subgraph L6["`**LAYER 6**`"]
-        direction LR
-        L6A["`**Data Quality<br/>Monitoring**`"]
-        L6B["`**Agent Performance<br/>Telemetry**`"]
-        L6C["`**Model Drift<br/>Detection**`"]
-        L6D["`**Cost & Usage<br/>Tracking**`"]
-        L6E["`**Feedback<br/>Loops**`"]
-        L6F["`**Trace<br/>Propagation**`"]
-    end
+    LEGEND_BOX -.-> LAYERS
 
-    subgraph L5["`**LAYER 5**`"]
-        direction LR
-        L5A["`**ABAC Policy<br/>Engine**`"]
-        L5B["`**Dynamic Data<br/>Masking**`"]
-        L5C["`**Real-time Audit<br/>Logging**`"]
-        L5D["`**Compliance<br/>Automation**`"]
-        L5E["`**Policy Version<br/>Control**`"]
-        L5F["`**Privacy<br/>Controls**`"]
-    end
+    %% Legend styling
+    style LEGEND_BOX fill:#ffffff,stroke:#00897b,stroke-width:3px,color:#004d40
+    style LEG_L7 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style LEG_L6 fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style LEG_L5 fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
+    style LEG_L4 fill:#80cbc4,stroke:#00695c,stroke-width:3px,color:#004d40
+    style LEG_L3 fill:#4db6ac,stroke:#00695c,stroke-width:2px,color:#004d40
+    style LEG_L2 fill:#26a69a,stroke:#00695c,stroke-width:2px,color:#004d40
+    style LEG_L1 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 
-    subgraph L4["`**LAYER 4**`"]
-        direction LR
-        L4A["`**Query<br/>Understanding**`"]
-        L4B["`**Embedding<br/>Models**`"]
-        L4C["`**Hybrid<br/>Search**`"]
-        L4D["`**Result<br/>Reranking**`"]
-        L4E["`**Context<br/>Assembly**`"]
-        L4F["`**Semantic<br/>Caching**`"]
-    end
+    %% Main layers container
+    style LAYERS fill:#fafafa,stroke:#00897b,stroke-width:4px,color:#004d40
 
-    subgraph L3["`**LAYER 3**`"]
-        direction LR
-        L3A["`**Business<br/>Glossary**`"]
-        L3B["`**Ontologies &<br/>Taxonomies**`"]
-        L3C["`**Metric<br/>Definitions**`"]
-        L3D["`**Entity<br/>Resolution**`"]
-        L3E["`**Natural Language<br/>Mappings**`"]
-        L3F["`**Lineage<br/>Tracking**`"]
-    end
-
-    subgraph L2["`**LAYER 2**`"]
-        direction LR
-        L2A["`**Change Data<br/>Capture**`"]
-        L2B["`**Event<br/>Streaming**`"]
-        L2C["`**Stream<br/>Processing**`"]
-        L2D["`**Feature<br/>Stores**`"]
-        L2E["`**Training<br/>Pipelines**`"]
-        L2F["`**Data Quality<br/>Validation**`"]
-    end
-
-    subgraph L1["`**LAYER 1**`"]
-        direction LR
-        L1A["`**Vector<br/>Database**`"]
-        L1B["`**Knowledge<br/>Graph**`"]
-        L1C["`**Document<br/>Store**`"]
-        L1D["`**RDBMS**`"]
-        L1E["`**Data<br/>Warehouse**`"]
-        L1F["`**Model<br/>Registry**`"]
-    end
-
-    %% Vertical connections
-    L7A ~~~ L6A
-    L7B ~~~ L6B
-    L7C ~~~ L6C
-    L7D ~~~ L6D
-    L7E ~~~ L6E
-    L7F ~~~ L6F
-
-    L6A ~~~ L5A
-    L6B ~~~ L5B
-    L6C ~~~ L5C
-    L6D ~~~ L5D
-    L6E ~~~ L5E
-    L6F ~~~ L5F
-
-    L5A ~~~ L4A
-    L5B ~~~ L4B
-    L5C ~~~ L4C
-    L5D ~~~ L4D
-    L5E ~~~ L4E
-    L5F ~~~ L4F
-
-    L4A ~~~ L3A
-    L4B ~~~ L3B
-    L4C ~~~ L3C
-    L4D ~~~ L3D
-    L4E ~~~ L3E
-    L4F ~~~ L3F
-
-    L3A ~~~ L2A
-    L3B ~~~ L2B
-    L3C ~~~ L2C
-    L3D ~~~ L2D
-    L3E ~~~ L2E
-    L3F ~~~ L2F
-
-    L2A ~~~ L1A
-    L2B ~~~ L1B
-    L2C ~~~ L1C
-    L2D ~~~ L1D
-    L2E ~~~ L1E
-    L2F ~~~ L1F
-
-    %% Layer 7 Styling - Lightest (Orchestration)
+    %% Layer 7 Styling - Lightest
     style L7 fill:#f0f9f8,stroke:#00897b,stroke-width:3px,color:#004d40
     style L7A fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style L7B fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -446,7 +428,7 @@ graph TB
     style L7E fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style L7F fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
 
-    %% Layer 6 Styling - Medium-Light
+    %% Layer 6 Styling
     style L6 fill:#e8f5f3,stroke:#00897b,stroke-width:3px,color:#004d40
     style L6A fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
     style L6B fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
@@ -455,7 +437,7 @@ graph TB
     style L6E fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
     style L6F fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
 
-    %% Layer 5 Styling - Medium-Light
+    %% Layer 5 Styling
     style L5 fill:#e0f2ef,stroke:#00897b,stroke-width:3px,color:#004d40
     style L5A fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
     style L5B fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
@@ -464,7 +446,7 @@ graph TB
     style L5E fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
     style L5F fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
 
-    %% Layer 4 Styling - CRITICAL HUB - Emphasized
+    %% Layer 4 Styling - CRITICAL HUB
     style L4 fill:#d7f0ed,stroke:#00695c,stroke-width:4px,color:#004d40
     style L4A fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
     style L4B fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
@@ -473,7 +455,7 @@ graph TB
     style L4E fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
     style L4F fill:#80cbc4,stroke:#00695c,stroke-width:2px,color:#004d40
 
-    %% Layer 3 Styling - Medium
+    %% Layer 3 Styling
     style L3 fill:#cfeae6,stroke:#00695c,stroke-width:3px,color:#004d40
     style L3A fill:#4db6ac,stroke:#00695c,stroke-width:2px,color:#004d40
     style L3B fill:#4db6ac,stroke:#00695c,stroke-width:2px,color:#004d40
@@ -482,7 +464,7 @@ graph TB
     style L3E fill:#4db6ac,stroke:#00695c,stroke-width:2px,color:#004d40
     style L3F fill:#4db6ac,stroke:#00695c,stroke-width:2px,color:#004d40
 
-    %% Layer 2 Styling - Medium-Dark
+    %% Layer 2 Styling
     style L2 fill:#c7e6e1,stroke:#00695c,stroke-width:3px,color:#004d40
     style L2A fill:#26a69a,stroke:#00695c,stroke-width:2px,color:#004d40
     style L2B fill:#26a69a,stroke:#00695c,stroke-width:2px,color:#004d40
@@ -491,7 +473,7 @@ graph TB
     style L2E fill:#26a69a,stroke:#00695c,stroke-width:2px,color:#004d40
     style L2F fill:#26a69a,stroke:#00695c,stroke-width:2px,color:#004d40
 
-    %% Layer 1 Styling - Darkest (Foundation) - White text
+    %% Layer 1 Styling - Darkest (Foundation)
     style L1 fill:#b8ddd9,stroke:#004d40,stroke-width:4px,color:#004d40
     style L1A fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style L1B fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
@@ -499,24 +481,6 @@ graph TB
     style L1D fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style L1E fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style L1F fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
-
-    %% Connect legend to Layer 7
-    LEGEND ~~~ L7
-
-    %% Transparent legend container with colored boxes
-    style LEGEND fill:none,stroke:#00897b,stroke-width:2px,color:#004d40
-    style LEG_L7 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style LEG_L6 fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
-    style LEG_L5 fill:#b2dfdb,stroke:#00796b,stroke-width:2px,color:#004d40
-    style LEG_L4 fill:#80cbc4,stroke:#00695c,stroke-width:3px,color:#004d40
-    style LEG_L3 fill:#4db6ac,stroke:#00695c,stroke-width:2px,color:#004d40
-    style LEG_L2 fill:#26a69a,stroke:#00695c,stroke-width:2px,color:#004d40
-    style LEG_L1 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
-    
-    %% Copyright Notice at bottom
-    CR["© 2025 Colaberry Inc."]
-    L1 ~~~ CR
-    style CR fill:none,stroke:none,color:#999999
 
 ```
 
