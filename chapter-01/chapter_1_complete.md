@@ -1400,7 +1400,7 @@ graph TB
 
 ```
 
-Layer 5 evaluates permissions dynamically based on four contextual factors (Who, What, When, Where) in under 10ms. ABAC replaces static RBAC, enabling compliant agent operations with field-level masking and comprehensive audit trails.
+Layer 5 evaluates permissions dynamically based on four contextual factors (Who, What, When, Where) in under 10ms. ABAC replaces static RBAC, enabling compliant agent operations with field-level masking and comprehensive audit trails. This layer implements the guardrails that constrain agent behavior within approved boundaries, ensuring that autonomy never comes at the expense of control.
 
 **What it replaces:** Static role-based access control (RBAC) and manual compliance processes designed for human-driven queries
 
@@ -1525,6 +1525,8 @@ Supporting contributions to:
 ---
 
 > **Connecting to Chapter 0:** This solves the "P - Permitted" problem where Sarah Cedao's agent used a single service account, violating HIPAA compliance. Dynamic ABAC evaluates permissions per-user, per-query, in real-time enabling the agent to enforce "minimum necessary" data access based on who's asking, what they're requesting, when, where, and why.
+> 
+> Sarah noted: "We needed guardrails in place before we could even consider production deployment. Our board wasn't going to approve autonomous agents without knowing exactly what they could and couldn't do."
 
 [5] NIST Special Publication 800-162: Guide to Attribute Based Access Control (ABAC) Definition and Considerations (https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-162.pdf)
 

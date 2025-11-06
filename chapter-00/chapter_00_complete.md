@@ -254,7 +254,7 @@ Their SQL Server warehouse revealed the mismatch between Analytics Era design an
 
 **The Azure data lake had even less structure:**
 
-Files were named generically: `epic_extract_20240315.parquet`, `claims_dump_2024Q1.csv`, `patient_notes_raw/2024/03/`. There was no schema documentation, no business glossary, and no natural language mappings.
+Files were named generically: `epic_extract_20240315.parquet`, `claims_dump_2024Q1.csv`, `patient_notes_raw/2024/03/`. There was no schema documentation, no business glossary, and no natural language mappings. 
 
 **The resulting workflow for each new query type required:**
 
@@ -304,6 +304,8 @@ Second, **it doesn't scale**. Adding role-based rules for every combination crea
 Delivering personalized access requires **dynamic authorization**—an infrastructure capability that evaluates permissions at query time based on user attributes, data attributes, environmental context, and intended use. Modern attribute-based access control (ABAC) solves this by evaluating permissions dynamically in real-time. As Rippling's 2025 analysis explains, ABAC is particularly well-suited for dynamic environments where user responsibilities and resource classifications frequently change, providing the flexibility and fine-grained control that static RBAC cannot deliver.[11b]
 
 This capability comprises attribute-based access control (ABAC) policies evaluated in real-time (where subject attributes include user role, clearance level, department, and employment status; object attributes include data classification, owner, sensitivity level, and geographic region; action attributes specify read, write, summarize, export, or delete operations; and environment attributes capture time of day, location, device type, and network zone), dynamic data masking that redacts sensitive fields based on the requester's permissions, real-time audit logging that captures every access decision with trace IDs, and compliance automation that enforces regulatory requirements like HIPAA's minimum necessary standard without manual intervention.
+
+These permissions are enforced through guardrails—automated safety mechanisms that prevent agents from exceeding their authorized scope, accessing prohibited data, or violating compliance policies.
 
 **Target SLO:**
 - Authorization evaluation: <10 milliseconds per query

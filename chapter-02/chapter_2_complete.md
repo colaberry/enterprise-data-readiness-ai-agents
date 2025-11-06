@@ -397,6 +397,29 @@ Policies evaluated user attributes and data sensitivity in real-time. Audit logs
 
 Real-time policy enforcement blocked suspicious queries immediately, alerted security teams, provided users with clear explanations for denied requests.
 
+### Agent Guardrails: The Safety Rails for Autonomous Systems
+
+Guardrails are the automated enforcement mechanisms that ensure agents operate within acceptable boundaries. While governance defines the policies, guardrails enforce them in real-time—preventing unauthorized actions before they happen rather than detecting violations after the fact.
+
+The need for guardrails becomes clear when we examine why 95% of enterprise AI agents fail in production. Without proper guardrails, even well-intentioned agents can:
+- Access data they shouldn't see
+- Make decisions beyond their authority
+- Violate compliance requirements
+- Accumulate context that creates privacy risks
+- Scale operations in ways that create business risk
+
+**Three Types of Agent Guardrails:**
+
+1. **Data Access Guardrails**: Control what data agents can read, write, or transmit. These include row-level security, column masking, and cross-domain boundaries that prevent agents from bridging data silos inappropriately.
+
+2. **Operational Guardrails**: Limit agent actions and decisions. These define thresholds for autonomous decisions (e.g., "approve claims under $500, escalate above"), rate limits to prevent runaway operations, and operational hours when agents can act autonomously.
+
+3. **Compliance Guardrails**: Enforce regulatory and policy requirements. These include audit trail requirements, data residency constraints, retention policies, and industry-specific regulations like HIPAA or GDPR.
+
+At Echo Health, Sarah's team implemented a layered guardrail system that prevented their patient communication agents from accessing financial records, limited autonomous scheduling to business hours, and required human approval for any communication mentioning specific diagnoses. These guardrails were non-negotiable prerequisites for board approval—and became the foundation of their trust-first architecture.
+
+The key insight: guardrails aren't limitations on agent capability—they're enablers of agent adoption. Without them, enterprises can't deploy agents. With them, agents can operate autonomously at scale.
+
 ### The Continuous Practice
 
 Governance isn't a one-time implementation but a continuous practice.
