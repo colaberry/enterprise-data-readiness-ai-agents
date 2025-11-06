@@ -152,6 +152,9 @@ graph TB
     style INPACT fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style ARCH fill:#f9f9f9,stroke:#666666,stroke-width:3px,color:#000000
     style GOALS fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
+    
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
 ### How Everything Connects
@@ -184,6 +187,9 @@ graph TB
     style A fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
     style L fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
     style S fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
 ### Why GOALS Are Interdependent
@@ -306,6 +312,9 @@ graph LR
     
     style OLD fill:#fff5f5,stroke:#c62828,stroke-width:2px
     style NEW fill:#f0fff0,stroke:#00897b,stroke-width:2px
+    
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
 **The Five W's of ABAC Authorization**
@@ -512,6 +521,8 @@ sequenceDiagram
     end
     
     L6->>L6: Auto-alert: Performance degradation<br/>Create incident ticket<br/>Assign to Database team
+    
+    Note over U,L1: © 2025 Colaberry Inc.
 ```
 
 **The Power of Trace-Based Diagnosis**
@@ -759,6 +770,9 @@ graph TD
     style L1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style L2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style L3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
 **Understanding the Caching Hierarchy**
@@ -939,6 +953,9 @@ graph TB
     style RESULT fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CLARIFY fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style NL fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
 **The Seven Stages of Semantic Translation**
@@ -1258,6 +1275,9 @@ graph TB
     style TICKET fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style FIX fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style DASH fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
 **The Five Dimensions of Quality Monitoring**
@@ -1466,6 +1486,9 @@ graph TD
     style D fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style E fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style F fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
+    
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
 ### Understanding Interdependencies
@@ -1510,6 +1533,9 @@ graph TB
     style A fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style L fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style S fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
 **Soundness is foundational.** If data quality fails, all other GOALS become unreliable.
@@ -1586,6 +1612,8 @@ sequenceDiagram
     rect rgb(255, 235, 238)
         Note over U,L5: <b>One semantic drift in Language cascaded to all 5 GOALS within 48 hours</b>
     end
+    
+    Note over U,L5: © 2025 Colaberry Inc.
 ```
 
 ### Anatomy of a Cascade Failure
@@ -1724,6 +1752,9 @@ graph LR
     style A3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style L3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style S3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
 ### The 15-Month Journey to Production Excellence
