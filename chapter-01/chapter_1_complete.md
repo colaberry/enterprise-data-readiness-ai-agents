@@ -3,7 +3,7 @@
 **Book:** Enterprise Data Readiness for AI Agents  
 **Author:** Ram Katamaraja, CEO of Colaberry Inc.  
 **Publisher:** Colaberry Press  
-**Version:** 3.4.2 | October 2025
+**Version:** 3.4.3 | November 2025
 
 ---
 
@@ -137,7 +137,7 @@ Karpathy identifies three distinct eras requiring different infrastructure:
 
 The enterprise challenge: attempting to run Software 3.0 agents on Software 1.0 infrastructure is like running cloud-native microservices on mainframe batch processing. The architectural assumptions don't align.
 
-**Diagram 0a: Software 1.0 to 3.0 Evolution**
+**Diagram 0: Software 1.0 to 3.0 Evolution**
 
 ```mermaid
 graph LR
@@ -313,7 +313,7 @@ Let's examine each layer in detail, understanding how it contributes to deliveri
 
 Each layer solves specific agent requirements. Let's explore them in detail. The complete seven-layer stack is visualized in Diagram 1 (Seven-Layer Architecture).
 
-**Diagram 1a: Seven-Layer Architecture (Detailed Component View)**
+**Diagram 1: Seven-Layer Architecture (Detailed Component View)**
 
 ```mermaid
 graph LR
@@ -1403,6 +1403,16 @@ graph TB
 Layer 5 evaluates permissions dynamically based on four contextual factors (Who, What, When, Where) in under 10ms. ABAC replaces static RBAC, enabling compliant agent operations with field-level masking and comprehensive audit trails. This layer implements the guardrails that constrain agent behavior within approved boundaries, ensuring that autonomy never comes at the expense of control.
 
 **What it replaces:** Static role-based access control (RBAC) and manual compliance processes designed for human-driven queries
+
+**Implementing the HITL Pattern from Chapter 0:**
+
+Remember from Chapter 0 how Permitted (P) and Trusted (T) needs work together through human-in-the-loop patterns? Layer 5 implements those patterns through three integrated mechanisms:
+
+1. **ABAC policies (P - Permitted)**: Define escalation thresholds (financial >$5K, clinical significance, regulatory requirements, confidence <0.85) that route high-risk decisions to human approval
+2. **Comprehensive audit logging (T - Trusted)**: Capture complete context enabling effective human verification—not just "approve/deny" but informed judgment with full reasoning visibility
+3. **Approval workflows**: Multiple patterns (synchronous 4-12 minutes for urgent, asynchronous 2.5-18 hours for planned, human-on-loop for monitoring) matching decision urgency to approval SLA
+
+The result: agents operate autonomously for routine decisions (92% at Echo) while escalating high-stakes actions (8%) to appropriate human oversight with complete transparency enabling effective verification.
 
 **Key Technologies:**
 
@@ -2712,7 +2722,7 @@ The power isn't in individual layers, it's in how they integrate into a cohesive
 
 For the complete multi-agent query flow showing coordination between specialists and how all seven layers interact, see Diagram 5 (Multi-Agent Query Flow).
 
-**Diagram 5a: Multi-Agent Orchestration (Simplified View)**
+**Diagram 5: Multi-Agent Orchestration (Simplified View)**
 
 ```mermaid
 graph TB
@@ -3590,6 +3600,8 @@ https://docs.google.com/presentation/d/1sZqMAoIJDxz79cbC5ap5v9jknYH4Aa9cFFaWL8Ri
 - **Diagram 0:** Software 3.0 Paradigm Shift (diagram8-software-paradigm-shift.mermaid)
   - **Diagram 0b:** Infrastructure Paradigm Mismatch (diagram8-software-paradigm-shift.mermaid)
 - **Diagram 1:** Seven-Layer Architecture (diagram1-seven-layers.mermaid)
+  - **Diagram 1b:** Seven-Layer Stack (Visual Overview) (diagram1_1_b_seven_layers.png)
+  - **Diagram 1c:** Seven-Layer Function Matrix (diagram1_1_c_seven_layers.png)
 - **Diagram 2:** Semantic Flow - Phrase to Data (diagram2-semantic-flow.mermaid)
 - **Diagram 3:** Observability Dashboard (diagram3-observability-dashboard.mermaid)
 - **Diagram 4:** Self-Service Data Access Transformation (diagram4-self-service-comparison.mermaid)
@@ -3598,6 +3610,8 @@ https://docs.google.com/presentation/d/1sZqMAoIJDxz79cbC5ap5v9jknYH4Aa9cFFaWL8Ri
 - **Diagram 6:** BI Era vs Agent Era Architecture (diagram6-bi-vs-agent.mermaid)
 - **Diagram 7a:** Enterprise Data Architecture Evolution Timeline (diagram7-evolution-timeline.mermaid)
   - **Diagram 7b:** Evolution Comparison Matrix (diagram7_evolution_2.png)
+- **Diagram 8:** Red Team Process Flow (inline mermaid, Red Teaming section)
+- **Diagram 9:** Agent Testing Pyramid (inline mermaid, Testing Strategy section)
 ---
 
 ## Tables Reference
