@@ -1732,44 +1732,44 @@ This dashboard shows Language as the current cascade risk. The declining trend s
 **Diagram 11: Cascade Failure Example - How Language Drift Impacts All GOALS**
 ```mermaid
 sequenceDiagram
-    participant U as <b>User</b>
-    participant Agent as <b>AI Agent</b>
-    participant L4 as <b>Layer 4 (Intelligence)</b>
-    participant L3 as <b>Layer 3 (Semantic)</b>
-    participant L1 as <b>Layer 1 (Storage)</b>
-    participant L5 as <b>Layer 5 (Governance)</b>
-    participant L6 as <b>Layer 6 (Observability)</b>
-    participant L2 as <b>Layer 2 (Data Fabric)</b>
+    participant U as User
+    participant Agent as AI Agent
+    participant L4 as Layer 4 (Intelligence)
+    participant L3 as Layer 3 (Semantic)
+    participant L1 as Layer 1 (Storage)
+    participant L5 as Layer 5 (Governance)
+    participant L6 as Layer 6 (Observability)
+    participant L2 as Layer 2 (Data Fabric)
     
-    Note over L3: <b>Medical code CPT-2025 added, not in semantic layer</b>
+    Note over L3: Medical code CPT-2025 added, not in semantic layer
     
-    U->>Agent: <b>Schedule my diabetes follow-up</b>
-    Agent->>L4: <b>Raw query received</b>
-    L4->>L3: <b>Translate query</b>
-    Note over L3: <b>❌ Misinterprets diabetes - Maps to old code</b>
-    Note over L3: <b>Language GOAL degrades - Score 89 to 65</b>
+    U->>Agent: Schedule my diabetes follow-up
+    Agent->>L4: Raw query received
+    L4->>L3: Translate query
+    Note over L3: ❌ Misinterprets diabetes - Maps to old code
+    Note over L3: Language GOAL degrades - Score 89 to 65
     
-    L3->>L1: <b>Request data with wrong code</b>
-    Note over L1: <b>❌ Returns incomplete records - missing recent visits</b>
-    Note over L1: <b>Soundness GOAL degrades - Score 93 to 78</b>
+    L3->>L1: Request data with wrong code
+    Note over L1: ❌ Returns incomplete records - missing recent visits
+    Note over L1: Soundness GOAL degrades - Score 93 to 78
     
-    L1->>L2: <b>Retrieves partial data</b>
-    Note over L2: <b>❌ Multiple fallback queries - Response time 1.8s to 4.2s</b>
-    Note over L2: <b>Accessibility GOAL degrades - Score 88 to 72</b>
+    L1->>L2: Retrieves partial data
+    Note over L2: ❌ Multiple fallback queries - Response time 1.8s to 4.2s
+    Note over L2: Accessibility GOAL degrades - Score 88 to 72
     
-    L2->>L6: <b>Slow query triggers alert</b>
-    Note over L6: <b>❌ Cannot identify root cause - Trace does not show semantic error</b>
-    Note over L6: <b>Observability GOAL degrades - Score 88 to 74</b>
+    L2->>L6: Slow query triggers alert
+    Note over L6: ❌ Cannot identify root cause - Trace does not show semantic error
+    Note over L6: Observability GOAL degrades - Score 88 to 74
     
-    Agent->>U: <b>Wrong answer with 4.2s delay</b>
-    Note over U: <b>❌ Loses trust</b>
+    Agent->>U: Wrong answer with 4.2s delay
+    Note over U: ❌ Loses trust
     
-    Note over L5: <b>Meanwhile... Audit log shows access to wrong records</b>
-    Note over L5: <b>❌ Compliance team flags unnecessary data access</b>
-    Note over L5: <b>Governance GOAL degrades - Score 94 to 81</b>
+    Note over L5: Meanwhile... Audit log shows access to wrong records
+    Note over L5: ❌ Compliance team flags unnecessary data access
+    Note over L5: Governance GOAL degrades - Score 94 to 81
     
     rect rgb(255, 235, 238)
-        Note over U,L5: <b>One semantic drift in Language cascaded to all 5 GOALS within 48 hours</b>
+        Note over U,L5: One semantic drift in Language cascaded to all 5 GOALS within 48 hours
     end
     
     Note over U,L5: © 2025 Colaberry Inc.
