@@ -385,6 +385,180 @@ A governance failure results in HIPAA violations, security breaches, or complian
 
 **Violation detection:** How quickly are policy breaches identified? Target: under 60 seconds for critical violations.
 
+### Human-in-the-Loop: Balancing Autonomy and Oversight
+
+Governance isn't just about what agents *can* do—it's also about what they *should* do without human approval. Not all decisions warrant full automation.
+
+Human-in-the-loop (HITL) patterns enable agents to escalate high-stakes decisions to humans while maintaining autonomy for routine operations. This isn't a limitation—it's a strategic boundary that enables enterprise adoption. Without HITL, organizations hesitate to deploy agents for fear of autonomous mistakes. With HITL, agents operate confidently within defined boundaries and escalate edge cases.
+
+**The Autonomy Spectrum:**
+
+Agents operate across a spectrum from fully automated to fully supervised:
+
+**Full Autonomy** → Conditional Autonomy → Human-in-Loop → Human-on-Loop → **Full Manual**
+
+- **Full autonomy**: Agent executes without approval (appointment scheduling for available slots)
+- **Conditional autonomy**: Agent executes unless conditions trigger approval (refills for controlled substances require approval)
+- **Human-in-the-loop**: Agent proposes, human approves before execution (prior authorization requests >$5K)
+- **Human-on-the-loop**: Agent executes, human monitors and can override (care plan recommendations)
+- **Full manual**: Agent provides information only, human decides and executes (diagnoses, treatment plans)
+
+The art is positioning decisions correctly on this spectrum—too much autonomy creates risk, too little negates agent value.
+
+**Echo Health's HITL Decision Matrix:**
+
+Echo categorizes every agent decision by risk level and required autonomy:
+
+| Decision Type | Risk Level | Autonomy | Approval Required? | Typical SLA |
+|---------------|------------|----------|-------------------|-------------|
+| Appointment scheduling | Low | Full | No | Real-time |
+| Appointment rescheduling | Low | Full | No | Real-time |
+| Appointment cancellation (<48h) | Medium | Conditional | Yes (if <24h notice) | 15 minutes |
+| Medication refill (routine) | Low | Full | No | Real-time |
+| Medication refill (controlled) | High | HITL | Always | 2 hours |
+| Lab result delivery (normal) | Low | Full | No | Real-time |
+| Lab result delivery (abnormal) | High | HITL | Always | 4 hours |
+| Prior authorization request (<$1K) | Medium | Conditional | Auto-approve if criteria met | Real-time |
+| Prior authorization request (>$5K) | High | HITL | Always | 24 hours |
+| Insurance appeal | High | Manual | Always | 48 hours |
+| Care plan modification | High | Human-on-loop | Provider reviews, modifies, approves | 4 hours |
+
+**Decision Factors:**
+
+Risk assessment considers:
+- **Financial impact**: Decisions >$500 trigger review threshold, >$5K require approval
+- **Clinical consequences**: Medication changes, abnormal results always require provider review
+- **Regulatory requirements**: HIPAA, state medical board rules mandate oversight for certain actions
+- **Time sensitivity**: <24h appointment changes require approval (patient inconvenience risk)
+- **Reversibility**: Irreversible actions (insurance appeals, provider terminations) require approval
+- **Patient preference**: Some patients request human oversight even for routine matters
+
+**HITL Workflow Patterns:**
+
+**Pattern 1: Synchronous Approval (Blocking)**
+
+Used for high-stakes, time-sensitive decisions where user waits for human review:
+
+User Request: "Cancel my surgery scheduled for tomorrow"
+↓
+Agent Analysis: HIGH risk (surgery, <24h notice)
+↓
+Agent Blocks: "This requires immediate approval. Notifying coordinator..."
+↓
+Alert Sent: Slack notification to on-call surgical coordinator
+↓
+Human Reviews: Full context provided (patient history, reason for cancellation, alternatives)
+↓
+Human Decides:
+├─ Approve → Agent executes cancellation + notifies patient + logs decision
+├─ Modify → Suggest reschedule date + Agent executes + notifies patient
+└─ Reject → Agent explains why cancellation denied + alternative options
+↓
+User Receives: Final response within 15 minutes (p95)
+
+**Pattern 2: Asynchronous Approval (Non-Blocking)**
+
+Used for important but non-urgent decisions:
+
+Agent Request: "Prior authorization for MRI - estimated cost $2,800"
+↓
+Agent Drafts: Complete prior auth form with clinical justification
+↓
+Email Sent: Provider receives draft with "Approve/Modify/Reject" buttons
+↓
+Provider Reviews: At convenience within 24h SLA
+↓
+Provider Approves: One-click approval
+↓
+Agent Executes: Submits to insurance, notifies patient
+↓
+User Informed: "Your MRI has been approved, scheduled for 2025-11-15"
+
+**Pattern 3: Human-on-Loop (Monitor & Override)**
+
+Used for agent recommendations that providers implement:
+
+Agent Generates: "Recommended care plan for diabetes management"
+↓
+Provider Reviews: Plan appears in clinical workflow queue
+↓
+Provider Modifies: Adjusts medication dosage based on patient discussion
+↓
+Provider Signs: Legally binding signature on modified plan
+↓
+Agent Executes: Implements approved plan (prescriptions, appointments, education)
+↓
+Agent Monitors: Tracks adherence, flags issues for provider review
+
+**Echo's HITL Metrics:**
+
+**Approval Request Volume:**
+- Total agent decisions: 3,000/day
+- Approval requests: 240/day (8% escalation rate)
+- Approval categories:
+  - Medication refills (controlled): 80/day
+  - Prior authorizations (>$5K): 45/day
+  - Abnormal lab results: 35/day
+  - Appointment cancellations (<24h): 40/day
+  - Care plan modifications: 25/day
+  - Other: 15/day
+
+**Approval Response Times:**
+- Synchronous (blocking): p50 = 4 minutes, p95 = 12 minutes
+- Asynchronous (non-blocking): p50 = 2.5 hours, p95 = 18 hours
+- SLA compliance: 94% (within promised timeframes)
+
+**Approval Outcomes:**
+- Approved as-is: 78% (agent proposal accepted without changes)
+- Modified then approved: 16% (human adjusts agent proposal)
+- Rejected: 6% (human determines action inappropriate)
+
+**Escalation Triggers:**
+
+Echo's agents escalate based on:
+
+1. **Financial thresholds**: >$500 flag for review, >$5K require approval
+2. **Clinical significance**: Controlled substances, abnormal vitals, diagnosis changes
+3. **Time constraints**: <24h appointment changes, same-day cancellations
+4. **Regulatory requirements**: Actions requiring provider license (prescriptions, diagnoses)
+5. **Confidence scores**: Agent confidence <0.85 triggers manual review
+6. **Patient flags**: User-initiated "This seems wrong" button triggers immediate review
+7. **Novel situations**: Requests outside training data distribution
+
+**HITL Implementation Technologies:**
+
+- **Workflow orchestration**: [LangGraph](https://langchain-ai.github.io/langgraph/) with human-in-the-loop nodes
+- **Approval interfaces**: [Slack Workflow Builder](https://slack.com/features/workflow-automation) for quick approvals, custom provider portal for complex reviews
+- **Urgent escalations**: [PagerDuty](https://www.pagerduty.com) for critical decisions requiring immediate response
+- **Audit logging**: Every approval captured with full context (what was proposed, who approved/rejected, reasoning, timestamp)
+
+**Learning from Approvals:**
+
+HITL decisions create training data for improving agent autonomy:
+
+- **Pattern detection**: When humans consistently modify agent proposals in similar ways, update agent logic
+- **Threshold refinement**: If 95% of $4K prior auths are approved, lower approval threshold to $5K
+- **Confidence calibration**: Track correlation between agent confidence and human approval rate
+- **Edge case documentation**: Human rejections become test cases for agent improvement
+
+Echo's agent autonomy improved over 6 months:
+- Month 1: 12% escalation rate
+- Month 3: 10% escalation rate (learned common approval patterns)
+- Month 6: 8% escalation rate (refined thresholds, improved confidence calibration)
+
+The goal isn't zero escalations—it's right-sized escalations where human judgment adds value.
+
+**Governance Integration:**
+
+HITL patterns enforce governance policies:
+- **Separation of duties**: High-value actions require different role approval
+- **Audit compliance**: Every approval logged with business justification
+- **Regulatory adherence**: Medical board requirements embedded in escalation rules
+- **Risk management**: Financial and clinical risk thresholds prevent autonomous errors
+
+HITL isn't a workaround for imperfect agents—it's a permanent architectural pattern for responsible automation.
+
+---
 ### Echo's Governance Journey
 
 **Stage 1: Basic RBAC (Score: 62/100)**
