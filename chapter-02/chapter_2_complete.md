@@ -405,6 +405,87 @@ Agents operate across a spectrum from fully automated to fully supervised:
 
 The art is positioning decisions correctly on this spectrum—too much autonomy creates risk, too little negates agent value.
 
+**Diagram 13: Human-in-the-Loop Autonomy Spectrum**
+
+This diagram shows how agents route decisions across the autonomy spectrum based on risk assessment—from fully autonomous execution for routine tasks to human-only decisions for critical medical judgments. The continuous learning loop enables agents to improve autonomy over time while maintaining appropriate human oversight.
+
+```mermaid
+graph TB
+    REQUEST["<b>Agent Decision Request</b><br/><b>e.g., Medication refill</b>"]
+    
+    ASSESS["<b>Risk Assessment</b><br/><b>Financial • Clinical • Regulatory</b><br/><b>Time • Reversibility • Preference</b>"]
+    
+    REQUEST --> ASSESS
+    
+    subgraph SPECTRUM["<b>Autonomy Decision Spectrum</b>"]
+        FULL["<b>Full Autonomy</b><br/><b>Auto-execute</b><br/><b>e.g., Routine scheduling</b>"]
+        
+        COND["<b>Conditional Autonomy</b><br/><b>Execute unless triggered</b><br/><b>e.g., Controlled substance</b>"]
+        
+        HITL["<b>Human-in-the-Loop</b><br/><b>Propose, human approves</b><br/><b>e.g., Prior auth >$5K</b>"]
+        
+        HONL["<b>Human-on-the-Loop</b><br/><b>Execute, human monitors</b><br/><b>e.g., Care plan updates</b>"]
+        
+        MANUAL["<b>Full Manual</b><br/><b>Info only, human executes</b><br/><b>e.g., Diagnoses</b>"]
+    end
+    
+    ASSESS --> FULL
+    ASSESS --> COND
+    ASSESS --> HITL
+    ASSESS --> HONL
+    ASSESS --> MANUAL
+    
+    FULL -->|<b>Low risk</b>| EXECUTE["<b>✅ Auto-Execute</b><br/><b>Real-time response</b>"]
+    
+    COND -->|<b>Medium risk</b>| CHECK{<b>Trigger<br/>Condition?</b>}
+    CHECK -->|<b>No</b>| EXECUTE
+    CHECK -->|<b>Yes</b>| APPROVE
+    
+    HITL -->|<b>High risk</b>| APPROVE["<b>⏸️ Human Approval</b><br/><b>Sync: 4-12 min</b><br/><b>Async: 2.5-18 hrs</b>"]
+    
+    HONL -->|<b>High stakes</b>| MONITOR["<b>👁️ Human Monitor</b><br/><b>Execute + Review</b><br/><b>Override available</b>"]
+    
+    MANUAL -->|<b>Critical</b>| INFORM["<b>ℹ️ Information Only</b><br/><b>Human decides</b><br/><b>Human executes</b>"]
+    
+    APPROVE -->|<b>Approved</b>| EXECUTE
+    APPROVE -->|<b>Modified</b>| EXECUTE
+    APPROVE -->|<b>Rejected</b>| EXPLAIN["<b>❌ Explain Denial</b><br/><b>Alternatives offered</b>"]
+    
+    MONITOR --> EXECUTE
+    MONITOR --> EXPLAIN
+    
+    INFORM --> NOACTION["<b>No Agent Action</b><br/><b>Human handles entirely</b>"]
+    
+    EXECUTE --> LEARN["<b>Continuous Learning</b><br/><b>Pattern detection</b><br/><b>Threshold refinement</b><br/><b>Confidence calibration</b>"]
+    
+    APPROVE --> LEARN
+    EXPLAIN --> LEARN
+    
+    style REQUEST fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style ASSESS fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    
+    style SPECTRUM fill:#f0fff0,stroke:#00897b,stroke-width:2px
+    style FULL fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style COND fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style HITL fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style HONL fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style MANUAL fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    
+    style CHECK fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    style EXECUTE fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style APPROVE fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    style MONITOR fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style INFORM fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style EXPLAIN fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style NOACTION fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style LEARN fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    style Copyright fill:#ffffff,stroke:none,color:#666666
+```
+
+---
+
 **Echo Health's HITL Decision Matrix:**
 
 Echo categorizes every agent decision by risk level and required autonomy:
