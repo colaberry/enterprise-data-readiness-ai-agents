@@ -1562,7 +1562,7 @@ Red team findings directly improve guardrail implementations:
 
 This feedback loop ensures guardrails evolve alongside attack techniques.
 
-**Diagram: Red Team Process Flow**
+**Diagram 8: Red Team Process Flow**
 
 This 4-phase process ensures systematic vulnerability discovery before production deployment, with Echo Health Systems discovering 135 total vulnerabilities (12 HIGH, 34 MEDIUM, 89 LOW) and addressing 100% of critical issues before launch.
 
@@ -1937,7 +1937,7 @@ Agent testing requires adapting traditional QA practices to probabilistic system
 
 Traditional software follows the test pyramid: many unit tests (fast, isolated), fewer integration tests (slower, multi-component), few end-to-end tests (slowest, full system). Agents require a similar but adapted structure.
 
-**Diagram: Agent Testing Pyramid**
+**Diagram 9: Agent Testing Pyramid**
 
 The testing pyramid adapts traditional QA practices to probabilistic agent systems, with 70% unit tests providing a stable foundation, validated by Echo Health Systems achieving 95% component coverage, 85% integration coverage, and 80% end-to-end coverage.
 
