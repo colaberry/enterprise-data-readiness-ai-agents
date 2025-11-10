@@ -201,7 +201,7 @@ When enterprises attempt agent deployments on BI-era infrastructure, critical mi
 **Diagram 0b: Infrastructure Paradigm Mismatch**
 
 ```mermaid
-graph TB
+graph LR
     subgraph challenge["<b>⚠️  THE PROBLEM</b>"]
         direction TB
         
@@ -230,20 +230,20 @@ graph TB
     
     result -.->|"<b>Requires Transformation</b>"| transform
 
-    %% Link styling
-
+    %% Styling - Problem (Red)
     style challenge fill:#fff5f5,stroke:#c62828,stroke-width:3px,color:#b71c1c
     style current fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style attempting fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style gap fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
     style result fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
+    
+    %% Styling - Solution (Teal)
     style solution fill:#f0fff0,stroke:#00897b,stroke-width:3px,color:#004d40
     style transform fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style delivers fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 
     %% Copyright Notice
     CR["© 2025 Colaberry Inc."]
-
-    style delivers fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
 
 ```
@@ -519,12 +519,13 @@ graph LR
 **Diagram L1: Multi-Modal Storage Architecture**
 
 ```mermaid
-graph TB
-    Q["<b>Agent Query</b><br/>Natural language question"]
+graph LR
+    Q["<b>Agent Query</b><br/>Natural language<br/>question"]
     
-    R["<b>Query Router</b><br/>Determines optimal storage"]
+    R["<b>Query<br/>Router</b><br/>Determines<br/>optimal<br/>storage"]
     
     subgraph storage["<b>Multi-Modal Storage Layer</b>"]
+        direction TB
         V["<b>Vector Database</b><br/>Semantic similarity search"]
         K["<b>Knowledge Graph</b><br/>Entity relationships"]
         D["<b>Document Store</b><br/>Unstructured content"]
@@ -533,7 +534,7 @@ graph TB
         M["<b>Model Registry</b><br/>ML artifacts & embeddings"]
     end
     
-    U["<b>Unified Result</b><br/>Combined context for LLM"]
+    U["<b>Unified<br/>Result</b><br/>Combined<br/>context<br/>for LLM"]
     
     Q --> R
     R --> V
@@ -550,8 +551,6 @@ graph TB
     W --> U
     M --> U
     
-    %% Link styling
-    
     style Q fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style R fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style storage fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000
@@ -561,11 +560,10 @@ graph TB
     style S fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style W fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style M fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style U fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 
     %% Copyright Notice
     CR["© 2025 Colaberry Inc."]
-
-    style U fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
 
 ```
@@ -678,18 +676,18 @@ Supporting contributions to:
 **Diagram L2: Real-Time Data Fabric**
 
 ```mermaid
-graph TB
-    S["<b>Source Systems</b><br/>EHR, Claims, Scheduling"]
+graph LR
+    S["<b>Source Systems</b><br/>EHR, Claims,<br/>Scheduling"]
     
-    CDC["<b>Change Data Capture</b><br/>Detect updates (sub-30s)"]
+    CDC["<b>Change Data<br/>Capture</b><br/>Detect updates<br/>(sub-30s)"]
     
-    STREAM["<b>Event Streaming</b><br/>Kafka message broker"]
+    STREAM["<b>Event<br/>Streaming</b><br/>Kafka message<br/>broker"]
     
-    PROC["<b>Stream Processing</b><br/>Transform & enrich data"]
+    PROC["<b>Stream<br/>Processing</b><br/>Transform &<br/>enrich data"]
     
-    FS["<b>Feature Store</b><br/>Agent-ready features"]
+    FS["<b>Feature<br/>Store</b><br/>Agent-ready<br/>features"]
     
-    TRAIN["<b>Training Pipeline</b><br/>Model updates & embeddings"]
+    TRAIN["<b>Training<br/>Pipeline</b><br/>Model updates<br/>& embeddings"]
     
     READY["<b>✅ Agent-Ready Data</b><br/>Fresh, validated, accessible"]
     
@@ -701,19 +699,16 @@ graph TB
     FS --> READY
     TRAIN --> READY
     
-    %% Link styling
-    
     style S fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style CDC fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style STREAM fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style PROC fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style FS fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style TRAIN fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style READY fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 
     %% Copyright Notice
     CR["© 2025 Colaberry Inc."]
-
-    style READY fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
 
 ```
@@ -1082,24 +1077,25 @@ To keep Layer 2 healthy and agent-aligned:
 **Diagram L4: Intelligence Orchestration & Retrieval**
 
 ```mermaid
-graph TB
-    Q["<b>User Question</b><br/>Natural language query"]
+graph LR
+    Q["<b>User Question</b><br/>Natural language<br/>query"]
     
-    U["<b>Query Understanding</b><br/>Intent + entity extraction"]
+    U["<b>Query<br/>Understanding</b><br/>Intent + entity<br/>extraction"]
     
-    E["<b>Embedding Models</b><br/>Convert to vector space"]
+    E["<b>Embedding<br/>Models</b><br/>Convert to<br/>vector space"]
     
     subgraph retrieval["<b>Parallel Retrieval Strategies</b>"]
+        direction TB
         V["<b>Vector Search</b><br/>Semantic similarity"]
         K["<b>Keyword Search</b><br/>Exact term matching"]
         G["<b>Knowledge Graph</b><br/>Relationship traversal"]
     end
     
-    RANK["<b>Reranking</b><br/>Score & prioritize results"]
+    RANK["<b>Reranking</b><br/>Score &<br/>prioritize<br/>results"]
     
-    ASSEMBLE["<b>Context Assembly</b><br/>Build LLM context window"]
+    ASSEMBLE["<b>Context<br/>Assembly</b><br/>Build LLM<br/>context window"]
     
-    CACHE["<b>Semantic Caching</b><br/>50-90% cost reduction"]
+    CACHE["<b>Semantic<br/>Caching</b><br/>50-90% cost<br/>reduction"]
     
     LLM["<b>✅ LLM with Context</b><br/>Accurate, grounded response"]
     
@@ -1113,8 +1109,6 @@ graph TB
     ASSEMBLE --> CACHE
     CACHE --> LLM
     
-    %% Link styling
-    
     style Q fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style U fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style E fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -1125,11 +1119,10 @@ graph TB
     style RANK fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style ASSEMBLE fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style CACHE fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style LLM fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 
     %% Copyright Notice
     CR["© 2025 Colaberry Inc."]
-
-    style LLM fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
 
 ```
@@ -1349,21 +1342,22 @@ Supporting contributions to:
 **Diagram L5: Agent-Aware Governance (ABAC)**
 
 ```mermaid
-graph TB
-    REQ["<b>Agent Request</b><br/>User query + data access"]
+graph LR
+    REQ["<b>Agent Request</b><br/>User query +<br/>data access"]
     
-    POL["<b>ABAC Policy Engine</b><br/>Evaluate context attributes"]
+    POL["<b>ABAC<br/>Policy Engine</b><br/>Evaluate context<br/>attributes"]
     
     subgraph eval["<b>Four-Factor Evaluation</b>"]
-        WHO["<b>👤 Who</b><br/>User role & permissions"]
-        WHAT["<b>📋 What</b><br/>Data sensitivity level"]
-        WHEN["<b>📅 When</b><br/>Time & consent validity"]
-        WHERE["<b>📱 Where</b><br/>Location & device"]
+        direction TB
+        WHO["<b>👤 Who</b><br/>User role &<br/>permissions"]
+        WHAT["<b>📋 What</b><br/>Data sensitivity<br/>level"]
+        WHEN["<b>📅 When</b><br/>Time & consent<br/>validity"]
+        WHERE["<b>📱 Where</b><br/>Location &<br/>device"]
     end
     
     DEC{<b>Decision</b>}
     
-    MASK["<b>Apply Masking</b><br/>Redact sensitive fields"]
+    MASK["<b>Apply Masking</b><br/>Redact sensitive<br/>fields"]
     
     ALLOW["<b>✅ Access Granted</b><br/>Secured, audited result"]
     
@@ -1379,8 +1373,6 @@ graph TB
     DEC -->|"<b>Deny</b>"| DENY
     MASK --> ALLOW
     
-    %% Link styling
-    
     style REQ fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style POL fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style eval fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000
@@ -1391,11 +1383,10 @@ graph TB
     style DEC fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
     style MASK fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style ALLOW fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style DENY fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
 
     %% Copyright Notice
     CR["© 2025 Colaberry Inc."]
-
-    style DENY fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
 
 ```
@@ -1567,51 +1558,51 @@ This feedback loop ensures guardrails evolve alongside attack techniques.
 This 4-phase process ensures systematic vulnerability discovery before production deployment, with Echo Health Systems discovering 135 total vulnerabilities (12 HIGH, 34 MEDIUM, 89 LOW) and addressing 100% of critical issues before launch.
 
 ```mermaid
-graph TB
-    START["<b>Agent System</b><br/><b>Ready for Red Team</b>"]
+graph LR
+    START["<b>Agent System<br/>Ready for Red Team</b>"]
     
-    subgraph PHASE1["<b>Phase 1: Attack Surface Mapping (Week 1)</b>"]
-        P1A["<b>Identify Entry Points</b><br/><b>Portal, Dashboard, Console</b>"]
-        P1B["<b>Map Data Flows</b><br/><b>PHI access paths</b>"]
-        P1C["<b>Document Trust Boundaries</b><br/><b>Expected vs. Possible</b>"]
+    subgraph PHASE1["<b>Phase 1: Attack Surface</b>"]
+        direction TB
+        P1A["<b>Identify Entry Points</b><br/>Portal, Dashboard,<br/>Console"]
+        P1B["<b>Map Data Flows</b><br/>PHI access paths"]
+        P1C["<b>Document Trust<br/>Boundaries</b><br/>Expected vs. Possible"]
+        P1A --> P1B --> P1C
     end
     
-    subgraph PHASE2["<b>Phase 2: Attack Scenarios (Week 2)</b>"]
-        P2["<b>Develop 200+ Attack Variations</b><br/><b>Prompt injection • Goal hijacking</b><br/><b>Data exfiltration • Jailbreaking</b>"]
+    subgraph PHASE2["<b>Phase 2: Attack Scenarios</b>"]
+        P2["<b>Develop 200+<br/>Attack Variations</b><br/>Prompt injection<br/>Goal hijacking<br/>Data exfiltration<br/>Jailbreaking"]
     end
     
-    subgraph PHASE3["<b>Phase 3: Automated Testing (Weeks 3-4)</b>"]
-        P3["<b>Execute 500+ Attack Variations</b><br/><b>Garak • PyRIT • OWASP</b><br/><b>20 vulnerability categories</b>"]
+    subgraph PHASE3["<b>Phase 3: Automated</b>"]
+        P3["<b>Execute 500+<br/>Attack Variations</b><br/>Garak • PyRIT<br/>OWASP<br/>20 vulnerability<br/>categories"]
     end
     
-    subgraph PHASE4["<b>Phase 4: Manual Expert Testing (Week 5)</b>"]
-        P4["<b>40 Hours Expert Review</b><br/><b>Security • Clinical • Compliance</b>"]
+    subgraph PHASE4["<b>Phase 4: Manual Expert</b>"]
+        P4["<b>40 Hours<br/>Expert Review</b><br/>Security<br/>Clinical<br/>Compliance"]
     end
     
-    FINDINGS["<b>Red Team Findings</b><br/><b>12 HIGH • 34 MEDIUM • 89 LOW</b>"]
+    FINDINGS["<b>Red Team Findings</b><br/>12 HIGH<br/>34 MEDIUM<br/>89 LOW"]
     
     REMEDIATE{<b>Remediation<br/>Required?</b>}
     
-    FIX["<b>Fix Issues</b><br/><b>HIGH: 100% fixed</b><br/><b>MEDIUM: 91% fixed</b>"]
+    FIX["<b>Fix Issues</b><br/>HIGH: 100% fixed<br/>MEDIUM: 91% fixed"]
     
-    PRODUCTION["<b>✅ Production Launch</b><br/><b>Vulnerabilities addressed</b>"]
+    PRODUCTION["<b>✅ Production<br/>Launch</b><br/>Vulnerabilities<br/>addressed"]
     
-    MONITOR["<b>Continuous Monitoring</b><br/><b>Quarterly red team</b><br/><b>Nightly Garak scans</b>"]
+    MONITOR["<b>Continuous<br/>Monitoring</b><br/>Quarterly red team<br/>Nightly Garak scans"]
     
-    START --> P1A
-    P1A --> P1B
-    P1B --> P1C
-    P1C --> P2
-    P2 --> P3
-    P3 --> P4
-    P4 --> FINDINGS
+    START --> PHASE1
+    PHASE1 --> PHASE2
+    PHASE2 --> PHASE3
+    PHASE3 --> PHASE4
+    PHASE4 --> FINDINGS
     FINDINGS --> REMEDIATE
     
-    REMEDIATE -->|<b>Yes</b>| FIX
-    REMEDIATE -->|<b>No</b>| PRODUCTION
+    REMEDIATE -->|Yes| FIX
+    REMEDIATE -->|No| PRODUCTION
     FIX --> PRODUCTION
     PRODUCTION --> MONITOR
-    MONITOR -.->|<b>New findings</b>| FIX
+    MONITOR -.->|New findings| FIX
     
     style PHASE1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style PHASE2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -1630,7 +1621,7 @@ graph TB
     style MONITOR fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style START fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     
-    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    Copyright["© 2025 Colaberry Inc."]
     style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
@@ -1716,24 +1707,25 @@ Supporting contributions to:
 **Diagram L6: Observability & Feedback**
 
 ```mermaid
-graph TB
+graph LR
     subgraph metrics["<b>Monitoring Metrics</b>"]
+        direction TB
         M1["<b>Data Freshness</b><br/>Target: <1 min"]
         M2["<b>Retrieval Quality</b><br/>Target: NDCG@5 >0.8"]
         M3["<b>Response Accuracy</b><br/>Target: 85%+"]
     end
     
-    DETECT["<b>Anomaly Detection</b><br/>Pattern analysis & thresholds"]
+    DETECT["<b>Anomaly<br/>Detection</b><br/>Pattern analysis<br/>& thresholds"]
     
-    CLASSIFY{<b>Issue Type</b>}
+    CLASSIFY{<b>Issue<br/>Type</b>}
     
     AUTO["<b>✅ Auto-Fix</b><br/>Data quality corrections<br/>Model retraining"]
     
     ALERT["<b>⚠️ Human Alert</b><br/>Critical issues<br/>Threshold breaches"]
     
-    FEEDBACK["<b>Feedback Loop</b><br/>Continuous improvement"]
+    FEEDBACK["<b>Feedback Loop</b><br/>Continuous<br/>improvement"]
     
-    IMPROVE["<b>System Improvement</b><br/>Updated models & policies"]
+    IMPROVE["<b>System<br/>Improvement</b><br/>Updated models<br/>& policies"]
     
     metrics --> DETECT
     DETECT --> CLASSIFY
@@ -1744,8 +1736,6 @@ graph TB
     FEEDBACK --> IMPROVE
     IMPROVE -.->|"<b>Enhances</b>"| metrics
     
-    %% Link styling
-    
     style metrics fill:#fafafa,stroke:#666666,stroke-width:2px,color:#000000
     style M1 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style M2 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
@@ -1755,11 +1745,10 @@ graph TB
     style AUTO fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style ALERT fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
     style FEEDBACK fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style IMPROVE fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 
     %% Copyright Notice
     CR["© 2025 Colaberry Inc."]
-
-    style IMPROVE fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
 
 ```
@@ -1829,7 +1818,7 @@ Layer 6 monitors metrics across all layers and triggers automated responses. Aut
 **Diagram 3: Observability & Automated Feedback Loops**
 
 ```mermaid
-graph TB
+graph LR
     subgraph metrics["<b>MONITORING METRICS (Layer 6)</b>"]
         direction TB
         
@@ -1844,7 +1833,7 @@ graph TB
     end
     
     subgraph feedback["<b>AUTOMATED FEEDBACK LOOPS</b>"]
-        direction LR
+        direction TB
         
         FB1["<b>✅ Auto-fix</b><br/>Data Quality"]
         FB2["<b>✅ Auto-retrain</b><br/>Model Drift"]
@@ -1856,8 +1845,6 @@ graph TB
     MODEL -.->|Drift Detected| FB2
     AGENT -.->|Cost Spike| FB3
     AGENT -.->|High Hallucination| FB4
-    
-    %% Link styling
     
     style metrics fill:#f9f9f9,stroke:#666666,stroke-width:3px,color:#000000
     style DATA fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -1944,22 +1931,22 @@ The testing pyramid adapts traditional QA practices to probabilistic agent syste
 ```mermaid
 graph TB
     subgraph APEX["<b>Production Validation (Apex)</b>"]
-        PROD["<b>Golden Dataset Validation</b><br/><b>200-500 queries • Weekly</b><br/><b>Semantic similarity >0.9</b>"]
+        PROD["<b>Golden Dataset Validation</b><br/>200-500 queries • Weekly<br/>Semantic similarity >0.9"]
     end
     
     subgraph E2E["<b>Level 3: End-to-End Testing (5%)</b>"]
-        E2E1["<b>50 E2E Scenarios</b><br/><b>Complete user journeys</b><br/><b>Business outcome validation</b>"]
-        E2E2["<b>Echo: 80% Coverage</b><br/><b>40/50 journeys tested</b>"]
+        E2E1["<b>50 E2E Scenarios</b><br/>Complete user journeys<br/>Business outcome validation"]
+        E2E2["<b>Echo: 80% Coverage</b><br/>40/50 journeys tested"]
     end
     
     subgraph INTEGRATION["<b>Level 2: Integration Testing (25%)</b>"]
-        INT1["<b>120 Integration Tests</b><br/><b>Cross-layer communication</b><br/><b>Error propagation</b>"]
-        INT2["<b>Echo: 85% Coverage</b><br/><b>102/120 paths tested</b>"]
+        INT1["<b>120 Integration Tests</b><br/>Cross-layer communication<br/>Error propagation"]
+        INT2["<b>Echo: 85% Coverage</b><br/>102/120 paths tested"]
     end
     
     subgraph UNIT["<b>Level 1: Tool/Component Testing (70%)</b>"]
-        UNIT1["<b>400+ Component Tests</b><br/><b>Schema validation • ABAC</b><br/><b>Error handling • Data validation</b>"]
-        UNIT2["<b>Echo: 95% Coverage</b><br/><b>380/400 tools tested</b>"]
+        UNIT1["<b>400+ Component Tests</b><br/>Schema validation • ABAC<br/>Error handling • Data validation"]
+        UNIT2["<b>Echo: 95% Coverage</b><br/>380/400 tools tested"]
     end
     
     PROD --> E2E1
@@ -1969,7 +1956,7 @@ graph TB
     INT2 --> UNIT1
     UNIT1 --> UNIT2
     
-    CHALLENGE["<b>3 Testing Challenges:</b><br/><b>1. Non-Determinism (semantic similarity)</b><br/><b>2. Combinatorial Explosion (equivalence classes)</b><br/><b>3. Context Dependencies (stateful fixtures)</b>"]
+    CHALLENGE["<b>3 Testing Challenges:</b><br/>1. Non-Determinism (semantic similarity)<br/>2. Combinatorial Explosion (equivalence classes)<br/>3. Context Dependencies (stateful fixtures)"]
     
     UNIT2 --> CHALLENGE
     
@@ -1990,7 +1977,7 @@ graph TB
     
     style CHALLENGE fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
     
-    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    Copyright["© 2025 Colaberry Inc."]
     style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
@@ -2321,32 +2308,32 @@ Supporting contributions to:
 **Diagram L7: Self-Service Data Products & Multi-Agent Orchestration**
 
 ```mermaid
-graph TB
+graph LR
     subgraph discovery["<b>Self-Service Discovery</b>"]
+        direction LR
         DEV["<b>Developer</b><br/>Needs data"]
         CAT["<b>Data Catalog</b><br/>Search & browse"]
-        PROD["<b>Data Product</b><br/>SLAs, docs, examples"]
-        ACCESS["<b>Auto-Approval</b><br/>Instant access (<1 hour)"]
+        PROD["<b>Data Product</b><br/>SLAs, docs,<br/>examples"]
+        ACCESS["<b>Auto-Approval</b><br/>Instant access<br/>(<1 hour)"]
+        
+        DEV --> CAT
+        CAT --> PROD
+        PROD --> ACCESS
     end
     
     subgraph orchestration["<b>Multi-Agent Orchestration</b>"]
-        QUERY["<b>Complex Query</b><br/>Multi-part question"]
-        ROUTER["<b>Router Agent</b><br/>Decompose & coordinate"]
-        SPEC["<b>Specialist Agents</b><br/>Domain experts"]
-        SYNTH["<b>✅ Synthesis</b><br/>Coherent response"]
+        direction LR
+        QUERY["<b>Complex Query</b><br/>Multi-part<br/>question"]
+        ROUTER["<b>Router Agent</b><br/>Decompose &<br/>coordinate"]
+        SPEC["<b>Specialist<br/>Agents</b><br/>Domain experts"]
+        SYNTH["<b>✅ Synthesis</b><br/>Coherent<br/>response"]
+        
+        QUERY --> ROUTER
+        ROUTER --> SPEC
+        SPEC --> SYNTH
     end
     
-    DEV --> CAT
-    CAT --> PROD
-    PROD --> ACCESS
-    
-    QUERY --> ROUTER
-    ROUTER --> SPEC
-    SPEC --> SYNTH
-    
     ACCESS -.->|"<b>Enables</b>"| SPEC
-    
-    %% Link styling
     
     style discovery fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000
     style orchestration fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000
@@ -2357,11 +2344,10 @@ graph TB
     style QUERY fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style ROUTER fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style SPEC fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style SYNTH fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 
     %% Copyright Notice
     CR["© 2025 Colaberry Inc."]
-
-    style SYNTH fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
 
 ```
@@ -2431,9 +2417,9 @@ The comparison between traditional data access and self-service data products is
 **Diagram 4: Self-Service Data Access Transformation**
 
 ```mermaid
-flowchart TB
+flowchart LR
     subgraph before["<b>❌ BEFORE: Manual Process</b>"]
-        direction LR
+        direction TB
         B1["<b>Developer needs data</b>"]
         B2["<b>Email data team</b>"]
         B3["<b>Wait 2 days</b>"]
@@ -2441,13 +2427,13 @@ flowchart TB
         B5["<b>Figure out schema</b>"]
         B6["<b>Wait 3 more days</b>"]
         B7["<b>Finally integrate</b>"]
-        B8["<b>⚠️ Total: 2-3 weeks</b><br/><b>12 people involved</b>"]
+        B8["<b>⚠️ Total: 2-3 weeks</b><br/>12 people involved"]
         
         B1 --> B2 --> B3 --> B4 --> B5 --> B6 --> B7 --> B8
     end
 
     subgraph after["<b>✅ AFTER: Self-Service</b>"]
-        direction LR
+        direction TB
         A1["<b>Developer needs data</b>"]
         A2["<b>Search catalog</b>"]
         A3["<b>2 minutes</b>"]
@@ -2455,14 +2441,12 @@ flowchart TB
         A5["<b>Auto-approved instantly</b>"]
         A6["<b>Use API examples</b>"]
         A7["<b>Integrate in 30 min</b>"]
-        A8["<b>✅ Total: <1 hour</b><br/><b>Zero meetings</b>"]
+        A8["<b>✅ Total: <1 hour</b><br/>Zero meetings"]
         
         A1 --> A2 --> A3 --> A4 --> A5 --> A6 --> A7 --> A8
     end
 
-    before -.->|"`**Transformation**`"| after
-
-    %% Link styling
+    before -.->|"<b>Transformation</b>"| after
 
     style before fill:#fff5f5,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style after fill:#f0fff0,stroke:#00897b,stroke-width:2px,color:#000000
@@ -2725,12 +2709,13 @@ For the complete multi-agent query flow showing coordination between specialists
 **Diagram 5: Multi-Agent Orchestration (Simplified View)**
 
 ```mermaid
-graph TB
-    U["<b>User Query</b><br/><i>Complex, multi-part question</i>"]
+graph LR
+    U["<b>User Query</b><br/><i>Complex,<br/>multi-part<br/>question</i>"]
     
-    R["<b>Router Agent</b><br/><i>Layer 7: Orchestrator</i>"]
+    R["<b>Router Agent</b><br/><i>Layer 7:<br/>Orchestrator</i>"]
     
     subgraph parallel["<b>Parallel Specialists</b>"]
+        direction TB
         S1["<b>Scheduling<br/>Specialist</b>"]
         S2["<b>Insurance<br/>Specialist</b>"]
     end
@@ -2739,9 +2724,9 @@ graph TB
         ST["<b>• ABAC Governance (L5)</b><br/><b>• Intelligence Orchestration (L4)</b><br/><b>• Semantic Layer (L3)</b><br/><b>• Real-Time Data (L2)</b><br/><b>• Multi-Modal Storage (L1)</b>"]
     end
     
-    O["<b>Observability</b><br/><i>Layer 6: Monitoring</i>"]
+    O["<b>Observability</b><br/><i>Layer 6:<br/>Monitoring</i>"]
     
-    RESP["<b>✅ Synthesized Response</b><br/><i>Combined, coherent answer</i>"]
+    RESP["<b>✅ Synthesized<br/>Response</b><br/><i>Combined,<br/>coherent answer</i>"]
     
     U --> R
     R -->|Decompose| parallel
@@ -2757,8 +2742,6 @@ graph TB
     R -.-> O
     parallel -.-> O
     stack -.-> O
-    
-    %% Link styling
     
     style U fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style R fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
