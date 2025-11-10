@@ -63,7 +63,7 @@ MIT's recommendation was clear: *"Create a strong data foundation. Prioritize lo
 **Diagram 1: Human Era → Agent Era Shift** - The fundamental change isn't the technology. It's whose needs we optimize for.
 
 ```mermaid
-graph TB
+graph LR
     subgraph HUMAN["<b>HUMAN ERA</b>"]
         direction TB
         H_DATA["<b>Data</b><br/>Historical Reports"]
@@ -150,28 +150,37 @@ The acronym is **INPACT™** (sounds like "impact"), and every letter represents
 
 ```mermaid
 graph TB
-    I["<b>I: Instant</b><br/>Sub-second responses<br/><i>Speed builds confidence</i>"]
-    N["<b>N: Natural</b><br/>Language understanding<br/><i>Understanding builds connection</i>"]
-    P["<b>P: Permitted</b><br/>Dynamic authorization<br/><i>Security builds safety</i>"]
-    A["<b>A: Adaptive</b><br/>Continuous learning<br/><i>Improvement builds reliability</i>"]
-    C["<b>C: Contextual</b><br/>Complete cross-system data<br/><i>Completeness builds accuracy</i>"]
-    T["<b>T: Trusted</b><br/>Transparency & audit<br/><i>Transparency builds confidence</i>"]
+    subgraph TOP[" "]
+        direction LR
+        I["<b>I: Instant</b><br/>Sub-second responses<br/><i>Speed builds confidence</i>"]
+        N["<b>N: Natural</b><br/>Language understanding<br/><i>Understanding builds connection</i>"]
+        P["<b>P: Permitted</b><br/>Dynamic authorization<br/><i>Security builds safety</i>"]
+    end
     
     CENTER["<b>TRUST</b><br/><br/><i>Outcome when all six<br/>needs are fulfilled</i>"]
+    
+    subgraph BOTTOM[" "]
+        direction LR
+        A["<b>A: Adaptive</b><br/>Continuous learning<br/><i>Improvement builds reliability</i>"]
+        C["<b>C: Contextual</b><br/>Complete cross-system data<br/><i>Completeness builds accuracy</i>"]
+        T["<b>T: Trusted</b><br/>Transparency & audit<br/><i>Transparency builds confidence</i>"]
+    end
     
     I --> CENTER
     N --> CENTER
     P --> CENTER
-    A --> CENTER
-    C --> CENTER
-    T --> CENTER
+    CENTER --> A
+    CENTER --> C
+    CENTER --> T
     
-    HITL["<b>HITL Pattern</b><br/>P+T+A Integration"]
+    HITL["<b>HITL Pattern: P+T+A Integration</b><br/>P defines WHEN to escalate<br/>T explains WHY decisions made<br/>A learns FROM human corrections"]
     
-    P -.->|defines WHEN| HITL
-    T -.->|explains WHY| HITL
-    A -.->|learns FROM| HITL
+    P -.-> HITL
+    T -.-> HITL
+    A -.-> HITL
     
+    style TOP fill:#ffffff,stroke:none
+    style BOTTOM fill:#ffffff,stroke:none
     style CENTER fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:4px
     style I fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style N fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -230,22 +239,22 @@ Now let's examine each of the 6 agent needs in the INPACT™ framework.
 ```mermaid
 
 graph TB
-    subgraph NEEDS["<b>6 AGENT NEEDS (INPACTâ„¢)</b>"]
-        I["<b>I - Instant</b><br/><b>Sub-second responses</b><br/><b>Speed builds confidence</b>"]
-        N["<b>N - Natural</b><br/><b>Language understanding</b><br/><b>Understanding builds connection</b>"]
-        P["<b>P - Permitted</b><br/><b>Dynamic authorization</b><br/><b>Security builds safety</b>"]
-        A["<b>A - Adaptive</b><br/><b>Continuous learning</b><br/><b>Improvement builds reliability</b>"]
-        C["<b>C - Contextual</b><br/><b>Complete cross-system data</b><br/><b>Completeness builds accuracy</b>"]
-        T["<b>T - Trusted</b><br/><b>Explainable decisions</b><br/><b>Transparency builds confidence</b>"]
+    subgraph NEEDS["<b>6 AGENT NEEDS (INPACT™)</b>"]
+        I["<b>I - Instant</b><br/>Sub-second responses<br/><i>Speed builds confidence</i>"]
+        N["<b>N - Natural</b><br/>Language understanding<br/><i>Understanding builds connection</i>"]
+        P["<b>P - Permitted</b><br/>Dynamic authorization<br/><i>Security builds safety</i>"]
+        A["<b>A - Adaptive</b><br/>Continuous learning<br/><i>Improvement builds reliability</i>"]
+        C["<b>C - Contextual</b><br/>Complete cross-system data<br/><i>Completeness builds accuracy</i>"]
+        T["<b>T - Trusted</b><br/>Explainable decisions<br/><i>Transparency builds confidence</i>"]
     end
     
     subgraph CAPABILITIES["<b>INFRASTRUCTURE CAPABILITIES</b>"]
-        I_CAP["<b>Sub-Second Response</b><br/><b>Architecture</b><br/><b>Real-time data + caching</b>"]
-        N_CAP["<b>Semantic</b><br/><b>Understanding</b><br/><b>Glossaries + embeddings</b>"]
-        P_CAP["<b>Dynamic Authorization</b><br/><b>+ Escalation</b><br/><b>ABAC + HITL patterns</b>"]
-        A_CAP["<b>Continuous Learning</b><br/><b>+ Human Feedback</b><br/><b>Observability + HITL loops</b>"]
-        C_CAP["<b>Cross-Domain</b><br/><b>Integration</b><br/><b>Real-time fabric + entity resolution</b>"]
-        T_CAP["<b>Auditability +</b><br/><b>Explainability</b><br/><b>Trace IDs + HITL verification</b>"]
+        I_CAP["<b>Sub-Second Response</b><br/><b>Architecture</b><br/>Real-time data + caching"]
+        N_CAP["<b>Semantic Understanding</b><br/>Glossaries + embeddings"]
+        P_CAP["<b>Dynamic Authorization</b><br/><b>+ Escalation</b><br/>ABAC + HITL patterns"]
+        A_CAP["<b>Continuous Learning</b><br/><b>+ Human Feedback</b><br/>Observability + HITL loops"]
+        C_CAP["<b>Cross-Domain Integration</b><br/>Real-time fabric<br/>+ entity resolution"]
+        T_CAP["<b>Auditability +</b><br/><b>Explainability</b><br/>Trace IDs + HITL verification"]
     end
     
     I --> I_CAP
@@ -256,14 +265,14 @@ graph TB
     T --> T_CAP
     
     subgraph HITL["<b>HITL PATTERN: Integration Across P, T, A</b>"]
-        HITL_DESC["<b>P defines WHEN to escalate</b><br/><b>T explains WHY decisions made</b><br/><b>A learns FROM human corrections</b><br/><b>→ Graduated autonomy that improves</b>"]
+        HITL_DESC["<b>P defines WHEN to escalate</b><br/><b>T explains WHY decisions made</b><br/><b>A learns FROM human corrections</b><br/>→ Graduated autonomy that improves"]
     end
     
-    P_CAP -.->|<b>Escalation thresholds</b>| HITL_DESC
-    T_CAP -.->|<b>Explainability</b>| HITL_DESC
-    A_CAP -.->|<b>Learning loop</b>| HITL_DESC
+    P_CAP -.->|Escalation thresholds| HITL_DESC
+    T_CAP -.->|Explainability| HITL_DESC
+    A_CAP -.->|Learning loop| HITL_DESC
     
-    I_CAP --> ARCH["<b>7-Layer Agent-Ready</b><br/><b>Architecture</b><br/><b>(Chapter 1)</b>"]
+    I_CAP --> ARCH["<b>7-Layer Agent-Ready</b><br/><b>Architecture</b><br/>(Chapter 1)"]
     N_CAP --> ARCH
     P_CAP --> ARCH
     A_CAP --> ARCH
@@ -319,7 +328,7 @@ Every second of latency costs trust. When a patient calls to schedule an appoint
 
 ```mermaid
 graph TB
-    subgraph ERA1["<b>Analytics Era: Batch Processing</b>"]
+    subgraph ERA1["<b>Analytics Era: Batch</b>"]
         direction LR
         A1["<b>Overnight<br/>ETL Job</b>"] --> B1["<b>Data<br/>Warehouse</b>"]
         B1 --> C1["<b>BI Query<br/>8-13 seconds</b>"]
@@ -330,7 +339,7 @@ graph TB
     
     ERA1 -.->|<b>Evolution</b>| ERA2
     
-    subgraph ERA2["<b>Agent Era: Real-Time Streaming</b>"]
+    subgraph ERA2["<b>Agent Era: Real-Time</b>"]
         direction LR
         A2["<b>CDC<br/>Continuous</b>"] --> B2["<b>Streaming<br/>Platform</b>"]
         B2 --> C2["<b>Agent Query<br/>&lt;2 seconds</b>"]
@@ -420,7 +429,7 @@ When Dr. Cedao tried to build Echo's scheduling agent, she discovered a fundamen
 
 ```mermaid
 graph TB
-    subgraph ERA1["<b>Analytics Era: Manual Translation</b>"]
+    subgraph ERA1["<b>Analytics Era: Manual</b>"]
         direction LR
         A1["<b>Natural<br/>Language Query</b>"] --> B1["<b>Developer<br/>Translates to SQL</b>"]
         B1 --> C1["<b>Cryptic Table<br/>FCT_PTNT_ENCT</b>"]
@@ -431,7 +440,7 @@ graph TB
     
     ERA1 -.->|<b>Evolution</b>| ERA2
     
-    subgraph ERA2["<b>Agent Era: Semantic Understanding</b>"]
+    subgraph ERA2["<b>Agent Era: Semantic</b>"]
         direction LR
         A2["<b>Natural<br/>Language Query</b>"] --> B2["<b>Semantic Layer<br/>Auto-translates</b>"]
         B2 --> C2["<b>Business Terms<br/>Patient Encounters</b>"]
@@ -524,7 +533,7 @@ graph TB
     
     ERA1 -.->|<b>Evolution</b>| ERA2
     
-    subgraph ERA2["<b>Agent Era: Dynamic ABAC + Escalation (HITL)</b>"]
+    subgraph ERA2["<b>Agent Era: Dynamic ABAC (HITL)</b>"]
         direction LR
         A2["<b>User: Sarah</b>"] --> B2["<b>Attributes:<br/>role, dept, time</b>"]
         B2 --> C2["<b>Data Attributes:<br/>PHI, sensitivity</b>"]
@@ -646,7 +655,7 @@ Research shows that 91% of ML models degrade over time without continuous monito
 
 ```mermaid
 graph TB
-    subgraph ERA1["<b>Analytics Era: Quarterly Reviews</b>"]
+    subgraph ERA1["<b>Analytics Era: Quarterly</b>"]
         direction LR
         A1["<b>Deploy Model</b>"] --> B1["<b>Wait 3 months</b>"]
         B1 --> C1["<b>Users complain</b>"]
@@ -659,7 +668,7 @@ graph TB
     
     ERA1 -.->|<b>Evolution</b>| ERA2
     
-    subgraph ERA2["<b>Agent Era: Continuous Adaptive Learning + Human Feedback (HITL)</b>"]
+    subgraph ERA2["<b>Agent Era: Adaptive (HITL)</b>"]
         direction LR
         A2["<b>Deploy Model</b>"] --> B2["<b>Real-time<br/>monitoring</b>"]
         B2 --> C2["<b>Detect drift<br/>in days</b>"]
@@ -770,7 +779,7 @@ Each new data source adds integration complexity that grows exponentially, not l
 
 ```mermaid
 graph TB
-    subgraph ERA1["<b>Analytics Era: Manual Integration</b>"]
+    subgraph ERA1["<b>Analytics Era: Manual</b>"]
         direction LR
         A1["<b>3 Systems:<br/>EHR, Claims, Portal</b>"] -->|<b>6-8 weeks each</b>| B1["<b>Data<br/>Warehouse</b>"]
         B1 --> C1["<b>Query takes<br/>8-13 seconds</b>"]
@@ -781,7 +790,7 @@ graph TB
     
     ERA1 -.->|<b>Evolution</b>| ERA2
     
-    subgraph ERA2["<b>Agent Era: Real-Time Context Assembly</b>"]
+    subgraph ERA2["<b>Agent Era: Real-Time</b>"]
         direction LR
         A2["<b>3 Systems:<br/>EHR, Claims, Portal</b>"] -->|<b>CDC instant</b>| B2["<b>Real-Time<br/>Fabric</b>"]
         B2 --> C2["<b>RAG assembles<br/>&lt;2 seconds</b>"]
@@ -884,7 +893,7 @@ Research confirms that transparency and design are the mediators of trust in AI 
 
 ```mermaid
 graph TB
-    subgraph ERA1["<b>Analytics Era: Quarterly Audits</b>"]
+    subgraph ERA1["<b>Analytics Era: Quarterly</b>"]
         direction LR
         A1["<b>Query executed</b>"] --> B1["<b>Minimal logging<br/>Who: service_account<br/>When: timestamp</b>"]
         B1 --> C1["<b>Quarterly<br/>audit review</b>"]
@@ -895,7 +904,7 @@ graph TB
     
     ERA1 -.->|<b>Evolution</b>| ERA2
     
-    subgraph ERA2["<b>Agent Era: Complete Traceability + HITL Verification</b>"]
+    subgraph ERA2["<b>Agent Era: Traceability (HITL)</b>"]
         direction LR
         A2["<b>Query executed</b>"] --> B2["<b>Complete logging<br/>Who, What, When, Why<br/>Trace ID, Policy, Result</b>"]
         B2 --> C2["<b>Real-time<br/>observability</b>"]
