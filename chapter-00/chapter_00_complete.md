@@ -150,25 +150,16 @@ The acronym is **INPACT™** (sounds like "impact"), and every letter represents
 
 ```mermaid
 graph TB
-    subgraph TOP[" "]
-        direction LR
-        I["<b>I: Instant</b><br/>Sub-second responses<br/><i>Speed builds confidence</i>"]
-        N["<b>N: Natural</b><br/>Language understanding<br/><i>Understanding builds connection</i>"]
-        P["<b>P: Permitted</b><br/>Dynamic authorization<br/><i>Security builds safety</i>"]
-    end
+    I["<b>I: Instant</b><br/>Sub-second responses<br/><i>Speed builds confidence</i>"]
+    N["<b>N: Natural</b><br/>Language understanding<br/><i>Understanding builds connection</i>"]
+    P["<b>P: Permitted</b><br/>Dynamic authorization<br/><i>Security builds safety</i>"]
     
-    subgraph MIDDLE[" "]
-        direction LR
-        CENTER["<b>TRUST</b><br/><br/><i>Outcome when all six<br/>needs are fulfilled</i>"]
-        HITL["<b>HITL Pattern</b><br/><b>P+T+A Integration</b><br/>P defines WHEN to escalate<br/>T explains WHY decisions made<br/>A learns FROM human corrections"]
-    end
+    CENTER["<b>TRUST</b><br/><br/><i>Outcome when all six<br/>needs are fulfilled</i>"]
+    HITL["<b>HITL Pattern</b><br/><b>P+T+A Integration</b><br/>P defines WHEN to escalate<br/>T explains WHY decisions made<br/>A learns FROM human corrections"]
     
-    subgraph BOTTOM[" "]
-        direction LR
-        A["<b>A: Adaptive</b><br/>Continuous learning<br/><i>Improvement builds reliability</i>"]
-        C["<b>C: Contextual</b><br/>Complete cross-system data<br/><i>Completeness builds accuracy</i>"]
-        T["<b>T: Trusted</b><br/>Transparency & audit<br/><i>Transparency builds confidence</i>"]
-    end
+    A["<b>A: Adaptive</b><br/>Continuous learning<br/><i>Improvement builds reliability</i>"]
+    C["<b>C: Contextual</b><br/>Complete cross-system data<br/><i>Completeness builds accuracy</i>"]
+    T["<b>T: Trusted</b><br/>Transparency & audit<br/><i>Transparency builds confidence</i>"]
     
     I --> CENTER
     N --> CENTER
@@ -181,9 +172,6 @@ graph TB
     T -.-> HITL
     A -.-> HITL
     
-    style TOP fill:#ffffff,stroke:none
-    style MIDDLE fill:#ffffff,stroke:none
-    style BOTTOM fill:#ffffff,stroke:none
     style CENTER fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:4px
     style I fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style N fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
