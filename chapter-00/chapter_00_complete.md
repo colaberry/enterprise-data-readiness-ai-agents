@@ -252,12 +252,12 @@ graph TB
     end
     
     subgraph CAPABILITIES["<b>INFRASTRUCTURE CAPABILITIES</b>"]
-        I_CAP["<b>Sub-Second Response</b><br/><b>Architecture</b><br/>Real-time data + caching"]
+        I_CAP["<b>Sub-Second Response</b><br/>Real-time + caching"]
         N_CAP["<b>Semantic Understanding</b><br/>Glossaries + embeddings"]
-        P_CAP["<b>Dynamic Authorization</b><br/><b>+ Escalation</b><br/>ABAC + HITL patterns"]
-        A_CAP["<b>Continuous Learning</b><br/><b>+ Human Feedback</b><br/>Observability + HITL loops"]
+        P_CAP["<b>Dynamic Authorization</b><br/>+ Escalation<br/>ABAC + HITL"]
+        A_CAP["<b>Continuous Learning</b><br/>+ Human Feedback<br/>Observability + HITL"]
         C_CAP["<b>Cross-Domain Integration</b><br/>Real-time fabric<br/>+ entity resolution"]
-        T_CAP["<b>Auditability +</b><br/><b>Explainability</b><br/>Trace IDs + HITL verification"]
+        T_CAP["<b>Auditability +</b><br/><b>Explainability</b><br/>Trace IDs + HITL"]
     end
     
     I --> I_CAP
