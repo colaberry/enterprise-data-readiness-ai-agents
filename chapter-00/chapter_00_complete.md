@@ -61,7 +61,44 @@ MIT's recommendation was clear: *"Create a strong data foundation. Prioritize lo
 ## The Fundamental Shift: Human Needs to Agent Needs
 
 **Diagram 1: Human Era → Agent Era Shift** - The fundamental change isn't the technology. It's whose needs we optimize for.
-![Alt text](./diagrams/diagram_0_1_a_HumanEra_AgentEraShift.png "Human Era → Agent Era Shift")
+
+```mermaid
+graph TB
+    subgraph HUMAN["<b>HUMAN ERA</b>"]
+        direction TB
+        H_DATA["<b>Data</b><br/>Historical Reports"]
+        H_INTERFACE["<b>Interface</b><br/>Visual Dashboards"]
+        H_ACTION["<b>Action</b><br/>Humans Decide & Act"]
+        
+        H_DATA --> H_INTERFACE
+        H_INTERFACE --> H_ACTION
+    end
+    
+    HUMAN -.->|<b>Paradigm Shift</b>| AGENT
+    
+    subgraph AGENT["<b>AGENT ERA</b>"]
+        direction TB
+        A_DATA["<b>Data</b><br/>Real-Time Context"]
+        A_INTERFACE["<b>Interface</b><br/>Natural Language"]
+        A_ACTION["<b>Action</b><br/>Agents Act, Humans Oversee"]
+        
+        A_DATA --> A_INTERFACE
+        A_INTERFACE --> A_ACTION
+    end
+    
+    style HUMAN fill:#fff5f5,stroke:#c62828,stroke-width:2px
+    style H_DATA fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style H_INTERFACE fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style H_ACTION fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    
+    style AGENT fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style A_DATA fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style A_INTERFACE fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style A_ACTION fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    style Copyright fill:#ffffff,stroke:none,color:#757575
+```
 
 
 For three decades, enterprise data architecture optimized for **human needs** (see Diagram 1: Human Era → Agent Era Shift)—building systems that put information in front of people who make decisions. Humans needed historical context to analyze trends, visual dashboards to spot patterns, time to think before acting, and control over every decision.
@@ -108,6 +145,47 @@ The acronym is **INPACT™** (sounds like "impact"), and every letter represents
 - **T** – Trusted (transparency through audit trails)
 
 **Mnemonic:** "Agents must be Instant, Natural, Permitted, Adaptive, Contextual, and Trusted—addressing each need systematically to earn trust consistently."
+
+**Diagram 2a: Six Agent Needs Converging to Deliver Trust**
+
+```mermaid
+graph TB
+    I["<b>I: Instant</b><br/>Sub-second responses<br/><i>Speed builds confidence</i>"]
+    N["<b>N: Natural</b><br/>Language understanding<br/><i>Understanding builds connection</i>"]
+    P["<b>P: Permitted</b><br/>Dynamic authorization<br/><i>Security builds safety</i>"]
+    A["<b>A: Adaptive</b><br/>Continuous learning<br/><i>Improvement builds reliability</i>"]
+    C["<b>C: Contextual</b><br/>Complete cross-system data<br/><i>Completeness builds accuracy</i>"]
+    T["<b>T: Trusted</b><br/>Transparency & audit<br/><i>Transparency builds confidence</i>"]
+    
+    CENTER["<b>TRUST</b><br/><br/><i>Outcome when all six<br/>needs are fulfilled</i>"]
+    
+    I --> CENTER
+    N --> CENTER
+    P --> CENTER
+    A --> CENTER
+    C --> CENTER
+    T --> CENTER
+    
+    HITL["<b>HITL Pattern</b><br/>P+T+A Integration"]
+    
+    P -.->|defines WHEN| HITL
+    T -.->|explains WHY| HITL
+    A -.->|learns FROM| HITL
+    
+    style CENTER fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:4px
+    style I fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style N fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style P fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style A fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style C fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style T fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style HITL fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    style Copyright fill:#ffffff,stroke:none,color:#757575
+```
+
+**For comparison, the circular wheel visualization:**
 ![Alt text](./diagrams/diagram_0_2_a_6_agent_needs.png "6 Agent Needs")
 
 All six needs are required. Analysis suggests that addressing all six needs systematically is associated with higher success rates in building agents users trust. Organizations that miss even one face significantly higher risk of joining the 95% who fail.
@@ -238,7 +316,42 @@ The speed imperative is clear: 90% of customers expect instant responses when re
 Every second of latency costs trust. When a patient calls to schedule an appointment, the agent queries last night's data dump. The cancellation that happened 30 seconds ago? Invisible. The agent books a slot that's already gone. The patient calls back, frustrated. Trust evaporates.
 
 **Diagram 3: Analytics Era Batch vs. Agent Era Real-Time Response**
-![Alt text](./diagrams/diagram_0_3_a_I_InstantAnalyticsEraBatchvsAgentEra.png "Diagram 3: Analytics Era Batch vs. Agent Era Real-Time Response")
+
+```mermaid
+graph TB
+    subgraph ERA1["<b>Analytics Era: Batch Processing</b>"]
+        direction LR
+        A1["<b>Overnight<br/>ETL Job</b>"] --> B1["<b>Data<br/>Warehouse</b>"]
+        B1 --> C1["<b>BI Query<br/>8-13 seconds</b>"]
+        C1 --> D1["<b>Stale Data<br/>8-24 hours old</b>"]
+        
+        style D1 fill:#b71c1c,color:#ffffff,stroke:#c62828,stroke-width:3px
+    end
+    
+    ERA1 -.->|<b>Evolution</b>| ERA2
+    
+    subgraph ERA2["<b>Agent Era: Real-Time Streaming</b>"]
+        direction LR
+        A2["<b>CDC<br/>Continuous</b>"] --> B2["<b>Streaming<br/>Platform</b>"]
+        B2 --> C2["<b>Agent Query<br/>&lt;2 seconds</b>"]
+        C2 --> D2["<b>Fresh Data<br/>&lt;30 seconds old</b>"]
+        
+        style D2 fill:#00695c,color:#ffffff,stroke:#00897b,stroke-width:3px
+    end
+    
+    style ERA1 fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style A1 fill:#ffffff,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style B1 fill:#ffffff,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style C1 fill:#ffffff,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    
+    style ERA2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px
+    style A2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    style B2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    style C2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    style Copyright fill:#ffffff,stroke:none,color:#757575
+```
 
 ### The Infrastructure Capability: Sub-Second Response Architecture
 
@@ -303,7 +416,43 @@ When Dr. Cedao tried to build Echo's scheduling agent, she discovered a fundamen
 
 **A 40% failure rate is unacceptable** for healthcare, finance, or any domain where incorrect answers cause real harm.
 
-**Diagram 4: Analytics Era Manual Translation vs. Agent Era Semantic Understanding**![Alt text](./diagrams/diagram_0_4_a_N_Natural_ManualTranslationvsSemanticUnderstanding.png "Analytics Era Manual Translation vs. Agent Era Semantic Understanding")
+**Diagram 4: Analytics Era Manual Translation vs. Agent Era Semantic Understanding**
+
+```mermaid
+graph TB
+    subgraph ERA1["<b>Analytics Era: Manual Translation</b>"]
+        direction LR
+        A1["<b>Natural<br/>Language Query</b>"] --> B1["<b>Developer<br/>Translates to SQL</b>"]
+        B1 --> C1["<b>Cryptic Table<br/>FCT_PTNT_ENCT</b>"]
+        C1 --> D1["<b>2-3 days<br/>40-60% accuracy</b>"]
+        
+        style D1 fill:#b71c1c,color:#ffffff,stroke:#c62828,stroke-width:3px
+    end
+    
+    ERA1 -.->|<b>Evolution</b>| ERA2
+    
+    subgraph ERA2["<b>Agent Era: Semantic Understanding</b>"]
+        direction LR
+        A2["<b>Natural<br/>Language Query</b>"] --> B2["<b>Semantic Layer<br/>Auto-translates</b>"]
+        B2 --> C2["<b>Business Terms<br/>Patient Encounters</b>"]
+        C2 --> D2["<b>Instant response<br/>75-85%+ accuracy</b>"]
+        
+        style D2 fill:#00695c,color:#ffffff,stroke:#00897b,stroke-width:3px
+    end
+    
+    style ERA1 fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style A1 fill:#ffffff,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style B1 fill:#ffffff,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style C1 fill:#ffffff,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    
+    style ERA2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px
+    style A2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    style B2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    style C2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    style Copyright fill:#ffffff,stroke:none,color:#757575
+```
 
 
 
@@ -360,7 +509,56 @@ The same agent serves different users with different permissions. Traditional Ro
 When Dr. Cedao's team built their first agent, they gave it a service account with broad database permissions. This created an immediate compliance crisis: the agent could access any patient's PHI regardless of who was asking, violating HIPAA's minimum necessary standard. When they tried to restrict permissions, the agent couldn't function—it needed different access rights for different queries from different users.
 
 **Diagram 5: Analytics Era Static RBAC vs. Agent Era Dynamic ABAC**
-![Alt text](./diagrams/diagram_0_5_a_P_Permitted_RBACvsDynamicABAC.png "Analytics Era Static RBAC vs. Agent Era Dynamic ABAC")
+
+```mermaid
+graph TB
+    subgraph ERA1["<b>Analytics Era: Static RBAC</b>"]
+        direction LR
+        A1["<b>User: Sarah</b>"] --> B1["<b>Role:<br/>Data Analyst</b>"]
+        B1 --> C1["<b>Permission Set<br/>READ all tables</b>"]
+        C1 --> D1["<b>Access Decision<br/>2 weeks to provision</b>"]
+        D1 --> E1["<b>Result:<br/>Over-privileged</b>"]
+        
+        style E1 fill:#b71c1c,color:#ffffff,stroke:#c62828,stroke-width:3px
+    end
+    
+    ERA1 -.->|<b>Evolution</b>| ERA2
+    
+    subgraph ERA2["<b>Agent Era: Dynamic ABAC + Escalation (HITL)</b>"]
+        direction LR
+        A2["<b>User: Sarah</b>"] --> B2["<b>Attributes:<br/>role, dept, time</b>"]
+        B2 --> C2["<b>Data Attributes:<br/>PHI, sensitivity</b>"]
+        C2 --> D2["<b>Policy Evaluation<br/>&lt;10ms real-time</b>"]
+        D2 --> E2{"<b>Risk<br/>Assessment</b>"}
+        E2 -->|<b>High Risk</b>| F2["<b>Escalate to<br/>Human Approval</b>"]
+        E2 -->|<b>Low Risk</b>| G2["<b>Auto-approve</b>"]
+        F2 --> H2["<b>Result:<br/>Right-sized access<br/>+ Safety</b>"]
+        G2 --> H2
+        
+        style H2 fill:#00695c,color:#ffffff,stroke:#00897b,stroke-width:3px
+        style E2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+        style F2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    end
+    
+    style ERA1 fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style A1 fill:#ffffff,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style B1 fill:#ffffff,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style C1 fill:#ffffff,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style D1 fill:#ffffff,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    
+    style ERA2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px
+    style A2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    style B2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    style C2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    style D2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    style G2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    
+    HITL_NOTE["<b>P (Permitted) defines WHEN to escalate:</b><br/>Risk thresholds, clinical significance,<br/>confidence levels, patient preferences"]
+    style HITL_NOTE fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    style Copyright fill:#ffffff,stroke:none,color:#757575
+```
 
 ### The Infrastructure Capability: Dynamic Authorization
 
@@ -445,7 +643,59 @@ When Dr. Cedao deployed Echo's first scheduling agent, she initially viewed it a
 Research shows that 91% of ML models degrade over time without continuous monitoring and retraining.[12] For agent systems, this degradation manifests as semantic drift (domain terminology evolves), retrieval quality decline (embedding models become stale), and data quality issues (source systems change without notification).
 
 **Diagram 6: Analytics Era Periodic Reviews vs. Agent Era Continuous Learning**
-![Alt text](./diagrams/diagram_0_6_a_A_Adaptive_PeriodicReviewsvs.ContinuousLearning.png "Analytics Era Periodic Reviews vs. Agent Era Continuous Learning")
+
+```mermaid
+graph TB
+    subgraph ERA1["<b>Analytics Era: Quarterly Reviews</b>"]
+        direction LR
+        A1["<b>Deploy Model</b>"] --> B1["<b>Wait 3 months</b>"]
+        B1 --> C1["<b>Users complain</b>"]
+        C1 --> D1["<b>Manual review<br/>2 weeks</b>"]
+        D1 --> E1["<b>Retrain<br/>4 weeks</b>"]
+        E1 --> F1["<b>Total:<br/>3+ months to fix</b>"]
+        
+        style F1 fill:#b71c1c,color:#ffffff,stroke:#c62828,stroke-width:3px
+    end
+    
+    ERA1 -.->|<b>Evolution</b>| ERA2
+    
+    subgraph ERA2["<b>Agent Era: Continuous Adaptive Learning + Human Feedback (HITL)</b>"]
+        direction LR
+        A2["<b>Deploy Model</b>"] --> B2["<b>Real-time<br/>monitoring</b>"]
+        B2 --> C2["<b>Detect drift<br/>in days</b>"]
+        C2 --> D2["<b>Auto-trigger<br/>retraining</b>"]
+        D2 --> E2["<b>A/B test<br/>deploy</b>"]
+        E2 --> F2["<b>Total:<br/>days to fix</b>"]
+        
+        HUMAN["<b>Human Corrections<br/>& Approvals</b>"]
+        HUMAN -.->|<b>Pattern detection</b>| C2
+        HUMAN -.->|<b>Threshold refinement</b>| D2
+        HUMAN -.->|<b>Confidence calibration</b>| E2
+        
+        style F2 fill:#00695c,color:#ffffff,stroke:#00897b,stroke-width:3px
+        style HUMAN fill:#fff9e6,stroke:#f57c00,stroke-width:3px,color:#e65100
+    end
+    
+    style ERA1 fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style A1 fill:#ffffff,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style B1 fill:#ffffff,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style C1 fill:#ffffff,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style D1 fill:#ffffff,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style E1 fill:#ffffff,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    
+    style ERA2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px
+    style A2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    style B2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    style C2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    style D2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    style E2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    
+    HITL_NOTE["<b>A (Adaptive) learns FROM human corrections:</b><br/>Approval patterns, threshold adjustments,<br/>edge case documentation, confidence tracking"]
+    style HITL_NOTE fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    style Copyright fill:#ffffff,stroke:none,color:#757575
+```
 
 ### The Infrastructure Capability: Continuous Learning
 
@@ -517,7 +767,42 @@ When Dr. Cedao's team built their first agent, they quickly hit this wall. The a
 Each new data source adds integration complexity that grows exponentially, not linearly. Traditional point-to-point integrations create a maintenance nightmare where N data sources require N(N-1)/2 integration points.
 
 **Diagram 7: Analytics Era Siloed Data vs. Agent Era Unified Context**
-![Alt text](./diagrams/diagram_0_7_a_C_contextual_SiloedDatavsUnifiedContext.png "Analytics Era Siloed Data vs. Agent Era Unified Context")
+
+```mermaid
+graph TB
+    subgraph ERA1["<b>Analytics Era: Manual Integration</b>"]
+        direction LR
+        A1["<b>3 Systems:<br/>EHR, Claims, Portal</b>"] -->|<b>6-8 weeks each</b>| B1["<b>Data<br/>Warehouse</b>"]
+        B1 --> C1["<b>Query takes<br/>8-13 seconds</b>"]
+        C1 --> D1["<b>Often incomplete<br/>or stale</b>"]
+        
+        style D1 fill:#b71c1c,color:#ffffff,stroke:#c62828,stroke-width:3px
+    end
+    
+    ERA1 -.->|<b>Evolution</b>| ERA2
+    
+    subgraph ERA2["<b>Agent Era: Real-Time Context Assembly</b>"]
+        direction LR
+        A2["<b>3 Systems:<br/>EHR, Claims, Portal</b>"] -->|<b>CDC instant</b>| B2["<b>Real-Time<br/>Fabric</b>"]
+        B2 --> C2["<b>RAG assembles<br/>&lt;2 seconds</b>"]
+        C2 --> D2["<b>Complete, fresh<br/>contextual answer</b>"]
+        
+        style D2 fill:#00695c,color:#ffffff,stroke:#00897b,stroke-width:3px
+    end
+    
+    style ERA1 fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style A1 fill:#ffffff,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style B1 fill:#ffffff,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style C1 fill:#ffffff,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    
+    style ERA2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px
+    style A2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    style B2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    style C2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    style Copyright fill:#ffffff,stroke:none,color:#757575
+```
 
 ### The Infrastructure Capability: Cross-Domain Integration
 
@@ -596,7 +881,47 @@ This log entry was worthless for compliance. It didn't show which human user tri
 Research confirms that transparency and design are the mediators of trust in AI systems.[2] When users can't see how agents make decisions, distrust spreads to both the AI and the company behind it.[3]
 
 **Diagram 8: Analytics Era Manual Audits vs. Agent Era Automated Traceability**
-![Alt text](./diagrams/diagram_0_8_a_T_trusted_ManualAuditsvsAutomatedTraceability.png "Analytics Era Manual Audits vs. Agent Era Automated Traceability")
+
+```mermaid
+graph TB
+    subgraph ERA1["<b>Analytics Era: Quarterly Audits</b>"]
+        direction LR
+        A1["<b>Query executed</b>"] --> B1["<b>Minimal logging<br/>Who: service_account<br/>When: timestamp</b>"]
+        B1 --> C1["<b>Quarterly<br/>audit review</b>"]
+        C1 --> D1["<b>Result:<br/>Can't reconstruct<br/>decisions</b>"]
+        
+        style D1 fill:#b71c1c,color:#ffffff,stroke:#c62828,stroke-width:3px
+    end
+    
+    ERA1 -.->|<b>Evolution</b>| ERA2
+    
+    subgraph ERA2["<b>Agent Era: Complete Traceability + HITL Verification</b>"]
+        direction LR
+        A2["<b>Query executed</b>"] --> B2["<b>Complete logging<br/>Who, What, When, Why<br/>Trace ID, Policy, Result</b>"]
+        B2 --> C2["<b>Real-time<br/>observability</b>"]
+        C2 --> D2["<b>Explainability<br/>for human verification</b>"]
+        D2 --> E2["<b>Result:<br/>Every decision<br/>fully traceable</b>"]
+        
+        style E2 fill:#00695c,color:#ffffff,stroke:#00897b,stroke-width:3px
+        style D2 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    end
+    
+    style ERA1 fill:#ffebee,stroke:#c62828,stroke-width:2px
+    style A1 fill:#ffffff,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style B1 fill:#ffffff,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    style C1 fill:#ffffff,stroke:#c62828,stroke-width:2px,color:#b71c1c
+    
+    style ERA2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px
+    style A2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    style B2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    style C2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    
+    HITL_NOTE["<b>T (Trusted) explains WHY decisions were made:</b><br/>Complete transparency enables effective human verification,<br/>audit trails capture both agent reasoning and human approvals"]
+    style HITL_NOTE fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    
+    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    style Copyright fill:#ffffff,stroke:none,color:#757575
+```
 
 ### The Infrastructure Capability: Auditability & Explainability
 
