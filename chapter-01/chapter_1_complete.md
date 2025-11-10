@@ -520,6 +520,8 @@ graph LR
 
 ```mermaid
 graph LR
+    TITLE["<b>Layer 1: Multi-Modal Storage Architecture</b>"]
+    
     Q["<b>Agent Query</b><br/>Natural language<br/>question"]
     
     R["<b>Query<br/>Router</b><br/>Determines<br/>optimal<br/>storage"]
@@ -536,6 +538,7 @@ graph LR
     
     U["<b>Unified<br/>Result</b><br/>Combined<br/>context<br/>for LLM"]
     
+    TITLE -.-> Q
     Q --> R
     R --> V
     R --> K
@@ -551,6 +554,7 @@ graph LR
     W --> U
     M --> U
     
+    style TITLE fill:#00897b,color:#ffffff,stroke:#004d40,stroke-width:3px,font-size:16px
     style Q fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style R fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style storage fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000
@@ -677,6 +681,8 @@ Supporting contributions to:
 
 ```mermaid
 graph LR
+    TITLE["<b>Layer 2: Real-Time Data Fabric</b>"]
+    
     S["<b>Source Systems</b><br/>EHR, Claims,<br/>Scheduling"]
     
     CDC["<b>Change Data<br/>Capture</b><br/>Detect updates<br/>(sub-30s)"]
@@ -691,6 +697,7 @@ graph LR
     
     READY["<b>✅ Agent-Ready Data</b><br/>Fresh, validated, accessible"]
     
+    TITLE -.-> S
     S --> CDC
     CDC --> STREAM
     STREAM --> PROC
@@ -699,6 +706,7 @@ graph LR
     FS --> READY
     TRAIN --> READY
     
+    style TITLE fill:#00897b,color:#ffffff,stroke:#004d40,stroke-width:3px,font-size:16px
     style S fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style CDC fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style STREAM fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -811,6 +819,8 @@ To ensure Layer 1 delivers on its promise, monitor these key indicators (as deta
 
 ```mermaid
 flowchart LR
+    TITLE["<b>Layer 3: Universal Semantic Layer</b>"]
+    
     NL["<b>Natural Language</b><br/>'Schedule Dr. Martinez'"]
     
     PARSE["<b>Semantic Parser</b><br/>Extract intent & entities"]
@@ -829,6 +839,7 @@ flowchart LR
     
     CONTEXT["<b>✅ Complete Context</b><br/>Profile across all systems"]
     
+    TITLE -.-> NL
     NL --> PARSE
     PARSE --> GLOSS
     GLOSS --> resolve
@@ -838,6 +849,7 @@ flowchart LR
     GOLD --> ENTITY
     ENTITY --> CONTEXT
     
+    style TITLE fill:#00897b,color:#ffffff,stroke:#004d40,stroke-width:3px,font-size:16px
     style NL fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style PARSE fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style GLOSS fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -847,11 +859,10 @@ flowchart LR
     style E3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style GOLD fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style ENTITY fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style CONTEXT fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 
     %% Copyright Notice
     CR["© 2025 Colaberry Inc."]
-
-    style CONTEXT fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
 
 ```
@@ -1078,6 +1089,8 @@ To keep Layer 2 healthy and agent-aligned:
 
 ```mermaid
 graph LR
+    TITLE["<b>Layer 4: Intelligence Orchestration & Retrieval</b>"]
+    
     Q["<b>User Question</b><br/>Natural language<br/>query"]
     
     U["<b>Query<br/>Understanding</b><br/>Intent + entity<br/>extraction"]
@@ -1099,6 +1112,7 @@ graph LR
     
     LLM["<b>✅ LLM with Context</b><br/>Accurate, grounded response"]
     
+    TITLE -.-> Q
     Q --> U
     U --> E
     E --> retrieval
@@ -1109,6 +1123,7 @@ graph LR
     ASSEMBLE --> CACHE
     CACHE --> LLM
     
+    style TITLE fill:#00897b,color:#ffffff,stroke:#004d40,stroke-width:3px,font-size:16px
     style Q fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style U fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style E fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -1343,6 +1358,8 @@ Supporting contributions to:
 
 ```mermaid
 graph LR
+    TITLE["<b>Layer 5: Agent-Aware Governance</b>"]
+    
     REQ["<b>Agent Request</b><br/>User query +<br/>data access"]
     
     POL["<b>ABAC<br/>Policy Engine</b><br/>Evaluate context<br/>attributes"]
@@ -1363,6 +1380,7 @@ graph LR
     
     DENY["<b>❌ Access Denied</b><br/>Logged with reason"]
     
+    TITLE -.-> REQ
     REQ --> POL
     POL --> eval
     WHO --> DEC
@@ -1373,6 +1391,7 @@ graph LR
     DEC -->|"<b>Deny</b>"| DENY
     MASK --> ALLOW
     
+    style TITLE fill:#00897b,color:#ffffff,stroke:#004d40,stroke-width:3px,font-size:16px
     style REQ fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style POL fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style eval fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000
@@ -1558,68 +1577,77 @@ This feedback loop ensures guardrails evolve alongside attack techniques.
 This 4-phase process ensures systematic vulnerability discovery before production deployment, with Echo Health Systems discovering 135 total vulnerabilities (12 HIGH, 34 MEDIUM, 89 LOW) and addressing 100% of critical issues before launch.
 
 ```mermaid
-graph LR
-    START["<b>Agent System<br/>Ready for Red Team</b>"]
+graph TB
+    START["<b>Agent System Ready for Red Team</b>"]
     
-    subgraph PHASE1["<b>Phase 1: Attack Surface</b>"]
-        direction TB
-        P1A["<b>Identify Entry Points</b><br/>Portal, Dashboard,<br/>Console"]
-        P1B["<b>Map Data Flows</b><br/>PHI access paths"]
-        P1C["<b>Document Trust<br/>Boundaries</b><br/>Expected vs. Possible"]
-        P1A --> P1B --> P1C
+    subgraph ROW1["<b>Testing Phases (Weeks 1-5)</b>"]
+        direction LR
+        
+        subgraph PHASE1["<b>Phase 1</b><br/>Attack Surface"]
+            direction TB
+            P1["<b>Week 1</b><br/>• Entry Points<br/>• Data Flows<br/>• Trust Boundaries"]
+        end
+        
+        subgraph PHASE2["<b>Phase 2</b><br/>Attack Scenarios"]
+            direction TB
+            P2["<b>Week 2</b><br/>• 200+ Variations<br/>• Prompt Injection<br/>• Goal Hijacking<br/>• Data Exfiltration"]
+        end
+        
+        subgraph PHASE3["<b>Phase 3</b><br/>Automated"]
+            direction TB
+            P3["<b>Weeks 3-4</b><br/>• 500+ Tests<br/>• Garak • PyRIT<br/>• OWASP<br/>• 20 Categories"]
+        end
+        
+        subgraph PHASE4["<b>Phase 4</b><br/>Manual Expert"]
+            direction TB
+            P4["<b>Week 5</b><br/>• 40 Hours<br/>• Security<br/>• Clinical<br/>• Compliance"]
+        end
+        
+        PHASE1 --> PHASE2 --> PHASE3 --> PHASE4
     end
     
-    subgraph PHASE2["<b>Phase 2: Attack Scenarios</b>"]
-        P2["<b>Develop 200+<br/>Attack Variations</b><br/>Prompt injection<br/>Goal hijacking<br/>Data exfiltration<br/>Jailbreaking"]
+    subgraph ROW2["<b>Results & Deployment</b>"]
+        direction LR
+        
+        FINDINGS["<b>Red Team Findings</b><br/>12 HIGH<br/>34 MEDIUM<br/>89 LOW"]
+        
+        REMEDIATE{<b>Remediation<br/>Required?</b>}
+        
+        FIX["<b>Fix Issues</b><br/>HIGH: 100%<br/>MEDIUM: 91%"]
+        
+        PRODUCTION["<b>✅ Production</b><br/>Vulnerabilities<br/>addressed"]
+        
+        MONITOR["<b>Continuous<br/>Monitoring</b><br/>Quarterly red team<br/>Nightly Garak"]
+        
+        FINDINGS --> REMEDIATE
+        REMEDIATE -->|Yes| FIX
+        REMEDIATE -->|No| PRODUCTION
+        FIX --> PRODUCTION
+        PRODUCTION --> MONITOR
+        MONITOR -.->|New findings| FIX
     end
     
-    subgraph PHASE3["<b>Phase 3: Automated</b>"]
-        P3["<b>Execute 500+<br/>Attack Variations</b><br/>Garak • PyRIT<br/>OWASP<br/>20 vulnerability<br/>categories"]
-    end
+    START --> ROW1
+    ROW1 --> FINDINGS
     
-    subgraph PHASE4["<b>Phase 4: Manual Expert</b>"]
-        P4["<b>40 Hours<br/>Expert Review</b><br/>Security<br/>Clinical<br/>Compliance"]
-    end
-    
-    FINDINGS["<b>Red Team Findings</b><br/>12 HIGH<br/>34 MEDIUM<br/>89 LOW"]
-    
-    REMEDIATE{<b>Remediation<br/>Required?</b>}
-    
-    FIX["<b>Fix Issues</b><br/>HIGH: 100% fixed<br/>MEDIUM: 91% fixed"]
-    
-    PRODUCTION["<b>✅ Production<br/>Launch</b><br/>Vulnerabilities<br/>addressed"]
-    
-    MONITOR["<b>Continuous<br/>Monitoring</b><br/>Quarterly red team<br/>Nightly Garak scans"]
-    
-    START --> PHASE1
-    PHASE1 --> PHASE2
-    PHASE2 --> PHASE3
-    PHASE3 --> PHASE4
-    PHASE4 --> FINDINGS
-    FINDINGS --> REMEDIATE
-    
-    REMEDIATE -->|Yes| FIX
-    REMEDIATE -->|No| PRODUCTION
-    FIX --> PRODUCTION
-    PRODUCTION --> MONITOR
-    MONITOR -.->|New findings| FIX
+    style START fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    style ROW1 fill:#f0fff0,stroke:#00897b,stroke-width:2px,color:#004d40
+    style ROW2 fill:#fafafa,stroke:#666666,stroke-width:2px,color:#000000
     
     style PHASE1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style PHASE2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style PHASE3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style PHASE4 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style P1A fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
-    style P1B fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
-    style P1C fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    style P1 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
     style P2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
     style P3 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
     style P4 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
+    
     style FINDINGS fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style REMEDIATE fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
     style FIX fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style PRODUCTION fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style MONITOR fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style START fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     
     Copyright["© 2025 Colaberry Inc."]
     style Copyright fill:#ffffff,stroke:none,color:#666666
@@ -1708,6 +1736,8 @@ Supporting contributions to:
 
 ```mermaid
 graph LR
+    TITLE["<b>Layer 6: Observability & Feedback</b>"]
+    
     subgraph metrics["<b>Monitoring Metrics</b>"]
         direction TB
         M1["<b>Data Freshness</b><br/>Target: <1 min"]
@@ -1727,6 +1757,7 @@ graph LR
     
     IMPROVE["<b>System<br/>Improvement</b><br/>Updated models<br/>& policies"]
     
+    TITLE -.-> metrics
     metrics --> DETECT
     DETECT --> CLASSIFY
     CLASSIFY -->|"<b>Fixable</b>"| AUTO
@@ -1736,6 +1767,7 @@ graph LR
     FEEDBACK --> IMPROVE
     IMPROVE -.->|"<b>Enhances</b>"| metrics
     
+    style TITLE fill:#00897b,color:#ffffff,stroke:#004d40,stroke-width:3px,font-size:16px
     style metrics fill:#fafafa,stroke:#666666,stroke-width:2px,color:#000000
     style M1 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     style M2 fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
@@ -2280,6 +2312,8 @@ Supporting contributions to:
 
 ```mermaid
 graph LR
+    TITLE["<b>Layer 7: Self-Service Data Products & Multi-Agent Orchestration</b>"]
+    
     subgraph discovery["<b>Self-Service Discovery</b>"]
         direction LR
         DEV["<b>Developer</b><br/>Needs data"]
@@ -2304,8 +2338,11 @@ graph LR
         SPEC --> SYNTH
     end
     
+    TITLE -.-> discovery
+    TITLE -.-> orchestration
     ACCESS -.->|"<b>Enables</b>"| SPEC
     
+    style TITLE fill:#00897b,color:#ffffff,stroke:#004d40,stroke-width:3px,font-size:16px
     style discovery fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000
     style orchestration fill:#fafafa,stroke:#00897b,stroke-width:2px,color:#000000
     style DEV fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
