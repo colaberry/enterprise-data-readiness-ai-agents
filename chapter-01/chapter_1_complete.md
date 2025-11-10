@@ -1929,52 +1929,23 @@ Traditional software follows the test pyramid: many unit tests (fast, isolated),
 The testing pyramid adapts traditional QA practices to probabilistic agent systems, with 70% unit tests providing a stable foundation, validated by Echo Health Systems achieving 95% component coverage, 85% integration coverage, and 80% end-to-end coverage.
 
 ```mermaid
-graph TB
-    subgraph APEX["<b>Production Validation (Apex)</b>"]
-        PROD["<b>Golden Dataset Validation</b><br/>200-500 queries • Weekly<br/>Semantic similarity >0.9"]
-    end
+graph LR
+    PROD["<b>Production Validation</b><br/>Golden Dataset<br/>200-500 queries<br/>Weekly validation<br/>Similarity >0.9"]
     
-    subgraph E2E["<b>Level 3: End-to-End Testing (5%)</b>"]
-        E2E1["<b>50 E2E Scenarios</b><br/>Complete user journeys<br/>Business outcome validation"]
-        E2E2["<b>Echo: 80% Coverage</b><br/>40/50 journeys tested"]
-    end
+    E2E["<b>Level 3: E2E (5%)</b><br/>50 E2E Scenarios<br/>User journeys<br/>Business outcomes<br/><b>Echo: 80%</b><br/>40/50 tested"]
     
-    subgraph INTEGRATION["<b>Level 2: Integration Testing (25%)</b>"]
-        INT1["<b>120 Integration Tests</b><br/>Cross-layer communication<br/>Error propagation"]
-        INT2["<b>Echo: 85% Coverage</b><br/>102/120 paths tested"]
-    end
+    INT["<b>Level 2: Integration (25%)</b><br/>120 Integration Tests<br/>Cross-layer comm<br/>Error propagation<br/><b>Echo: 85%</b><br/>102/120 tested"]
     
-    subgraph UNIT["<b>Level 1: Tool/Component Testing (70%)</b>"]
-        UNIT1["<b>400+ Component Tests</b><br/>Schema validation • ABAC<br/>Error handling • Data validation"]
-        UNIT2["<b>Echo: 95% Coverage</b><br/>380/400 tools tested"]
-    end
+    UNIT["<b>Level 1: Component (70%)</b><br/>400+ Component Tests<br/>Schema • ABAC<br/>Error handling<br/><b>Echo: 95%</b><br/>380/400 tested"]
     
-    PROD --> E2E1
-    E2E1 --> E2E2
-    E2E2 --> INT1
-    INT1 --> INT2
-    INT2 --> UNIT1
-    UNIT1 --> UNIT2
+    CHALLENGE["<b>3 Testing Challenges:</b><br/>1. Non-Determinism<br/>2. Combinatorial Explosion<br/>3. Context Dependencies"]
     
-    CHALLENGE["<b>3 Testing Challenges:</b><br/>1. Non-Determinism (semantic similarity)<br/>2. Combinatorial Explosion (equivalence classes)<br/>3. Context Dependencies (stateful fixtures)"]
+    PROD --> E2E --> INT --> UNIT --> CHALLENGE
     
-    UNIT2 --> CHALLENGE
-    
-    style APEX fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
-    style PROD fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:2px
-    
+    style PROD fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style E2E fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style E2E1 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
-    style E2E2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
-    
-    style INTEGRATION fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style INT1 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
-    style INT2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
-    
+    style INT fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style UNIT fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style UNIT1 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
-    style UNIT2 fill:#ffffff,stroke:#00897b,stroke-width:2px,color:#004d40
-    
     style CHALLENGE fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
     
     Copyright["© 2025 Colaberry Inc."]
