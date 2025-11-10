@@ -157,7 +157,11 @@ graph TB
         P["<b>P: Permitted</b><br/>Dynamic authorization<br/><i>Security builds safety</i>"]
     end
     
-    CENTER["<b>TRUST</b><br/><br/><i>Outcome when all six<br/>needs are fulfilled</i>"]
+    subgraph MIDDLE[" "]
+        direction LR
+        CENTER["<b>TRUST</b><br/><br/><i>Outcome when all six<br/>needs are fulfilled</i>"]
+        HITL["<b>HITL Pattern</b><br/><b>P+T+A Integration</b><br/>P defines WHEN to escalate<br/>T explains WHY decisions made<br/>A learns FROM human corrections"]
+    end
     
     subgraph BOTTOM[" "]
         direction LR
@@ -173,13 +177,12 @@ graph TB
     CENTER --> C
     CENTER --> T
     
-    HITL["<b>HITL Pattern: P+T+A Integration</b><br/>P defines WHEN to escalate<br/>T explains WHY decisions made<br/>A learns FROM human corrections"]
-    
     P -.-> HITL
     T -.-> HITL
     A -.-> HITL
     
     style TOP fill:#ffffff,stroke:none
+    style MIDDLE fill:#ffffff,stroke:none
     style BOTTOM fill:#ffffff,stroke:none
     style CENTER fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:4px
     style I fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
