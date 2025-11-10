@@ -44,7 +44,7 @@ In July 2025, MIT's NANDA initiative released a sobering report. After analyzing
 
 Despite $30-40 billion in investment, only 5% of organizations successfully translate AI pilots into production systems with real financial impact. The study revealed a "GenAI Divide"—a widening gap between companies achieving success and the vast majority stuck in failed experiments.
 
-Here's what's puzzling: AI agents are more accurate than ever. Models like [Claude Sonnet 4](https://www.anthropic.com/claude) and [GPT-4](https://openai.com/gpt-4) achieve superhuman performance on many tasks. Yet pilots keep failing.
+Here's what's puzzling: AI agents are more accurate than ever. Models like Claude Sonnet 4 and GPT-4 achieve superhuman performance on many tasks. Yet pilots keep failing.
 
 **The answer lies in trust, not technology.**
 
@@ -64,11 +64,11 @@ MIT's recommendation was clear: *"Create a strong data foundation. Prioritize lo
 ![Alt text](./diagrams/diagram_0_1_a_HumanEra_AgentEraShift.png "Human Era → Agent Era Shift")
 
 
-For three decades, enterprise data architecture optimized for **human needs** (see Diagram 1: Human Era → Agent Era Shift)—building systems that put information in front of people who make decisions. Humans needed historical context to analyze trends, visual dashboards to spot patterns, time to think before acting, and control over every decision.
+For three decades, enterprise data architecture optimized for **human needs**—building systems that put information in front of people who make decisions. Humans needed historical context to analyze trends, visual dashboards to spot patterns, time to think before acting, and control over every decision.
 
-We built brilliant infrastructure for these needs across multiple technology eras: the Analytics Era brought data warehouses, Extract-Transform-Load (ETL) pipelines, and Online Analytical Processing (OLAP) cubes in the 1990s-2000s; the Big Data Era introduced Hadoop clusters, data lakes, and distributed processing with Spark in the 2010s; the Machine Learning (ML) Era added feature stores, model training pipelines, and real-time predictions in the late 2010s-early 2020s; and the Data Mesh Era pioneered domain ownership, data products, and federated governance in the 2020s.
+We built brilliant infrastructure for these needs across multiple technology eras: the Analytics Era brought data warehouses, ETL pipelines, and OLAP cubes in the 1990s-2000s; the Big Data Era introduced Hadoop clusters, data lakes, and distributed processing with Spark in the 2010s; the ML Era added feature stores, model training pipelines, and real-time predictions in the late 2010s-early 2020s; and the Data Mesh Era pioneered domain ownership, data products, and federated governance in the 2020s.
 
-Sarah Cedao's Echo Health Systems in Boston had invested in all of these progressions over fifteen years—a pristine [SQL Server](https://www.microsoft.com/en-us/sql-server) warehouse from the Analytics Era, [Azure](https://azure.microsoft.com) data lake from the Big Data Era, [Databricks](https://www.databricks.com) for ML workloads, strong governance throughout, and awards for data excellence at each stage.
+Sarah Cedao's Echo Health Systems in Boston had invested in all of these progressions over fifteen years—a pristine SQL Server warehouse from the Analytics Era, Azure data lake from the Big Data Era, Databricks for ML workloads, strong governance throughout, and awards for data excellence at each stage.
 
 **Then came agents.**
 
@@ -337,7 +337,7 @@ Your data warehouse has 487 tables with names like FCT_PTNT_ENCT and DIM_PRVDR_S
 
 ### The Bridge to Architecture
 
-Chapter 1 shows how the semantic layer (Layer 3) provides business glossaries and entity resolution, how the Retrieval-Augmented Generation (RAG) infrastructure (Layer 4) uses embedding models to encode semantic meaning beyond keywords, and how vector databases (Layer 1) enable concept similarity queries. These components working together allow agents to understand "patients needing diabetes follow-up" and translate it accurately to database queries without developer intervention.
+Chapter 1 shows how the semantic layer (Layer 3) provides business glossaries and entity resolution, how the RAG infrastructure (Layer 4) uses embedding models to encode semantic meaning beyond keywords, and how vector databases (Layer 1) enable concept similarity queries. These components working together allow agents to understand "patients needing diabetes follow-up" and translate it accurately to database queries without developer intervention.
 
 ---
 
@@ -355,7 +355,7 @@ An administrator asks: "Show me appointment statistics." They should see aggrega
 
 The agent needs to enforce the right permissions in milliseconds, every single time—or you're facing HIPAA violations.
 
-The same agent serves different users with different permissions. Traditional Role-Based Access Control (RBAC) breaks down completely for agents.
+The same agent serves different users with different permissions. Traditional role-based access control (RBAC) breaks down completely for agents.
 
 When Dr. Cedao's team built their first agent, they gave it a service account with broad database permissions. This created an immediate compliance crisis: the agent could access any patient's PHI regardless of who was asking, violating HIPAA's minimum necessary standard. When they tried to restrict permissions, the agent couldn't function—it needed different access rights for different queries from different users.
 
@@ -370,7 +370,7 @@ First, **compliance violations**. HIPAA and GDPR require dynamic access control 
 
 Second, **it doesn't scale**. Adding role-based rules for every combination creates what NIST calls "role explosion."[11] A system with just 10 attributes requires over 1,000 roles. Developers spend more time managing permission logic than building features.
 
-Delivering personalized access requires **dynamic authorization**—an infrastructure capability that evaluates permissions at query time based on user attributes, data attributes, environmental context, and intended use. Modern Attribute-Based Access Control (ABAC) solves this by evaluating permissions dynamically in real-time. As Rippling's 2025 analysis explains, ABAC is particularly well-suited for dynamic environments where user responsibilities and resource classifications frequently change, providing the flexibility and fine-grained control that static RBAC cannot deliver.[11b]
+Delivering personalized access requires **dynamic authorization**—an infrastructure capability that evaluates permissions at query time based on user attributes, data attributes, environmental context, and intended use. Modern attribute-based access control (ABAC) solves this by evaluating permissions dynamically in real-time. As Rippling's 2025 analysis explains, ABAC is particularly well-suited for dynamic environments where user responsibilities and resource classifications frequently change, providing the flexibility and fine-grained control that static RBAC cannot deliver.[11b]
 
 This capability comprises attribute-based access control (ABAC) policies evaluated in real-time (where subject attributes include user role, clearance level, department, and employment status; object attributes include data classification, owner, sensitivity level, and geographic region; action attributes specify read, write, summarize, export, or delete operations; and environment attributes capture time of day, location, device type, and network zone), dynamic data masking that redacts sensitive fields based on the requester's permissions, real-time audit logging that captures every access decision with trace IDs, and compliance automation that enforces regulatory requirements like HIPAA's minimum necessary standard without manual intervention.
 
@@ -797,21 +797,11 @@ We've examined six fundamental agent needs in the INPACT™ framework and the in
 
 Sarah Cedao's Echo Health Systems in Boston started exactly where you might be today: pristine SQL Server warehouse, Azure data lake, Databricks for ML workloads, strong governance, awards for data excellence. Fifteen years of progressive investment in Analytics Era infrastructure.
 
-But when her CEO asked "Can we deploy an agent for patient scheduling by Q3?", that infrastructure couldn't deliver on a single INPACT™ need. Overnight ETL created 8-24 hour data staleness. Cryptic table names prevented natural language understanding. Siloed systems blocked cross-domain context. Static RBAC violated Health Insurance Portability and Accountability Act (HIPAA) requirements. No feedback loops meant slow improvement. Incomplete audit logs failed compliance.
+But when her CEO asked "Can we deploy an agent for patient scheduling by Q3?", that infrastructure couldn't deliver on a single INPACT™ need. Overnight ETL created 8-24 hour data staleness. Cryptic table names prevented natural language understanding. Siloed systems blocked cross-domain context. Static RBAC violated HIPAA. No feedback loops meant slow improvement. Incomplete audit logs failed compliance.
 
 **The journey from 9-13 second responses to 1.8 seconds average, from 40-60% query accuracy to 85%+, from compliance failure to HIPAA exemplar, required transforming all seven architectural layers.**
 
 Chapter 1 shows you exactly how.
-
----
-
-### From Understanding to Architecture
-
-In Chapter 0, we established that agents have six fundamental needs (INPACT™) and that traditional Analytics Era infrastructure cannot meet any of them. We saw how Echo Health's sophisticated systems—15 years of progressive investment in SQL Server, Azure, and Databricks—failed on all six needs when asked to support a simple scheduling agent.
-
-The question becomes: **What architecture actually delivers all six INPACT™ capabilities?**
-
-Chapter 1 answers this question with the 7-layer agent-ready data architecture. You'll see exactly how each layer maps to specific agent needs, why the sequence matters, and how Echo Health transformed from 28/100 readiness to 85/100 in 90 days.
 
 ---
 
@@ -840,20 +830,6 @@ Chapter 1 answers this question with the 7-layer agent-ready data architecture. 
 
 ---
 
-## Acronyms
-
-- **ABAC:** Attribute-Based Access Control
-- **ETL:** Extract, Transform, Load
-- **HIPAA:** Health Insurance Portability and Accountability Act
-- **HITL:** Human-in-the-Loop
-- **ML:** Machine Learning
-- **OLAP:** Online Analytical Processing
-- **PHI:** Protected Health Information
-- **RAG:** Retrieval-Augmented Generation
-- **RBAC:** Role-Based Access Control
-
----
-
 ## References and Citations
 
 [1] Challapally, A., Pease, C., Raskar, R., & Chari, P. (2025, July). "The GenAI Divide: State of AI in Business 2025." MIT NANDA (Networked Agents and Decentralized AI). https://mlq.ai/media/quarterly_decks/v0.1_State_of_AI_in_Business_2025_Report.pdf
@@ -862,7 +838,7 @@ Chapter 1 answers this question with the 7-layer agent-ready data architecture. 
 
 [3] Park, K., Yoon, H.Y. (July 2025). "AI Algorithm Transparency, Pipelines for Trust Not Prisms: Mitigating General Negative Attitudes and Enhancing Trust Toward AI." Humanities and Social Sciences Communications, Nature. https://www.nature.com/articles/s41599-025-05116-z
 
-[6] Robbins, T. (n.d.). "The 6 Human Needs: Why We Do What We Do." Tony Robbins. https://www.tonyrobbins.com/mind-meaning/do-you-need-to-feel-significant/ (accessed November 2025)
+[6] Robbins, T. "The 6 Human Needs: Why We Do What We Do." https://www.tonyrobbins.com/mind-meaning/do-you-need-to-feel-significant/
 
 [7a] HubSpot Research (2024). "State of Service Report 2024." Statistics on customer expectations for instant responses and resolution timeframes. https://blog.hubspot.com/service/state-of-service-report
 
@@ -893,4 +869,4 @@ Chapter 1 answers this question with the 7-layer agent-ready data architecture. 
 **Author:** Ram Katamaraja, CEO of Colaberry Inc.  
 **Publisher:** Colaberry Press  
 **Copyright:** © 2025 Colaberry Inc.  
-**Version:** 3.3.0 (INPACT™ + HITL Integration Edition)
+**Version:** 3.2.0 (INPACT™ Framework Edition)
