@@ -239,7 +239,7 @@ graph TB
         T["<b>T - Trusted</b><br/>Explainable decisions<br/><i>Transparency builds confidence</i>"]
     end
     
-    subgraph CAPABILITIES["<b>INFRASTRUCTURE CAPABILITIES</b>"]
+    subgraph CAPABILITIES["<b>INFRASTRUCTURE</b>"]
         I_CAP["<b>Sub-Second Response</b><br/>Real-time + caching"]
         N_CAP["<b>Semantic Understanding</b><br/>Glossaries + embeddings"]
         P_CAP["<b>Dynamic Authorization</b><br/>+ Escalation<br/>ABAC + HITL"]
@@ -255,7 +255,7 @@ graph TB
     C --> C_CAP
     T --> T_CAP
     
-    subgraph HITL["<b>HITL PATTERN: Integration Across P, T, A</b>"]
+    subgraph HITL["<b>HITL PATTERN: P+T+A</b>"]
         HITL_DESC["<b>P defines WHEN to escalate</b><br/><b>T explains WHY decisions made</b><br/><b>A learns FROM human corrections</b><br/>→ Graduated autonomy that improves"]
     end
     
