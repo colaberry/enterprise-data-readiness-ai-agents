@@ -652,33 +652,37 @@ Use your total pre-flight score to determine your optimal path. Each readiness b
 Preparation time varies dramatically by readiness score. Figure 3.3 shows the timeline from assessment to deployment for each readiness band.
 
 ```mermaid
-graph LR
-    subgraph "<b>45-50 Points: ✅ READY</b>"
-        R1["<b>Week 1</b><br/><b>Start immediately</b>"]
+graph TB
+    subgraph READY["<b>45-50 Points: ✅ READY</b>"]
+        R1["<b>Week 1: Start Immediately</b>"]
+        R2["<b>Weeks 1-12: 90-Day Build</b>"]
+        R1 --> R2
     end
     
-    subgraph "<b>35-44 Points: ⚠️ CAUTION</b>"
-        C1["<b>Weeks 1-4</b><br/><b>Address gaps</b>"]
-        C2["<b>Weeks 5-16</b><br/><b>90-day build</b>"]
+    subgraph CAUTION["<b>35-44 Points: ⚠️ CAUTION</b>"]
+        C1["<b>Weeks 1-4: Address Gaps</b>"]
+        C2["<b>Weeks 5-16: 90-Day Build</b>"]
         C1 --> C2
     end
     
-    subgraph "<b>25-34 Points: 🔴 NOT READY</b>"
-        N1["<b>Weeks 1-8</b><br/><b>Prep phase</b>"]
-        N2["<b>Weeks 9-20</b><br/><b>90-day build</b>"]
+    subgraph NOTREADY["<b>25-34 Points: 🔴 NOT READY</b>"]
+        N1["<b>Weeks 1-8: Prep Phase</b>"]
+        N2["<b>Weeks 9-20: 90-Day Build</b>"]
         N1 --> N2
     end
     
-    subgraph "<b><25 Points: 🛑 STOP</b>"
-        S1["<b>Months 1-6</b><br/><b>Foundation</b>"]
-        S2["<b>Months 7-12</b><br/><b>Governance</b>"]
-        S3["<b>Month 13+</b><br/><b>Re-assess</b>"]
-        S1 --> S2 --> S3
+    subgraph STOP["<b><25 Points: 🛑 STOP</b>"]
+        S1["<b>Months 1-6: Foundation</b>"]
+        S2["<b>Months 7-12: Governance</b>"]
+        S3["<b>Month 13+: Re-assess</b>"]
+        S1 --> S2
+        S2 --> S3
     end
     
     Copyright["<b>© 2025 Colaberry Inc.</b>"]
     
     style R1 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style R2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     
     style C1 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
     style C2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
@@ -829,24 +833,20 @@ Layer 5 (Governance) is built first because it enables and controls all other la
 The 90-day journey progresses through three distinct phases. Figure 3.4 provides a high-level overview of what you build in each phase.
 
 ```mermaid
-graph LR
-    subgraph "<b>Phase 1: FOUNDATION</b><br/><b>Weeks 1-4</b>"
-        P1["<b>• Layer 5: Governance</b><br/><b>• Layer 1: Storage</b><br/><b>• Layer 3: Semantic</b><br/><b>• Layer 2: Real-Time</b>"]
-    end
+graph TB
+    P1["<b>Phase 1: FOUNDATION</b><br/><b>Weeks 1-4</b><br/>• Layer 5: Governance<br/>• Layer 1: Storage<br/>• Layer 3: Semantic<br/>• Layer 2: Real-Time"]
     
-    subgraph "<b>Phase 2: INTELLIGENCE</b><br/><b>Weeks 5-8</b>"
-        P2["<b>• Week 5: LLM Integration</b><br/><b>• Week 6: RAG</b><br/><b>• Week 7: Multi-Agent</b><br/><b>• Week 8: Caching</b>"]
-    end
+    P2["<b>Phase 2: INTELLIGENCE</b><br/><b>Weeks 5-8</b><br/>• Week 5: LLM Integration<br/>• Week 6: RAG<br/>• Week 7: Multi-Agent<br/>• Week 8: Caching"]
     
-    subgraph "<b>Phase 3: PRODUCTION</b><br/><b>Weeks 9-12</b>"
-        P3["<b>• Week 9: Observability</b><br/><b>• Week 10: API Gateway</b><br/><b>• Week 11: HITL & Testing</b><br/><b>• Week 12: Launch</b>"]
-    end
+    P3["<b>Phase 3: PRODUCTION</b><br/><b>Weeks 9-12</b><br/>• Week 9: Observability<br/>• Week 10: API Gateway<br/>• Week 11: HITL & Testing<br/>• Week 12: Launch"]
     
-    OUTCOME["<b>Production Agents</b><br/><b>INPACT™ 35/36 • GOALS 23/25</b>"]
+    OUTCOME["<b>🎯 Production Agents</b><br/><b>INPACT™ 35/36 • GOALS 23/25</b>"]
     
     Copyright["<b>© 2025 Colaberry Inc.</b>"]
     
-    P1 --> P2 --> P3 --> OUTCOME
+    P1 --> P2
+    P2 --> P3
+    P3 --> OUTCOME
     
     style P1 fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
     style P2 fill:#e0f2f1,stroke:#00897b,stroke-width:3px,color:#004d40
@@ -3881,24 +3881,16 @@ HITL ensures safety for high-stakes decisions. Agent recommendations are evaluat
 Changes flow through multiple environments before reaching production. Figure 3.16 shows the four-stage deployment pipeline.
 
 ```mermaid
-graph LR
-    subgraph "<b>Development</b>"
-        DEV["<b>Dev Environment</b><br/><b>Feature Development</b>"]
-    end
+graph TB
+    DEV["<b>Development</b><br/><b>Dev Environment</b><br/>Feature Development"]
     
-    subgraph "<b>Testing</b>"
-        TEST["<b>Test Environment</b><br/><b>QA + Integration</b>"]
-    end
+    TEST["<b>Testing</b><br/><b>Test Environment</b><br/>QA + Integration"]
     
-    subgraph "<b>Staging</b>"
-        STAGE["<b>Staging Environment</b><br/><b>Pre-Prod Validation</b>"]
-    end
+    STAGE["<b>Staging</b><br/><b>Staging Environment</b><br/>Pre-Prod Validation"]
     
-    subgraph "<b>Production</b>"
-        PROD["<b>Production</b><br/><b>Live Traffic</b>"]
-    end
+    PROD["<b>Production</b><br/><b>Production Environment</b><br/>Live Traffic"]
     
-    MONITOR["<b>Continuous Monitoring</b><br/><b>All Environments</b>"]
+    MONITOR["<b>🔍 Continuous Monitoring</b><br/><b>All Environments</b>"]
     
     Copyright["<b>© 2025 Colaberry Inc.</b>"]
     
