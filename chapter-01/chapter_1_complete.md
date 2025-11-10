@@ -9,45 +9,45 @@
 
 ## From Problem to Solution: Building on Chapter 0
 
-In Chapter 0, you met Sarah Cedao, Chief Data Officer at Echo Health Systems in Boston. Despite fifteen years of progressive data infrastructure, SQL Server warehouse, Azure data lake, Databricks, strong governance, multiple modernization initiatives, her sophisticated systems couldn't support a basic patient scheduling agent.
+In Chapter 0, you met Sarah Cedao, Chief Data Officer at Echo Health Systems in Boston. Despite fifteen years of progressive data infrastructure, Structured Query Language (SQL) Server warehouse, Azure data lake, Databricks, strong governance, multiple modernization initiatives, her sophisticated systems couldn't support a basic patient scheduling agent.
 
-You learned why through the **INPACT™ Framework** - six fundamental agent needs that separate the 5% who succeed from the 95% who fail. Echo's Analytics Era infrastructure failed on all six:
+You learned why through the **INPACTâ„¢ Framework** - six fundamental agent needs that separate the 5% who succeed from the 95% who fail. Echo's Analytics Era infrastructure failed on all six:
 
-| INPACT™ Need | Echo's Gap | Consequence |
+| INPACTâ„¢ Need | Echo's Gap | Consequence |
 |--------------|------------|-------------|
-| **I**nstant | 8-24 hour ETL lag | 9-13 second responses |
+| **I**nstant | 8-24 hour Extract, Transform, Load (ETL) lag | 9-13 second responses |
 | **N**atural | Cryptic table names (FCT_PTNT_ENCT) | 40-60% query accuracy |
-| **P**ermitted | Static RBAC, single service account | HIPAA violations |
+| **P**ermitted | Static RBAC, single service account | Health Insurance Portability and Accountability Act (HIPAA) violations |
 | **A**daptive | No feedback loops, quarterly reviews | Slow improvement |
 | **C**ontextual | Siloed systems, batch integration | Incomplete answers |
 | **T**rusted | Basic audit logs, no traceability | Compliance failure |
 
-**Chapter 0 established the problem and the six needs.** This chapter shows the solution: the 7-layer agent-ready data architecture that delivers all six INPACT™ capabilities through specific infrastructure components.
+**Chapter 0 established the problem and the six needs.** This chapter shows the solution: the 7-layer agent-ready data architecture that delivers all six INPACTâ„¢ capabilities through specific infrastructure components.
 
 Sarah's journey from 9-13 second responses to 1.8 seconds, from 40-60% accuracy to 85%+, from compliance failure to HIPAA exemplar required transforming all seven layers. This chapter shows you exactly how.
 
-> **Note for readers:** This chapter builds directly on Chapter 0's INPACT™ Framework. If you skipped Chapter 0, read it first - the six agent needs are the foundation for understanding why this architecture exists. Sequential reading recommended.
+> **Note for readers:** This chapter builds directly on Chapter 0's INPACTâ„¢ Framework. If you skipped Chapter 0, read it first - the six agent needs are the foundation for understanding why this architecture exists. Sequential reading recommended.
 
 ---
 
-## 📖 Table of Contents
+## ðŸ“– Table of Contents
 
 ### Part I: The Architecture Overview
 - [Why Traditional Infrastructure Fails: The Software 3.0 Paradigm Shift](#why-traditional-infrastructure-fails-the-software-30-paradigm-shift)
 - [The 7-Layer Architecture Framework](#the-architecture-that-works-7-layers-of-agent-ready-enterprise-data-infrastructure)
-- [How INPACT™ Maps to Layers](#the-inpact-connection-from-agent-needs-to-architecture-layers)
+- [How INPACTâ„¢ Maps to Layers](#the-inpact-connection-from-agent-needs-to-architecture-layers)
 
 ### Part II: The Foundation Layers
 - [Layer 1: Multi-Modal Storage Architecture](#layer-1-multi-modal-storage-architecture-including-model-registry)
 - [Layer 2: Real-Time Data Fabric](#layer-2-real-time-data-fabric-including-training-data-pipelines)
 - [Layer 3: Universal Semantic Layer](#layer-3-universal-semantic-layer)
-- **📍 Checkpoint 1** *(After Layer 3 - Foundation Complete)*
+- **ðŸ“ Checkpoint 1** *(After Layer 3 - Foundation Complete)*
 
 ### Part III: The Intelligence Layers
 - [Layer 4: Intelligence Orchestration & Retrieval](#layer-4-intelligence-orchestration--retrieval-rag-infrastructure-with-embedding-models)
 - [Layer 5: Agent-Aware Governance](#layer-5-agent-aware-governance)
 - [Layer 6: Observability & Feedback](#layer-6-observability--feedback-mlops--llm-monitoring)
-- **📍 Checkpoint 2** *(After Layer 6 - Intelligence Complete)*
+- **ðŸ“ Checkpoint 2** *(After Layer 6 - Intelligence Complete)*
 
 ### Part IV: The Orchestration Layer
 - [Layer 7: Self-Service Data Products & Multi-Agent Orchestration](#layer-7-self-service-data-products--multi-agent-orchestration)
@@ -63,15 +63,15 @@ Sarah's journey from 9-13 second responses to 1.8 seconds, from 40-60% accuracy 
 
 ### Part VII: Summary & Next Steps
 - [Chapter 1 Summary](#chapter-1-summary)
-- [What's Next: Building Your INPACT™-Ready Infrastructure](#whats-next-building-your-inpact-ready-infrastructure)
+- [What's Next: Building Your INPACTâ„¢-Ready Infrastructure](#whats-next-building-your-inpact-ready-infrastructure)
 
 ---
 
-## 🧭 Reading Path Guide
+## ðŸ§­ Reading Path Guide
 
 **Choose your path based on your role:**
 
-### 🎯 Executive Path (15 minutes)
+### ðŸŽ¯ Executive Path (15 minutes)
 Focus on business context and ROI technical details optional.
 
 **Must Read:**
@@ -88,7 +88,7 @@ Focus on business context and ROI technical details optional.
 
 ---
 
-### 🏗️ Technical Deep Dive (50-60 minutes)
+### ðŸ—ï¸ Technical Deep Dive (50-60 minutes)
 For architects and implementers all content essential.
 
 **Read sequentially:** All sections cover architectural decisions you'll need to implement.
@@ -96,12 +96,12 @@ For architects and implementers all content essential.
 **Pay special attention to:**
 - "Echo's gap" sections (anti-patterns to avoid)
 - Technology selection guidance
-- INPACT™ Contribution callouts (map needs to solutions)
+- INPACTâ„¢ Contribution callouts (map needs to solutions)
 - Forward references to Chapters 6-12 (implementation details)
 
 ---
 
-### 💼 Business Leader Path (25 minutes)
+### ðŸ’¼ Business Leader Path (25 minutes)
 Understanding "why this matters" without deep technical dive.
 
 **Must Read:**
@@ -137,6 +137,7 @@ Karpathy identifies three distinct eras requiring different infrastructure:
 
 The enterprise challenge: attempting to run Software 3.0 agents on Software 1.0 infrastructure is like running cloud-native microservices on mainframe batch processing. The architectural assumptions don't align.
 
+Andrej Karpathy's Software 1.0/2.0/3.0 framework provides the conceptual foundation for understanding why agent-ready infrastructure represents a paradigm shift rather than an incremental upgrade. Software 1.0 (1950s-2010s) consisted of explicit instructions written in procedural languages like C++, Java, and Python—programmers manually coded every behavior the system would exhibit. Software 2.0 (2010s-2023) introduced machine learning, where developers curated datasets and trained models to learn patterns, but the models remained narrow task-specific systems requiring extensive feature engineering. Software 3.0 (2023-present) fundamentally transforms this paradigm: large language models act as general-purpose reasoning engines programmable through natural language, capable of understanding context, generating novel responses, and adapting through in-context learning without explicit retraining. Diagram 0: Software 1.0 to 3.0 Evolution illustrates this progression, showing how each software generation required fundamentally different infrastructure—Software 1.0 relied on data warehouses and batch ETL, Software 2.0 added MLOps and model registries, and Software 3.0 demands entirely new architectural patterns including vector databases for semantic search, real-time data fabric for sub-second responses, semantic layers for natural language understanding, and attribute-based access control for dynamic authorization. The diagram's "PARADIGM SHIFT" label between Software 2.0 and 3.0 is deliberate: while the transition from 1.0 to 2.0 involved adding ML capabilities to existing infrastructure, the shift to 3.0 requires reconceptualizing core architectural assumptions. This isn't merely a technical distinction—it explains why 95% of organizations struggle with agent deployments when they attempt to run Software 3.0 capabilities on Software 1.0 infrastructure designed for human-mediated decision-making rather than autonomous agent operation.
 **Diagram 0: Software 1.0 to 3.0 Evolution**
 
 ```mermaid
@@ -177,7 +178,7 @@ graph LR
     style prog3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
 
     %% Copyright Notice
-    CR["© 2025 Colaberry Inc."]
+    CR["Â© 2025 Colaberry Inc."]
 
     style infra3 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
@@ -198,27 +199,28 @@ When enterprises attempt agent deployments on BI-era infrastructure, critical mi
 
 **Learning cycles transform.** Software 1.0 required code changes. Software 2.0 required model retraining. Software 3.0 enables in-context learning through interaction. But capturing that learning requires feedback loops and validation mechanisms that BI-era infrastructure never contemplated.
 
+The infrastructure paradigm mismatch (Diagram 0b: Infrastructure Paradigm Mismatch) illustrates why 60% of enterprises struggle with agent deployments: they're attempting to run Software 3.0 agents on Software 1.0 infrastructure designed for batch processing and human analysis, not real-time autonomous operation.
 **Diagram 0b: Infrastructure Paradigm Mismatch**
 
 ```mermaid
 graph TB
-    subgraph challenge["<b>⚠️  THE PROBLEM</b>"]
+    subgraph challenge["<b>âš ï¸  THE PROBLEM</b>"]
         direction TB
         
         current["<b>60% of Enterprises</b><br/>Software 1.0 Infrastructure<br/>Batch ETL, Static RBAC"]
         
         attempting["<b>Attempting to Deploy</b><br/>Software 3.0 Agents<br/>Need real-time, dynamic access"]
         
-        gap["<b>Cannot Bridge Gap</b><br/>No middleware fix<br/>No API layer solution"]
+        gap["<b>Cannot Bridge Gap</b><br/>No middleware fix<br/>No Application Programming Interface (API) layer solution"]
         
-        result["<b>❌ 95% Failure Rate</b><br/>9-13 sec responses<br/>Compliance violations"]
+        result["<b>âŒ 95% Failure Rate</b><br/>9-13 sec responses<br/>Compliance violations"]
         
         current --> gap
         attempting --> gap
         gap --> result
     end
     
-    subgraph solution["<b>✅  THE SOLUTION</b>"]
+    subgraph solution["<b>âœ…  THE SOLUTION</b>"]
         direction TB
         
         transform["<b>Agent-Ready Architecture</b><br/>7-Layer Infrastructure Stack"]
@@ -241,7 +243,7 @@ graph TB
     style transform fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
 
     %% Copyright Notice
-    CR["© 2025 Colaberry Inc."]
+    CR["Â© 2025 Colaberry Inc."]
 
     style delivers fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
@@ -252,7 +254,7 @@ Most enterprises attempt to deploy Software 3.0 agents on Software 1.0 infrastru
 
 ### The Iron Man Suit Model: Design Philosophy for Agents
 
-Karpathy introduces the "Iron Man Suit" model: human augmentation with partial autonomy and fast generate-verify cycles, not autonomous robots. This philosophy directly implements the INPACT™ framework **Instant** responses enable practical human verification, **Natural** language lets domain experts review outputs without translation, a care coordinator reviews "Schedule Dr. Martinez for diabetes follow-up" not "UPDATE appointments SET provider_id=847, dx_code='E11.9'", **Permitted** infrastructure enforces bounded autonomy, **Adaptive** systems learn from human corrections, **Contextual** access provides relevant information without overwhelming detail, and **Trusted** observability makes reasoning visible and auditable.
+Karpathy introduces the "Iron Man Suit" model: human augmentation with partial autonomy and fast generate-verify cycles, not autonomous robots. This philosophy directly implements the INPACTâ„¢ framework **Instant** responses enable practical human verification, **Natural** language lets domain experts review outputs without translation, a care coordinator reviews "Schedule Dr. Martinez for diabetes follow-up" not "UPDATE appointments SET provider_id=847, dx_code='E11.9'", **Permitted** infrastructure enforces bounded autonomy, **Adaptive** systems learn from human corrections, **Contextual** access provides relevant information without overwhelming detail, and **Trusted** observability makes reasoning visible and auditable.
 
 The infrastructure implications are clear. Agents must retrieve context instantly (sub-second latency), present results in human-verifiable formats, operate within authorization boundaries, and escalate edge cases automatically. When these capabilities combine, you get augmentation systems that extend human capability while maintaining human judgment, not autonomous systems attempting to replace it.
 
@@ -274,7 +276,7 @@ Karpathy explains why traditional stacks fail agents; the next section shows the
 
 ## The Architecture That Works: 7 Layers of Agent-Ready Enterprise Data Infrastructure
 
-Over the past two years, we've studied hundreds of production agent deployments across industries, from healthcare systems using AWS Bedrock, to financial institutions building on Azure OpenAI, to retailers deploying Google Vertex AI agents. We've analyzed documented case studies from AWS customer success stories, reviewed architecture patterns from Microsoft's AI documentation, examined Databricks' lakehouse AI implementations, and synthesized patterns from Anthropic's Claude enterprise deployments and technical blogs from Pinecone, Weaviate, and Neo4j.
+Over the past two years, we've studied hundreds of production agent deployments across industries, from healthcare systems using Amazon Web Services (AWS) Bedrock, to financial institutions building on Azure OpenAI, to retailers deploying Google Vertex AI agents. We've analyzed documented case studies from AWS patient success stories, reviewed architecture patterns from Microsoft's AI documentation, examined Databricks' lakehouse AI implementations, and synthesized patterns from Anthropic's Claude enterprise deployments and technical blogs from Pinecone, Weaviate, and Neo4j.
 
 The patterns that separate success from failure are remarkably consistent.
 
@@ -292,13 +294,13 @@ The architecture consists of seven integrated layers, each addressing specific a
 - **Layer 2:** Real-Time Data Fabric (CDC, streaming, training pipelines)
 - **Layer 1:** Multi-Modal Storage (Vector DB, Knowledge Graphs, Model Registry)
 
-### The INPACT™ Connection: From Agent Needs to Architecture Layers
+### The INPACTâ„¢ Connection: From Agent Needs to Architecture Layers
 
-The seven-layer architecture delivers the six INPACT™ needs from Chapter 0 through specific infrastructure capabilities. Here's how they map:
+The seven-layer architecture delivers the six INPACTâ„¢ needs from Chapter 0 through specific infrastructure capabilities. Here's how they map:
 
-**Table: INPACT™ Needs → 7-Layer Architecture Mapping**
+**Table: INPACTâ„¢ Needs â†’ 7-Layer Architecture Mapping**
 
-| INPACT™ Need | What Agents Need | Primary Architecture Layers | Infrastructure Capability |
+| INPACTâ„¢ Need | What Agents Need | Primary Architecture Layers | Infrastructure Capability |
 |--------------|------------------|----------------------------|---------------------------|
 | **I - Instant** | Sub-2-second responses | Layer 2, 1, 4, 7 | Sub-Second Response Architecture |
 | **N - Natural** | 75-85%+ query understanding | Layer 3, 4, 1 | Semantic Understanding |
@@ -307,12 +309,13 @@ The seven-layer architecture delivers the six INPACT™ needs from Chapter 0 thr
 | **C - Contextual** | Real-time cross-domain data | Layer 2, 3, 1, 4 | Cross-Domain Integration |
 | **T - Trusted** | Complete audit trails | Layer 5, 6, 4, 3 | Auditability & Explainability |
 
-**The pattern is clear:** Every INPACT™ need requires multiple layers working together. No single layer solves any need alone. This is why bolt-on approaches fail, you can't just add a vector database and call it "agent-ready."
+**The pattern is clear:** Every INPACTâ„¢ need requires multiple layers working together. No single layer solves any need alone. This is why bolt-on approaches fail, you can't just add a vector database and call it "agent-ready."
 
-Let's examine each layer in detail, understanding how it contributes to delivering the INPACT™ needs.
+Let's examine each layer in detail, understanding how it contributes to delivering the INPACTâ„¢ needs.
 
 Each layer solves specific agent requirements. Let's explore them in detail. The complete seven-layer stack is visualized in Diagram 1 (Seven-Layer Architecture).
 
+The seven-layer agent-ready architecture represents the complete technical blueprint for infrastructure that fulfills all six IMPACT™ needs. Unlike traditional three-tier architectures (presentation, business logic, data) designed for human-facing applications, agent-ready systems require seven specialized layers that work in concert to enable real-time, semantically-aware, dynamically-authorized autonomous operation. Diagram 1: Seven-Layer Architecture (Detailed Component View) provides the comprehensive technical specification, mapping each layer's purpose, representative technologies, and relationships to other layers. The bottom three layers (Data Foundation, Streaming Infrastructure, Semantic & Knowledge) handle data ingestion, real-time processing, and meaning extraction—transforming raw operational data into semantically-enriched entities that agents can reason about. The middle layer (Orchestration & Memory) maintains conversation state, manages multi-step workflows, and provides the coordination fabric enabling complex agent behaviors. The top three layers (Access Control, Observability, Agent Interface) implement the governance, monitoring, and interaction capabilities that make agents trustworthy and production-ready. What makes this architecture fundamentally different from BI-era systems is the bidirectional flow: data doesn't just flow upward from storage to visualization; agents' actions and learning feedback flow downward, continuously improving semantic mappings, access policies, and performance optimizations. Each layer's technology choices reflect agent-specific requirements: vector databases enable semantic similarity search in milliseconds; Change Data Capture provides sub-30-second data freshness; attribute-based access control evaluates dynamic authorization rules; distributed tracing captures reasoning chains for explainability; and natural language interfaces eliminate the need for SQL expertise. Understanding this architecture is essential because it defines the infrastructure gap between current BI systems and agent-ready platforms—a gap that cannot be bridged through incremental upgrades but requires systematic architectural transformation.
 **Diagram 1: Seven-Layer Architecture (Detailed Component View)**
 
 ```mermaid
@@ -322,7 +325,7 @@ graph LR
         LEG_L7["<b>Layer 7</b><br/><b>Orchestration</b>"]
         LEG_L6["<b>Layer 6</b><br/><b>Observability</b>"]
         LEG_L5["<b>Layer 5</b><br/><b>Governance</b>"]
-        LEG_L4["<b>Layer 4 🎯</b><br/><b>Intelligence</b>"]
+        LEG_L4["<b>Layer 4 ðŸŽ¯</b><br/><b>Intelligence</b>"]
         LEG_L3["<b>Layer 3</b><br/><b>Semantic</b>"]
         LEG_L2["<b>Layer 2</b><br/><b>Data Fabric</b>"]
         LEG_L1["<b>Layer 1</b><br/><b>Storage</b>"]
@@ -489,12 +492,13 @@ graph LR
     style L1E fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style L1F fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 
-  Copyright["<b>© 2025 Colaberry Inc.</b>"]
+  Copyright["<b>Â© 2025 Colaberry Inc.</b>"]
     style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
 ---
 
+Diagram 1b: Seven-Layer Stack (Visual Overview) provides a simplified visual representation of how the seven architectural layers stack vertically, making clear that agents sit atop infrastructure delivering Data Foundation → Streaming → Semantic understanding → Orchestration → Access Control → Observability.
 **Diagram 1b: Seven-Layer Stack (Visual Overview)**
 
 ![Seven-Layer 3D Stack Visualization](./diagrams/diagram1_1_b_seven_layers.png "The 7-Layer Agent-Ready Data Architecture showing 3D stack from Multi-Modal Storage foundation to Self-Service Products orchestration layer")
@@ -504,9 +508,10 @@ graph LR
 
 ---
 
+The Seven-Layer Function Matrix (Diagram 1c) provides a tabular view mapping each layer's purpose, key technologies, and primary functions, enabling infrastructure teams to quickly assess which layers they've implemented and which require development.
 **Diagram 1c: Seven-Layer Function Matrix**
 
-![Seven-Layer Comprehensive Function Matrix](./diagrams/diagram1_1_c_seven_layers.png "Complete 7×6 matrix showing all layer functions from Primary through Supporting Tech across all seven layers")
+![Seven-Layer Comprehensive Function Matrix](./diagrams/diagram1_1_c_seven_layers.png "Complete 7Ã—6 matrix showing all layer functions from Primary through Supporting Tech across all seven layers")
 
 > **NOTE TO RAM:** This professional PNG needs manual update:
 > - Change Column 4 header from "Layer 4: Intelligent Retrieval (RAG)" to "**Layer 4: Intelligence Orchestration & Retrieval**"
@@ -528,7 +533,7 @@ graph TB
         V["<b>Vector Database</b><br/>Semantic similarity search"]
         K["<b>Knowledge Graph</b><br/>Entity relationships"]
         D["<b>Document Store</b><br/>Unstructured content"]
-        S["<b>RDBMS</b><br/>Structured transactions"]
+        S["<b>RDBMS</b><br/>Structured encounters"]
         W["<b>Data Warehouse</b><br/>Historical analytics"]
         M["<b>Model Registry</b><br/>ML artifacts & embeddings"]
     end
@@ -563,7 +568,7 @@ graph TB
     style M fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
 
     %% Copyright Notice
-    CR["© 2025 Colaberry Inc."]
+    CR["Â© 2025 Colaberry Inc."]
 
     style U fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
@@ -620,14 +625,14 @@ Layer 1 provides six specialized storage types, each optimized for different que
 | Relationship traversal | Knowledge Graph | 50-200ms | Org chart queries |
 | Full-text keyword | Document Store | 20-100ms | Search policy documents |
 | Structured lookup | RDBMS | 5-20ms | Get patient medications |
-| Aggregation | Data Warehouse | 100-500ms | Monthly revenue by region |
+| Aggregation | Data Warehouse | 100-500ms | Monthly admissions by region |
 | Model lineage | Model Registry | 10-30ms | Which embedding version? |
 | User memory | Memory Store | 5-30ms | Patient prefers morning slots |
 
 **Data Consistency & Cross-Store Sync:**
 
 Multi-modal storage systems operate under **eventual consistency**; agent read queries tolerate millisecond staleness. Cross-store updates are asynchronous via CDC triggers to maintain index alignment between graph and vector stores. For example:
-- Provider record updated in RDBMS → CDC event → Vector DB re-indexes provider bio → Knowledge graph updates org relationships
+- Provider record updated in RDBMS â†’ CDC event â†’ Vector DB re-indexes provider bio â†’ Knowledge graph updates org relationships
 - Typical sync lag: 100-500ms (acceptable for agent workloads)
 
 **Privacy & Encryption:**
@@ -655,7 +660,7 @@ Select technologies based on current stable releases at implementation time rath
 
 ---
 
-**📊 INPACT™ Contribution:**
+**ðŸ“Š INPACTâ„¢ Contribution:**
 
 This layer primarily addresses:
 - **I - Instant**: Query-optimized storage delivers sub-50ms vector search, sub-200ms graph traversal, and sub-20ms transactional lookups critical for 2-second total response time SLOs.
@@ -679,7 +684,7 @@ Supporting contributions to:
 
 ```mermaid
 graph TB
-    S["<b>Source Systems</b><br/>EHR, Claims, Scheduling"]
+    S["<b>Source Systems</b><br/>Electronic Health Record (EHR), Claims, Scheduling"]
     
     CDC["<b>Change Data Capture</b><br/>Detect updates (sub-30s)"]
     
@@ -691,7 +696,7 @@ graph TB
     
     TRAIN["<b>Training Pipeline</b><br/>Model updates & embeddings"]
     
-    READY["<b>✅ Agent-Ready Data</b><br/>Fresh, validated, accessible"]
+    READY["<b>âœ… Agent-Ready Data</b><br/>Fresh, validated, accessible"]
     
     S --> CDC
     CDC --> STREAM
@@ -711,7 +716,7 @@ graph TB
     style TRAIN fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
 
     %% Copyright Notice
-    CR["© 2025 Colaberry Inc."]
+    CR["Â© 2025 Colaberry Inc."]
 
     style READY fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
@@ -764,12 +769,12 @@ Layer 2 transforms source system data into agent-ready format through real-time 
 
 **Inference path (real-time):**
 ```
-Operational DB → CDC → Kafka → Stream processor → Vector DB (embeddings) → Agent (sub-second)
+Operational DB â†’ CDC â†’ Kafka â†’ Stream processor â†’ Vector DB (embeddings) â†’ Agent (sub-second)
 ```
 
 **Training path (batch + streaming):**
 ```
-Operational DB → CDC → Kafka → Feature store → Training dataset → Model training → Model registry → Agent deployment
+Operational DB â†’ CDC â†’ Kafka â†’ Feature store â†’ Training dataset â†’ Model training â†’ Model registry â†’ Agent deployment
 ```
 
 **Privacy and Data Minimization:**
@@ -778,7 +783,7 @@ Streaming pipelines must include **field-level PII masking** and data minimizati
 
 ---
 
-**📊 INPACT™ Contribution:**
+**ðŸ“Š INPACTâ„¢ Contribution:**
 
 This layer primarily addresses:
 - **I - Instant**: Provides sub-30-second data freshness via CDC and streaming, eliminating the staleness that causes 9-13 second response times. When a patient cancels an appointment at 9:47 AM, agents know about it by 9:47:30 AM.
@@ -832,7 +837,7 @@ flowchart LR
     
     ENTITY["<b>Unified Entity</b><br/>Dr. Sarah Martinez"]
     
-    CONTEXT["<b>✅ Complete Context</b><br/>Profile across all systems"]
+    CONTEXT["<b>âœ… Complete Context</b><br/>Profile across all systems"]
     
     NL --> PARSE
     PARSE --> GLOSS
@@ -854,7 +859,7 @@ flowchart LR
     style ENTITY fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 
     %% Copyright Notice
-    CR["© 2025 Colaberry Inc."]
+    CR["Â© 2025 Colaberry Inc."]
 
     style CONTEXT fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
@@ -868,7 +873,7 @@ Layer 3 resolves ambiguous natural language to unified entities across siloed sy
 - Ontologies and taxonomies for domain concepts
 - Metric definitions with embedded business logic
 - Natural language mappings to data entities
-- Cross-system concept unification ("customer" means the same thing everywhere)
+- Cross-system concept unification ("patient" means the same thing everywhere)
 
 **Key Technologies:**
 
@@ -887,7 +892,7 @@ Layer 3 resolves ambiguous natural language to unified entities across siloed sy
 **Ontology management:**
 - [Stardog](https://www.stardog.com) - Knowledge graph platform
 - [TopBraid](https://www.topquadrant.com/products/topbraid-enterprise-data-governance/) - Ontology governance
-- [Protégé](https://protege.stanford.edu) - Open-source ontology editor
+- [ProtÃ©gÃ©](https://protege.stanford.edu) - Open-source ontology editor
 - [GraphDB](https://www.ontotext.com/products/graphdb/) - RDF semantic database
 
 **Metadata management:**
@@ -908,6 +913,7 @@ Layer 3 resolves ambiguous natural language to unified entities across siloed sy
 
 The semantic mapping flow from natural language phrases to data structures is illustrated in Diagram 2 (Semantic Flow), showing how natural language concepts are resolved to specific data entities across systems.
 
+Entity resolution—the process of determining when different data records refer to the same real-world entity—becomes exponentially more complex in agent-ready systems because agents must reason across organizational boundaries, temporal changes, and semantic ambiguity at conversation speed. Traditional deterministic matching rules (exact name matching, shared identifiers) fail when dealing with natural language queries that reference entities informally: "Dr. Sarah Chen" in a conversation might map to "Chen, Sarah MD" in the EHR, "S. Chen" in lab results, and "sarah.chen@echohealth.org" in communication logs. Diagram 2: Semantic Entity Resolution Flow illustrates the multi-stage process required for robust entity resolution in agent contexts. The flow begins with entity extraction from natural language (identifying that "Dr. Sarah Chen" represents a provider entity), proceeds through candidate generation using semantic embeddings to find potentially matching records across systems, applies fuzzy matching with configurable similarity thresholds to score candidates, and culminates in confidence-based disambiguation that either resolves to a single entity or flags ambiguous cases requiring clarification. The semantic layer maintains the golden record—the authoritative merged view of each entity incorporating data from all source systems with conflict resolution rules. What distinguishes this from BI-era master data management is the real-time requirement: entity resolution must complete in milliseconds as part of query execution, not overnight in batch processes. The diagram shows how embedding-based candidate generation dramatically reduces the search space (from millions of records to dozens of candidates), enabling fuzzy matching and confidence scoring to execute within sub-second latency requirements while maintaining high accuracy through continuous learning from user confirmations and corrections.
 **Diagram 2: Semantic Entity Resolution Flow**
 
 ```mermaid
@@ -945,7 +951,7 @@ graph LR
     style H fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 
     %% Copyright Notice
-    CR["© 2025 Colaberry Inc."]
+    CR["Â© 2025 Colaberry Inc."]
 
     style I fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
@@ -959,7 +965,7 @@ Layer 3's semantic layer resolves ambiguous natural language to unified entities
 
 ---
 
-**📊 INPACT™ Contribution:**
+**ðŸ“Š INPACTâ„¢ Contribution:**
 
 This layer primarily addresses:
 - **N - Natural**: Translates natural language ("diabetes follow-up patients") to precise data queries (diagnosis codes E11.*, HbA1c > 7.0, scheduling logic), improving accuracy from 40-60% baseline to 75-85%+ with semantic optimization.
@@ -984,7 +990,7 @@ Layer 3 maintains canonical identities across systems through **golden IDs** tha
 - Providers: `provider_npi` (national provider identifier)
 - Locations: `facility_id` (master facility registry)
 
-This ensures that "customer #12345 in CRM" and "account #CUST-890 in billing" are recognized as the same real-world person, enabling agents to assemble complete cross-system context without identity fragmentation. The semantic layer addresses natural language understanding requirements as shown in Table 1 (Layer-to-Requirement Mapping).
+This ensures that "patient #12345 in CRM" and "account #CUST-890 in billing" are recognized as the same real-world person, enabling agents to assemble complete cross-system context without identity fragmentation. The semantic layer addresses natural language understanding requirements as shown in Table 1 (Layer-to-Requirement Mapping).
 
 #### Metric Versioning & Change Management
 
@@ -992,7 +998,7 @@ All business metrics in Layer 3 follow **semantic versioning** (`vMAJOR.MINOR.PA
 
 **Version Types:**
 - **MAJOR** (v2.0.0): Breaking changes that alter metric meaning or calculation
-  - Example: Changing "active customer" definition from "purchased in 90 days" to "purchased in 30 days"
+  - Example: Changing "active patient" definition from "purchased in 90 days" to "purchased in 30 days"
   - Requires: 30-day deprecation notice, automated alerts to all consuming agents, migration guide
   
 - **MINOR** (v1.3.0): Non-breaking additions or enhancements
@@ -1012,7 +1018,7 @@ All business metrics in Layer 3 follow **semantic versioning** (`vMAJOR.MINOR.PA
 **Agent Protection:**
 Agents can pin to specific metric versions (`daily_revenue@v1.2`) to avoid unexpected behavior changes, or subscribe to "latest stable" with controlled upgrade windows.
 
-#### ⚠️ Bias-Aware Term Governance
+#### âš ï¸ Bias-Aware Term Governance
 
 Terms that encode policy decisions or have fairness implications require additional scrutiny:
 
@@ -1023,7 +1029,7 @@ Terms that encode policy decisions or have fairness implications require additio
 - **Review requirement**: Humanist Council sign-off before publication
 - **Audit**: Annual fairness assessment with demographic stratification
 
-Other sensitive terms requiring flags: "credit risk," "attrition likelihood," "high-value customer," "fraud probability"
+Other sensitive terms requiring flags: "credit risk," "attrition likelihood," "high-value patient," "fraud probability"
 
 **Governance**: All sensitivity-tagged terms appear in monthly ethics review dashboard and require explicit human acknowledgment before agent deployment.
 
@@ -1033,7 +1039,7 @@ To keep Layer 2 healthy and agent-aligned:
 
 **Weekly Activities:**
 - Glossary triage (new term requests, definition clarifications)
-- SLA: Term request resolution ≤ 5 business days
+- SLA: Term request resolution â‰¤ 5 business days
 
 **Monthly Activities:**
 - Semantic drift review (new jargon, changed business rules)
@@ -1045,7 +1051,7 @@ To keep Layer 2 healthy and agent-aligned:
 
 **Annual Activities:**
 - Comprehensive fairness assessment for sensitive terms
-- VERT Ethics Audit sign-off
+- independent ethics review
 
 **Incident Response:**
 - P1 definition regression: 24-hour resolution
@@ -1059,15 +1065,15 @@ To keep Layer 2 healthy and agent-aligned:
 
 ---
 
-## 📍 Checkpoint 1: Foundation Layers Complete
+## ðŸ“ Checkpoint 1: Foundation Layers Complete
 
 **What we've covered so far:**
 
-✅ **Layer 1 (Multi-Modal Storage):** Query-optimized databases replacing one-size-fits-all warehouses. Vector DBs for semantic search, knowledge graphs for relationships, traditional RDBMS for transactions, model registry for ML artifacts.
+âœ… **Layer 1 (Multi-Modal Storage):** Query-optimized databases replacing one-size-fits-all warehouses. Vector DBs for semantic search, knowledge graphs for relationships, traditional RDBMS for encounters, model registry for ML artifacts.
 
-✅ **Layer 2 (Real-Time Data Fabric):** Streaming data with sub-30-second freshness replacing overnight batch ETL. CDC, Kafka, feature stores ensuring agents always work with current data.
+âœ… **Layer 2 (Real-Time Data Fabric):** Streaming data with sub-30-second freshness replacing overnight batch ETL. CDC, Kafka, feature stores ensuring agents always work with current data.
 
-✅ **Layer 3 (Universal Semantic Layer):** Business glossaries and entity resolution replacing cryptic schemas. Natural language maps to data structures automatically, "diabetes follow-up patients" becomes accurate queries without developer intervention.
+âœ… **Layer 3 (Universal Semantic Layer):** Business glossaries and entity resolution replacing cryptic schemas. Natural language maps to data structures automatically, "diabetes follow-up patients" becomes accurate queries without developer intervention.
 
 **Key insight so far:** These foundation layers solve data staleness, semantic ambiguity, and cross-system identity problems. Without them, agents can't understand questions or access fresh, unified data.
 
@@ -1101,7 +1107,7 @@ graph TB
     
     CACHE["<b>Semantic Caching</b><br/>50-90% cost reduction"]
     
-    LLM["<b>✅ LLM with Context</b><br/>Accurate, grounded response"]
+    LLM["<b>âœ… LLM with Context</b><br/>Accurate, grounded response"]
     
     Q --> U
     U --> E
@@ -1127,7 +1133,7 @@ graph TB
     style CACHE fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
 
     %% Copyright Notice
-    CR["© 2025 Colaberry Inc."]
+    CR["Â© 2025 Colaberry Inc."]
 
     style LLM fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
@@ -1155,7 +1161,7 @@ The RAG layer implements confidence thresholds to handle uncertainty gracefully:
 - **Medium confidence (0.70-0.85):** Agent surfaces multiple interpretations, asks user to choose  
 - **High confidence (>0.85):** Agent provides answer with sources and confidence band
 
-When primary retrieval fails, the system cascades through: semantic search → keyword search → fuzzy matching → human escalation. This prevents hallucinations by acknowledging uncertainty rather than fabricating answers.
+When primary retrieval fails, the system cascades through: semantic search â†’ keyword search â†’ fuzzy matching â†’ human escalation. This prevents hallucinations by acknowledging uncertainty rather than fabricating answers.
 
 - **Semantic caching** for performance 
 - **Retrieval monitoring and optimization**
@@ -1210,7 +1216,7 @@ RAG effectiveness depends on **optimal chunk sizing** that balances context comp
 - **Size**: 800-1,200 tokens per chunk (typical)
   - Medical notes: 600-800 tokens (dense clinical language)
   - Legal documents: 1,000-1,500 tokens (longer context needed)
-  - Customer transcripts: 400-600 tokens (conversational flow)
+  - Patient transcripts: 400-600 tokens (conversational flow)
 - **Overlap**: 10-20% between adjacent chunks to preserve context boundaries
 - **Splitters**: 
   - Semantic splitters (preserve paragraph/section boundaries)
@@ -1224,12 +1230,12 @@ When combining vector similarity, keyword matching, and metadata filters, use **
 
 **RRF Formula:**
 ```
-score(doc) = Σ [1 / (k + rank_i(doc))]
+score(doc) = Î£ [1 / (k + rank_i(doc))]
 where k=60 (constant), rank_i = document rank in search method i
 ```
 
 **Tuning**: Optimize fusion weights using offline evaluation:
-- Measure: NDCG@5, Recall@10, Precision@3
+- Measure: Normalized Discounted Cumulative Gain (NDCG)@5, Recall@10, Precision@3
 - Iterate: Adjust vector vs. keyword weight ratios per domain
 - Example: Medical notes (70% vector, 20% keyword, 10% metadata) vs. structured data (30% vector, 50% keyword, 20% metadata)
 
@@ -1289,7 +1295,7 @@ Agent: "The appointment is scheduled for 3pm next Tuesday with Dr. Martinez in R
 }
 ```
 
-Modern LLMs support native structured outputs ([OpenAI Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs), [Anthropic Tool Use](https://docs.anthropic.com/claude/docs/tool-use)) enforcing JSON schemas or Pydantic models.[11][12] This prevents parsing errors, enables database writes, and ensures reliable downstream processing. Echo's agents use structured outputs to write appointments directly to Epic's FHIR API without manual data transformation.
+Modern LLMs support native structured outputs ([OpenAI Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs), [Anthropic Tool Use](https://docs.anthropic.com/claude/docs/tool-use)) enforcing JavaScript Object Notation (JSON) schemas or Pydantic models.[11][12] This prevents parsing errors, enables database writes, and ensures reliable downstream processing. Echo's agents use structured outputs to write appointments directly to Epic's FHIR API without manual data transformation.
 
 #### Embedding Model Selection
 
@@ -1321,11 +1327,11 @@ Set a per-query spend cap (e.g., $0.02); auto-degrade to smaller reranker/embedd
 
 > **Deep Dive:** For comprehensive RAG implementation patterns including advanced chunking strategies, reranking algorithms, and production optimization techniques, see Chapter 10: RAG Architecture Best Practices. For embedding model fine-tuning and domain adaptation, see Chapter 10 Section 3.
 
-**Echo's gap:** They had no retrieval infrastructure whatsoever. Their initial agent prototype simply queried SQL Server directly with natural language converted to SQL by GPT-4 which worked only 40% of the time and often timed out. No embedding models (couldn't do semantic search). No caching (every query hit the database). No ranking (results came back in insertion order). No optimization (queries were generated naively). No fallback strategy when retrieval failed. Agent responses were slow (3-8 seconds when they worked), frequently wrong, and often incomplete. No confidence disclosure - users couldn't tell when answers were uncertain. No chunking strategy - entire documents dumped into context, causing truncation. No cost controls - LLM API bills spiked unpredictably.
+**Echo's gap:** They had no retrieval infrastructure whatsoever. Their initial agent prototype simply queried SQL Server directly with natural language converted to SQL by GPT-4 which worked only 40% of the time and often timed out. No embedding models (couldn't do semantic search). No caching (every query hit the database). No ranking (results came back in insertion appointment). No optimization (queries were generated naively). No fallback strategy when retrieval failed. Agent responses were slow (3-8 seconds when they worked), frequently wrong, and often incomplete. No confidence disclosure - users couldn't tell when answers were uncertain. No chunking strategy - entire documents dumped into context, causing truncation. No cost controls - LLM API bills spiked unpredictably.
 
 ---
 
-**📊 INPACT™ Contribution:**
+**ðŸ“Š INPACTâ„¢ Contribution:**
 
 This layer primarily addresses:
 - **I - Instant**: Semantic caching achieves 60%+ hit rates, reducing latency from seconds to milliseconds. Parallel retrieval across storage layers enables sub-2-second multi-source context assembly.
@@ -1355,19 +1361,19 @@ graph TB
     POL["<b>ABAC Policy Engine</b><br/>Evaluate context attributes"]
     
     subgraph eval["<b>Four-Factor Evaluation</b>"]
-        WHO["<b>👤 Who</b><br/>User role & permissions"]
-        WHAT["<b>📋 What</b><br/>Data sensitivity level"]
-        WHEN["<b>📅 When</b><br/>Time & consent validity"]
-        WHERE["<b>📱 Where</b><br/>Location & device"]
+        WHO["<b>ðŸ‘¤ Who</b><br/>User role & permissions"]
+        WHAT["<b>ðŸ“‹ What</b><br/>Data sensitivity level"]
+        WHEN["<b>ðŸ“… When</b><br/>Time & consent validity"]
+        WHERE["<b>ðŸ“± Where</b><br/>Location & device"]
     end
     
     DEC{<b>Decision</b>}
     
     MASK["<b>Apply Masking</b><br/>Redact sensitive fields"]
     
-    ALLOW["<b>✅ Access Granted</b><br/>Secured, audited result"]
+    ALLOW["<b>âœ… Access Granted</b><br/>Secured, audited result"]
     
-    DENY["<b>❌ Access Denied</b><br/>Logged with reason"]
+    DENY["<b>âŒ Access Denied</b><br/>Logged with reason"]
     
     REQ --> POL
     POL --> eval
@@ -1393,7 +1399,7 @@ graph TB
     style ALLOW fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 
     %% Copyright Notice
-    CR["© 2025 Colaberry Inc."]
+    CR["Â© 2025 Colaberry Inc."]
 
     style DENY fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
@@ -1404,12 +1410,12 @@ Layer 5 evaluates permissions dynamically based on four contextual factors (Who,
 
 **What it replaces:** Static role-based access control (RBAC) and manual compliance processes designed for human-driven queries
 
-**Implementing the HITL Pattern from Chapter 0:**
+**Implementing the Human-in-the-Loop (HITL) Pattern from Chapter 0:**
 
 Remember from Chapter 0 how Permitted (P) and Trusted (T) needs work together through human-in-the-loop patterns? Layer 5 implements those patterns through three integrated mechanisms:
 
 1. **ABAC policies (P - Permitted)**: Define escalation thresholds (financial >$5K, clinical significance, regulatory requirements, confidence <0.85) that route high-risk decisions to human approval
-2. **Comprehensive audit logging (T - Trusted)**: Capture complete context enabling effective human verification—not just "approve/deny" but informed judgment with full reasoning visibility
+2. **Comprehensive audit logging (T - Trusted)**: Capture complete context enabling effective human verificationâ€”not just "approve/deny" but informed judgment with full reasoning visibility
 3. **Approval workflows**: Multiple patterns (synchronous 4-12 minutes for urgent, asynchronous 2.5-18 hours for planned, human-on-loop for monitoring) matching decision urgency to approval SLA
 
 The result: agents operate autonomously for routine decisions (92% at Echo) while escalating high-stakes actions (8%) to appropriate human oversight with complete transparency enabling effective verification.
@@ -1480,7 +1486,7 @@ The result: agents operate autonomously for routine decisions (92% at Echo) whil
 
 #### Policy Caching & Fail-Safe
 
-Cache last-known permit/deny decisions for ≤ 60 seconds to minimize latency. If policy engine unreachable, **deny by default** and escalate to human approver. Log all fail-safe denials for security review.
+Cache last-known permit/deny decisions for â‰¤ 60 seconds to minimize latency. If policy engine unreachable, **deny by default** and escalate to human approver. Log all fail-safe denials for security review.
 
 #### Red Teaming: Adversarial Security Validation
 
@@ -1490,9 +1496,9 @@ Red teaming systematically probes agent systems for security weaknesses through 
 
 **Why Red Teaming Matters for Healthcare Agents:**
 
-Echo Health's agents access 2.3 million patient records. A successful attack could expose PHI, violate HIPAA, or cause patient harm. Traditional security testing focuses on infrastructure—firewalls, encryption, authentication. Agent security requires testing reasoning boundaries: Can prompts override policies? Can queries leak data across patient boundaries? Can agents be manipulated into unauthorized actions?
+Echo Health's agents access 2.3 million patient records. A successful attack could expose PHI, violate HIPAA, or cause patient harm. Traditional security testing focuses on infrastructureâ€”firewalls, encryption, authentication. Agent security requires testing reasoning boundaries: Can prompts override policies? Can queries leak data across patient boundaries? Can agents be manipulated into unauthorized actions?
 
-Research shows that LLMs are "dangerously gullible" to prompt injection attacks where malicious instructions override system behavior. Traditional security separates code (control plane) from data (data plane)—SQL injection fails because parameterized queries enforce this boundary. LLMs cannot make this separation because instructions and data both use natural language. This fundamental limitation demands systematic adversarial testing.
+Research shows that LLMs are "dangerously gullible" to prompt injection attacks where malicious instructions override system behavior. Traditional security separates code (control plane) from data (data plane)â€”SQL injection fails because parameterized queries enforce this boundary. LLMs cannot make this separation because instructions and data both use natural language. This fundamental limitation demands systematic adversarial testing.
 
 **Echo's Red Team Process:**
 
@@ -1562,6 +1568,7 @@ Red team findings directly improve guardrail implementations:
 
 This feedback loop ensures guardrails evolve alongside attack techniques.
 
+Agent security requires systematic adversarial testing beyond traditional penetration testing. Diagram 8: Red Team Process Flow illustrates the four-phase approach: Threat Modeling identifies attack vectors specific to LLMs (prompt injection, data poisoning), Attack Simulation executes test exploits, Impact Assessment measures damage scope, and Remediation implements fixes with verification testing.
 **Diagram 8: Red Team Process Flow**
 
 This 4-phase process ensures systematic vulnerability discovery before production deployment, with Echo Health Systems discovering 135 total vulnerabilities (12 HIGH, 34 MEDIUM, 89 LOW) and addressing 100% of critical issues before launch.
@@ -1577,24 +1584,24 @@ graph TB
     end
     
     subgraph PHASE2["<b>Phase 2: Attack Scenarios (Week 2)</b>"]
-        P2["<b>Develop 200+ Attack Variations</b><br/><b>Prompt injection • Goal hijacking</b><br/><b>Data exfiltration • Jailbreaking</b>"]
+        P2["<b>Develop 200+ Attack Variations</b><br/><b>Prompt injection â€¢ Goal hijacking</b><br/><b>Data exfiltration â€¢ Jailbreaking</b>"]
     end
     
     subgraph PHASE3["<b>Phase 3: Automated Testing (Weeks 3-4)</b>"]
-        P3["<b>Execute 500+ Attack Variations</b><br/><b>Garak • PyRIT • OWASP</b><br/><b>20 vulnerability categories</b>"]
+        P3["<b>Execute 500+ Attack Variations</b><br/><b>Garak â€¢ PyRIT â€¢ OWASP</b><br/><b>20 vulnerability categories</b>"]
     end
     
     subgraph PHASE4["<b>Phase 4: Manual Expert Testing (Week 5)</b>"]
-        P4["<b>40 Hours Expert Review</b><br/><b>Security • Clinical • Compliance</b>"]
+        P4["<b>40 Hours Expert Review</b><br/><b>Security â€¢ Clinical â€¢ Compliance</b>"]
     end
     
-    FINDINGS["<b>Red Team Findings</b><br/><b>12 HIGH • 34 MEDIUM • 89 LOW</b>"]
+    FINDINGS["<b>Red Team Findings</b><br/><b>12 HIGH â€¢ 34 MEDIUM â€¢ 89 LOW</b>"]
     
     REMEDIATE{<b>Remediation<br/>Required?</b>}
     
     FIX["<b>Fix Issues</b><br/><b>HIGH: 100% fixed</b><br/><b>MEDIUM: 91% fixed</b>"]
     
-    PRODUCTION["<b>✅ Production Launch</b><br/><b>Vulnerabilities addressed</b>"]
+    PRODUCTION["<b>âœ… Production Launch</b><br/><b>Vulnerabilities addressed</b>"]
     
     MONITOR["<b>Continuous Monitoring</b><br/><b>Quarterly red team</b><br/><b>Nightly Garak scans</b>"]
     
@@ -1630,7 +1637,7 @@ graph TB
     style MONITOR fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style START fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
     
-    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    Copyright["<b>Â© 2025 Colaberry Inc.</b>"]
     style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
@@ -1651,7 +1658,7 @@ Echo conducts adversarial testing biweekly, feeding findings into agent robustne
 
 #### Purpose Limitation & Accountability
 
-Each query log records `purpose_of_use` (e.g., "appointment lookup for patient 12345") to satisfy accountability and regulatory traceability per GDPR Article 5(1)(b). Link every policy to an `owner_id` and `last_review_date` field; include in monthly VERT Ethics audit report.
+Each query log records `purpose_of_use` (e.g., "appointment lookup for patient 12345") to satisfy accountability and regulatory traceability per GDPR Article 5(1)(b). Link every policy to an `owner_id` and `last_review_date` field; include in monthly independent ethics review report.
 
 **Audit Logging Requirements:**
 
@@ -1683,14 +1690,14 @@ Technologies include [NeMo Guardrails](https://github.com/NVIDIA/NeMo-Guardrails
 
 - **Monthly**: Policy diff report (auto-generated, emailed to security team)
 - **Quarterly**: Compliance checkpoint (GDPR/HIPAA/SOC2 mapping review)
-- **Annual**: VERT Ethics Audit sign-off (external review)
-- **Incident response**: Policy breach resolution ≤ 24 hours
+- **Annual**: independent ethics review (external review)
+- **Incident response**: Policy breach resolution â‰¤ 24 hours
 
 **Echo's gap:** Their existing access control was role-based and enforced at the database level. When the agent queried on behalf of different users, it used a single "application service account" with broad permissions. There was no way to dynamically enforce individual user permissions without rewriting every query. Audit logs showed which agent made queries, but not which human user triggered them. HIPAA compliance was a showstopper. No purpose-of-use logging - couldn't prove data access was justified. No policy caching - every query hit the policy engine, adding 50-100ms latency. No fail-safe mode - when policy engine went down, agent failed completely rather than degrading gracefully.
 
 ---
 
-**📊 INPACT™ Contribution:**
+**ðŸ“Š INPACTâ„¢ Contribution:**
 
 This layer primarily addresses:
 - **P - Permitted**: Dynamic ABAC evaluates permissions in real-time based on user attributes (role, clearance), data attributes (sensitivity, classification), actions (read, summarize, export), and environmental context (time, location, device) all in under 10ms per query.
@@ -1727,9 +1734,9 @@ graph TB
     
     CLASSIFY{<b>Issue Type</b>}
     
-    AUTO["<b>✅ Auto-Fix</b><br/>Data quality corrections<br/>Model retraining"]
+    AUTO["<b>âœ… Auto-Fix</b><br/>Data quality corrections<br/>Model retraining"]
     
-    ALERT["<b>⚠️ Human Alert</b><br/>Critical issues<br/>Threshold breaches"]
+    ALERT["<b>âš ï¸ Human Alert</b><br/>Critical issues<br/>Threshold breaches"]
     
     FEEDBACK["<b>Feedback Loop</b><br/>Continuous improvement"]
     
@@ -1757,7 +1764,7 @@ graph TB
     style FEEDBACK fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
 
     %% Copyright Notice
-    CR["© 2025 Colaberry Inc."]
+    CR["Â© 2025 Colaberry Inc."]
 
     style IMPROVE fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
@@ -1826,6 +1833,7 @@ Layer 6 monitors metrics across all layers and triggers automated responses. Aut
 
 **Real-world validation:** According to Monte Carlo's analysis, data downtime refers to periods when data is partial, erroneous, missing, or otherwise inaccurate and by applying observability principles to data and ML systems, these issues can be identified, resolved, and even prevented.[7] Organizations implementing data observability report up to 80% reductions in data downtime, directly improving agent reliability.
 
+Observability and automated feedback loops (Diagram 3) transform agent operations from reactive debugging to proactive improvement. The diagram shows how distributed tracing captures reasoning chains, metrics quantify performance and accuracy, automated anomaly detection flags degradation before users notice, and continuous learning loops feed insights back to semantic layers and policy engines, creating self-improving systems.
 **Diagram 3: Observability & Automated Feedback Loops**
 
 ```mermaid
@@ -1846,10 +1854,10 @@ graph TB
     subgraph feedback["<b>AUTOMATED FEEDBACK LOOPS</b>"]
         direction LR
         
-        FB1["<b>✅ Auto-fix</b><br/>Data Quality"]
-        FB2["<b>✅ Auto-retrain</b><br/>Model Drift"]
-        FB3["<b>⚠️ Auto-scale</b><br/>Cost Control"]
-        FB4["<b>⚠️ Alert</b><br/>Threshold Breach"]
+        FB1["<b>âœ… Auto-fix</b><br/>Data Quality"]
+        FB2["<b>âœ… Auto-retrain</b><br/>Model Drift"]
+        FB3["<b>âš ï¸ Auto-scale</b><br/>Cost Control"]
+        FB4["<b>âš ï¸ Alert</b><br/>Threshold Breach"]
     end
     
     DATA -.->|Quality Issue| FB1
@@ -1871,7 +1879,7 @@ graph TB
     style FB4 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
 
     %% Copyright Notice
-    CR["© 2025 Colaberry Inc."]
+    CR["Â© 2025 Colaberry Inc."]
     style CR fill:none,stroke:none,color:#999999
 
 
@@ -1886,14 +1894,14 @@ Every agent request receives a **globally unique `trace_id`** that propagates ac
 **Trace Flow:**
 ```
 User Request (trace_id: a7f3c2d1)
-  ↓ Layer 2: CDC event tagged with trace_id
-  ↓ Layer 3: Semantic mapping logged
-  ↓ Layer 1: Storage queries annotated
-  ↓ Layer 4: Retrieval results marked
-  ↓ Layer 5: ABAC decision recorded
-  ↓ Layer 6: Performance metrics collected
-  ↓ Layer 7: Multi-agent coordination tracked
-  → Final Response (trace_id in headers)
+  â†“ Layer 2: CDC event tagged with trace_id
+  â†“ Layer 3: Semantic mapping logged
+  â†“ Layer 1: Storage queries annotated
+  â†“ Layer 4: Retrieval results marked
+  â†“ Layer 5: ABAC decision recorded
+  â†“ Layer 6: Performance metrics collected
+  â†“ Layer 7: Multi-agent coordination tracked
+  â†’ Final Response (trace_id in headers)
 ```
 
 **Benefits:**
@@ -1910,7 +1918,7 @@ Layer 6 runs **offline** and **online** evaluations in parallel to catch quality
 
 **Offline Evaluation (Pre-deployment):**
 - **Golden dataset**: 200-500 human-labeled examples per domain
-  - Example: "What's Dr. Martinez's schedule?" → Expected slots + sources
+  - Example: "What's Dr. Martinez's schedule?" â†’ Expected slots + sources
 - **Metrics**: NDCG@5, Recall@10, Precision@3 for retrieval; accuracy/grounding for answers
 - **Cadence**: Run on every model/data update before rollout
 - **Threshold**: NDCG > 0.85 required for production deployment
@@ -1922,14 +1930,14 @@ Layer 6 runs **offline** and **online** evaluations in parallel to catch quality
 - **Drift detection**: Statistical tests comparing current vs. baseline distributions
 
 **Auto-Response to Threshold Breaches:**
-- NDCG drops below 0.80 → Create incident ticket, alert on-call
-- Hallucination rate > 5% → Pause deployment, trigger rollback
-- Cost per query > $0.02 → Auto-downshift to smaller reranker
-- Freshness SLA miss → Increase CDC poll frequency
+- NDCG drops below 0.80 â†’ Create incident ticket, alert on-call
+- Hallucination rate > 5% â†’ Pause deployment, trigger rollback
+- Cost per query > $0.02 â†’ Auto-downshift to smaller reranker
+- Freshness SLA miss â†’ Increase CDC poll frequency
 
 #### Testing Strategy: The Agent Testing Pyramid
 
-Evaluation frameworks (offline/online) measure production quality. Testing validates behavior before production. Both are essential—evaluation detects drift, testing prevents regression.
+Evaluation frameworks (offline/online) measure production quality. Testing validates behavior before production. Both are essentialâ€”evaluation detects drift, testing prevents regression.
 
 Agent testing requires adapting traditional QA practices to probabilistic systems. The challenge: agents don't produce deterministic outputs, context matters, and combinatorial inputs make exhaustive testing impossible.
 
@@ -1937,6 +1945,7 @@ Agent testing requires adapting traditional QA practices to probabilistic system
 
 Traditional software follows the test pyramid: many unit tests (fast, isolated), fewer integration tests (slower, multi-component), few end-to-end tests (slowest, full system). Agents require a similar but adapted structure.
 
+The Agent Testing Pyramid (Diagram 9) adapts the traditional testing pyramid for autonomous systems: extensive unit tests verify individual components (semantic resolution, policy evaluation), integration tests validate cross-layer interactions (authorization during retrieval), system tests confirm end-to-end workflows, and production validation uses real user interactions with confidence-based monitoring.
 **Diagram 9: Agent Testing Pyramid**
 
 The testing pyramid adapts traditional QA practices to probabilistic agent systems, with 70% unit tests providing a stable foundation, validated by Echo Health Systems achieving 95% component coverage, 85% integration coverage, and 80% end-to-end coverage.
@@ -1944,7 +1953,7 @@ The testing pyramid adapts traditional QA practices to probabilistic agent syste
 ```mermaid
 graph TB
     subgraph APEX["<b>Production Validation (Apex)</b>"]
-        PROD["<b>Golden Dataset Validation</b><br/><b>200-500 queries • Weekly</b><br/><b>Semantic similarity >0.9</b>"]
+        PROD["<b>Golden Dataset Validation</b><br/><b>200-500 queries â€¢ Weekly</b><br/><b>Semantic similarity >0.9</b>"]
     end
     
     subgraph E2E["<b>Level 3: End-to-End Testing (5%)</b>"]
@@ -1958,7 +1967,7 @@ graph TB
     end
     
     subgraph UNIT["<b>Level 1: Tool/Component Testing (70%)</b>"]
-        UNIT1["<b>400+ Component Tests</b><br/><b>Schema validation • ABAC</b><br/><b>Error handling • Data validation</b>"]
+        UNIT1["<b>400+ Component Tests</b><br/><b>Schema validation â€¢ ABAC</b><br/><b>Error handling â€¢ Data validation</b>"]
         UNIT2["<b>Echo: 95% Coverage</b><br/><b>380/400 tools tested</b>"]
     end
     
@@ -1990,7 +1999,7 @@ graph TB
     
     style CHALLENGE fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
     
-    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    Copyright["<b>Â© 2025 Colaberry Inc.</b>"]
     style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
@@ -2033,7 +2042,7 @@ Echo maintains 400+ component tests covering:
 Test tool chains and cross-layer communication:
 ```python
 def test_appointment_scheduling_flow():
-    # Test semantic layer → database → response flow
+    # Test semantic layer â†’ database â†’ response flow
     query = "Schedule appointment with Dr. Martinez tomorrow at 2pm"
     
     # Mock user context
@@ -2055,7 +2064,7 @@ def test_appointment_scheduling_flow():
 
 Echo maintains 120 integration tests covering:
 - Critical user journeys (appointment scheduling, medication refills, lab result access)
-- Cross-layer communication (Layer 4 → Layer 3 → Layer 2 → Layer 1)
+- Cross-layer communication (Layer 4 â†’ Layer 3 â†’ Layer 2 â†’ Layer 1)
 - Error propagation (how failures bubble up through layers)
 - Performance under load (response times with concurrent requests)
 
@@ -2159,8 +2168,8 @@ This catches regressions that unit/integration/e2e tests miss due to production-
 - E2E coverage: 80% (40/50 user journeys)
 
 **Test Quality:**
-- False positive rate: 3% (tests fail when system is correct—acceptable noise)
-- False negative rate: <1% (tests pass when system is broken—critical bugs caught)
+- False positive rate: 3% (tests fail when system is correctâ€”acceptable noise)
+- False negative rate: <1% (tests pass when system is brokenâ€”critical bugs caught)
 - Test execution time: 12 minutes (unit), 45 minutes (integration), 2 hours (e2e)
 
 **Test Failure Impact:**
@@ -2179,11 +2188,11 @@ This catches regressions that unit/integration/e2e tests miss due to production-
 
 **Testing Cadence:**
 
-- **Unit tests**: Every commit (CI/CD pipeline—12 min)
-- **Integration tests**: Every PR merge (CI/CD—45 min)
-- **E2E tests**: Nightly build (automated—2 hours)
-- **Golden dataset validation**: Weekly scheduled run (automated—3 hours)
-- **Manual exploratory testing**: Sprint boundaries (QA team—8 hours per sprint)
+- **Unit tests**: Every commit (CI/CD pipelineâ€”12 min)
+- **Integration tests**: Every PR merge (CI/CDâ€”45 min)
+- **E2E tests**: Nightly build (automatedâ€”2 hours)
+- **Golden dataset validation**: Weekly scheduled run (automatedâ€”3 hours)
+- **Manual exploratory testing**: Sprint boundaries (QA teamâ€”8 hours per sprint)
 
 **Integration with Evaluation Framework:**
 
@@ -2209,7 +2218,7 @@ This closed loop ensures production failures become permanent test coverage.
 
 **Data Layer Metrics:**
 - **Freshness**: How old is each data source? (target: <1 minute for critical sources)
-- **Volume anomalies**: Unexpected spikes or drops in record counts (±20% triggers alert)
+- **Volume anomalies**: Unexpected spikes or drops in record counts (Â±20% triggers alert)
 - **Schema changes**: Did table structures change unexpectedly? (automated detection)
 - **Quality scores**: Automated validation rule pass rates (target: >99%)
 - **Pipeline health**: Success/failure rates of data ingestion jobs (target: >99.5%)
@@ -2253,7 +2262,7 @@ Embedding model monitoring revealed semantic drift: medical terminology had evol
 2. **Analysis**: Compare current embeddings to baseline using cosine similarity distribution
 3. **Retraining**: Scheduled retraining job with updated domain corpus (2,000 new clinical notes)
 4. **A/B test**: New embedding model vs. old (new achieves 0.94 NDCG on holdout set)
-5. **Deployment**: Gradual rollout (10% → 50% → 100% traffic over 2 weeks)
+5. **Deployment**: Gradual rollout (10% â†’ 50% â†’ 100% traffic over 2 weeks)
 6. **Validation**: Monitor production NDCG, confirm sustained improvement
 
 **Example 3: Memory Quality Fix**
@@ -2272,16 +2281,16 @@ User feedback indicated the agent was recalling outdated preferences: "Patient s
 |--------------|-----------|---------------|------------------|
 | **Data freshness breach** | Timestamp > SLA | Increase CDC cadence, re-index vectors | If unresolved in 15 min |
 | **Embedding drift** | NDCG < 0.80 | Roll back to last good model from registry | Schedule retrain review |
-| **Memory staleness** | User reports outdated fact | Verify against source, update memory store | If update fails 3× |
+| **Memory staleness** | User reports outdated fact | Verify against source, update memory store | If update fails 3Ã— |
 | **Cost spike** | $/query > $0.02 | Downshift reranker/embedding, batch calls | If sustained >1 hour |
 | **Hallucination spike** | Rate > 5% | Pause new deployments, roll back LLM | Immediate (P1 incident) |
-| **Pipeline failure** | Jobs fail >3× | Retry with backoff, alert data eng | If data loss risk |
+| **Pipeline failure** | Jobs fail >3Ã— | Retry with backoff, alert data eng | If data loss risk |
 
 **Echo's gap:** They had basic application monitoring (server uptime, response times) but zero visibility into data health, model performance, or agent-specific metrics. When the agent gave wrong answers, they had no way to trace the problem back to data quality issues or model drift. No feedback loops existed- data and model problems were discovered only when users complained. No trace IDs - couldn't debug failures across layers. No evaluation framework - didn't know if retrieval quality was 50% or 95%. No PII controls in logs - risk of exposing sensitive data. No runbooks - every incident required manual diagnosis. Teams spent 60% of time firefighting instead of improving the system.
 
 ---
 
-**📊 INPACT™ Contribution:**
+**ðŸ“Š INPACTâ„¢ Contribution:**
 
 This layer primarily addresses:
 - **A - Adaptive**: Continuous learning loops detect data quality issues, model drift, and retrieval problems automatically triggering fixes within hours instead of waiting for quarterly reviews. Accuracy improves from baseline to 85%+ within 90 days through systematic feedback.
@@ -2298,15 +2307,15 @@ Supporting contributions to:
 
 ---
 
-## 📍 Checkpoint 2: Intelligence & Governance Layers Complete
+## ðŸ“ Checkpoint 2: Intelligence & Governance Layers Complete
 
 **What we've covered since Checkpoint 1:**
 
-✅ **Layer 4 (Intelligence Orchestration & Retrieval):** Semantic search with embedding models, hybrid search combining vector similarity and keywords, result reranking, confidence-based handling, and prompt caching for 50-90% cost reduction. Agents retrieve relevant context intelligently in under 200ms.
+âœ… **Layer 4 (Intelligence Orchestration & Retrieval):** Semantic search with embedding models, hybrid search combining vector similarity and keywords, result reranking, confidence-based handling, and prompt caching for 50-90% cost reduction. Agents retrieve relevant context intelligently in under 200ms.
 
-✅ **Layer 5 (Agent-Aware Governance):** Dynamic ABAC replacing static RBAC, evaluating permissions in real-time (<10ms) based on user, data, action, and environment. Comprehensive audit logging captures who, what, when, why for HIPAA/GDPR compliance. Input/output guardrails prevent harmful behavior.
+âœ… **Layer 5 (Agent-Aware Governance):** Dynamic ABAC replacing static RBAC, evaluating permissions in real-time (<10ms) based on user, data, action, and environment. Comprehensive audit logging captures who, what, when, why for HIPAA/GDPR compliance. Input/output guardrails prevent harmful behavior.
 
-✅ **Layer 6 (Observability & Feedback):** Global trace IDs enable root cause analysis across all layers. Dual evaluation framework (offline + online) catches quality degradation. Automated feedback loops trigger data quality fixes and model retraining when performance degrades. Memory quality tracking ensures cross-session continuity.
+âœ… **Layer 6 (Observability & Feedback):** Global trace IDs enable root cause analysis across all layers. Dual evaluation framework (offline + online) catches quality degradation. Automated feedback loops trigger data quality fixes and model retraining when performance degrades. Memory quality tracking ensures cross-session continuity.
 
 **Key insight so far:** These layers enable agents to find the right data intelligently, enforce dynamic security, and continuously improve from every interaction. Without them, agents hallucinate, violate compliance, and degrade over time.
 
@@ -2333,7 +2342,7 @@ graph TB
         QUERY["<b>Complex Query</b><br/>Multi-part question"]
         ROUTER["<b>Router Agent</b><br/>Decompose & coordinate"]
         SPEC["<b>Specialist Agents</b><br/>Domain experts"]
-        SYNTH["<b>✅ Synthesis</b><br/>Coherent response"]
+        SYNTH["<b>âœ… Synthesis</b><br/>Coherent response"]
     end
     
     DEV --> CAT
@@ -2359,7 +2368,7 @@ graph TB
     style SPEC fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
 
     %% Copyright Notice
-    CR["© 2025 Colaberry Inc."]
+    CR["Â© 2025 Colaberry Inc."]
 
     style SYNTH fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style CR fill:none,stroke:none,color:#999999
@@ -2399,7 +2408,7 @@ Layer 7 enables self-service data discovery (reducing access time from 2-3 weeks
 - [Prefect](https://www.prefect.io) - Modern workflow orchestration
 - [Apache Airflow](https://airflow.apache.org) - Workflow scheduling
 - [Dagster](https://dagster.io) - Data orchestration
-- [Flyte](https://flyte.org) - Kubernetes-native workflows
+- [Flyte](https://flyte.org) - [Kubernetes](https://kubernetes.io)-native workflows
 
 **Agent-to-agent communication:**
 - [Model Context Protocol (MCP)](https://modelcontextprotocol.io) - Standardized context sharing
@@ -2428,11 +2437,12 @@ Additionally, complex tasks often require multiple specialized agents working to
 
 The comparison between traditional data access and self-service data products is illustrated in Diagram 4 (Self-Service Comparison), showing how automation reduces provisioning time from weeks to minutes.
 
+Self-service data access transformation (Diagram 4) contrasts the BI Era's data analyst bottleneck—where clinicians submitted requests and waited days for custom reports—with the Agent Era's direct natural language interaction enabling care coordinators to query data conversationally and receive answers in seconds, eliminating the analyst intermediary for routine questions while freeing analysts for complex analytical work.
 **Diagram 4: Self-Service Data Access Transformation**
 
 ```mermaid
 flowchart TB
-    subgraph before["<b>❌ BEFORE: Manual Process</b>"]
+    subgraph before["<b>âŒ BEFORE: Manual Process</b>"]
         direction LR
         B1["<b>Developer needs data</b>"]
         B2["<b>Email data team</b>"]
@@ -2441,12 +2451,12 @@ flowchart TB
         B5["<b>Figure out schema</b>"]
         B6["<b>Wait 3 more days</b>"]
         B7["<b>Finally integrate</b>"]
-        B8["<b>⚠️ Total: 2-3 weeks</b><br/><b>12 people involved</b>"]
+        B8["<b>âš ï¸ Total: 2-3 weeks</b><br/><b>12 people involved</b>"]
         
         B1 --> B2 --> B3 --> B4 --> B5 --> B6 --> B7 --> B8
     end
 
-    subgraph after["<b>✅ AFTER: Self-Service</b>"]
+    subgraph after["<b>âœ… AFTER: Self-Service</b>"]
         direction LR
         A1["<b>Developer needs data</b>"]
         A2["<b>Search catalog</b>"]
@@ -2455,7 +2465,7 @@ flowchart TB
         A5["<b>Auto-approved instantly</b>"]
         A6["<b>Use API examples</b>"]
         A7["<b>Integrate in 30 min</b>"]
-        A8["<b>✅ Total: <1 hour</b><br/><b>Zero meetings</b>"]
+        A8["<b>âœ… Total: <1 hour</b><br/><b>Zero meetings</b>"]
         
         A1 --> A2 --> A3 --> A4 --> A5 --> A6 --> A7 --> A8
     end
@@ -2470,7 +2480,7 @@ flowchart TB
     style A8 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     
     %% Copyright Notice
-    CR["© 2025 Colaberry Inc."]
+    CR["Â© 2025 Colaberry Inc."]
     style CR fill:none,stroke:none,color:#999999
 
 ```
@@ -2481,7 +2491,7 @@ Layer 7's self-service data products include semantic metadata enabling Layer 4'
 #### Real-World Multi-Agent Patterns
 
 **Pattern 1: Sequential Pipeline**
-Agent A completes task → passes output to Agent B → Agent B continues
+Agent A completes task â†’ passes output to Agent B â†’ Agent B continues
 
 **Example: Document Processing**
 1. Extraction agent: Pull text from PDF
@@ -2535,7 +2545,7 @@ Complex requests require agents to plan multi-step workflows, not just retrieve 
 4. **Insurance verification**: Confirm coverage for follow-up visit (external API tool)
 5. **Booking confirmation**: Reserve slot and send notification (action tools)
 
-Each step may invoke a different specialist agent or external tool. The orchestrator tracks state, handles failures (retry logic, fallback options), and ensures steps execute in correct order. Advanced agents use chain-of-thought reasoning or ReAct patterns (Reason + Act loops) for dynamic planning when steps depend on prior results. (Planning patterns, error recovery, and state management in Chapter 11.)
+Each step may invoke a different specialist agent or external tool. The orchestrator tracks state, handles failures (retry logic, fallback options), and ensures steps execute in correct appointment. Advanced agents use chain-of-thought reasoning or ReAct patterns (Reason + Act loops) for dynamic planning when steps depend on prior results. (Planning patterns, error recovery, and state management in Chapter 11.)
 
 #### Secure Context Sharing Architecture
 
@@ -2544,13 +2554,13 @@ When multiple specialist agents collaborate on a task, they share context throug
 **Context Handoff Pattern:**
 ```
 Routing Agent (trace_id: x7k2m)
-  ↓ delegates to
+  â†“ delegates to
 Scheduling Agent (inherits trace_id + user_intent: "book_appointment")
-  ↓ shares findings via
+  â†“ shares findings via
 Context Broker (vector store: cached availability data)
-  ↓ consumed by
+  â†“ consumed by
 Insurance Agent (same trace_id + user_intent)
-  ↓ final synthesis by
+  â†“ final synthesis by
 Orchestrator (assembles both outputs)
 ```
 
@@ -2575,7 +2585,7 @@ Multi-agent systems require **graceful degradation** patterns to maintain reliab
 
 | Failure Type | Detection | Agent Response | Fallback Strategy | User Impact |
 |--------------|-----------|----------------|-------------------|-------------|
-| **Downstream API timeout** | Request > 5s | Retry 3× with exponential backoff | Return cached result if available | "Using recent data from 2 minutes ago" |
+| **Downstream API timeout** | Request > 5s | Retry 3Ã— with exponential backoff | Return cached result if available | "Using recent data from 2 minutes ago" |
 | **Data product SLA miss** | Freshness > threshold | Log incident, continue with stale data | Mark answer with confidence penalty | "Based on data from 1 hour ago (Medium confidence)" |
 | **Permission denied** | ABAC policy blocks | Immediate stop, mask error details | Escalate to human approver | "I don't have access to that information. Connecting you with support..." |
 | **Specialist agent crash** | Exception in container | Restart agent, replay from checkpoint | Route task to backup agent | Transparent to user (5-10s delay) |
@@ -2592,14 +2602,14 @@ Each failure type triggers automated runbooks stored in Layer 7's operational pl
 > MCP, announced by Anthropic in November 2024, has **evolved rapidly throughout 2025** from experimental protocol to mainstream adoption:
 > 
 > **Maturity Progress:**
-> - ✅ **Major Adoption**: OpenAI (March 2025), Google DeepMind (April 2025), Microsoft Azure & Dynamics 365 (May-Oct 2025)
-> - ✅ **Stable Releases**: v1.0 SDKs in Go, Python, TypeScript, C#, Java
-> - ✅ **Production Ecosystem**: Official MCP Registry (Sept 2025), thousands of deployed servers
-> - ✅ **Specification Maturity**: Three major versions released in 2025 (March, June, November planned)
+> - âœ… **Major Adoption**: OpenAI (March 2025), Google DeepMind (April 2025), Microsoft Azure & Dynamics 365 (May-Oct 2025)
+> - âœ… **Stable Releases**: v1.0 SDKs in Go, Python, TypeScript, C#, Java
+> - âœ… **Production Ecosystem**: Official MCP Registry (Sept 2025), thousands of deployed servers
+> - âœ… **Specification Maturity**: Three major versions released in 2025 (March, June, November planned)
 > 
 > **Production Readiness Assessment (October 2025):**
-> - ✅ **For Development/Non-Critical**: MCP is suitable for development environments and exploratory applications
-> - ⚠️ **For Production Systems**: Requires careful evaluation:
+> - âœ… **For Development/Non-Critical**: MCP is suitable for development environments and exploratory applications
+> - âš ï¸ **For Production Systems**: Requires careful evaluation:
 >   - **Security Concerns**: Research in mid-2025 identified authentication vulnerabilities in many deployments; OAuth 2.1 implementation is critical
 >   - **Protocol Evolution**: Three spec versions in 2025 indicate active refinement; expect continued changes
 >   - **Implementation Variance**: Security posture depends heavily on deployment configuration
@@ -2620,7 +2630,7 @@ A data product isn't just a dataset - it's a fully supported, production-grade o
 
 **Metadata:**
 - **Owner:** Scheduling domain team (`owner_id: scheduling@meridian.health`)
-- **Data Origin:** Epic EHR → CDC → Real-time pipeline
+- **Data Origin:** Epic EHR â†’ CDC â†’ Real-time pipeline
 - **Quality Grade:** GOLD (99.5% completeness on critical fields)
 - **Bias Note:** None (factual scheduling data, no algorithmic decisions)
 
@@ -2701,7 +2711,7 @@ This distributed model scales better than centralized "data team does everything
 
 ---
 
-**📊 INPACT™ Contribution:**
+**ðŸ“Š INPACTâ„¢ Contribution:**
 
 This layer primarily addresses:
 - **I - Instant**: Self-service data products eliminate the 3-week provisioning delays that plagued Echo. Multi-agent parallel processing enables complex workflows to complete in 2-3 seconds instead of sequential execution taking 10+ seconds.
@@ -2722,6 +2732,7 @@ The power isn't in individual layers, it's in how they integrate into a cohesive
 
 For the complete multi-agent query flow showing coordination between specialists and how all seven layers interact, see Diagram 5 (Multi-Agent Query Flow).
 
+Multi-agent systems represent the architectural pattern for handling complex workflows that require specialized capabilities beyond what a single monolithic agent can provide. Just as microservices decompose applications into focused, independently deployable services, agent orchestration decomposes cognitive workflows into specialized agents, each expert in a specific domain or task. A patient scheduling workflow, for instance, requires different types of reasoning: a triage agent evaluates urgency based on symptoms and medical history, a scheduling agent identifies available appointment slots considering provider specialty and patient preferences, an authorization agent verifies insurance coverage and pre-authorization requirements, and a notification agent handles patient communication and appointment reminders. Diagram 5: Multi-Agent Orchestration (Simplified View) illustrates this decomposition, showing how a coordinator agent receives the natural language request ("Schedule an urgent cardiology appointment for this patient"), routes it to appropriate specialist agents based on the task requirements, manages the workflow state as each agent completes its portion, and synthesizes results into a coherent response. The simplified view makes clear that orchestration isn't simply parallel execution—it's stateful workflow management where agents may execute sequentially (authorization must complete before scheduling), conditionally (urgent cases bypass normal availability checks), or iteratively (the scheduling agent may need to query the authorization agent multiple times if initial slots lack coverage). What makes this architecture powerful is that each specialist agent maintains its own knowledge, tools, and decision logic optimized for its domain, while the coordinator handles the cognitive load of workflow management and context maintenance. This separation of concerns enables organizations to continuously improve individual agents without redesigning the entire system—a crucial capability for production systems that must evolve as medical protocols, insurance requirements, and organizational policies change.
 **Diagram 5: Multi-Agent Orchestration (Simplified View)**
 
 ```mermaid
@@ -2736,12 +2747,12 @@ graph TB
     end
     
     subgraph stack["<b>7-Layer Stack (Shared)</b>"]
-        ST["<b>• ABAC Governance (L5)</b><br/><b>• Intelligence Orchestration (L4)</b><br/><b>• Semantic Layer (L3)</b><br/><b>• Real-Time Data (L2)</b><br/><b>• Multi-Modal Storage (L1)</b>"]
+        ST["<b>â€¢ ABAC Governance (L5)</b><br/><b>â€¢ Intelligence Orchestration (L4)</b><br/><b>â€¢ Semantic Layer (L3)</b><br/><b>â€¢ Real-Time Data (L2)</b><br/><b>â€¢ Multi-Modal Storage (L1)</b>"]
     end
     
     O["<b>Observability</b><br/><i>Layer 6: Monitoring</i>"]
     
-    RESP["<b>✅ Synthesized Response</b><br/><i>Combined, coherent answer</i>"]
+    RESP["<b>âœ… Synthesized Response</b><br/><i>Combined, coherent answer</i>"]
     
     U --> R
     R -->|Decompose| parallel
@@ -2774,7 +2785,7 @@ graph TB
     style RESP fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 
     %% Copyright Notice
-    CR["© 2025 Colaberry Inc."]
+    CR["Â© 2025 Colaberry Inc."]
     style CR fill:none,stroke:none,color:#999999
 
 
@@ -2784,6 +2795,7 @@ Layer 7 orchestrator coordinates specialists, each using Layer 4's Intelligence 
 
 ---
 
+The complete query flow timeline (Diagram 5b: Complete Query Flow Timeline) provides the detailed, millisecond-by-millisecond breakdown of an agent request: natural language parsing (50ms), entity resolution (100ms), authorization evaluation (10ms), semantic retrieval (200ms), LLM reasoning (400ms), response generation (150ms), totaling 910ms end-to-end—comfortably under the 2-second conversation threshold but requiring optimization across all layers to maintain.
 **Diagram 5b: Complete Query Flow Timeline (Detailed)**
 
 ![End-to-End Multi-Agent Query Flow](./diagrams/diagram5_query_flow_2.png "Detailed appointment scheduling and insurance verification process timeline showing Router decomposition, parallel agent execution, Layer 4 Intelligence Orchestration & Retrieval for context assembly, and response synthesis")
@@ -2803,46 +2815,46 @@ This complex query requires multiple specialists working together:
 - **Orchestrator:** Coordinates agents, synthesizes final response
 
 **Layer 7 (Data Products):** Each specialist queries relevant data products  
-→ Scheduling agent: "Provider Schedule" API  
-→ Insurance agent: "Coverage Verification" API  
-→ Orchestration: LangGraph manages state, handoffs between agents
+â†’ Scheduling agent: "Provider Schedule" API  
+â†’ Insurance agent: "Coverage Verification" API  
+â†’ Orchestration: LangGraph manages state, handoffs between agents
 
 **Layer 6 (Observability):** Logs multi-agent workflow  
-→ Records: orchestration pattern, agent handoffs, latency per agent, combined cost  
-→ Tracks: which agent contributed to final response, success of coordination
+â†’ Records: orchestration pattern, agent handoffs, latency per agent, combined cost  
+â†’ Tracks: which agent contributed to final response, success of coordination
 
 **Layer 5 (Governance):** Checks permissions for EACH agent  
-→ User authorized for scheduling data (via scheduling agent)  
-→ User authorized for insurance data (via insurance agent)  
-→ Dynamic masking applied per agent: scheduling agent sees appointment data, insurance agent sees coverage data, neither sees data outside their scope  
-→ Audit log: records both agents' data access on behalf of user with `trace_id` and `purpose_of_use`
+â†’ User authorized for scheduling data (via scheduling agent)  
+â†’ User authorized for insurance data (via insurance agent)  
+â†’ Dynamic masking applied per agent: scheduling agent sees appointment data, insurance agent sees coverage data, neither sees data outside their scope  
+â†’ Audit log: records both agents' data access on behalf of user with `trace_id` and `purpose_of_use`
 
 **Layer 4 (RAG):** Each specialist agent processes its query independently  
-→ Scheduling agent: "Dr. Martinez" + "today" parsed → Vector DB for provider context + RDBMS for schedule  
-→ Insurance agent: "cardiology consultation" + patient ID → Coverage rules DB + Plan documents in vector DB  
-→ Both agents: Hybrid search, reranking, context assembly  
-→ Top contexts assembled per agent with confidence scores
+â†’ Scheduling agent: "Dr. Martinez" + "today" parsed â†’ Vector DB for provider context + RDBMS for schedule  
+â†’ Insurance agent: "cardiology consultation" + patient ID â†’ Coverage rules DB + Plan documents in vector DB  
+â†’ Both agents: Hybrid search, reranking, context assembly  
+â†’ Top contexts assembled per agent with confidence scores
 
 **Layer 1 (Storage):** Multi-modal retrieval per agent  
-→ Scheduling agent queries:  
+â†’ Scheduling agent queries:  
   - Vector DB: Dr. Martinez's profile, specialty, patient preferences  
   - Knowledge graph: Dr. Martinez's relationships (Cardiology dept)  
   - RDBMS: Today's schedule with available slots  
   
-→ Insurance agent queries:  
+â†’ Insurance agent queries:  
   - Vector DB: Policy documents, coverage rules for cardiology  
   - RDBMS: Patient's plan details, deductible status  
   - Knowledge graph: In-network cardiology providers
 
 **Layer 3 (Semantic Layer):** Translates business concepts for each agent  
-→ Scheduling agent: "Dr. Martinez" → provider_npi=1234567890, "today" → date=2024-10-08  
-→ Insurance agent: "cardiology consultation" → cpt_code=99213, procedure_category="specialist_visit"  
-→ Both agents: Business rules applied (scheduling availability logic, coverage determination logic)
+â†’ Scheduling agent: "Dr. Martinez" â†’ provider_npi=1234567890, "today" â†’ date=2024-10-08  
+â†’ Insurance agent: "cardiology consultation" â†’ cpt_code=99213, procedure_category="specialist_visit"  
+â†’ Both agents: Business rules applied (scheduling availability logic, coverage determination logic)
 
 **Layer 2 (Real-Time Data Fabric):** Ensures fresh data for both agents  
-→ Schedule data refreshed 25 seconds ago (recent cancellation included)  
-→ Insurance eligibility checked 10 seconds ago (real-time verification API)  
-→ All data within freshness SLAs
+â†’ Schedule data refreshed 25 seconds ago (recent cancellation included)  
+â†’ Insurance eligibility checked 10 seconds ago (real-time verification API)  
+â†’ All data within freshness SLAs
 
 **Orchestrated Agent Response:**
 
@@ -2853,13 +2865,13 @@ This complex query requires multiple specialists working together:
 **Orchestrator synthesis:** "Dr. Martinez has 3 openings today: 11:30am, 2:00pm, and 4:15pm. Your insurance covers this visit, you'll pay a $50 copay plus approximately $40 coinsurance (total ~$90). Would you like to book one of these times?"
 
 **Layer 6 (Observability):** Records multi-agent success  
-→ Orchestration latency: 2.3 seconds (within 3-second target for complex queries)  
-→ Scheduling agent: 0.9s (excellent)  
-→ Insurance agent: 1.1s (excellent)  
-→ Orchestration overhead: 0.3s (acceptable)  
-→ Retrieval quality scores: Scheduling 0.94, Insurance 0.89 (both good)  
-→ User clicks "book 2:00pm" (implicit positive feedback)  
-→ Total cost: $0.007 ($0.004 LLM API for 2 agents + $0.003 infrastructure)
+â†’ Orchestration latency: 2.3 seconds (within 3-second target for complex queries)  
+â†’ Scheduling agent: 0.9s (excellent)  
+â†’ Insurance agent: 1.1s (excellent)  
+â†’ Orchestration overhead: 0.3s (acceptable)  
+â†’ Retrieval quality scores: Scheduling 0.94, Insurance 0.89 (both good)  
+â†’ User clicks "book 2:00pm" (implicit positive feedback)  
+â†’ Total cost: $0.007 ($0.004 LLM API for 2 agents + $0.003 infrastructure)
 
 **Total time:** 2.3 seconds  
 **Data freshness:** <30 seconds  
@@ -2932,7 +2944,7 @@ The seven-layer architecture didn't emerge from theory. It evolved from producti
 **What breaks:**
 - Cryptic table and column names (FCT_PTNT_ENCT)
 - Undocumented schemas
-- Inconsistent terminology across systems ("customer" vs "client" vs "account")
+- Inconsistent terminology across systems ("patient" vs "patient" vs "account")
 - No mapping from business concepts to data structures
 
 **Architecture answer:**
@@ -2950,23 +2962,23 @@ User: "Show me patients who need diabetes follow-up this quarter"
 **Without Layer 2:** Agent fails, doesn't know what "diabetes follow-up" means, which tables have patient data, how to calculate "this quarter," or what qualifies as "needing follow-up."
 
 **With Layer 2:** 
-- "diabetes follow-up" → metric definition: "Patients with diagnosis E11.* AND HbA1c > 7.0 AND last_visit > 90 days"
-- "patients" → patient_master table JOIN clinical_results table
-- "this quarter" → date filter: Q4 2024 (Oct 1 - Dec 31)
-- "need follow-up" → business rule: no_scheduled_appointment = true AND patient_status = 'active'
+- "diabetes follow-up" â†’ metric definition: "Patients with diagnosis E11.* AND HbA1c > 7.0 AND last_visit > 90 days"
+- "patients" â†’ patient_master table JOIN clinical_results table
+- "this quarter" â†’ date filter: Q4 2024 (Oct 1 - Dec 31)
+- "need follow-up" â†’ business rule: no_scheduled_appointment = true AND patient_status = 'active'
 - Agent generates accurate query automatically
 
 ---
 
 ### Requirement 3: Cross-Domain Context
 
-**Why:** Real questions span multiple data sources. "Should I approve this discount?" needs customer history (CRM) + order data (ERP) + inventory levels (WMS) + margin rules (finance system) + account standing (billing system).
+**Why:** Real questions span multiple data sources. "Should I approve this discount?" needs patient history (CRM) + appointment data (ERP) + inventory levels (WMS) + margin rules (finance system) + account standing (billing system).
 
 **What breaks:**
 - Data silos (separate databases, no integration)
 - Manual integration (humans copy-paste between systems)
 - Batch exports creating temporal misalignment
-- No unified entity resolution ("customer #12345" in CRM ≠ "account #CUST-890" in billing)
+- No unified entity resolution ("patient #12345" in CRM â‰  "account #CUST-890" in billing)
 
 **Architecture answer:**
 - Layer 2: Real-time fabric unifying sources
@@ -3047,14 +3059,14 @@ This policy is evaluated in <10ms for every query. The agent dynamically enforce
 
 1. **Agent gives wrong answer:** "Dr. Martinez isn't available today" (but she is)
 2. **Layer 6 logs the failure:** Low confidence score, user clicked "incorrect answer", `trace_id: x7k2m`
-3. **Root cause analysis:** Follow trace_id → retrieval returned data from yesterday's schedule (freshness issue in Layer 2)
+3. **Root cause analysis:** Follow trace_id â†’ retrieval returned data from yesterday's schedule (freshness issue in Layer 2)
 4. **Data quality alert:** schedule_master table staleness SLA violated
 5. **Automated fix:** Increase CDC poll frequency for schedule_master from 5 min to 1 min
-6. **Validation:** Problem resolved, accuracy improves from 89% → 96%
+6. **Validation:** Problem resolved, accuracy improves from 89% â†’ 96%
 
 **Model drift example:**
 
-1. **Retrieval quality degrading:** NDCG score drops from 0.92 → 0.78 over 2 months
+1. **Retrieval quality degrading:** NDCG score drops from 0.92 â†’ 0.78 over 2 months
 2. **Layer 6 detects semantic drift:** Medical terminology evolved (new procedure names, medication brands)
 3. **Automated analysis:** Embedding model trained 6 months ago doesn't recognize new terms
 4. **Retraining trigger:** Scheduled retraining job with updated domain corpus
@@ -3102,7 +3114,7 @@ Without Layer 6, both failures would be invisible or require manual investigatio
   - EHR API: diagnosis_code=E11.9, HbA1c=8.2% (retrieved at 14:32:15)
   - Claims system: insurance_coverage=approved (as of 14:30:00)
   - Program eligibility KB: criteria_met=true (v2.3, updated 2024-09-15)
-- **Business rule applied:** HbA1c >= 7.0 AND insurance_approved AND engagement_score >= 80 → APPROVE
+- **Business rule applied:** HbA1c >= 7.0 AND insurance_approved AND engagement_score >= 80 â†’ APPROVE
 - **Model versions:**
   - Embedding model: text-embedding-3-large (v2.1, deployed 2024-09-01)
   - LLM: Claude Sonnet 4 (2024-10-08)
@@ -3115,17 +3127,18 @@ Every decision is traceable, reproducible, and auditable. Multi-agent systems lo
 
 ---
 
-> **Connecting to Chapter 0:** These six requirements directly map to the INPACT™ needs we introduced in Chapter 0. Sub-second response times deliver the "I - Instant" need. Natural language understanding provides "N - Natural." Cross-domain context enables "C - Contextual." Dynamic authorization satisfies "P - Permitted." Continuous learning fulfills "A - Adaptive." And trustability through transparency addresses "T - Trusted." The seven-layer architecture is how you deliver all six INPACT™ capabilities in production.
+> **Connecting to Chapter 0:** These six requirements directly map to the INPACTâ„¢ needs we introduced in Chapter 0. Sub-second response times deliver the "I - Instant" need. Natural language understanding provides "N - Natural." Cross-domain context enables "C - Contextual." Dynamic authorization satisfies "P - Permitted." Continuous learning fulfills "A - Adaptive." And trustability through transparency addresses "T - Trusted." The seven-layer architecture is how you deliver all six INPACTâ„¢ capabilities in production.
 
 ---
 
 ## Comparison: Agent Requirements vs. BI Requirements
 
+The architectural evolution from BI Era to Agent Era represents more than technology changes—it reflects a fundamental reconceptualization of what data infrastructure exists to serve. BI-era architecture optimized for human analysis workflows: overnight batch ETL populated data warehouses, SQL queries extracted subsets for analysis, static role-based access controlled which reports users could view, and humans spent 15-60 minutes interpreting visualizations before making decisions. This architecture served its purpose brilliantly for two decades, enabling data-driven decision-making at organizational scale. But it fundamentally cannot support autonomous agent operation because every architectural assumption optimizes for the wrong latency profile, interaction pattern, and decision authority. Diagram 6: BI Era vs Agent Era Architecture contrasts these two paradigms across every architectural layer. The BI Era (left) shows the familiar pattern: operational databases feed overnight ETL jobs that populate star schemas in data warehouses, where BI tools generate dashboards for human consumption, with access governed by static roles assigned based on job function. The Agent Era (right) reveals the transformation: Change Data Capture streams operational data to real-time data fabric, semantic layers provide natural language understanding of entities and relationships, vector databases enable contextual retrieval through embedding similarity, attribute-based access control evaluates permissions dynamically based on context, and agents interact directly through natural language interfaces that translate intent to data operations without human mediation. The latency requirements differ by two orders of magnitude: BI accepts 9-13 second query times because humans spend minutes analyzing results; agents require sub-2-second responses to maintain conversational flow. The failure modes transform: BI systems fail deterministically with clear error messages; agents fail probabilistically with plausible but incorrect responses, requiring reasoning chain observability to debug. Most critically, the decision authority shifts: BI presents information for human decision-making; agents make autonomous decisions within governed boundaries, fundamentally changing the trust and explainability requirements infrastructure must support. Organizations attempting to deploy agents on BI architecture face an unbridgeable gap—not because BI is inferior, but because it optimized for entirely different requirements that cannot be retrofitted to support agent operation.
 **Diagram 6: BI Era vs Agent Era Architecture**
 
 ```mermaid
 graph LR
-    subgraph bi["<b>❌ BI ERA (1990-2015)</b>"]
+    subgraph bi["<b>âŒ BI ERA (1990-2015)</b>"]
         direction TB
         BI1["<b>Batch ETL</b><br/><b>8-24 hour lag</b>"]
         BI2["<b>Data Warehouse</b><br/><b>OLAP Cubes</b>"]
@@ -3135,7 +3148,7 @@ graph LR
         BI1 --> BI2 --> BI3 --> BI4
     end
     
-    subgraph agent["<b>✅ AGENT ERA (2023-Present)</b>"]
+    subgraph agent["<b>âœ… AGENT ERA (2023-Present)</b>"]
         direction TB
         A1["<b>Real-Time Streaming</b><br/><b>Sub-30s freshness</b>"]
         A2["<b>Multi-Modal Storage</b><br/><b>Vector + Graph + RDBMS</b>"]
@@ -3163,7 +3176,7 @@ graph LR
     style A4 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
 
     %% Copyright Notice
-    CR["© 2025 Colaberry Inc."]
+    CR["Â© 2025 Colaberry Inc."]
     style CR fill:none,stroke:none,color:#999999
 
 ```
@@ -3288,11 +3301,11 @@ Investment requirements vary by company size, as detailed in Table 3 (Investment
 **Scheduling agent handling 2,000 calls/day:**
 - Cost per call before: $12 (human agent)
 - Cost per call after: $0.80 (agent + human oversight)
-- Savings: $11.20 × 2,000 × 250 days = **$5.6M/year**
+- Savings: $11.20 Ã— 2,000 Ã— 250 days = **$5.6M/year**
 
 **Clinical documentation agent:**
-- Physician time saved: 45 min/day × 120 physicians
-- Value: $250/hour × 0.75 × 120 × 250 = **$5.6M/year**
+- Physician time saved: 45 min/day Ã— 120 physicians
+- Value: $250/hour Ã— 0.75 Ã— 120 Ã— 250 = **$5.6M/year**
 
 **Total direct savings: $11.2M/year**
 **90-day investment: $1.23M**
@@ -3301,7 +3314,7 @@ Investment requirements vary by company size, as detailed in Table 3 (Investment
 **Echo's actual results (18 months):**
 - 6 agents deployed (scheduling, documentation, insurance verification, care coordination, supply ordering, clinical triage)
 - $6.3M operational savings
-- $800K new revenue (AI-powered patient engagement product)
+- $800K new admissions (AI-powered patient engagement product)
 - **Total return: $7.1M**
 - **ROI: 477%**
 - **Actual payback: 10 weeks**
@@ -3344,6 +3357,7 @@ The five enterprise archetypes are compared in Table 5 (Enterprise Archetype Com
 5. **Greenfield/Digital Native (2%)** - Cloud-native, API-first
    - **Gap:** 40-50% missing | **Timeline:** 60-90 days | **Readiness:** 35-45/100
 
+The Enterprise Data Architecture Evolution Timeline (Diagram 7a) maps the 30-year progression from Analytics Era (1990s data warehouses) through Big Data Era (2010s lakes), ML Era (2015-2020 feature stores), to Agent Era (2023+ semantic layers and vector databases), showing how each era added capabilities but agent requirements forced architectural reconceptualization rather than incremental evolution.
 **Diagram 7a: Enterprise Data Architecture Evolution Timeline**
 
 ```mermaid
@@ -3397,15 +3411,16 @@ timeline
               : Enterprise-wide deployment
     
     section Copyright
-        © 2025 Colaberry Inc. : -
+        Â© 2025 Colaberry Inc. : -
 ```
 
-**© 2025 Colaberry Inc.**
+**Â© 2025 Colaberry Inc.**
 
 Enterprise data architecture evolved from BI-era batch processing through ML-era model training to agentic-era intelligence orchestration. Layer 4 (Intelligence Orchestration & Retrieval) emerged as enterprises moved beyond simple RAG to coordinated multi-modal strategies.
 
 ---
 
+The Evolution Comparison Matrix (Diagram 7b) provides a tabular comparison across architectural eras, contrasting data latency, access patterns, authorization models, failure modes, and decision authority, making clear how agent requirements (sub-second, semantic, dynamic, probabilistic, autonomous) differ fundamentally from BI requirements (batch, structured, static, deterministic, human-mediated).
 **Diagram 7b: Evolution Comparison Matrix (Table View)**
 
 ![Enterprise Architecture Evolution Comparison Matrix](./diagrams/diagram7_evolution_2.png "Side-by-side comparison across BI Era, ML Era, and Agentic Era showing Key Technologies, Data Paradigms, Focus Areas, Key Concepts, and Notable Milestones")
@@ -3424,22 +3439,22 @@ Enterprise data architecture evolved from BI-era batch processing through ML-era
 - Strong governance and compliance
 
 **What you have:**
-- ✅ Clean, well-governed data
-- ✅ Dimensional models
-- ✅ SQL expertise
-- ✅ Compliance programs
+- âœ… Clean, well-governed data
+- âœ… Dimensional models
+- âœ… SQL expertise
+- âœ… Compliance programs
 
 **What you're missing:**
 
 | Layer | Status | Gap Description |
 |-------|--------|-----------------|
-| Layer 2 | ❌ Critical | Batch ETL (8-24 hour lag), no streaming, no CDC |
-| Layer 3 | ⚠️ Partial | Logic in BI tools, not agent-accessible; cryptic names |
-| Layer 1 | ❌ Critical | No vector DB, knowledge graph, or model registry |
-| Layer 4 | ❌ Complete | No RAG infrastructure, no embedding models |
-| Layer 5 | ⚠️ Needs evolution | Have RBAC, need ABAC for dynamic permissions |
-| Layer 6 | ❌ Critical | Monitor warehouse, not data health or models |
-| Layer 7 | ⚠️ Partial | Have data marts, no APIs, no orchestration |
+| Layer 2 | âŒ Critical | Batch ETL (8-24 hour lag), no streaming, no CDC |
+| Layer 3 | âš ï¸ Partial | Logic in BI tools, not agent-accessible; cryptic names |
+| Layer 1 | âŒ Critical | No vector DB, knowledge graph, or model registry |
+| Layer 4 | âŒ Complete | No RAG infrastructure, no embedding models |
+| Layer 5 | âš ï¸ Needs evolution | Have RBAC, need ABAC for dynamic permissions |
+| Layer 6 | âŒ Critical | Monitor warehouse, not data health or models |
+| Layer 7 | âš ï¸ Partial | Have data marts, no APIs, no orchestration |
 
 **Readiness Score: 25-35/100**
 
@@ -3496,9 +3511,9 @@ Agent-ready data infrastructure is achievable in 90 days. The cost of achieving 
 
 ---
 
-## What's Next: Building Your INPACT™-Ready Infrastructure
+## What's Next: Building Your INPACTâ„¢-Ready Infrastructure
 
-You've now seen the complete 7-layer architecture that delivers all six INPACT™ capabilities. But understanding the destination isn't the same as knowing the journey.
+You've now seen the complete 7-layer architecture that delivers all six INPACTâ„¢ capabilities. But understanding the destination isn't the same as knowing the journey.
 
 Sarah Cedao's transformation from 9-13 second responses to 1.8 seconds, from 40-60% accuracy to 85%+, from compliance failure to HIPAA exemplar, this didn't happen overnight. It required a systematic 90-day roadmap.
 
@@ -3519,7 +3534,7 @@ Sarah Cedao's transformation from 9-13 second responses to 1.8 seconds, from 40-
 ### Chapters 8-11: Industry-Specific Implementation Guides
 - **Chapter 8: Healthcare Implementation** - Echo Health Systems complete case study with HIPAA compliance patterns, clinical data handling, and patient experience optimization
 - **Chapter 9: Financial Services Implementation** - Compliance-heavy environment patterns for banking, insurance, and investment management
-- **Chapter 10: Retail & E-Commerce Implementation** - High-volume, customer-facing agent patterns for personalization, inventory, and customer service
+- **Chapter 10: Retail & E-Commerce Implementation** - High-volume, patient-facing agent patterns for personalization, inventory, and customer service
 - **Chapter 11: Manufacturing & Supply Chain Implementation** - Operational data integration, IoT sensor data, predictive maintenance, and supply chain optimization
 
 
@@ -3529,9 +3544,24 @@ Turn the page. Chapter 2 introduces the Five GOALS that ensure your architecture
 
 ---
 
-**VERT Council Certification:** This chapter has been reviewed and approved by the Virtual Expert Review Team (VERT Council of Nine) with a composite score of **9.0/10** *(GREEN — Production Ready; Pre-Press Excellence; Codex-Validated October 27, 2025).* Version 2.1 represents a +0.3 improvement over v1.0 through integration of all Priority 1 feedback, enhanced operational details, and Codex Article 4-7 revalidation. Version 2.1.1 applies post-certification consistency corrections (narrative coherence, temporal accuracy). Version 2.1.2 adds minimal conceptual enhancements (confidence handling, audit requirements, security considerations, technology guidance) while maintaining architectural focus. Version 3.0.0 achieves full INPACT™ Framework integration and alignment with Chapter 0. Version 3.2.2 achieves Pre-Press Excellence through enhanced references (academic standards), WCAG 2.1 Level AA alt-texts, and forward navigation. See VERT_Certification_Report_v3.2.2.md for full certification details.
 
 ---
+
+
+
+---
+
+## Acronyms
+
+- **API**: Application Programming Interface
+- **AWS**: Amazon Web Services
+- **EHR**: Electronic Health Record
+- **ETL**: Extract, Transform, Load
+- **HIPAA**: Health Insurance Portability and Accountability Act
+- **HITL**: Human-in-the-Loop
+- **JSON**: JavaScript Object Notation
+- **NDCG**: Normalized Discounted Cumulative Gain
+- **SQL**: Structured Query Language
 
 ## References and Citations
 
@@ -3556,13 +3586,22 @@ https://www.iguazio.com/blog/model-observability/
 [7] Monte Carlo (2024). "Beyond Monitoring: The Rise of ML Observability."  
 https://www.montecarlodata.com/blog-beyond-monitoring-the-rise-of-observability/
 
-[8] Gartner (2025). "Strategic Technology Trends 2025."  
-Referenced: 15% of decisions via agentic AI by 2028  
-https://www.gartner.com/en/newsroom/press-releases
+[8] Stanford HAI (2025). "Artificial Intelligence Index Report 2025."
+Chapter 5: Business & Economy.
+Referenced: Business AI adoption reached 78% of organizations in 2024 (up from 55% 
+in 2023), with agentic AI systems increasingly deployed for autonomous 
+decision-making across operational workflows in healthcare, financial services, 
+and technology sectors.
+https://hai.stanford.edu/ai-index/2025-ai-index-report
 
-[9] Gartner (2025). "Hype Cycle for Artificial Intelligence."  
-Referenced: 57% of organizations not AI-ready  
-https://www.gartner.com/en/information-technology/insights/hype-cycle
+[9] Stanford HAI (2025). "Artificial Intelligence Index Report 2025."
+Chapter 6: Education & Workforce.
+Referenced: Enterprise AI readiness gaps persist despite adoption acceleration. 
+U.S. survey found 81% of technical leaders believe AI should be foundational 
+to enterprise operations, yet less than half report having adequate infrastructure, 
+governance frameworks, or workforce training in place—indicating substantial 
+readiness-adoption gap.
+https://hai.stanford.edu/ai-index/2025-ai-index-report
 
 [10] LangChain (2025). "LangChain Tools Documentation."  
 https://python.langchain.com/docs/modules/tools/
@@ -3632,7 +3671,7 @@ See companion document: `chapter1-tables-v2.1.2.md`
 
 **Author:** Ram Katamaraja, CEO of Colaberry Inc.  
 **Publisher:** Colaberry Press  
-**Copyright:** © 2025 Colaberry Inc.
+**Copyright:** Â© 2025 Colaberry Inc.
 
 ---
 
