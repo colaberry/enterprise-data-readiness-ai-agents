@@ -3,7 +3,7 @@
 
 **Writing Standards for "Enterprise Data Readiness for AI Agents"**
 
-Version 1.2.0 | November 11, 2025 | Ram Katamaraja, CEO Colaberry Inc.
+Version 1.1.0 | October 21, 2025 | Ram Katamaraja, CEO Colaberry Inc.
 
 ---
 
@@ -11,15 +11,14 @@ Version 1.2.0 | November 11, 2025 | Ram Katamaraja, CEO Colaberry Inc.
 
 1. **Evidence-based:** Major claims need citations <18 months old
 2. **URLs:** Every product gets official URL on first mention
-3. **Academic rigor:** Prioritize peer-reviewed research and open academic sources (TCC-033)
-4. **Healthcare-only:** All examples use Echo Health Systems
-5. **No internal jargon:** Never use "VERT", "TCC", "Four-T" in reader content
-6. **Standard terms:** Use exact terminology from glossary
-7. **Healthcare context:** Patient (not customer), encounter (not transaction)
-8. **Echo consistency:** Use exact figures from canonical reference
-9. **Chapter flow:** Every chapter connects to previous and bridges to next
-10. **Cite visuals:** Reference all tables/diagrams with exact titles
-11. **Current tech:** Indicate maturity status (production-ready/maturing/experimental)
+3. **Healthcare-only:** All examples use Echo Health Systems
+4. **No internal jargon:** Never use "VERT", "TCC", "Four-T" in reader content
+5. **Standard terms:** Use exact terminology from glossary
+6. **Healthcare context:** Patient (not customer), encounter (not transaction)
+7. **Echo consistency:** Use exact figures from canonical reference
+8. **Chapter flow:** Every chapter connects to previous and bridges to next
+9. **Cite visuals:** Reference all tables/diagrams with exact titles
+10. **Current tech:** Indicate maturity status (production-ready/maturing/experimental)
 
 ---
 
@@ -169,264 +168,8 @@ Provide 2-3 examples per category, not just one vendor.
 Before publication:
 - Click every URL (100%)
 - No 404s allowed
+- Mark paywalls: "(requires subscription)"
 - Fix broken: Use web.archive.org or find replacement
-
-### TCC-033: Citation Source Hierarchy (CRITICAL)
-
-**Prioritize academic and research sources for maximum credibility and accessibility.**
-
-### SOURCE PRIORITY RANKING
-
-**TIER 1: Peer-Reviewed Academic Research (HIGHEST PRIORITY)**
-Use these whenever available:
-- University research: MIT, Stanford, CMU, Berkeley studies
-- Academic journals with open access: arXiv, PLOS, open IEEE/ACM
-- Government research: NIST technical reports, NIH studies, NSF-funded research
-- Research consortiums: AI Index (Stanford), Partnership on AI
-- Industry-academic partnerships: MIT-IBM Watson AI Lab, Stanford HAI
-
-**Examples:**
-- ✅ Stanford AI Index Report (peer-reviewed, annually updated)
-- ✅ MIT NANDA research (university-backed, methodology disclosed)
-- ✅ NIST technical publications (government standard-setting body)
-- ✅ arXiv preprints from academic institutions (pre-peer review but credible)
-
----
-
-**TIER 2: Government & Standards Bodies**
-Authoritative and always freely accessible:
-- Government agencies: NIST, HHS, FDA, SEC, FTC
-- International standards: ISO, W3C, IETF, IEEE (open access)
-- Regulatory bodies: OCR (HIPAA), FDA (medical devices)
-- National labs: Lawrence Berkeley, Oak Ridge
-
-**Examples:**
-- ✅ NIST Cybersecurity Framework
-- ✅ W3C Web Standards
-- ✅ HHS HIPAA Guidance
-
----
-
-**TIER 3: Industry Research & Technical Foundations**
-Non-profit, open-access industry research:
-- Linux Foundation research
-- CNCF (Cloud Native Computing Foundation) reports
-- Apache Software Foundation documentation
-- Open-source project research (Kubernetes, Kafka studies)
-- Non-profit associations: DAMA International, DataKitchen
-
-**Examples:**
-- ✅ DAMA DMBOK (Data Management Body of Knowledge)
-- ✅ CNCF Annual Surveys
-- ✅ Apache Project documentation
-
----
-
-**TIER 4: Vendor Research & Whitepapers**
-Use when vendor is subject matter expert:
-- Cloud provider research: AWS, Azure, GCP whitepapers
-- Technology vendor research: Databricks, Snowflake, MongoDB studies
-- Major tech company research: Google Research, Microsoft Research, Meta AI
-- Always freely accessible vendor documentation
-
-**Examples:**
-- ✅ Google "Attention Is All You Need" paper (transformer architecture)
-- ✅ AWS Well-Architected Framework
-- ✅ Databricks DBRX technical documentation
-
-**Note:** Vendor research acceptable when:
-- Published as open research (not gated marketing)
-- Contains methodology and data
-- Citable by DOI or permanent URL
-- Not purely promotional
-
----
-
-**TIER 5: Industry Analyst Reports (USE SPARINGLY)**
-Only when freely accessible:
-- McKinsey & Company (some reports are open access)
-- Deloitte Insights (free registration sometimes required)
-- Accenture Research (mixed accessibility)
-
-**⚠️ CAUTION:** Verify accessibility before citing
-- ✅ If freely downloadable without account: OK
-- ⚠️ If requires free registration: Note "(free registration required)"
-- ❌ If behind paywall: Skip to Tier 1-4 alternatives
-
-**Examples:**
-- ✅ McKinsey "State of AI" (annual report, freely accessible)
-- ❌ Gartner Magic Quadrant (subscription only - DO NOT USE)
-- ❌ Forrester Wave (subscription only - DO NOT USE)
-
----
-
-**AVOID ENTIRELY:**
-- ❌ Gartner (subscription required)
-- ❌ Forrester (subscription required)
-- ❌ IDC (subscription required)
-- ❌ Academic journals requiring institutional access (use open access alternatives)
-- ❌ "Contact sales for whitepaper" gated content
-- ❌ LinkedIn posts or social media (not authoritative)
-- ❌ Medium articles (not peer-reviewed)
-- ❌ Blog posts (unless from recognized research institution)
-
----
-
-### REPLACEMENT STRATEGY
-
-**When tempted to cite Tier 5 or lower:**
-
-1. **Find the academic source:**
-   - Industry analyst citing a study? → Find original academic paper
-   - Example: Gartner "80% will adopt X" → Stanford AI Index has similar data
-
-2. **Use government/standards body:**
-   - Forrester "API management trends" → W3C API standards + NIST guidelines
-   - Gartner "data quality" → DAMA DMBOK (free, more comprehensive)
-
-3. **Cite multiple vendor sources:**
-   - Instead of one analyst report → 2-3 vendor whitepapers + academic study
-   - Example: "Multiple sources report..." [AWS whitepaper, Google Research, Stanford study]
-
-4. **Use recent books from academic presses:**
-   - MIT Press, O'Reilly (some open access)
-   - University press publications
-
----
-
-### CITATION ACCESSIBILITY VERIFICATION
-
-**Before including ANY citation, verify:**
-- [ ] Opens in incognito browser window (no cookies, not logged in)
-- [ ] No "subscribe to continue" or "sign in to read" message
-- [ ] No "X free articles remaining this month" counter
-- [ ] No "institutional access required" message
-- [ ] Full content visible without registration
-- [ ] PDF downloads without login (if applicable)
-- [ ] **BONUS:** Source is peer-reviewed or from recognized research institution
-
-**If citation fails these checks:**
-- Use Tier 1-3 alternatives
-- Never compromise on accessibility
-- Academic rigor > industry brand recognition
-
----
-
-### CITATION QUALITY HIERARCHY
-
-**For any given claim, prefer in this order:**
-
-1. **Peer-reviewed journal article** (Tier 1)
-2. **University research report** (Tier 1)
-3. **Government technical standard** (Tier 2)
-4. **Open-source foundation research** (Tier 3)
-5. **Major tech company research** (Tier 4)
-6. **Vendor whitepaper with methodology** (Tier 4)
-7. **Open-access industry analyst report** (Tier 5, with caution)
-
-**Never:**
-8. ❌ Paywalled analyst report
-9. ❌ Social media or blog posts
-10. ❌ Uncited claims
-
----
-
-### WHY THIS MATTERS
-
-**Academic Rigor:**
-- Peer review process ensures quality
-- Methodology is transparent
-- Data is reproducible
-- Citations build on verified research
-
-**Reader Trust:**
-- Can verify every claim
-- No "trust us, we paid for this report" barrier
-- Encourages critical thinking
-- Supports independent research
-
-**Long-term Validity:**
-- Academic sources remain accessible
-- No link rot from expired subscriptions
-- Permanent DOIs for papers
-- Institutional preservation
-
-**Competitive Advantage:**
-- Most business books cite Gartner/Forrester heavily
-- Using Tier 1-2 sources positions book as research-backed
-- Appeals to technical audience who values rigor
-- Differentiates from marketing-heavy competitors
-
----
-
-### EXAMPLES: GOOD VS BAD
-
-**❌ BAD (Industry Analyst Paywall):**
-```markdown
-Gartner predicts 80% of enterprises will adopt semantic layers by 2026. [1]
-
-[1] Smith, J. (2024). "The Future of Data Architecture." Gartner Research. 
-https://www.gartner.com/document/12345 (requires subscription)
-```
-
-**✅ GOOD (Academic Research):**
-```markdown
-Stanford's AI Index Report shows 75% of enterprises are evaluating semantic 
-layer adoption as foundational infrastructure for AI readiness. [1]
-
-[1] Stanford HAI (2024). "Artificial Intelligence Index Report 2024." 
-Stanford University. https://aiindex.stanford.edu/report/ 
-(peer-reviewed, open access)
-```
-
----
-
-**❌ BAD (Vendor Blog):**
-```markdown
-Databricks blog says lakehouse architecture is the future. [2]
-```
-
-**✅ GOOD (Academic + Vendor Research):**
-```markdown
-The lakehouse architecture pattern, first formalized by UC Berkeley researchers 
-and implemented at scale by Databricks, combines data warehouse and data lake 
-capabilities in a unified platform. [2][3]
-
-[2] Armbrust, M., et al. (2021). "Lakehouse: A New Generation of Open Platforms 
-that Unify Data Warehousing and Advanced Analytics." CIDR Conference.
-[3] Databricks (2023). "Lakehouse Technical Architecture." 
-https://www.databricks.com/research/lakehouse
-```
-
----
-
-**❌ BAD (No Source):**
-```markdown
-Most healthcare organizations struggle with data readiness for AI.
-```
-
-**✅ GOOD (Government Research):**
-```markdown
-HHS research finds 73% of healthcare organizations cite data infrastructure 
-gaps as the primary barrier to AI adoption. [4]
-
-[4] Office of the National Coordinator for Health IT (2024). 
-"Healthcare AI Readiness Assessment." HHS.gov.
-```
-
----
-
-### PENALTY FOR VIOLATION
-
-**If low-quality or inaccessible citations found:**
-- VERT score automatically drops to <7/10 (Yellow/Red)
-- Must be replaced with Tier 1-3 sources before publication
-- Chapter cannot be certified until fixed
-
-**VERT Certification Requirements:**
-- 80%+ citations from Tier 1-2 (academic/government) = GREEN (9-10/10)
-- 60-79% citations from Tier 1-2 = YELLOW (7-8/10)
-- <60% citations from Tier 1-2 = RED (<7/10) - requires revision
 
 ---
 
@@ -594,12 +337,9 @@ Run this before EVERY chapter submission:
 - [ ] Echo figures match canonical reference (see TCC-021)
 - [ ] Chapter connects to previous and bridges to next
 - [ ] All tables/diagrams numbered, titled, referenced in text
-- [ ] **80%+ citations from Tier 1-2 sources (TCC-033)**
 
 **High Priority:**
 - [ ] URLs tested (no 404s)
-- [ ] **All citations accessible in incognito browser (TCC-033)**
-- [ ] **Majority of citations are peer-reviewed or government sources (TCC-033)**
 - [ ] Product categories have 2-3 examples
 - [ ] Technology includes selection criteria + trade-offs
 - [ ] Acronyms defined first use
@@ -621,11 +361,9 @@ Run this before EVERY chapter submission:
 [Product Name](https://official-url.com) - Brief description
 ```
 
-**Citation (prioritize academic):**
+**Citation:**
 ```markdown
-"[Finding from peer-reviewed research]. [Context]. [#]"
-
-[#] Author, A., et al. (Year). "Title." Institution/Journal. URL (peer-reviewed)
+"[Finding]. [Context]. [#]"
 ```
 
 **Technology selection:**
@@ -649,22 +387,20 @@ In [current], we [accomplished]. [Next] builds on this by [what's next].
 
 1. Claims have citations? (TCC-001)
 2. Products have URLs? (TCC-030)
-3. **80%+ citations from Tier 1-2 (academic/government)? (TCC-033)**
-4. **All citations freely accessible? (TCC-033)**
-5. Examples healthcare only? (TCC-020)
-6. No VERT/TCC terms? (TCC-011)
-7. Terminology matches glossary? (TCC-010)
-8. Echo figures exact? (TCC-021)
-9. Chapter connects to previous? (TCC-060)
-10. Bridges to next? (TCC-061)
+3. Examples healthcare only? (TCC-020)
+4. No VERT/TCC terms? (TCC-011)
+5. Terminology matches glossary? (TCC-010)
+6. Echo figures exact? (TCC-021)
+7. Chapter connects to previous? (TCC-060)
+8. Bridges to next? (TCC-061)
 
 If ANY fail: Fix before delivery. Note corrections made.
 
-**Compliance Score:** [X]/10
+**Compliance Score:** [X]/8
 
-- 10/10: ✅ Excellent, proceed
-- 8-9/10: ⚠️ Acceptable, note gaps
-- <8/10: ❌ Revise before delivery
+- 8/8: ✅ Excellent, proceed
+- 6-7/8: ⚠️ Acceptable, note gaps
+- <6/8: ❌ Revise before delivery
 
 ---
 
@@ -672,7 +408,6 @@ If ANY fail: Fix before delivery. Note corrections made.
 
 **Critical (Never Violate):**
 - Evidence-based (TCC-001)
-- **Academic/research citation priority (TCC-033)**
 - URLs for products (TCC-030)
 - Citation currency (TCC-001)
 - Healthcare-only examples (TCC-020)
@@ -682,7 +417,6 @@ If ANY fail: Fix before delivery. Note corrections made.
 - Chapter integration (TCC-060, TCC-061)
 
 **High (Strongly Follow):**
-- Citation accessibility (TCC-033)
 - Multiple product examples (TCC-031)
 - Selection criteria (TCC-040)
 - Visual references (TCC-052)
@@ -708,7 +442,6 @@ If ANY fail: Fix before delivery. Note corrections made.
 - TCC-030: URLs Required
 - TCC-031: Multiple Options
 - TCC-032: URL Testing
-- TCC-033: Citation Source Hierarchy (CRITICAL) - Prioritize Academic/Research
 - TCC-040: Selection Criteria
 - TCC-041: Version Neutrality
 - TCC-042: Technology Maturity
@@ -725,14 +458,10 @@ If ANY fail: Fix before delivery. Note corrections made.
 
 **END OF TCC LEAN EDITION**
 
-Total: 23 rules
-Version: 1.2.0 | November 11, 2025
-Length: ~4,500 words (expanded for academic citation hierarchy)
-Usability: Enhanced with research prioritization
-
-**Key Improvement:** TCC-033 now emphasizes academic rigor and research quality rather than just avoiding paywalls. This positions the book as research-backed and credible while ensuring accessibility.
+Total: 22 rules (vs 35 in bloated version)
+Length: ~2,500 words (vs 15,000)
+Usability: 10x better
 
 ---
 
 © 2025 Colaberry Inc.
-</artifact>
