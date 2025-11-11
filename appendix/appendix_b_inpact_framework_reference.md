@@ -24,6 +24,47 @@ The acronym stands for:
 
 **All six needs are required.** Missing even one significantly increases the risk of joining the 95% of AI pilots that fail.
 
+```mermaid
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#e0f2f1','primaryTextColor':'#004d40','primaryBorderColor':'#00897b','lineColor':'#00897b','secondaryColor':'#f0fff0','tertiaryColor':'#fff'}}}%%
+
+graph TB
+    subgraph INPACT["<b>INPACTâ„¢ Framework</b><br/>Six Agent Needs for User Trust"]
+        I["<b>I - Instant</b><br/>Speed Builds Confidence<br/>&lt;2s response time"]
+        N["<b>N - Natural</b><br/>Understanding Builds Connection<br/>75-85% NLU accuracy"]
+        P["<b>P - Permitted</b><br/>Security Builds Safety<br/>ABAC + HITL authorization"]
+        A["<b>A - Adaptive</b><br/>Improvement Builds Reliability<br/>Continuous learning loops"]
+        C["<b>C - Contextual</b><br/>Completeness Builds Accuracy<br/>5-8+ system integration"]
+        T["<b>T - Trusted</b><br/>Transparency Builds Confidence<br/>100% audit trails + citations"]
+    end
+    
+    I --- N
+    N --- P
+    P --- A
+    A --- C
+    C --- T
+    T --- I
+    
+    I -.-> C
+    N -.-> A
+    P -.-> T
+    
+    Note1["All six needs are REQUIRED<br/>Missing even one increases failure risk to 95%"]
+    
+    INPACT -.-> Note1
+    
+    classDef needBox fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    classDef framework fill:#00695c,stroke:#004d40,stroke-width:3px,color:#ffffff
+    classDef note fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    
+    class I,N,P,A,C,T needBox
+    class INPACT framework
+    class Note1 note
+```
+
+**Figure B.1: INPACTâ„¢ Six Agent Needs Framework**
+
+The INPACTâ„¢ framework identifies six architectural requirements agents must fulfill to earn user trust. All six needs are interdependentâ€"missing even one significantly increases the risk of joining the 95% of AI pilots that fail to achieve ROI.
+
 ---
 
 ## The Six INPACTÃ¢â€žÂ¢ Needs
@@ -365,6 +406,49 @@ The acronym stands for:
 
 ## INPACTÃ¢â€žÂ¢ Scoring Quick Reference
 
+```mermaid
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#e0f2f1','primaryTextColor':'#004d40','primaryBorderColor':'#00897b','lineColor':'#00897b','secondaryColor':'#f0fff0','tertiaryColor':'#fff'}}}%%
+
+graph TD
+    subgraph SCORING["<b>INPACTâ„¢ Scoring Guide</b><br/>Total: 6 needs Ã— 6 points = 36 max"]
+        HIGH["<b>30-36 Points</b><br/>HIGH TRUST<br/>Healthcare-ready<br/>Production-grade"]
+        GOOD["<b>24-29 Points</b><br/>GOOD TRUST<br/>Enterprise-ready<br/>Most use cases"]
+        MOD["<b>18-23 Points</b><br/>MODERATE TRUST<br/>Internal tools acceptable<br/>Not patient-facing"]
+        LOW["<b>12-17 Points</b><br/>LOW TRUST<br/>Not recommended<br/>Needs improvement"]
+        VLOW["<b>6-11 Points</b><br/>VERY LOW TRUST<br/>Not ready for deployment<br/>Major gaps"]
+    end
+    
+    PER_NEED["<b>Per Need Scoring (1-6)</b><br/><br/>6 = Best-in-Class<br/>5 = Production-Ready<br/>4 = Acceptable<br/>3 = At Risk<br/>2 = Poor<br/>1 = Unacceptable"]
+    
+    SCORING --- PER_NEED
+    
+    DEPLOY["Ã¢Å"â€¦ Deploy to Production<br/>Patient-facing OK"]
+    PILOT["Ã¢Å¡ Ã¯Â¸ Internal Pilot Only<br/>Monitor closely"]
+    STOP["Ã¢Å' Do Not Deploy<br/>Address gaps first"]
+    
+    HIGH --> DEPLOY
+    GOOD --> DEPLOY
+    MOD --> PILOT
+    LOW --> STOP
+    VLOW --> STOP
+    
+    classDef green fill:#00695c,stroke:#004d40,stroke-width:3px,color:#ffffff,font-weight:bold
+    classDef yellow fill:#fff9e6,stroke:#f57c00,stroke-width:3px,color:#e65100,font-weight:bold
+    classDef red fill:#990000,stroke:#b71c1c,stroke-width:3px,color:#ffffff,font-weight:bold
+    classDef neutral fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
+    classDef action fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    
+    class HIGH,GOOD green
+    class MOD yellow
+    class LOW,VLOW red
+    class PER_NEED,SCORING neutral
+    class DEPLOY,PILOT,STOP action
+```
+
+**Figure B.2: INPACTâ„¢ Scoring Interpretation Guide**
+
+INPACTâ„¢ scores range from 6 to 36 points (6 needs Ã— 1-6 points each). Scores of 30-36 indicate High Trust suitable for production healthcare environments. Scores of 24-29 represent Good Trust for most enterprise use cases. Scores below 18 indicate the system is not ready for deployment and requires improvement.
+
 | Need | Score | Interpretation |
 |------|-------|----------------|
 | 6/6 | Best-in-Class | Exceeds industry standards |
@@ -378,6 +462,66 @@ The acronym stands for:
 - **24-29/36 (67-83%):** Good Trust - Deploy with monitoring
 - **18-23/36 (50-67%):** Moderate Trust - Internal pilots only
 - **<18/36 (<50%):** Low Trust - Not ready for users
+
+```mermaid
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#e0f2f1','primaryTextColor':'#004d40','primaryBorderColor':'#00897b','lineColor':'#00897b','secondaryColor':'#f0fff0','tertiaryColor':'#fff'}}}%%
+
+graph TD
+    subgraph INPACT["<b>INPACTâ„¢ Needs</b>"]
+        I["<b>I - Instant</b><br/>Speed"]
+        N["<b>N - Natural</b><br/>Understanding"]
+        P["<b>P - Permitted</b><br/>Security"]
+        A["<b>A - Adaptive</b><br/>Learning"]
+        C["<b>C - Contextual</b><br/>Completeness"]
+        T["<b>T - Trusted</b><br/>Transparency"]
+    end
+    
+    subgraph ARCH["<b>7-Layer Architecture</b>"]
+        L1["<b>Layer 1</b><br/>Multi-Modal Storage<br/>Vector DB + Cache"]
+        L2["<b>Layer 2</b><br/>Real-Time Data Fabric<br/>CDC + Streaming"]
+        L3["<b>Layer 3</b><br/>Unified Semantic Layer<br/>Business Glossary"]
+        L4["<b>Layer 4</b><br/>Intelligent Retrieval<br/>RAG + Reranking"]
+        L5["<b>Layer 5</b><br/>Agent-Aware Governance<br/>ABAC + Audit"]
+        L6["<b>Layer 6</b><br/>Observability<br/>APM + LLM Tracing"]
+        L7["<b>Layer 7</b><br/>Multi-Agent Orchestration<br/>Workflow Engine"]
+    end
+    
+    I -->|"Primary"| L2
+    I -->|"Primary"| L1
+    I -->|"Supporting"| L4
+    
+    N -->|"Primary"| L3
+    N -->|"Primary"| L4
+    N -->|"Supporting"| L1
+    
+    P -->|"Primary"| L5
+    P -->|"Supporting"| L6
+    
+    A -->|"Primary"| L6
+    A -->|"Supporting"| L2
+    A -->|"Supporting"| L4
+    
+    C -->|"Primary"| L2
+    C -->|"Primary"| L3
+    C -->|"Supporting"| L1
+    C -->|"Supporting"| L4
+    
+    T -->|"Primary"| L5
+    T -->|"Primary"| L6
+    T -->|"Supporting"| L4
+    T -->|"Supporting"| L3
+    
+    classDef need fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
+    classDef layer fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    classDef subgraph fill:#f0fff0,stroke:#00897b,stroke-width:2px
+    
+    class I,N,P,A,C,T need
+    class L1,L2,L3,L4,L5,L6,L7 layer
+```
+
+**Figure B.3: INPACTâ„¢ Needs Mapped to 7-Layer Architecture**
+
+Each INPACTâ„¢ need is fulfilled by specific architectural layers. For example, Instant (speed) requires Layer 2 (Real-Time Data) and Layer 1 (Storage with caching). Natural (understanding) depends on Layer 3 (Semantic Layer) and Layer 4 (RAG). This mapping helps teams prioritize layer development based on which INPACTâ„¢ needs are most critical for their use case.
 
 ---
 
