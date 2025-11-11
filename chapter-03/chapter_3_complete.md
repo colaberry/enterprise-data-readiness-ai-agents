@@ -653,47 +653,24 @@ Preparation time varies dramatically by readiness score. Figure 3.3 shows the ti
 
 ```mermaid
 graph TB
-    subgraph READY["<b>45-50 Points: ✅ READY</b>"]
-        R1["<b>Week 1: Start Immediately</b>"]
-        R2["<b>Weeks 1-12: 90-Day Build</b>"]
-        R1 --> R2
-    end
+    READY["<b>45-50 Points: ✅ READY</b><br/>Week 1: Start → Weeks 1-12: Build<br/><b>Success Rate: 78%</b>"]
     
-    subgraph CAUTION["<b>35-44 Points: ⚠️ CAUTION</b>"]
-        C1["<b>Weeks 1-4: Address Gaps</b>"]
-        C2["<b>Weeks 5-16: 90-Day Build</b>"]
-        C1 --> C2
-    end
+    CAUTION["<b>35-44 Points: ⚠️ CAUTION</b><br/>Weeks 1-4: Address Gaps → Weeks 5-16: Build<br/><b>Success Rate: 65%</b>"]
     
-    subgraph NOTREADY["<b>25-34 Points: 🔴 NOT READY</b>"]
-        N1["<b>Weeks 1-8: Prep Phase</b>"]
-        N2["<b>Weeks 9-20: 90-Day Build</b>"]
-        N1 --> N2
-    end
+    NOTREADY["<b>25-34 Points: 🔴 NOT READY</b><br/>Weeks 1-8: Prep → Weeks 9-20: Build<br/><b>Success Rate: 45% → 70%</b>"]
     
-    subgraph STOP["<b><25 Points: 🛑 STOP</b>"]
-        S1["<b>Months 1-6: Foundation</b>"]
-        S2["<b>Months 7-12: Governance</b>"]
-        S3["<b>Month 13+: Re-assess</b>"]
-        S1 --> S2
-        S2 --> S3
-    end
+    STOP["<b>Under 25 Points: 🛑 STOP</b><br/>Months 1-6: Foundation → Months 7-12: Governance<br/>Month 13+: Re-assess<br/><b>Success Rate: Less than 10% → 60%</b>"]
     
     Copyright["<b>© 2025 Colaberry Inc.</b>"]
     
-    style R1 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
-    style R2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    READY --> CAUTION
+    CAUTION --> NOTREADY
+    NOTREADY --> STOP
     
-    style C1 fill:#fff9e6,stroke:#f57c00,stroke-width:2px,color:#e65100
-    style C2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    
-    style N1 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
-    style N2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    
-    style S1 fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
-    style S2 fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
-    style S3 fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#b71c1c
-    
+    style READY fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style CAUTION fill:#f57c00,color:#ffffff,stroke:#e65100,stroke-width:3px
+    style NOTREADY fill:#c62828,color:#ffffff,stroke:#b71c1c,stroke-width:3px
+    style STOP fill:#990000,color:#ffffff,stroke:#b71c1c,stroke-width:3px
     style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
@@ -3248,28 +3225,28 @@ Semantic caching reduces costs by 60%+ and latency by 5-6x. Figure 3.12 illustra
 
 ```mermaid
 graph TB
-    QUERY["<b>User Query</b><br/><b>Natural Language</b>"]
+    QUERY["User Query<br/>Natural Language"]
     
-    EMBED["<b>Generate Embedding</b><br/><b>Query Vector</b>"]
+    EMBED["Generate Embedding<br/>Query Vector"]
     
-    CHECK{<b>Cache Hit?</b><br/><b>Similarity >95%</b>}
+    CHECK{"Cache Hit?<br/>Similarity Above 95%"}
     
-    CACHED["<b>✅ Cache Hit</b><br/><b><100ms • $0 cost</b>"]
+    CACHED["Cache Hit<br/>Under 100ms - Zero cost"]
     
-    MISS["<b>Cache Miss</b><br/><b>Call RAG Pipeline</b>"]
+    MISS["Cache Miss<br/>Call RAG Pipeline"]
     
-    RAG["<b>Full RAG + LLM</b><br/><b>~2s • Token cost</b>"]
+    RAG["Full RAG and LLM<br/>About 2s - Token cost"]
     
-    STORE["<b>Store in Cache</b><br/><b>For future queries</b>"]
+    STORE["Store in Cache<br/>For future queries"]
     
-    RESPONSE["<b>Return Answer</b><br/><b>60%+ cached</b>"]
+    RESPONSE["Return Answer<br/>60% or more cached"]
     
-    Copyright["<b>© 2025 Colaberry Inc.</b>"]
+    Copyright["© 2025 Colaberry Inc."]
     
     QUERY --> EMBED
     EMBED --> CHECK
-    CHECK -->|<b>Yes (60%)</b>| CACHED
-    CHECK -->|<b>No (40%)</b>| MISS
+    CHECK -->|Yes 60%| CACHED
+    CHECK -->|No 40%| MISS
     MISS --> RAG
     RAG --> STORE
     CACHED --> RESPONSE
@@ -3462,58 +3439,32 @@ Each week focuses on specific layers of the architecture. Figure 3.5 shows the d
 
 ```mermaid
 graph TB
-    START["<b>90-Day Journey</b><br/><b>7 Layers Built</b>"]
+    START["<b>90-Day Journey: 7 Layers Built</b>"]
     
-    subgraph "<b>Phase 1: FOUNDATION (Weeks 1-4)</b>"
-        W1["<b>Week 1</b><br/><b>Layer 5: Governance</b>"]
-        W2["<b>Week 2</b><br/><b>Layer 1: Storage</b>"]
-        W3["<b>Week 3</b><br/><b>Layer 3: Semantic</b>"]
-        W4["<b>Week 4</b><br/><b>Layer 2: Real-Time</b>"]
-        W1 --> W2 --> W3 --> W4
-    end
+    P1["<b>Phase 1: FOUNDATION</b><br/><b>Weeks 1-4</b>"]
+    P2["<b>Phase 2: INTELLIGENCE</b><br/><b>Weeks 5-8</b>"]
+    P3["<b>Phase 3: PRODUCTION</b><br/><b>Weeks 9-12</b>"]
     
-    subgraph "<b>Phase 2: INTELLIGENCE (Weeks 5-8)</b>"
-        W5["<b>Week 5</b><br/><b>Layer 4: LLM</b>"]
-        W6["<b>Week 6</b><br/><b>Layer 4: RAG</b>"]
-        W7["<b>Week 7</b><br/><b>Layer 4: Orchestration</b>"]
-        W8["<b>Week 8</b><br/><b>Layer 4: Caching</b>"]
-        W5 --> W6 --> W7 --> W8
-    end
+    W1_4["<b>W1:</b> Layer 5 Governance<br/><b>W2:</b> Layer 1 Storage<br/><b>W3:</b> Layer 3 Semantic<br/><b>W4:</b> Layer 2 Real-Time"]
+    W5_8["<b>W5:</b> Layer 4 LLM<br/><b>W6:</b> Layer 4 RAG<br/><b>W7:</b> Layer 4 Orchestration<br/><b>W8:</b> Layer 4 Caching"]
+    W9_12["<b>W9:</b> Layer 6 Observability<br/><b>W10:</b> Layer 7 API Gateway<br/><b>W11:</b> Layer 7 HITL<br/><b>W12:</b> Production Launch"]
     
-    subgraph "<b>Phase 3: PRODUCTION (Weeks 9-12)</b>"
-        W9["<b>Week 9</b><br/><b>Layer 6: Observability</b>"]
-        W10["<b>Week 10</b><br/><b>Layer 7: API Gateway</b>"]
-        W11["<b>Week 11</b><br/><b>Layer 7: HITL</b>"]
-        W12["<b>Week 12</b><br/><b>Production Launch</b>"]
-        W9 --> W10 --> W11 --> W12
-    end
-    
-    END["<b>Complete Stack</b><br/><b>All 7 Layers Operational</b>"]
+    END["<b>🎯 Complete Stack</b><br/><b>All 7 Layers Operational</b>"]
     
     Copyright["<b>© 2025 Colaberry Inc.</b>"]
     
-    START --> W1
-    W4 --> W5
-    W8 --> W9
-    W12 --> END
+    START --> P1 --> W1_4
+    W1_4 --> P2 --> W5_8
+    W5_8 --> P3 --> W9_12
+    W9_12 --> END
     
     style START fill:#f9f9f9,stroke:#666666,stroke-width:2px,color:#000000
-    
-    style W1 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style W2 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style W3 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style W4 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    
-    style W5 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style W6 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style W7 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style W8 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    
-    style W9 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style W10 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style W11 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    style W12 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
-    
+    style P1 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style P2 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style P3 fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
+    style W1_4 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style W5_8 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
+    style W9_12 fill:#e0f2f1,stroke:#00897b,stroke-width:2px,color:#004d40
     style END fill:#00695c,color:#ffffff,stroke:#004d40,stroke-width:3px
     style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
