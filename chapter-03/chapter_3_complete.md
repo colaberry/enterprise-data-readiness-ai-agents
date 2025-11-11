@@ -798,7 +798,7 @@ graph TB
     style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
-**Figure 3.7: Phase 1 Layer Dependencies**
+**Figure 3.4: Phase 1 Layer Dependencies**
 
 Layer 5 (Governance) is built first because it enables and controls all other layers through policies. Layer 1 (Storage) proceeds in parallel and provides the data foundation. Layer 3 (Semantic) depends on Layer 1 having data available. Layer 2 (Real-Time) depends on both Layer 1 (as stream target) and Layer 3 (for schema definitions). All four layers converge to complete Phase 1 foundation.
 
@@ -832,7 +832,7 @@ graph TB
     style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
-**Figure 3.4: Three-Phase Journey to Production Agents**
+**Figure 3.5: Three-Phase Journey to Production Agents**
 
 The 90-day journey progresses through three distinct 4-week phases. Phase 1 builds the data foundation (governance, storage, semantics, real-time). Phase 2 adds intelligence capabilities (LLMs, RAG, orchestration, optimization). Phase 3 operationalizes for production (observability, APIs, HITL, launch). Each phase builds on the previous, culminating in production-ready agents with excellent trust scores.
 
@@ -1053,7 +1053,7 @@ graph TB
     style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
-**Figure 3.8: ABAC Policy Evaluation Flow**
+**Figure 3.6: ABAC Policy Evaluation Flow**
 
 Every access request flows through context gathering (who, what, when, where), policy evaluation against 5-10 ABAC rules, and a binary allow/deny decision. All requests—whether approved or rejected—are logged to the audit trail for 100% coverage, ensuring compliance and forensic capability.
 
@@ -1235,7 +1235,7 @@ graph TB
     style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
-**Figure 3.9: Layer 1 Multi-Modal Storage Architecture**
+**Figure 3.7: Layer 1 Multi-Modal Storage Architecture**
 
 Layer 1 provides three specialized storage types, each optimized for different data patterns. Vector databases handle embeddings for semantic search. Data warehouses manage structured data for analytics. Graph databases (optional) handle complex relationships for traversal queries. Layer 3 (Semantic Layer) provides unified access across all three, abstracting storage complexity from agents.
 
@@ -1586,7 +1586,7 @@ graph TB
     style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
-**Figure 3.13: Query Optimization Through Semantic Layer**
+**Figure 3.8: Query Optimization Through Semantic Layer**
 
 The semantic layer transforms natural language into optimized data access. Intent parsing extracts entities and metrics from user questions. The semantic layer maps these to business logic (definitions, calculations, relationships). Query optimization applies best practices: materialized views, early filtering, optimal joins. Execution accesses multiple stores (warehouse, vector, graph) efficiently. Result: <2s response time with correct business logic applied.
 
@@ -2745,7 +2745,7 @@ graph TB
     style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
-**Figure 3.10: RAG (Retrieval-Augmented Generation) Pipeline**
+**Figure 3.9: RAG (Retrieval-Augmented Generation) Pipeline**
 
 The RAG pipeline transforms queries into accurate responses through six stages. Query embedding converts natural language to vectors. Hybrid search combines vector and keyword retrieval. Reranking improves precision from 71% to 89% (NDCG). Context assembly respects token limits. The LLM generates answers using retrieved context. The result: agent accuracy improves from 60% baseline to 85%+ with proper RAG implementation.
 
@@ -3136,7 +3136,7 @@ graph TB
     style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
-**Figure 3.11: Multi-Agent Orchestration with State Management**
+**Figure 3.10: Multi-Agent Orchestration with State Management**
 
 Complex queries flow through a router that determines the workflow, then proceed through specialized agents. Each agent has distinct expertise: Retrieval (RAG), Analysis (SQL/stats), Response (formatting). State management tracks progress across agents, ensuring context persists. Agent handoffs are seamless, with 95%+ success rate for multi-step workflows.
 
@@ -3263,7 +3263,7 @@ graph TB
     style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
-**Figure 3.12: Semantic Caching Strategy**
+**Figure 3.11: Semantic Caching Strategy**
 
 Semantic caching dramatically reduces costs and latency. Every query is embedded and checked against cached similar queries (95%+ similarity). Cache hits (60%+) return instantly (<100ms, $0 cost). Cache misses trigger the full RAG pipeline (~2s, token cost), then store results for future reuse. This optimization reduces costs by 60%+ and latency by 5-6x.
 
@@ -3469,7 +3469,7 @@ graph TB
     style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
-**Figure 3.5: Layer Build Sequence Across 12 Weeks**
+**Figure 3.12: Layer Build Sequence Across 12 Weeks**
 
 The seven-layer architecture is built systematically over 12 weeks. Phase 1 establishes the data foundation (Layers 5, 1, 3, 2). Phase 2 builds intelligence capabilities entirely within Layer 4 across four focused weeks. Phase 3 adds operational layers (6, 7) and production readiness. The sequence ensures each layer builds on dependencies from previous weeks.
 
@@ -3521,7 +3521,7 @@ graph TB
     style Copyright fill:#ffffff,stroke:none,color:#666666
 ```
 
-**Figure 3.6: INPACT™ and GOALS Score Progression**
+**Figure 3.13: INPACT™ and GOALS Score Progression**
 
 Trust and operational maturity improve systematically across the 90-day journey. Phase 1 achieves 75% trust (good foundation). Phase 2 reaches 92% trust (high trust, agents usable). Phase 3 hits 97% trust and 92% operational maturity (production-ready). The color progression from orange (Phase 1) to teal (Phase 2) to dark teal (Phase 3) reflects increasing maturity.
 
